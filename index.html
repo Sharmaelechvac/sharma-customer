@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="sk" data-scheme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light"/>
+<meta name="theme-color" content="#264387">
+<meta name="description" content="Sharma Electric & HVAC — electrical, HVAC and low voltage in Central Florida. Pages for builders and homeowners, and the smart home, HVAC and electrical pickers."/>
+<script>(function(){try{if(localStorage.getItem("sk-scheme")==="dark"){var d=document.documentElement;d.setAttribute("data-scheme","dark");var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=d.getAttribute("data-theme")==="track"?"#1C1C1E":"#1a2f61"}}catch(e){}})()</script>
+<title>Sharma Electric &amp; HVAC</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<link rel="stylesheet" href="shell.css">
+<link rel="stylesheet" href="macos.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+</head>
+<body class="sk">
+<header class="sk-header">
+  <div class="sk-header__bar">
+    <div class="sk-header__lead"><a class="sk-header__logo" href="./"><img src="https://sharma-kit.sharma-crew.workers.dev/assets/logo-white-header.png" alt="Sharma Electric &amp; HVAC" width="103" height="20"></a></div>
+    <div class="sk-header__trail"><a class="cx-phone" href="tel:+14078819076">(407) 881-9076</a></div>
+  </div>
+</header>
+<main class="cx-main">
+  <h1 class="cx-h1">Sharma Electric &amp; HVAC</h1>
+  <p class="cx-intro">Electrical, HVAC and low voltage for builders and homeowners across Central Florida. Pick the page that fits you.</p>
+  <nav class="cx-cards" aria-label="Sharma Electric &amp; HVAC">
+    <a class="cx-card" href="builders/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">For Builders</span>
+        <span class="cx-card__detail">Electrical, HVAC &amp; low voltage for builders and GCs</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="cx-card" href="homeowners/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">For Homeowners</span>
+        <span class="cx-card__detail">Tap what&rsquo;s happening at your house &mdash; we&rsquo;ll point you to the right planner</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="cx-card" href="pickers/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">Pickers</span>
+        <span class="cx-card__detail">Smart home, HVAC change-out and electrical pickers</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </nav>
+  <footer class="sk-footer cx-footer">
+    <p>Call or text <a href="tel:+14078819076">(407) 881-9076</a> &middot; <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a></p>
+    <p>Sharma Electric &amp; HVAC &middot; EC13013924 &middot; CAC1823596</p>
+    <div class="sk-appearance" id="cx-appearance"></div>
+  </footer>
+</main>
+<script>
+try{ if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js", { scope: "/sharma-customer/" }); } }catch(e){}
+window.addEventListener("DOMContentLoaded", function(){ try{ if(window.SK && SK.scheme && SK.scheme.mountToggle){ SK.scheme.mountToggle(document.getElementById("cx-appearance")); } }catch(e){} });
+</script>
+</body>
+</html>

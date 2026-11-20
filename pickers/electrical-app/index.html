@@ -1,0 +1,1397 @@
+<!doctype html>
+<html lang="en" class="sk">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>Electrical Picker — Sharma Electric &amp; HVAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1e3a;--navy2:#07142a;--orange:#e86a10;--orange2:#f07d1f;--gold:#f5b841;--red:#d22630;--bg:#f4f6f9;--surface:#fff;--surface2:#eef1f5;--ink:#101d33;--muted:#5b6b84;--line:#dde3ea;--good:#16794a;--radius:16px;--shadow:0 10px 30px rgba(11,30,58,.13);--bar-h:64px}
+@media(prefers-color-scheme:dark){:root{--bg:#0a1526;--surface:#12233f;--surface2:#182c4d;--ink:#eef2f8;--muted:#a9b8cf;--line:#243a5e;--shadow:0 8px 24px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Barlow",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 12px)}
+h1,h2,h3,.cond{font-family:"Barlow Condensed","Barlow",sans-serif;letter-spacing:.01em}
+a{color:var(--orange)}button{font-family:"Barlow"}
+.topbar{background:#fff;color:var(--navy);padding:10px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;border-bottom:3px solid var(--orange)}
+.topbar .logo{height:68px;width:auto;display:block;max-width:52vw}
+@media(min-width:720px){.topbar .logo{height:84px}}
+.topbar .links{font-size:14.5px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.topbar a{color:var(--navy);text-decoration:none;font-weight:700;white-space:nowrap}
+.topbar a.callbtn{background:var(--orange);color:#fff;padding:10px 16px;border-radius:999px;font-size:15px}
+.topbar a.callbtn:hover{background:var(--orange2)}
+.hero{background:linear-gradient(165deg,var(--navy) 55%,var(--navy2));color:#fff;position:relative;overflow:hidden;border-bottom:4px solid var(--orange)}
+.hero .inner{position:relative;max-width:880px;margin:0 auto;padding:34px 16px 30px;text-align:center}
+@media(min-width:820px){.hero .inner{padding:48px 20px 40px}}
+.hero .logo-card{display:inline-block;background:#fff;border-radius:18px;padding:14px 22px 10px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hero .logo-card img{height:104px;width:auto;display:block;max-width:78vw}
+@media(min-width:720px){.hero .logo-card img{height:132px}}
+.hero h1{font-size:clamp(46px,10vw,84px);line-height:.92;margin:24px 0 0;text-transform:uppercase;font-weight:700}
+.hero h1 em{color:var(--orange2);font-style:normal}
+.hero .creed{font-family:"Barlow Condensed";font-size:clamp(19px,3.4vw,25px);font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin:12px 0 0}
+.hero p.lede{margin:14px auto 0;font-size:17px;color:#dbe6f4;max-width:560px;line-height:1.55}
+.hero .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
+.hero .cta-row .btn{padding:14px 24px;font-size:16.5px}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:#fff}
+.hero .licenses{margin:16px 0 0;font-size:13.5px;font-weight:700;letter-spacing:.05em;color:#a9bcd6;text-transform:uppercase}
+.hero .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px auto 0;max-width:640px;text-align:left}
+.hero .spec{border-top:3px solid var(--orange);padding-top:7px}
+.hero .spec b{display:block;font-family:"Barlow Condensed";font-size:19px;line-height:1.05;text-transform:uppercase}
+.hero .spec span{font-size:12px;color:#a9bcd6;line-height:1.3;display:block;margin-top:2px}
+@media(max-width:520px){.hero .specs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:719px){.hero .inner{padding:22px 14px 24px}.hero .logo-card{padding:10px 16px 7px}.hero .logo-card img{height:82px}.hero h1{font-size:44px;margin-top:16px}.hero .creed{margin-top:8px}.hero p.lede{font-size:16px;margin-top:10px}.hero .cta-row{margin-top:16px}.hero .licenses{margin-top:12px}.hero .specs{margin-top:18px}}
+.emergency{background:var(--red);color:#fff;text-align:center;padding:9px 14px;font-weight:700;font-size:15px;line-height:1.45}
+.emergency a{color:#fff;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.quiz{background:var(--surface);border:2px solid var(--orange);border-radius:20px;padding:18px 16px 16px;margin:14px 0 6px;box-shadow:var(--shadow);scroll-margin-top:76px}
+.quiz h2{margin:0 0 2px;font-size:30px;text-transform:uppercase;line-height:1}
+.quiz .q-sub{margin:0 0 6px;color:var(--muted);font-size:14.5px}
+.q-group{margin-top:14px}
+.q-group .q-label{font-family:"Barlow Condensed";font-size:19px;text-transform:uppercase;margin:0 0 7px;display:flex;gap:8px;align-items:center}
+.q-group .q-label .q-num{background:var(--orange);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto}
+.q-opts{display:flex;flex-wrap:wrap;gap:7px}
+.q-opts button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:9px 15px;font-weight:600;font-size:15px;cursor:pointer}
+.q-opts button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.q-opts button.on{background:var(--orange);border-color:var(--orange)}}
+.quiz-result{display:none;margin-top:16px;background:var(--surface2);border-radius:14px;padding:14px}
+.quiz-result.show{display:block}
+.quiz-result h3{margin:0 0 3px;font-size:24px;text-transform:uppercase}
+.quiz-result p{margin:0 0 10px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.quiz-result .warn{background:#fdecea;border:1.5px solid #c0392b;color:#7b1d14;border-radius:10px;padding:10px 12px;font-size:14.5px;margin:0 0 10px;line-height:1.5}
+@media(prefers-color-scheme:dark){.quiz-result .warn{background:#3d1712;color:#ffb4a8}}
+.q-help{margin:-2px 0 8px 32px;color:var(--muted);font-size:13.5px;line-height:1.45}
+.q-placeholder{display:inline-flex;align-items:center;border:1.5px dashed var(--line);color:var(--muted);border-radius:999px;padding:9px 15px;font-weight:600;font-size:15px;background:var(--surface2)}
+a.trustcard{display:block;text-decoration:none}
+a.trustcard:hover{outline:2px solid var(--orange)}
+a.trustcard .go{color:var(--gold);font-weight:700;font-size:14px}
+.quiz-progress{display:flex;align-items:center;gap:10px;margin:10px 0 2px}
+.quiz-progress .qp-track{flex:1;height:8px;border-radius:99px;background:var(--surface2);overflow:hidden;border:1px solid var(--line)}
+.quiz-progress .qp-fill{height:100%;background:var(--orange);border-radius:99px;transition:width .25s ease;width:0%}
+.quiz-progress .qp-text{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.quiz-safety{display:none;margin-top:14px;background:#fdecea;border:1.5px solid #c0392b;color:#7b1d14;border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.55}
+.quiz-safety.show{display:block}
+@media(prefers-color-scheme:dark){.quiz-safety{background:#3d1712;color:#ffb4a8}}
+.quiz-safety a{color:inherit;font-weight:800}
+.quiz-reasons{list-style:none;margin:0 0 12px;padding:0}
+.quiz-reasons li{position:relative;padding:3px 0 3px 24px;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.quiz-reasons li::before{content:"✓";position:absolute;left:0;top:4px;width:17px;height:17px;border-radius:50%;background:var(--good);color:#fff;font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.quiz-also{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:0 0 12px}
+.quiz-also b{display:block;font-size:15px;margin-bottom:2px}
+.quiz-also p{margin:0 0 8px;font-size:14px}
+.quiz-also .btn{padding:8px 14px;font-size:14px}
+@media (prefers-reduced-motion:reduce){.quiz-progress .qp-fill{transition:none}}
+.q-step{display:none}.q-step.on{display:block}
+.q-nav{display:flex;gap:8px;margin-top:18px;align-items:center}
+.q-nav .spacer{flex:1}
+.q-nav .btn{padding:11px 20px}
+.q-nav .btn:disabled{opacity:.45;cursor:default}
+.quiz-prods{margin:0 0 12px}
+.quiz-prods .qp-item{display:flex;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 11px;margin-bottom:6px;font-size:14.5px}
+.quiz-prods .qp-item span{flex:1}
+.lg-show{margin:0 0 14px}
+.lg-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:720px){.lg-grid{grid-template-columns:1fr 1fr}}
+.lg-card{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;overflow:hidden}
+.lg-card.lux{border-color:var(--gold)}
+.lg-card img{width:100%;height:210px;object-fit:contain;background:#fff;padding:10px;display:block}
+.lg-card .lg-body{padding:12px 14px 14px}
+.lg-card h4{margin:0 0 2px;font-size:19px;font-family:"Barlow Condensed";text-transform:uppercase}
+.lg-card .lg-tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--orange)}
+.lg-card p{font-size:14px;color:var(--muted);line-height:1.5;margin:6px 0}
+.lg-card ul{margin:6px 0;padding-left:17px;font-size:14px;line-height:1.55}
+.lg-compare{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:10px}
+.lg-compare th,.lg-compare td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.lg-compare thead th{background:var(--navy);color:#fff;font-family:"Barlow Condensed";text-transform:uppercase;font-size:14.5px}
+.lg-compare td:first-child{font-weight:700;white-space:nowrap}
+.lv-line{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;border:1.5px solid var(--orange);background:var(--surface);border-radius:12px;padding:12px 13px;margin-top:12px;cursor:pointer;color:var(--ink)}
+.lv-line .lv-box{flex:0 0 auto;width:22px;height:22px;border-radius:6px;border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;margin-top:1px}
+.lv-line.on .lv-box{background:var(--orange)}
+.lv-line b{display:block;font-size:15px}
+.lv-line span{font-size:13.5px;color:var(--muted);line-height:1.45;display:block}
+.iconbullets{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 2px}
+@media(min-width:720px){.iconbullets{grid-template-columns:repeat(3,1fr)}}
+.iconbullet{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 12px;display:flex;gap:9px;align-items:flex-start}
+.iconbullet svg{width:22px;height:22px;flex:0 0 auto;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.iconbullet b{display:block;font-size:14.5px;line-height:1.25}
+.iconbullet span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.trustgrid{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 4px}
+@media(min-width:680px){.trustgrid{grid-template-columns:repeat(3,1fr)}}
+.trustcard{background:var(--navy);color:#fff;border-radius:14px;padding:15px}
+.trustcard h3{margin:0 0 4px;font-size:20px;text-transform:uppercase;color:var(--gold)}
+.trustcard p{margin:0;font-size:14px;line-height:1.5;color:#dbe6f4}
+.brandstrip{background:#fff;border-bottom:1px solid var(--line)}
+.brandstrip .bs-inner{max-width:1060px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.brandstrip .bs-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.brandstrip .bs-chip{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:8px 14px;border-radius:12px;text-transform:uppercase;white-space:nowrap;background:#fff}
+main{max-width:1060px;margin:0 auto;padding:0 12px}
+.tabs{position:sticky;top:0;z-index:80;background:var(--bg);padding:10px 12px 8px;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(11,30,58,.08)}
+.tabs .seg{max-width:1060px;margin:0 auto;display:flex;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:13.5px;padding:9px 2px;border-radius:999px;cursor:pointer;min-height:44px;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media(max-width:480px){.tabs{padding:8px 8px 6px}.tabs button{font-size:12.5px;padding:10px 1px}}
+.tabs button.on{background:var(--navy);color:#fff}
+@media(prefers-color-scheme:dark){.tabs button.on{background:var(--orange)}}
+.view{display:none}.view.on{display:block}
+.viewhint{color:var(--muted);font-size:14.5px;margin:4px 2px 12px;line-height:1.5}
+.pkg-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;margin:0 -2px;scrollbar-width:none}
+.pkg-row::-webkit-scrollbar{display:none}
+.pkg{scroll-snap-align:start;flex:0 0 82%;max-width:320px;background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.pkg .pkg-img{width:100%;height:190px;object-fit:cover;display:block}
+.pkg .sysrow{display:flex;gap:8px;padding:10px 14px 0}
+.pkg .sysrow figure{flex:1;margin:0;text-align:center}
+.pkg .sysrow img{width:100%;height:56px;object-fit:contain;padding:3px;background:#eef2f6;border:1px solid var(--line);border-radius:9px;display:block}
+.pkg .sysrow figcaption{font-size:10.5px;font-weight:700;color:var(--muted);margin-top:3px;line-height:1.25;text-transform:uppercase;letter-spacing:.03em}
+.pkg .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pkg .bestfor{font-size:13.5px;margin:0}.pkg .bestfor b{color:var(--orange)}
+.whyline{font-size:13px;color:var(--muted);margin:0;line-height:1.45}.whyline b{color:var(--orange)}
+@media(min-width:720px){.pkg-row{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible}.pkg{flex:none;max-width:none}}
+@media(min-width:1020px){.pkg-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:719px){.pkg-row{flex-direction:column;overflow:visible}.pkg{flex:none;max-width:none;width:100%}}
+.pkg.pop{border-color:var(--orange)}
+.pkg.selected{border-color:var(--orange);box-shadow:var(--shadow);outline:3px solid rgba(232,106,16,.25)}
+.pkg .tier{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.pkg h3{margin:0;font-size:22px;line-height:1;text-transform:uppercase}
+.pkg .for{color:var(--muted);font-size:13.5px;margin:0}
+.pkg .count{font-weight:700;color:var(--navy);background:var(--surface2);border-radius:999px;padding:3px 10px;font-size:12.5px;width:fit-content}
+@media(prefers-color-scheme:dark){.pkg .count{color:var(--ink)}}
+.badge-pop{position:absolute;top:8px;right:8px;z-index:2;background:var(--orange);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:999px;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.badge-rec{display:inline-flex;align-items:center;gap:5px;background:var(--good);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;text-transform:uppercase;width:fit-content}
+.pkg .spacer{flex:1}
+.link-btn{background:none;border:0;color:var(--orange);font-weight:700;font-size:14.5px;cursor:pointer;padding:4px 0;text-align:left}
+.btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:11px 16px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange2)}.btn-primary.added{background:var(--good)}
+.btn-navy{background:var(--navy);color:#fff}.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.pick-btn{width:100%}
+.size-note{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px;font-size:14.5px;margin:8px 0 6px;line-height:1.55}
+.size-note b{color:var(--orange)}
+.steps{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}
+@media(min-width:680px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+.step b{display:block;font-family:"Barlow Condensed";font-size:18px;text-transform:uppercase;margin-bottom:2px}
+.step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:0 0 auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 13px;font-weight:600;font-size:14px;cursor:pointer}
+.chips button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.chips button.on{background:var(--orange);border-color:var(--orange)}}
+.search{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font-size:16px;margin-bottom:8px}
+.cat-sub{color:var(--muted);font-size:13.5px;margin:0 2px 8px}
+.prod-list{display:flex;flex-direction:column;gap:8px}
+@media(min-width:720px){.prod-list{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
+.prod{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.prod.added{border-color:var(--good)}
+.prod .top{display:flex;gap:11px;align-items:flex-start}
+.prod .thumb{flex:0 0 86px;width:86px;height:86px;border-radius:9px;object-fit:cover;background:#fff;border:1px solid var(--line)}
+.prod .thumb.tile{display:flex;align-items:center;justify-content:center;background:var(--navy);border-color:var(--navy)}
+.prod .thumb.tile svg{width:40px;height:40px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.prod .info{flex:1;min-width:0}
+.prod h4{margin:0 0 3px;font-size:16px;line-height:1.2}
+.prod .desc{margin:0;font-size:13.5px;color:var(--muted);line-height:1.45}
+.prod .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.prod .tag{font-size:11.5px;font-weight:700;border-radius:999px;padding:2.5px 9px;background:var(--surface2);color:var(--ink)}
+.prod .tag.best{background:rgba(232,106,16,.14);color:var(--orange)}
+.prod .row{display:flex;align-items:center;gap:8px}.prod .row .spacer{flex:1}
+.add-btn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;font-size:14.5px}
+.add-btn.added{background:var(--good)}
+.qty{display:none;align-items:center;gap:5px}.qty.show{display:inline-flex}
+.qty button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:16px;cursor:pointer;line-height:1}
+.qty b{min-width:16px;text-align:center}
+.decide{display:flex;gap:6px;flex-wrap:wrap;margin:0 2px 10px;align-items:center}
+.decide span{font-size:13.5px;font-weight:700;color:var(--muted)}
+.decide button{border:1.5px solid var(--orange);background:transparent;color:var(--orange);border-radius:999px;padding:6px 12px;font-weight:700;font-size:13.5px;cursor:pointer}
+.empty-note{color:var(--muted);text-align:center;padding:18px}
+.compare-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table.compare{border-collapse:collapse;font-size:13.5px;min-width:1020px;width:100%}
+table.compare th,table.compare td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:center}
+table.compare td:first-child,table.compare th:first-child{text-align:left;min-width:200px;font-weight:600;position:sticky;left:0;background:var(--surface)}
+table.compare thead th{background:var(--navy);color:#fff;font-family:"Barlow Condensed";font-size:15px;text-transform:uppercase}
+table.compare thead th.pop{background:var(--orange)}
+table.compare .yes{color:var(--good);font-weight:700}table.compare .no{color:var(--muted)}
+.fineprint{color:var(--muted);font-size:13px;margin-top:8px;line-height:1.5}
+.listbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--navy);color:#fff;padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;box-shadow:0 -6px 20px rgba(11,30,58,.25)}
+.listbar .count{font-family:"Barlow Condensed";font-size:20px;font-weight:700}
+.listbar .count small{display:block;font-family:"Barlow";font-size:12px;font-weight:400;opacity:.85}
+.listbar .lic{display:block;font-family:"Barlow";font-size:10.5px;font-weight:600;opacity:.75;letter-spacing:.02em}
+.listbar .spacer{flex:1}
+.sheet-wrap{position:fixed;inset:0;z-index:70;display:none}.sheet-wrap.open{display:block}
+.sheet-bg{position:absolute;inset:0;background:rgba(6,15,30,.55)}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:88vh;overflow-y:auto;background:var(--surface);color:var(--ink);border-radius:18px 18px 0 0;padding:8px 18px calc(18px + env(safe-area-inset-bottom))}
+@media(min-width:720px){.sheet{left:50%;right:auto;transform:translateX(-50%);width:640px;border-radius:18px;margin-bottom:14px}}
+.sheet .grip{width:44px;height:5px;border-radius:99px;background:var(--line);margin:6px auto 10px}
+.sheet h2{margin:0 0 2px;font-size:26px;text-transform:uppercase;line-height:1.05}
+.sheet .sub{color:var(--muted);font-size:14px;margin:0 0 10px;line-height:1.5}
+.sheet .x{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:17px;cursor:pointer}
+.sheet ul.items,.sheet .hl{margin:6px 0 12px;padding-left:18px;font-size:14.5px}.sheet ul.items li,.sheet .hl li{margin:3px 0}
+.sheet h3.mini{font-size:18px;text-transform:uppercase;margin:12px 0 4px}
+.sel-empty{color:var(--muted);border:1.5px dashed var(--line);border-radius:10px;padding:12px;text-align:center}
+.sel-item{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.sel-item .x2{background:none;border:0;color:var(--orange);font-weight:700;cursor:pointer}
+.sel-item small{display:block;color:var(--muted)}
+form.client{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+form.client label{font-size:12.5px;font-weight:600;display:block}
+form.client input,form.client textarea,form.client select{width:100%;margin-top:3px;padding:9px;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font-family:"Barlow";font-size:16px}
+form.client .full{grid-column:1/-1}
+@media(max-width:520px){form.client{grid-template-columns:1fr}}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.actions .btn{flex:1 1 auto}
+.btn-primary:disabled{opacity:.65;cursor:default}
+.submit-status{margin-top:12px;border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.5}
+.submit-status.ok{background:#e6f4ec;border:1.5px solid var(--good);color:#0f5132}
+.submit-status.err{background:#fdecea;border:1.5px solid #c0392b;color:#7b1d14}
+.acc{border:1.5px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:8px;overflow:hidden}
+.acc summary{cursor:pointer;padding:11px 13px;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center;font-family:"Barlow Condensed";text-transform:uppercase}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .meta{color:var(--muted);font-weight:600;font-size:12.5px;font-family:"Barlow";text-transform:none}
+.acc .acc-body{padding:2px 13px 12px;font-size:14.5px}.acc .acc-body p{margin:0 0 8px}
+#guideList{display:flex;flex-direction:column;gap:12px}
+.g-card{--acc:var(--orange);--acc-l:var(--gold);--acc-ink:#fff;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 6px 20px rgba(11,30,58,.08);overflow:hidden}
+.g-card summary{list-style:none;cursor:pointer;display:block;padding:0}.g-card summary::-webkit-details-marker{display:none}
+.g-photo{position:relative;height:118px;overflow:hidden;background:var(--navy)}
+.g-card[open] .g-photo{height:150px}
+.g-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,30,58,.15),rgba(11,30,58,.88))}
+.g-chip{position:absolute;top:10px;left:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center}
+.g-chip svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.g-count{position:absolute;top:12px;right:12px;z-index:2;background:rgba(11,30,58,.55);color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.g-titles{position:absolute;left:14px;right:58px;bottom:11px;z-index:2;color:#fff}
+.g-titles h3{margin:0;font-size:23px;line-height:1;text-transform:uppercase;color:#fff}
+.g-titles p{margin:3px 0 0;font-size:13.5px;font-weight:600;color:var(--acc-l)}
+.g-chev{position:absolute;right:12px;bottom:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.g-chev svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.g-body{padding:15px 16px 17px}
+.g-what{margin:0 0 10px;font-size:15.5px;line-height:1.55}
+.g-why{list-style:none;margin:0 0 4px;padding:0}
+.g-why li{position:relative;padding:4px 0 4px 28px;font-size:14.5px;line-height:1.5}
+.g-why li::before{content:"✓";position:absolute;left:0;top:5px;width:19px;height:19px;border-radius:50%;background:var(--acc);color:var(--acc-ink);font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.g-sec{display:flex;align-items:center;gap:9px;margin:14px 0 2px;font-size:16.5px;text-transform:uppercase}
+.g-sec::after{content:"";flex:1;height:3px;border-radius:99px;background:var(--acc);opacity:.85}
+.g-prow{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.g-prow:last-of-type{border-bottom:0}
+.g-thumb{flex:0 0 46px;width:46px;height:46px;border-radius:9px;object-fit:cover;background:#fff;border:1px solid var(--line)}
+.g-thumb.tile{display:flex;align-items:center;justify-content:center;background:var(--navy);border-color:var(--navy)}
+.g-thumb.tile svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.g-prow .g-pt{flex:1;min-width:0}.g-prow .g-pn{font-weight:700;font-size:14.5px}.g-prow .g-pr{color:var(--muted);font-size:13.5px;line-height:1.45}
+.g-pkgs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:13px 0 0;font-size:13.5px}
+.g-pkgs-l{font-weight:700;color:var(--muted)}.g-pill{background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:12.5px;padding:3px 11px;border-radius:999px}
+.g-card .g-actions{margin-top:13px;display:flex;gap:8px;flex-wrap:wrap}.g-card .g-actions .btn{padding:8px 14px;font-size:14px}
+.g-callout{background:var(--surface2);border-radius:10px;padding:11px 13px;margin:12px 0 2px;font-size:14.5px;line-height:1.55}
+.g-callout b{color:var(--orange)}
+.mf{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;font-size:14.5px;line-height:1.5}
+.cz-h{font-size:19px;text-transform:uppercase;margin:14px 2px 8px}
+.basegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(min-width:720px){.basegrid{grid-template-columns:repeat(3,1fr)}}
+.base-btn{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;text-align:left;color:var(--ink)}
+.base-btn img{width:100%;height:64px;object-fit:cover;display:block}
+.base-btn .bb-t{display:block;padding:7px 10px 9px;font-weight:700;font-size:14.5px;line-height:1.2}
+.base-btn .bb-t small{display:block;color:var(--muted);font-weight:600;font-size:12px}
+.base-btn.on{border-color:var(--orange);outline:3px solid rgba(232,106,16,.25)}
+.base-btn .bb-scratch{height:64px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Barlow Condensed";font-size:19px;letter-spacing:.05em}
+.cz-item{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cz-item span{flex:1}.cz-item.off span{color:var(--muted);text-decoration:line-through}
+.cz-tog{flex:0 0 auto;border:1.5px solid var(--line);background:var(--surface);color:var(--orange);font-weight:700;border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer}
+.cz-item.off .cz-tog{color:var(--good);border-color:var(--good)}
+.choice-g{margin:0 0 12px}.choice-g .cl{font-weight:700;font-size:14.5px;margin:0 0 5px}
+.seg2{display:flex;flex-wrap:wrap;gap:6px}
+.seg2 button{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13.5px;cursor:pointer}
+.seg2 button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.seg2 button.on{background:var(--orange);border-color:var(--orange)}}
+.cz-sum{background:var(--surface2);border-radius:12px;padding:11px 13px;font-size:14.5px;margin:12px 0;line-height:1.5}
+.cz-xrow{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cz-xrow span{flex:1}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 16px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;max-width:92vw;text-align:center;font-size:14.5px}
+.toast.show{opacity:1}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:18px 14px 6px;line-height:1.6}
+footer a{color:var(--orange)}
+footer .flogo{display:inline-block;background:#fff;border-radius:10px;padding:10px 18px;margin-bottom:10px;border:1px solid var(--line)}
+footer .flogo img{height:104px;width:auto;display:block;max-width:82vw}
+.sheet .pkg-photo{width:100%;height:220px;object-fit:cover;background:#fff;border:1px solid var(--line);border-radius:10px;margin:4px 0 10px;display:block}
+@media print{.listbar,.tabs,.sheet-wrap,.add-btn,.qty,.pick-btn,.chips,.search{display:none!important}body{padding-bottom:0;background:#fff}}
+</style>
+<meta name="theme-color" content="#264387">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<link rel="stylesheet" href="macos.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+<style>
+/* Sharma kit bridge: kit header/tab bar take over navigation; app layout otherwise untouched. */
+body.sk{padding-bottom:calc(var(--sk-tab-h,54px) + env(safe-area-inset-bottom,0px) + 84px)}
+.topbar,.tabs{display:none!important}
+.chips{top:55px!important}
+.listbar{bottom:calc(var(--sk-tab-h,54px) + env(safe-area-inset-bottom,0px))}
+.sk-header{z-index:60}
+</style>
+</head>
+<body class="sk">
+<header class="sk-header"><div class="sk-header__bar">
+  <div class="sk-header__lead"><a class="sk-header__logo" href="./"><img src="https://sharma-kit.sharma-crew.workers.dev/assets/logo-white-header.png" alt="Sharma Electric &amp; HVAC" width="103" height="20"></a></div>
+  <div class="sk-header__title">Electrical Picker</div>
+  <div class="sk-header__trail"><a class="sk-header__btn" href="tel:+14078819076" aria-label="Call Sharma"><svg class="sk-icon"><use href="#i-phone"/></svg></a></div>
+</div></header>
+<div class="sk-offline"></div>
+<div class="topbar">
+  <img class="logo" src="assets/img-ca3479fe3a52.webp" alt="Sharma Electric &amp; HVAC — Power. Comfort. Trust."/>
+  <div class="links"><a href="mailto:office@sharmaelectric.com">Email us</a><a class="callbtn" href="tel:+14078819076">407 881 9076</a></div>
+</div>
+<nav class="tabs" id="topMenu" aria-label="Sections">
+    <div class="seg">
+      <button type="button" data-view="packages" class="on">Packages</button>
+      <button type="button" data-view="products">Products</button>
+      <button type="button" data-view="customize">Customize</button>
+      <button type="button" data-view="learn">Electrical 101</button>
+      <button type="button" data-view="compare">Compare</button>
+    </div>
+  </nav>
+<div class="emergency">Electrical emergency — no power, burning smell or sparking? <a href="tel:+14078819076">Tap to call Sharma: 407 881 9076</a> · If you see flames or smoke, call 911 first.</div>
+
+<header class="hero">
+  <div class="inner">
+    <div class="logo-card"><img loading="lazy" src="assets/img-ca3479fe3a52.webp" alt="Sharma Electric &amp; HVAC — Power. Comfort. Trust."/></div>
+    <h1>Electrical, <em>done right.</em></h1>
+    <p class="creed">No shortcuts. No excuses.</p>
+    <p class="lede">For Central Florida homeowners: new Siemens panels, safer outlets and detectors, lighting and fans, EV and generator hookups — and straight answers when something stops working.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:+14078819076">Call 407 881 9076</a>
+      <a class="btn btn-ghost" href="#quiz">Start the six questions ↓</a>
+    </div>
+    <p class="licenses">FL Lic. EC13013924 / CAC1823596</p>
+    <div class="specs">
+      <div class="spec"><b>200A</b><span>Siemens panels &amp; breakers</span></div>
+      <div class="spec"><b>EV ready</b><span>240V Level 2 charger circuits</span></div>
+      <div class="spec"><b>Storm ready</b><span>Surge protection + generator inlet</span></div>
+      <div class="spec"><b>Licensed</b><span>FL Lic. EC13013924</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="brandstrip" aria-label="What Sharma installs and specs">
+  <div class="bs-inner">
+    <span class="bs-label">Sharma installs &amp; specs</span>
+    <span class="bs-chip">Siemens panels &amp; breakers</span>
+    <span class="bs-chip">Generac portable generators</span>
+    <span class="bs-chip">Whole-home surge protection</span>
+    <span class="bs-chip">Hardwired smoke &amp; CO</span>
+  </div>
+</div>
+
+<main>
+  <section class="view on" id="view-packages">
+    <div class="quiz" id="quiz">
+      <h2>Not sure where to start? Six quick questions.</h2>
+      <p class="q-sub">One at a time, in the order a homeowner actually thinks about it. We'll explain your match at the end, and your answers travel with your list when you send it.</p>
+      <div class="quiz-progress"><div class="qp-track"><div class="qp-fill" id="qpFill"></div></div><span class="qp-text" id="qpText">Question 1 of 6</span></div>
+      <div class="quiz-safety" id="quizSafety" role="alert"></div>
+
+      <div class="q-step on" data-step="1">
+      <div class="q-group"><p class="q-label"><span class="q-num">1</span> What brings you here?</p>
+        <p class="q-help">Start with the big picture — is something wrong, or do you want to add or improve something?</p>
+        <div class="q-opts" data-q="reason">
+          <button type="button" data-branch="problem" data-val="Something is not working or does not seem right">Something's not working</button>
+          <button type="button" data-branch="panel" data-val="Breakers keep tripping, or my panel is old or full">Breakers trip / panel is old or full</button>
+          <button type="button" data-branch="add" data-val="I want to add something that needs more power">I want to add something new</button>
+          <button type="button" data-branch="lighting" data-val="I want an upgrade — better lighting or ceiling fans">I want an upgrade — lighting or fans</button>
+          <button type="button" data-branch="safety" data-val="Safety check or concern — I want my home to be safer">Safety check or concern</button>
+          <button type="button" data-branch="planning" data-val="I am planning a remodel, addition or big project">Planning a remodel or big project</button>
+        </div></div>
+      </div>
+
+      <div class="q-step" data-step="2">
+      <div class="q-group"><p class="q-label"><span class="q-num">2</span> <span id="detailLabel">Tell us a little more</span></p>
+        <p class="q-help" id="detailHelp">Pick the closest match — this list follows your answer to Question 1, so you only see what's relevant.</p>
+        <div class="q-opts" data-q="detail" id="detailOpts">
+          <span class="q-placeholder">Answer Question 1 first — options appear here</span>
+        </div></div>
+      </div>
+
+      <div class="q-step" data-step="3">
+      <div class="q-group"><p class="q-label"><span class="q-num">3</span> Where in the home is this?</p>
+        <p class="q-help">Location matters — kitchen and bath work needs GFCI protection, garage work is often EV or generator work.</p>
+        <div class="q-opts" data-q="location">
+          <button type="button" data-val="Kitchen">Kitchen</button>
+          <button type="button" data-val="Bathroom">Bathroom</button>
+          <button type="button" data-val="Living areas or bedrooms">Living areas / bedrooms</button>
+          <button type="button" data-val="Garage">Garage</button>
+          <button type="button" data-val="Outdoors">Outdoors</button>
+          <button type="button" data-val="At the panel itself">At the panel itself</button>
+          <button type="button" data-val="Several places or the whole home">Several places / whole home</button>
+          <button type="button" data-val="Location not sure">Not sure</button>
+        </div></div>
+      </div>
+
+      <div class="q-step" data-step="4">
+      <div class="q-group"><p class="q-label"><span class="q-num">4</span> Your panel &amp; service — best you know</p>
+        <p class="q-help">The panel is the grey box usually in the garage, laundry or outside, with rows of breakers inside. “Not sure” is a perfectly good answer — Sharma checks it in person.</p>
+        <div class="q-opts" data-q="panel">
+          <button type="button" data-val="Fuse box or 100A panel — old">Fuse box / 100A — old</button>
+          <button type="button" data-val="150A panel">150A</button>
+          <button type="button" data-val="200A panel, but full — no empty breaker spaces">200A, but full — no spaces</button>
+          <button type="button" data-val="200A panel, but breakers trip or it looks worn">200A, but trips / looks worn</button>
+          <button type="button" data-val="Newer 200A panel with empty spaces left">Newer 200A, space left</button>
+          <button type="button" data-val="Not sure — please check my panel at the visit">Not sure — check it for me</button>
+        </div></div>
+      <div class="q-group"><p class="q-label">And how does power reach your home?</p>
+        <p class="q-help">Look outside: do wires run from a street pole to a pipe (a mast) on your roof or wall — or does everything come in underground?</p>
+        <div class="q-opts" data-q="service">
+          <button type="button" data-val="Overhead — wires from a pole to a mast on the home">Overhead — pole to a mast</button>
+          <button type="button" data-val="Underground — no overhead wires to the home">Underground</button>
+          <button type="button" data-val="Not sure how power reaches the home">Don't know</button>
+        </div></div>
+      </div>
+
+      <div class="q-step" data-step="5">
+      <div class="q-group"><p class="q-label"><span class="q-num">5</span> A little about your home</p>
+        <p class="q-help">Older homes were built for far fewer appliances — age and new big loads help Sharma judge panel size before the visit.</p>
+        <div class="q-opts" data-q="home">
+          <button type="button" data-val="Built before 1990">Built before 1990</button>
+          <button type="button" data-val="Built 1990 to 2010">Built 1990–2010</button>
+          <button type="button" data-val="Built after 2010">Built after 2010</button>
+          <button type="button" data-val="Home age not sure">Not sure</button>
+        </div></div>
+      <div class="q-group"><p class="q-label">Added anything big lately — or planning to?</p>
+        <p class="q-help">New big loads are the #1 reason panels run out of room.</p>
+        <div class="q-opts" data-q="additions">
+          <button type="button" data-val="Added or adding a hot tub or pool equipment">Hot tub / pool</button>
+          <button type="button" data-val="Added or adding an EV charger">EV charger</button>
+          <button type="button" data-val="Added or adding a new AC">New AC</button>
+          <button type="button" data-val="Added or adding a home addition">Home addition</button>
+          <button type="button" data-val="No new big loads added or planned">None of these</button>
+          <button type="button" data-val="Not sure about new loads">Not sure</button>
+        </div></div>
+      </div>
+
+      <div class="q-step" data-step="6">
+      <div class="q-group"><p class="q-label"><span class="q-num">6</span> How soon do you need help?</p>
+        <p class="q-help">Be honest here — no power and anything burning, buzzing or sparking jump the queue. Planning ahead is fine too.</p>
+        <div class="q-opts" data-q="timeline">
+          <button type="button" data-val="Emergency — today if possible">Emergency — today</button>
+          <button type="button" data-val="This week — it is disrupting daily life">This week</button>
+          <button type="button" data-val="In the next month or two">Next month or two</button>
+          <button type="button" data-val="Just planning and pricing">Just planning &amp; pricing</button>
+        </div></div>
+      </div>
+
+      <div class="q-nav" id="qNav">
+        <button class="btn btn-outline" type="button" id="qBack" disabled>← Back</button>
+        <span class="spacer"></span>
+        <button class="btn btn-primary" type="button" id="qNext" disabled>Continue →</button>
+      </div>
+      <div class="quiz-result" id="quizResult"></div>
+    </div>
+    <div class="iconbullets">
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div><b>Every breaker labeled</b><span>A clear circuit directory — no mystery breakers</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Permitted &amp; inspected</b><span>Panel and service work done to code, with the paperwork</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><div><b>Capacity confirmed at your home</b><span>Sharma checks your panel and sizing on site, at the quote visit</span></div></div>
+    </div>
+    <h2 id="packages-start" style="font-size:30px;text-transform:uppercase;margin:14px 2px 2px">Pick your project</h2>
+    <p class="viewhint">Five ways Sharma upgrades and services Central Florida homes. Pick the closest one — you can tailor it in Customize, add individual items in Products, and nothing is priced until Sharma sees your home and quotes the work.</p>
+    <div class="pkg-row" id="pkgGrid"></div>
+    <div class="steps">
+      <div class="step"><b>1 · You pick</b><p>Pick a package and add anything else that's bugging you — dead outlets, flickers, a dark kitchen.</p></div>
+      <div class="step"><b>2 · We check it at your home</b><p>Sharma looks at your panel and confirms capacity and sizing on site — no guessing from a photo.</p></div>
+      <div class="step"><b>3 · Sharma prices it</b><p>Pick what you need in one place — Sharma prices it and gets back to you before any work starts. No prices here, ever.</p></div>
+    </div>
+    <div class="size-note"><b>Not sure your panel can handle it?</b> That's exactly what the quote visit is for. <b>Sharma confirms your panel capacity and sizing on site</b> — if an EV charger, hot tub or addition needs more panel than you have, you'll know before anything is installed, with the upgrade priced before any work starts.</div>
+    <div class="trustgrid">
+      <div class="trustcard"><h3>Licensed &amp; local</h3><p>Sharma Electric &amp; HVAC is a Florida electrical contractor — FL Lic. EC13013924 / CAC1823596 — serving Central Florida homes.</p></div>
+      <div class="trustcard"><h3>Siemens, like our drawings</h3><p>The panels and breakers in this picker are the Siemens gear Sharma specs in its own electrical drawings — 200A panels, GFCI breakers, 400A meter combos.</p></div>
+      <div class="trustcard"><h3>We call you back</h3><p>Send your picks and Sharma will call you back to confirm your quote visit and next steps.</p></div>
+    </div>
+    <h2 style="font-size:26px;text-transform:uppercase;margin:18px 2px 2px">While we're in the walls — Sharma's other pickers</h2>
+    <p class="viewhint">Lighting, switches and outlets are where electrical meets low-voltage smart home work. If any of that is on your list too, start it in the right picker — Sharma ties it all together at the quote visit.</p>
+    <div class="trustgrid" style="grid-template-columns:1fr;margin-top:8px">
+      <a class="trustcard" href="../smart-home-picker/"><h3>Low Voltage / Smart Home Picker →</h3><p>Smart switches and lighting control, plus Sharma's five smart home packages — 65+ products including doorbells, cameras, speakers and networking. The natural next step from a lighting or switch project.</p><span class="go">Open the Smart Home Picker →</span></a>
+      <a class="trustcard" href="../hvac-picker/"><h3>HVAC Picker →</h3><p>AC not cooling, or a system change-out on your mind? Sharma's HVAC picker is built on the Goodman systems Sharma recommends and installs — pick your system there, and Sharma quotes it.</p><span class="go">Open the HVAC Picker →</span></a>
+    </div>
+    <button class="btn btn-outline" id="btnDetails" type="button" style="width:100%;margin-top:12px">See details — products, customize, Electrical 101 &amp; compare ↓</button>
+  </section>
+
+  <section class="view" id="view-products">
+    <div class="decide"><span>Jump to:</span>
+      <button type="button" data-decide="0">Panels &amp; breakers</button>
+      <button type="button" data-decide="1">Outlets &amp; safety</button>
+      <button type="button" data-decide="2">Lighting &amp; fans</button>
+      <button type="button" data-decide="3">EV &amp; generator</button>
+      <button type="button" data-decide="4">Repairs</button>
+      <button type="button" data-decide="5">Legrand designer</button>
+    </div>
+    <input class="search" id="prodSearch" type="search" placeholder="Search upgrades &amp; services…" aria-label="Search products"/>
+    <div class="chips" id="catChips"></div>
+    <p class="cat-sub" id="catSub"></p>
+    <div class="prod-list" id="prodList"></div>
+  </section>
+
+  <section class="view" id="view-customize">
+    <p class="viewhint">Start from a package, take out what you don't need, add extras, and tell us your best guesses. Sharma makes the final calls — panel capacity and sizing are always confirmed on site at the quote visit — and prices the whole list together. No prices here.</p>
+    <h3 class="cz-h">1 · Start from</h3>
+    <div class="basegrid" id="czBases"></div>
+    <div id="czMain"></div>
+  </section>
+
+  <section class="view" id="view-learn">
+    <p class="viewhint"><strong>Electrical 101</strong> — how your home's power actually works, in plain English, using only the work in this app. Tap a topic to open it; one stays open at a time.</p>
+    <div id="guideList"></div>
+  </section>
+
+  <section class="view" id="view-compare">
+    <p class="viewhint">Side by side: what each package includes. ✓ = included · ○ = available — ask Sharma to add it · — = not part of that package.</p>
+    <div class="compare-scroll"><table class="compare" id="compareTable"></table></div>
+    <p class="fineprint">Final scope and price depend on your home — panel condition and capacity, wiring condition, and permit requirements — all confirmed by Sharma at the quote visit and in your priced quote. Sharma confirms panel capacity and sizing on site; nothing on this page is a promise that a given circuit or upgrade fits your existing panel until Sharma has seen it.</p>
+  </section>
+
+  <footer>
+    <span class="flogo"><img loading="lazy" src="assets/img-ca3479fe3a52.webp" alt="Sharma Electric &amp; HVAC"/></span><br/>
+    FL Lic. EC13013924 / CAC1823596<br/>
+    <a href="tel:+14078819076">407 881 9076</a> · <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a> · sharmaelectric.com<br/>
+    Homeowner electrical upgrades &amp; service: Siemens 200A panel upgrades and 400A meter combos (MC0816B1400RLTM), GFCI and tamper-resistant receptacles, hardwired smoke &amp; CO detectors, whole-home surge protection, recessed and pendant lighting, ceiling fans, outdoor and landscape lighting, 240V EV charger circuits, generator inlets with interlock, dedicated circuits, and troubleshooting &amp; repairs.<br/>
+    No prices are shown — send your list, Sharma confirms panel capacity and sizing at your home, then quotes the work.
+  </footer>
+</main>
+
+<div class="listbar">
+  <div class="count"><span id="barCount">0</span> picked<small id="barLabel">My list is empty</small><span class="lic">FL Lic. EC13013924 / CAC1823596</span></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" id="btnOpenList" type="button">Send my picks →</button>
+</div>
+
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="sheet-bg" id="sheetBg"></div>
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="grip"></div>
+    <button class="x" id="sheetClose" type="button" aria-label="Close">✕</button>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var PACKAGES=[
+ {id:"panel",tier:"Panel & Service · The Big Upgrade",name:"Panel Upgrade — 200A Siemens",for:"For older homes, full panels, and anyone adding big new loads",count:"New 200A Siemens panel + breakers + surge",pop:true,
+  bullets:["Your old panel or fuse box comes out; a new Siemens 200A panel goes in — more capacity and room for today's loads","New Siemens breakers throughout, including GFCI protection for the range and dryer circuits","Whole-home surge protection at the panel — Florida lightning insurance for everything plugged in","Fed by an overhead line? Sharma coordinates with the power company — disconnect and reconnect, service drop and mast work, permit and inspection — sequenced so your power is off for as short a time as the work allows"],
+  items:["Removal of your old breaker panel or fuse box","New Siemens 200A panel with a new 200A main breaker — the Siemens PN-series panels Sharma specs in its own drawings (the same family as the PN4040L1200 panels in Sharma's recent 400A service work)","New Siemens breakers for every circuit — no reused, worn breakers carried over","GFCI breaker protection the way Sharma's drawings call for it — range on a Siemens QF240A GFCI breaker, dryer on a Q230GF GFCI breaker","Whole-home surge protection device at the panel","Grounding checked and brought up to code — ground rods and bonding as needed","Every breaker labeled, with a clear circuit directory — you know what controls what","Permit pulled and inspection passed — Sharma handles both","Overhead service coordination — if the power line comes into your home overhead, a panel or service change needs the power company to disconnect and reconnect the service drop. Sharma schedules both with the utility, sequences the service drop and mast work with the panel change, and handles the permit and inspection, so the outage window stays as short as the work allows","Overhead service mast & weatherhead — if a storm bends your mast, pulls the weatherhead loose, or the service cable is worn, that's homeowner equipment: Sharma repairs or replaces it, re-secures where the drop attaches, and coordinates the utility around the repair","Bigger home or adding a lot? Ask about the Siemens 400A meter combo (MC0816B1400RLTM) feeding two 200A panels instead — Sharma will quote the 400A service","Sharma confirms your panel capacity and sizing on site at the quote visit — no guessing from photos"]},
+ {id:"safety",tier:"Safety · Protection",name:"Home Safety & Surge Package",for:"For families who want the protection a modern home should have",count:"GFCI + TR outlets · smoke/CO · whole-home surge",
+  bullets:["GFCI outlets everywhere water and power meet — kitchen, baths, garage, laundry, outdoors","Tamper-resistant outlets that keep small fingers and stray objects out","Hardwired, interconnected smoke and CO detectors — one sounds, they all sound"],
+  items:["GFCI receptacles in the kitchen, bathrooms, garage, laundry and outdoors — they cut power in a fraction of a second if current leaks toward water or a person","Tamper-resistant (TR) receptacles in living areas — shutters inside block anything that isn't a plug; the code standard for homes with kids","Hardwired smoke detectors with battery backup — bedrooms, hallways and every level, interconnected so one alarm sounds them all","Carbon monoxide (CO) detectors — near sleeping areas and any fuel-burning appliance or attached garage","Whole-home surge protection device at the panel — one device guarding the whole house, not just one power strip","Outlet & switch check throughout — loose, warm, discolored or dead devices replaced","Panel check — breakers tested, directory updated so every circuit is labeled"]},
+ {id:"lighting",tier:"Lighting & Fans · The Visible Upgrade",name:"Lighting, Fans & Switches",for:"For dated rooms, dark kitchens and builder-basic fixtures",count:"Recessed + pendants + ceiling fans + dimmers",
+  bullets:["Recessed LED lighting laid out for the room — not just dropped in a grid","Pendants over the island and a ceiling fan that hangs from a box actually rated for it","Dimmers and smart switches, so the light fits the moment"],
+  items:["Recessed LED lighting — slim, dimmable, laid out for how the room is used: bright over counters, even everywhere else","Pendant lights over the island or dining table — wired and hung at the right height","Ceiling fan installation on a fan-rated ceiling box — a fan is heavy and moves; it must hang from a box rated for it, not a light-only box","Fan & light wall control — one switch runs fan speed and light separately, no more pull chains","Dimmers & smart switches — LED-compatible, so no flicker or buzz; smart switches if you want schedules or phone control","Guide-light outlets for halls and baths — a soft light at floor level for nighttime trips, and the outlet stays free","Outdoor & landscape lighting — path lights and accent spots on the home and palms, on a timer or dusk-to-dawn control","Existing fixture swaps — chandeliers, vanity lights, porch lights","Designer switches & outlets — Legrand radiant and adorne collections (see Products) if you want the devices themselves to look as finished as the lighting","Going further? The same switch and lighting work ties straight into Sharma's low-voltage Smart Home packages — smart switches, lighting control and more live in the Smart Home Picker, and Sharma ties both lists together at the quote visit"]},
+ {id:"power",tier:"EV & Backup Power · Be Ready",name:"EV Charger & Generator Ready",for:"For EV owners and anyone who rides out storm season in Florida",count:"240V EV circuit + generator inlet & interlock",
+  bullets:["A dedicated 240V circuit for Level 2 charging — a full charge overnight, not days","Generator inlet and interlock — plug in outside, power the circuits you choose, no cords through windows","Panel capacity checked first, on site — you'll know if the panel can carry it before anything goes in"],
+  items:["Dedicated 240V EV charger circuit — a 50A circuit run from your panel to the garage, sized for a Level 2 charger","Your choice of hookup: a heavy-duty NEMA 14-50 receptacle to plug the charger into, or a hardwired wall charger — Sharma installs either","Generator inlet box (50A) on the outside of the home — the generator stays outside and plugs in outside; no extension cords through doors or windows","Interlock kit at the panel — a mechanical slide so the generator and the utility can never feed the panel at the same time; your generator powers the circuits you choose, and line crews stay safe","Pairs with a portable generator like the Generac GP9500E in Sharma's own packet — the class of machine this inlet is built for","Dedicated circuits for other big loads — range, dryer, water heater, pool equipment, workshop — each on its own correctly sized breaker","Panel capacity check first — Sharma confirms on site that your panel can carry the new loads, and quotes a panel upgrade in the same visit if it can't"]},
+ {id:"repair",tier:"Service · Troubleshooting & Repairs",name:"Troubleshooting & Repairs",for:"For dead outlets, tripping breakers, flickering lights and mystery problems",count:"Find it · fix it · test it",
+  bullets:["We find the actual cause — a tripping breaker is a symptom, not the problem","Burning smell, buzzing or sparking is treated as urgent: made safe first, then repaired","You get a straight answer on what failed and what it takes to fix it"],
+  items:["Dead outlet or dead room — the circuit is traced and power restored where it stopped","Breaker that keeps tripping — find out why: overload, short, ground fault or a tired breaker — fixed at the cause, not just reset","Flickering or dimming lights — loose connections, failing devices or service issues tracked down","Burning smell, buzzing or sparking — treated as urgent: the circuit is made safe first, then repaired","Switch, outlet or fixture that stopped working — tested and replaced","Ceiling fan or light that wobbles, hums or died — checked, then repaired or replaced","Half the house out — service and panel checked, including the meter combo outside","Storm damage at the service — a bent mast or pulled-loose weatherhead is made safe and repaired; never touch a downed line (power company / 911 first), and Sharma coordinates the utility's disconnect and reconnect"]}
+];
+var PKGIMG={"panel":"assets/img-6e88e3084f06.webp","safety":"assets/img-c86e5ec15352.webp","lighting":"assets/img-897b15b50803.webp","power":"assets/img-8f516524a66b.webp","repair":"assets/img-f28cf4796e33.webp"};
+var PKGALT={"panel":"A new Siemens 200A breaker panel installed in a home, breakers labeled","safety":"A smoke and carbon monoxide detector mounted on a ceiling","lighting":"A kitchen with pendant lights over the island and recessed ceiling lighting","power":"A Level 2 EV charger installed on a garage wall, charging an electric car","repair":"An electrician testing an outlet with a multimeter to find a fault"};
+var PKGROWS={
+ "panel":[["assets/img-6e88e3084f06.webp","Siemens 200A panel"],["assets/img-3f1b367e5ade.webp","Surge at the panel"],["assets/img-9497faa91380.webp","Licensed electricians"]],
+ "safety":[["assets/img-c86e5ec15352.webp","Smoke & CO detectors"],["assets/img-3f1b367e5ade.webp","Whole-home surge"],["assets/img-0c24b58495a8.webp","Guide-light outlets"]],
+ "lighting":[["assets/img-897b15b50803.webp","Pendants & recessed"],["assets/img-26978ffa2ce0.webp","Ceiling fans"],["assets/img-d6ca1025a5ec.webp","Recessed LED"]],
+ "power":[["assets/img-8f516524a66b.webp","Level 2 charging"],["assets/img-2636fdb838b4.webp","Generac GP9500E"],["assets/img-424cbd8379f8.webp","NEMA 14-50 outlet"]],
+ "repair":[["assets/img-f28cf4796e33.webp","Fault finding"],["assets/img-6e88e3084f06.webp","Panel & breakers"],["assets/img-44c2bfb6b948.webp","Switches & devices"]]};
+function pkgRow(id){return '<div class="sysrow">'+PKGROWS[id].map(function(r){return '<figure><img loading="lazy" src="'+r[0]+'" alt=""/><figcaption>'+r[1]+"</figcaption></figure>"}).join("")+"</div>"}
+function pkgBadge(id){return id==="panel"?'<span class="badge-rec">★ Sharma Standard · Siemens</span>':(id==="repair"?'<span class="badge-rec" style="background:var(--navy)">Service call · Find &amp; fix</span>':'<span class="badge-rec">Homeowner favorite</span>')}
+var PKGWHY={"panel":"Almost everything you might add — an EV charger, a hot tub, a bigger AC, a workshop — lands on the panel. A modern 200A Siemens panel with room to spare is what makes the rest possible, safely.",
+ "safety":"Most electrical injuries at home come from a short list of causes — water near outlets, undetected smoke or CO, and surge damage. This package closes all three gaps in one visit.",
+ "lighting":"Lighting is the upgrade you see every single day. Done right — layout, dimming, fan-rated boxes — it changes how the whole home feels, and it is the project neighbors notice first.",
+ "power":"Overnight charging and storm-season backup are the two things Florida homeowners ask us for most. Both start at the panel — and both are far cheaper to do right the first time.",
+ "repair":"Electrical faults rarely fix themselves, and the cheap guess — a bigger breaker, another reset — can make them dangerous. Finding the real cause is the whole job."
+};
+var PKGBEST={"panel":"Fuse box, 100A panel, no spaces left, or breakers that trip when the AC and dryer run together? Start here.",
+ "safety":"Kids at home, detectors older than the house paint, or not one GFCI in the kitchen? Start here.",
+ "lighting":"One sad ceiling light per room, a dark kitchen, or a fan held up by hope? Start here.",
+ "power":"EV in the driveway (or on order), or a generator in the garage with no safe way to connect it? Start here.",
+ "repair":"Something stopped working, smells wrong, buzzes or sparks? Start here — and if it's sparking now, call, don't tap."
+};
+var COMPARE=[
+ ["New Siemens 200A panel & main breaker", "✓", "—", "—", "—", "—"],
+ ["Siemens 400A meter combo option (MC0816B1400RLTM)", "○ — ask Sharma", "—", "—", "—", "—"],
+ ["New breakers throughout", "✓", "—", "—", "—", "○ — as needed"],
+ ["GFCI breakers — range (QF240A) & dryer (Q230GF)", "✓", "—", "—", "—", "—"],
+ ["Grounding checked & brought to code", "✓", "—", "—", "—", "○"],
+ ["Whole-home surge protection at the panel", "✓", "✓", "—", "○ — ask Sharma", "—"],
+ ["GFCI receptacles — kitchen / bath / garage / outside", "○ — ask Sharma", "✓", "—", "—", "○"],
+ ["Tamper-resistant (TR) receptacles", "○ — ask Sharma", "✓", "—", "—", "—"],
+ ["Hardwired, interconnected smoke detectors", "○ — ask Sharma", "✓", "—", "—", "—"],
+ ["Carbon monoxide (CO) detectors", "○ — ask Sharma", "✓", "—", "—", "—"],
+ ["Guide-light outlets — halls & baths", "—", "✓", "○ — ask Sharma", "—", "—"],
+ ["Recessed LED lighting", "—", "—", "✓", "—", "—"],
+ ["Pendant lights — island & dining", "—", "—", "✓", "—", "—"],
+ ["Ceiling fan install — fan-rated box", "—", "—", "✓", "—", "○"],
+ ["Dimmers, smart switches & fan controls", "—", "—", "✓", "—", "—"],
+ ["Outdoor & landscape lighting", "—", "—", "✓", "—", "—"],
+ ["240V EV charger circuit — Level 2 (50A)", "○ — ask Sharma", "—", "—", "✓", "—"],
+ ["NEMA 14-50 receptacle or hardwired charger", "—", "—", "—", "✓", "—"],
+ ["Generator inlet box (50A) + panel interlock", "○ — ask Sharma", "—", "—", "✓", "—"],
+ ["Dedicated circuits — range / dryer / HVAC / pool", "✓", "—", "—", "✓", "○"],
+ ["Dead outlet / dead circuit tracing", "—", "○", "—", "—", "✓"],
+ ["Tripping breaker — cause found & fixed", "○", "—", "—", "—", "✓"],
+ ["Burning smell / buzzing / sparking made safe", "—", "○", "—", "—", "✓"],
+ ["Every breaker labeled + circuit directory", "✓", "✓", "—", "○", "○"],
+ ["Panel capacity confirmed on site by Sharma", "✓", "✓", "—", "✓", "✓"],
+ ["Overhead service — power company disconnect / reconnect coordinated", "✓", "—", "—", "—", "○"],
+ ["Overhead service mast / weatherhead repair or replacement", "✓", "—", "—", "—", "✓"],
+ ["Permit & inspection handled by Sharma", "✓", "○", "○", "✓", "○"]
+];
+var CATS=[
+ {name:"Panels, Breakers & Surge ★ Start Here",short:"Panels & breakers",sub:"Everything starts at the panel. These are the Siemens panels and breakers Sharma specs in its own drawings — plus the surge protection Florida homes need.",items:[
+  ["★ Siemens 200A panel upgrade — the panel Sharma installs","A new Siemens 200A panel with a 200A main breaker and room to grow — the swap for fuse boxes, tired 100A panels and panels with no spaces left. Sharma's own drawings spec Siemens PN-series panels. New breakers throughout, everything labeled, permit and inspection handled by Sharma.","Panel Upgrade package"],
+  ["Siemens 400A meter combo — MC0816B1400RLTM","For large homes and heavy loads: a Siemens 400A meter main combo outside feeding two 200A Siemens panels inside — the exact service in Sharma's recent Tampa home drawings. Sharma confirms on site whether your home needs 200A or 400A.","Panel Upgrade package — bigger-service option"],
+  ["Siemens GFCI breakers — range & dryer","Sharma's drawings put the range on a Siemens QF240A GFCI breaker and the dryer on a Q230GF — two-pole GFCI protection for the two biggest 240V appliances in the house.","Panel Upgrade package"],
+  ["Whole-home surge protection — at the panel","One device at the panel that clamps the voltage spikes Florida lightning and utility switching send into your home — guarding the fridge, the AC, TVs, computers and everything else at once. A power strip only protects what's plugged into it; this protects the house.","Panel Upgrade & Safety packages"],
+  ["Breaker replacement — matched Siemens breakers","A breaker that trips under a normal load, feels loose, or won't reset is done. Sharma replaces failed breakers with the correct Siemens breaker for your panel — never a mismatched substitute.","Troubleshooting & Repairs package"],
+  ["Overhead service coordination — power company disconnect & reconnect","If your home is fed overhead, a panel or service change means the power company has to disconnect the service drop before work starts and reconnect it after inspection. Sharma schedules both with the utility, sequences the mast and service work, and handles the permit — so the lights-out window stays as short as the job allows.","Panel Upgrade package"],
+  ["Overhead service mast & weatherhead — repair or replacement","The mast is the pipe that carries your service wires up and over the roofline, capped by the weatherhead where the power company's drop connects. The mast and weatherhead are YOUR equipment, not the power company's — if a storm bends the mast, pulls the weatherhead loose, or the cable is fraying, it's a homeowner repair. Sharma replaces the mast and weatherhead, re-secures the attachment, and coordinates the utility disconnect/reconnect around the work.","Panel Upgrade & Repairs packages"] ]},
+ {name:"Outlets, Switches & Detectors",short:"Outlets & safety",sub:"The devices you touch every day — and the detectors that watch while you sleep. GFCI where water meets power, tamper-resistant where kids live, detectors where code and common sense say.",items:[
+  ["GFCI receptacles — kitchen, bath, garage, outdoors","The outlets with the TEST and RESET buttons. They watch for current leaking where it shouldn't — toward water or a person — and cut power in a fraction of a second. Code requires them anywhere water and power meet.","Safety package"],
+  ["Tamper-resistant (TR) receptacles","Regular-looking outlets with spring shutters inside: both slots must be pushed at once, by a real plug, so a key or fork in one slot goes nowhere. The modern code standard — and real peace of mind with kids.","Safety package"],
+  ["Hardwired smoke detectors — interconnected","Wired into the home's power with battery backup, and linked so one alarm sounds them all — a kitchen fire wakes the bedrooms, not just the kitchen. Placed in bedrooms, hallways and on every level.","Safety package"],
+  ["Carbon monoxide (CO) detectors","CO is invisible and odorless — it comes from a garage, a generator, a water heater or a furnace. Detectors near sleeping areas and fuel-burning appliances are the only way to know it is there.","Safety package"],
+  ["Guide-light outlets — hallways & baths","An outlet with a soft light built in, aimed at the floor. Enough light for a 2 a.m. hallway or bathroom trip without waking the house — and both plugs stay free.","Safety & Lighting packages"],
+  ["USB & upgraded receptacles","Outlets with USB charging built in for the kitchen counter and the nightstands — one less charging brick to hunt for. Ask Sharma where they make sense in your home.","Ask Sharma to add"] ]},
+ {name:"Lighting & Fans",short:"Lighting & fans",sub:"The visible upgrade. Recessed layouts, pendants, fans on rated boxes, dimmers that don't buzz — and outdoor lighting that makes the home look finished after dark.",items:[
+  ["Recessed LED lighting","Slim LED recessed lights laid out for how the room is actually used — bright over counters and work areas, even and glare-free everywhere else. Dimmable, and they use a fraction of the power of old can lights.","Lighting & Fans package"],
+  ["Pendant lights — island & dining","The fixtures that make a kitchen look finished. Sharma wires and hangs pendants at the right height over the island or table — and puts them on a dimmer.","Lighting & Fans package"],
+  ["Ceiling fan installation","Hung from a fan-rated ceiling box with correct bracing — a fan is a heavy, moving machine, and a standard light box is not rated to hold one. Balanced so it runs wobble-free.","Lighting & Fans package"],
+  ["Fan & light wall control","One wall control for fan speed and light — no reaching for pull chains in the dark, and no remote to lose in the couch.","Lighting & Fans package"],
+  ["Dimmers & smart switches","LED-compatible dimmers that don't flicker or buzz — and smart switches if you want schedules or phone control, the same class of lighting control in Sharma's smart home packet.","Lighting & Fans package"],
+  ["Outdoor & landscape lighting","Low-voltage path lights and accent spots that make the home look its best after dark and keep walkways safe — on a timer or dusk-to-dawn control, so you never think about them.","Lighting & Fans package"] ]},
+ {name:"EV, Generator & Dedicated Circuits",short:"EV & generator",sub:"The new big loads. A 240V circuit charges an EV overnight; an inlet and interlock make a portable generator safe; dedicated circuits keep big appliances off each other's breakers.",items:[
+  ["★ Level 2 EV charger circuit — 240V / 50A","A dedicated 240V, 50A circuit from your panel to where you park. Level 2 charging adds roughly 25–40 miles of range per hour — a full charge overnight instead of days on a regular outlet. Sharma confirms your panel can carry it at the quote visit.","EV & Generator package"],
+  ["NEMA 14-50 EV receptacle","The heavy-duty 240V outlet many chargers plug into — industrial-grade and weather-resistant rated, mounted where the car parks. Choose this if your charger has a plug; choose hardwired if it doesn't.","EV & Generator package"],
+  ["Generator inlet box — 50A","A weatherproof inlet on the outside wall. The generator stays outside where it belongs, its cord plugs in outside, and power comes in through the panel — no extension cords through cracked windows or doors.","EV & Generator package"],
+  ["Panel interlock kit","A mechanical slide on the panel that makes it physically impossible for the generator and the utility to power the panel at the same time. It protects your home, your generator — and the line crews working to restore your power.","EV & Generator package"],
+  ["Generac GP9500E portable generator","The portable generator from Sharma's own packet — the class of machine the 50A inlet is built for: enough to run the essentials — fridge, lights, and a window AC — through an outage. Ask Sharma about pairing one with your inlet.","EV & Generator package"],
+  ["Dedicated circuits — range, dryer, HVAC, pool, workshop","Big loads get their own circuit and breaker, sized to the appliance — so the dryer never shares with the water heater, and a new appliance never overloads an old circuit.","Panel & EV packages"] ]},
+ {name:"Troubleshooting & Repairs",short:"Repairs",sub:"Something wrong? Start here. Sharma finds the cause — a tripping breaker is a symptom, not the problem — makes it safe, and fixes it.",items:[
+  ["Dead outlet or dead room — circuit tracing","Power stops somewhere; we find where. The circuit is traced from the panel out until the break, failed device or loose connection shows itself — then it's repaired and tested.","Repairs package"],
+  ["Tripping breaker — find the cause","A breaker trips for a reason: an overloaded circuit, a short, a ground fault, or a breaker at the end of its life. Sharma finds which one it is and fixes that — a bigger breaker is never the answer.","Repairs package"],
+  ["Flickering lights & loose connections","Lights that flicker, dim when the AC starts, or buzz are telling you about a loose or failing connection somewhere. Tracked down and made right before it becomes heat damage.","Repairs package"],
+  ["Burning smell, buzzing or sparking — made safe","Treat these as urgent. The circuit gets made safe first — then diagnosed and repaired. If you ever see flames or smoke, call 911 first, then us.","Repairs package"],
+  ["Switch, outlet & fixture replacement","The device that crackles, sits loose in the wall, lost its grip on plugs, or just quit. Tested, replaced with the right modern device — GFCI or tamper-resistant where it belongs.","Repairs package"],
+  ["Panel & service check — half the house out","When half the home loses power, the problem is often at the service — a lost leg at the meter combo or the panel. Sharma checks the service and panel and tells you straight what it is.","Repairs package"],
+  ["Storm-damaged mast or service entrance — made safe","After a storm: a bent mast, a weatherhead pulled off the wall, or service wires sagging or down. Never touch any of it — a downed or damaged line can be live; stay well away and call the power company (or 911 if it's sparking or on the ground). The mast, weatherhead and service entrance are the homeowner's equipment: Sharma repairs or replaces them and coordinates the utility's disconnect and reconnect so power comes back safely.","Repairs & Panel packages"] ]},
+ {name:"Legrand Designer Switches & Outlets",short:"Legrand designer",sub:"The devices you touch every day, finished like furniture. Two Legrand collections Sharma installs: radiant — clean, screwless, goes with everything; adorne — the designer line, with paddle, wave and touch switches and pop-out outlets.",items:[
+  ["Legrand radiant® switches & dimmers","The radiant collection's clean look: low-profile switches and LED dimmers under screwless wall plates — no visible screws, no dated toggle switches. The easiest whole-room refresh there is, and it pairs with the dimmers in the Lighting package.","Lighting & Designer packages"],
+  ["Legrand radiant® outlets — GFCI, TR & USB","Radiant receptacles with the same screwless finish — including GFCI for kitchen and bath, tamper-resistant for living areas, and USB charging outlets for counters and nightstands. Safety spec, designer face.","Safety & Designer"],
+  ["Legrand adorne® switches — Paddle, Wave & touch","adorne is Legrand's designer line: wide Paddle switches, Wave switches you turn on with a hand movement, and touch and sofTap controls — in finishes that match the room instead of disappearing into it. A statement at every doorway.","Designer upgrade"],
+  ["Legrand adorne® pop-out outlets","The adorne pop-out outlet sits flush in the wall until you push it — then it pops out with receptacles on three sides. Made for kitchen islands and backsplashes, where a standard outlet breaks up the tile or stone.","Designer upgrade"],
+  ["Legrand screwless wall plates — radiant & adorne","The finishing piece for both collections: screwless plates in matching finishes (including adorne's real-material plates — wood, metal, leather looks). Swapping plates alone modernizes a room in an afternoon.","Designer upgrade"] ]}
+];
+var CZCHOICES=[
+ {key:"panel-now",label:"Your panel today — best guess (Sharma confirms on site)",pkgs:["panel"],opts:["Fuse box","100A panel","150A panel","200A — but full or tired","Not sure"]},
+ {key:"service-size",label:"Service size — if you have a preference",pkgs:["panel"],opts:["200A is the standard","Ask me about 400A","Not sure — Sharma advises"]},
+ {key:"surge-panel",label:"Whole-home surge protection",pkgs:["panel"],opts:["Include it","Already have it","Not sure"]},
+ {key:"urgency-panel",label:"How urgent is it?",pkgs:["panel"],opts:["Breakers trip now","Planning a big addition (EV / hot tub / AC)","Planning ahead — not urgent"]},
+ {key:"detectors",label:"Smoke & CO detectors today",pkgs:["safety"],opts:["Replace them all","Add the missing ones","None that I know of","Not sure"]},
+ {key:"gfci-areas",label:"Where do you want GFCI protection checked?",pkgs:["safety"],opts:["Kitchen & bathrooms","Garage & outdoors too","Everywhere code asks","Not sure"]},
+ {key:"kids",label:"Young kids at home? (tamper-resistant outlets)",pkgs:["safety"],opts:["Yes — TR outlets matter","No","Grandkids visit"]},
+ {key:"rooms",label:"Which rooms?",pkgs:["lighting"],opts:["Kitchen","Living room","Bedrooms","Outside","Whole home"]},
+ {key:"fans",label:"Ceiling fans",pkgs:["lighting"],opts:["1 fan","2–3 fans","4 or more","None — lighting only"]},
+ {key:"control",label:"Controls — if you have a preference",pkgs:["lighting"],opts:["Dimmers","Smart switches","Keep it simple","No preference — Sharma recommends"]},
+ {key:"ev-status",label:"The EV situation",pkgs:["power"],opts:["Have an EV now","EV on order","Just want the garage ready"]},
+ {key:"charger-style",label:"Charger hookup — if you have a preference",pkgs:["power"],opts:["NEMA 14-50 outlet","Hardwired wall charger","Not sure — advise me"]},
+ {key:"generator",label:"Generator plans",pkgs:["power"],opts:["Want inlet + interlock","Already own a portable generator","Thinking about a standby generator","No generator — EV only"]},
+ {key:"problem",label:"What's happening?",pkgs:["repair"],opts:["Dead outlet or whole room","Breaker keeps tripping","Flickering or dimming lights","Burning smell / buzzing / sparking","Something else"]},
+ {key:"urgency-repair",label:"How urgent is it?",pkgs:["repair"],opts:["Safety concern — as soon as possible","This week","Whenever — it's an annoyance"]}
+];
+</script>
+
+<script>
+var GUIDE=[
+ {title:"★ Find Your Exterior Main Shut-Off",scene:"Do this once, before you ever need it",cat:0,img:"assets/img-3b98c4f21cc5.webp",alt:"Electric meters and exterior disconnect boxes mounted on the outside wall of a home — where the main shut-off lives",getq:"panel",
+  what:"Somewhere outside your home — at the meter, or in a meter combo box like the services Sharma installs — there should be one main breaker that shuts off ALL power to the house. Look for a breaker marked SERVICE DISCONNECT or MAIN. That switch is for the worst moments: a burning smell at the panel, sparking, flooding near electrical equipment, or a fire crew needing your power dead before they work. Knowing where it is — and that it works — is the single most useful electrical fact about your home.",
+  why:["Where to look: the meter base or meter combo on the outside wall, or a disconnect box right next to it — like the boxes under the meters in the photo. The breaker is usually larger than the others and labeled SERVICE DISCONNECT.","Make it a household fact: everyone who lives in the home should know where this switch is and what it does — in a real emergency there is no time to go looking for it.","Flip it once a year so it doesn't seize up — a main that won't move in an emergency is no main at all.","No exterior disconnect at all? Current code — the NEC (NFPA 70), NFPA and your local ordinances — calls for an exterior emergency/service disconnect so first responders can kill power from outside. If your home doesn't have one, it's likely not up to current code — it predates the requirement — and the right move is to bring the house up to code: have Sharma install an exterior service disconnect, usually as part of panel or service work."],
+  callout:"<b>Your 2-minute homework:</b> walk outside, find the meter, and look for the breaker marked <b>SERVICE DISCONNECT</b>. Found it? You're set. Nothing there? Put a panel/service visit on your list — and ask Sharma about adding an exterior disconnect.",
+  pkgs:"Panel Upgrade & Home Safety packages"},
+ {title:"Your Panel Is the Heart of the Home",scene:"Every circuit in your house starts here",cat:0,img:"assets/img-6e88e3084f06.webp",alt:"A Siemens 200A breaker panel with every circuit labeled",
+  what:"Every light, outlet and appliance in your home gets its power through one box: the breaker panel. The utility feed comes into the main breaker, and from there each circuit breaker feeds one part of the house — kitchen, AC, dryer, bedrooms. A breaker's real job is protecting the wire in your walls: if a circuit pulls more than the wire can carry, the breaker trips and cuts power before the wire overheats. It is a safety device first and a switch second.",
+  why:["A breaker that trips is telling you something — an overloaded circuit, a fault, or a breaker at the end of its life. It is never just being annoying.","Labels matter: a clear circuit directory (like the panel in the photo) means you can kill power to exactly the right circuit, fast.","Everything you might add later — EV charger, hot tub, bigger AC — has to fit in this box. Its size and free spaces decide what's possible.","Fed by an overhead line? Service work starts with the power company: they disconnect the service drop, Sharma does the panel and mast work, inspection passes, and the utility reconnects. Sharma coordinates that sequence — it is scheduling, not just wiring."],
+  pkgs:"Panel Upgrade package"},
+ {title:"100A, 200A or 400A?",scene:"How much power can your home actually use?",cat:0,img:"assets/img-9497faa91380.webp",alt:"An electrician wiring breakers inside a home panel",
+  what:"The number on your main breaker is your home's total power budget — how much electricity the whole house can draw at once. Many older Florida homes were built with 100A service (or a fuse box) for a house with no AC, no pool, no EV and a fraction of today's appliances. A modern all-electric home usually runs on 200A. Very large homes — or homes adding several big loads — step up to 400A, which is really two 200A panels fed by one 400A meter combo. Sharma confirms which size your home needs on site at the quote visit, based on what is actually in your home — never a guess from a photo.",
+  why:["Signs you're out of budget: breakers trip when the AC, dryer and oven run together; lights dim when big loads start; there are no empty breaker spaces left.","Adding an EV charger (50A) or a hot tub to a 100A panel is how overloads happen — the panel question comes first, the charger second.","A 400A service sounds exotic but is standard practice for big homes: Sharma's own drawings use a Siemens 400A meter combo (MC0816B1400RLTM) feeding two 200A panels."],
+  pkgs:"Panel Upgrade package"},
+ {title:"120 Volts vs 240 Volts — The Basics",scene:"Why some things plug in anywhere and some need their own circuit",cat:0,img:"assets/img-6e88e3084f06.webp",alt:"A labeled breaker panel — 120V circuits for lights and outlets, 240V breakers for the big appliances",
+  what:"Your home runs on two flavors of power. 120 volts is the everyday kind: lights, outlets, TVs, chargers — it comes from one 'hot' wire. 240 volts is the heavy-duty kind, made by combining two hot wires, and it's what the big appliances need: the AC, dryer, range, water heater, pool pump and an EV charger. That's why those things don't plug into a regular outlet — they each get a dedicated 240V circuit with a two-pole breaker, sized to the appliance. In Sharma's own work, the range rides on a Siemens QF240A GFCI breaker and the dryer on a Q230GF.",
+  why:["Half the house suddenly out, with some 240V appliances dead too? That's often one of the two hot legs lost at the service — a panel/utility problem, not a bulb problem.","An EV on a regular 120V outlet charges at a crawl (that's 'Level 1'). Level 2 — the overnight charging everyone wants — is a 240V circuit. The voltage is the whole difference.","120V vs 240V is also why 'just use a bigger breaker' is never a fix: the breaker, the wire and the voltage are a matched set, sized to the load."],
+  pkgs:"Good to know"},
+ {title:"What a Panel or Service Upgrade Involves — Step by Step",scene:"No surprises: here's the whole job, in order",cat:0,img:"assets/img-9497faa91380.webp",alt:"An electrician wiring a new breaker panel during an upgrade",
+  what:"Homeowners put off panel upgrades because the process sounds mysterious. It isn't — it's a well-worn sequence Sharma runs start to finish. (1) The quote visit: Sharma looks at your panel, meter and loads in person and confirms the size your home needs. (2) The permit is pulled with your city or county. (3) If your service is overhead, the power company's disconnect is scheduled — Sharma coordinates that, you don't. (4) Work day: power off, old panel out, new Siemens panel in, circuits moved and labeled, surge protection added, grounding checked; mast or service work happens in the same window. (5) Inspection: the inspector signs off. (6) Reconnect: the power company reconnects the service (for overhead homes), power comes back on, and Sharma walks you through the new panel and its directory before leaving.",
+  why:["Most panel swaps are a single work day with power off for part of it — plan for the fridge staying closed and the phones charged.","The power-company and inspection steps are why upgrades are scheduled, not improvised — Sharma sequences all three so the outage stays as short as the job allows.","You end with more than capacity: new breakers throughout, GFCI protection where Sharma's drawings call for it, surge protection at the panel, and a directory where every breaker says what it does."],
+  pkgs:"Panel Upgrade package"},
+ {title:"GFCI & AFCI — Protection You Can't See Working",scene:"The two guards modern code puts in your walls",cat:1,img:"assets/img-0c24b58495a8.webp",alt:"A hallway outlet with a built-in guide light, at floor level",
+  what:"Two inventions quietly guard modern homes. A GFCI watches the current going out and coming back on a circuit; if even a trickle leaks — through water, or through a person — it cuts power in a fraction of a second, fast enough to prevent a serious shock. That's why GFCI outlets (or GFCI breakers) are required anywhere water and power meet: kitchens, baths, garages, laundry and outdoors. An AFCI listens for a different danger: the sparking signature of a damaged wire or loose connection inside a wall — a leading cause of electrical fires — and shuts the circuit down. Sharma's drawings even put the big 240V appliances on GFCI breakers: the range on a Siemens QF240A, the dryer on a Q230GF.",
+  why:["Test GFCIs monthly with their TEST button — a GFCI that won't trip is just an outlet, and it won't tell you it failed.","A dead outlet in a bathroom is often a tripped GFCI hiding in another bathroom or the garage — check there before you call anyone.","Protection belongs at the device or the breaker — either way, it has to match the circuit and the location."],
+  pkgs:"Safety package"},
+ {title:"Surge Protection in Lightning Country",scene:"Central Florida is the lightning capital of the US",cat:0,img:"assets/img-3f1b367e5ade.webp",alt:"A whole-home surge protection device mounted inside a breaker panel, indicator lights on",
+  what:"A surge is a split-second spike in voltage — from a lightning strike nearby, or from the utility switching its own grid. Your electronics ride out small ones and die slowly (or all at once) from big ones. A power strip with a surge light only protects what's plugged into that strip, and only up to a point. A whole-home surge device at the panel catches the spike where power enters the house and guards every circuit at once — including the things that never touch a power strip: the AC, the fridge, the oven, the garage opener.",
+  why:["Florida homes take more lightning exposure than almost anywhere in the country — surge protection here is not an upsell, it's geography.","Panel-level protection plus point-of-use strips for sensitive electronics is the belt-and-suspenders setup.","The device in the photo sits right in the panel with indicator lights, so you can see at a glance that it's still on guard."],
+  pkgs:"Panel Upgrade & Safety packages"},
+ {title:"Smoke & CO Detectors",scene:"The alarms that only get one chance to work",cat:1,img:"assets/img-c86e5ec15352.webp",alt:"A smoke and carbon monoxide detector with a digital display, mounted on a ceiling",
+  what:"Smoke detectors belong inside every bedroom, outside the sleeping areas, and on every level — and hardwired, interconnected ones are the standard that matters: wired into the home's power with battery backup, linked so when one sounds, they all sound. A fire in the kitchen should wake the far bedroom, not just beep politely nearby. Carbon monoxide is the other silent risk — odorless and invisible, from a car in the garage, a gas water heater, or a generator. CO detectors belong near sleeping areas and fuel-burning appliances. And one hard rule: a portable generator never runs in a garage or near an open window — outside only, which is exactly why a generator inlet lives on the outside wall.",
+  why:["Replace the whole detector at 10 years — the sensor ages out even if the test button still beeps.","Battery-only, single-room alarms are the old standard; interconnected hardwired alarms are what Sharma installs.","If your detectors are as old as the house paint, assume they're done — put them on your list."],
+  pkgs:"Safety package"},
+ {title:"EV Charging: Level 1 vs Level 2",scene:"Overnight charging vs. days of waiting",cat:3,img:"assets/img-8f516524a66b.webp",alt:"A Level 2 EV charger on a garage wall, plugged into an electric car",
+  what:"Every EV can charge from a regular wall outlet — that's Level 1, and it adds only about 4–5 miles of range per hour. Fine for a plug-in hybrid; painful for a full EV. Level 2 is a dedicated 240V circuit — the same class of power as your dryer outlet, run to where you park — and it adds roughly 25–40 miles per hour, so the car charges while you sleep and is simply full every morning. The charger itself either plugs into a heavy-duty NEMA 14-50 receptacle or is hardwired to the wall. The part a homeowner can't see is the panel: a 50A circuit is a real load, so Sharma confirms on site that your panel can carry it — and if it can't, the panel upgrade goes in the same quote.",
+  why:["Level 2 is the difference between 'charge when you can' and never thinking about charging at all.","Plug-in (14-50) keeps the charger portable; hardwired is the cleanest, most permanent install. Either is right — it depends on your charger and plans.","A dedicated circuit means the car charges on its own breaker — nothing else shares it, nothing trips at 2 a.m."],
+  pkgs:"EV & Generator package"},
+ {title:"Generator Inlet & Interlock",scene:"Backup power without the dangerous shortcuts",cat:3,img:"assets/img-2636fdb838b4.webp",alt:"A Generac portable generator — the class of machine a 50A home inlet is built for",
+  what:"When the power goes out, a portable generator can run your essentials — fridge, lights, a window AC — if it can get power into the house safely. The safe way is an inlet and an interlock. The inlet is a weatherproof socket on the outside wall: the generator sits outside (where its exhaust can't hurt anyone) and plugs in there. The interlock is a simple mechanical slide on your panel that makes it physically impossible for the generator and the utility to feed the panel at the same time — you slide it one way for street power, the other for generator power, and pick which circuits the generator carries. The dangerous shortcut you've heard about — a cord plugged into a dryer outlet — is called backfeeding: it can send power out onto the street lines and kill a line worker trying to restore your neighborhood. It is illegal, and it is why the interlock exists.",
+  why:["The generator stays outside — carbon monoxide from a generator in a garage has killed Florida families after storms. Outside only, always.","With an interlock, your existing wall outlets and lights just work on the circuits you chose — no extension-cord spaghetti through the house.","Size the plan to the essentials: fridge, some lights, fans or a window AC, phone charging, medical devices first."],
+  callout:"<b>After a storm, the routine is simple:</b> wheel the generator out, plug one cord into the inlet, flip the interlock at the panel, start the generator. The circuits you picked ahead of time come back to life — no cords through windows, no guesswork in the dark.",
+  pkgs:"EV & Generator package"},
+ {title:"Overhead vs Underground Service — Who Owns What",scene:"The wires that feed your house, and where your part starts",cat:0,img:"assets/img-9497faa91380.webp",alt:"An electrician working on a home's electrical service",
+  what:"Power reaches your home one of two ways. Overhead: wires (the 'service drop') run from a pole to your house, where they connect to a pipe called the mast, capped by a weatherhead, and continue as the service entrance cable down to your meter and panel. Underground: the wires run buried from the street to your meter instead. The ownership line surprises people: the service drop itself belongs to the power company — but the mast, the weatherhead, the service entrance cable, the meter base and everything from there into your panel are the HOMEOWNER's equipment. When a storm bends a mast or tears a weatherhead loose, that's a homeowner repair — and it's Sharma's kind of work.",
+  why:["The drop is theirs, the mast is yours: if the wires from the pole are damaged, call the power company. If the pipe on your house is bent, leaning or pulled loose, call an electrician — Sharma.","Storm rule, no exceptions: never touch a downed or damaged line, and keep everyone well away — a line on the ground can be live. Call the power company, or 911 if it's sparking, burning or blocking the street.","Coordination is the hidden half of service work: for a panel upgrade or mast replacement on an overhead home, the power company must disconnect the drop first and reconnect it after inspection. Sharma schedules the disconnect and reconnect with the utility, sequences the mast and service work in the right order, and lines up the permit and inspection — you don't chase the power company yourself."],
+  callout:"<b>After a storm, look up before you call:</b> wires down or sparking → <b>power company / 911, and stay away</b>. Mast bent or weatherhead hanging loose → that's yours — <b>call Sharma at 407 881 9076</b> and we'll coordinate the utility side too.",
+  pkgs:"Panel Upgrade & Repairs packages"},
+ {title:"Dryer & Range Wiring: 3-Wire vs 4-Wire",scene:"Why the plug behind your dryer has three slots — or four",cat:3,img:"assets/img-6e88e3084f06.webp",alt:"A breaker panel with the range and dryer on their own 240V breakers",
+  what:"Look behind an older dryer or range and you may find a 3-prong plug; a newer one has 4 prongs. That extra prong is a whole chapter of electrical history — and the code behind it matters. Older homes were often wired with 3-wire circuits for the dryer and range, with no separate ground wire, so the appliance's metal frame was connected to the neutral by a small bonding strap inside the appliance. That wasn't a shortcut: older editions of the NEC allowed it, and the NEC (2020 edition, §250.140 Exception — the edition Florida uses) still allows it today, but ONLY on an existing 3-wire circuit that has no separate ground. Any NEW circuit must be 4-wire: two hot wires, a neutral, and a separate ground. On a 4-wire hookup the bonding strap comes OFF, the green ground wire connects to the frame, and the neutral stays completely isolated from the frame and the ground — so the ground only ever carries current during a fault.",
+  why:["The cord has to match the outlet: 3-prong cord for a 3-slot receptacle, 4-prong cord for a 4-slot. Moving a dryer or range from a 3-prong outlet to a 4-prong one means fitting a 4-wire cord AND removing the bonding strap — both steps, not one.","Here's the safety point: if the strap stays on after a 4-wire hookup, neutral current can reach the appliance's metal frame and the home's ground wires — a real shock risk on something you touch every day. Turn the breaker off first, and if you're not sure, have an electrician do it.","A 3-wire circuit isn't automatically an emergency — code allowed it then, and it still does on existing circuits. But if you're remodeling the laundry or kitchen, or running a new dedicated circuit anyway, that's the right time to convert to 4-wire.","Sharma checks the cord and bonding-strap setup on a service call — it takes a minute to look, and it's exactly the kind of quiet mismatch worth catching. This is also why Sharma's work gives the range and dryer their own GFCI breakers (QF240A and Q230GF): big 240V appliances deserve modern protection on modern wiring."],
+  pkgs:"Panel Upgrade package"},
+ {title:"Lighting Circuits vs Appliance Circuits",scene:"Why the lights share, and the big stuff doesn't",cat:2,img:"assets/img-897b15b50803.webp",alt:"A kitchen where lighting circuits and appliance circuits work side by side",
+  what:"Your home's circuits come in two kinds. Lighting and general outlet circuits are the sharers: 15A or 20A, 120V, and one circuit feeds lights and outlets across a room or two — fine, because lights and phone chargers sip power. Appliance circuits are the loners: the range, dryer, AC, water heater, pool pump and EV charger each get a dedicated circuit — their own wire run and their own breaker, usually 240V — because they gulp power for hours at a time. When a circuit diagram looks uneven (one breaker for a whole bedroom's lights, a whole fat breaker just for the dryer), that's not sloppy — that's the design.",
+  why:["Troubleshooting follows the split: a dead light is a shared-circuit problem; a dead dryer is a dedicated-circuit problem. They get diagnosed differently.","Overloads happen when loner loads sneak onto sharing circuits — space heaters and microwaves on bedroom or kitchen outlet circuits are the classic trippers.","Adding a big appliance always means a new dedicated circuit, never 'finding an outlet.' That's the rule Sharma sizes the panel around."],
+  pkgs:"Panel Upgrade & Lighting packages"},
+ {title:"Dedicated Circuits",scene:"Why big appliances don't share",cat:3,img:"assets/img-6e88e3084f06.webp",alt:"A labeled breaker panel — range, dryer, water heater and AC each on their own breakers",
+  what:"A dedicated circuit serves one big load and nothing else: its own wire run, its own breaker, sized to that appliance. The range, dryer, water heater, AC, pool pump and EV charger all live this way — look at the labeled panel in the photo and you'll see each one on its own breaker, including GFCI breakers for the range and dryer in Sharma's work. Sharing is where trouble starts: two big loads on one circuit trip the breaker, or worse, quietly overheat the wire. When you add a big appliance, the question is never 'is there an outlet nearby?' — it's 'does it get its own circuit, and does the panel have room?'",
+  why:["Breaker math is wire math: the breaker protects the wire, so a bigger breaker on the same wire is never a fix — it's the hazard.","Kitchen small-appliance circuits, laundry and baths have their own dedicated-circuit rules in code — Sharma checks them during a panel or safety job.","Adding a workshop, hot tub or second AC? Each one starts with a dedicated circuit and a panel-capacity check."],
+  pkgs:"Panel & EV packages"},
+ {title:"Recessed & Pendant Lighting, Done Right",scene:"Layout first, fixtures second",cat:2,img:"assets/img-897b15b50803.webp",alt:"A kitchen with pendant lights over the island and recessed lights in the ceiling",
+  what:"Good lighting is three layers working together: recessed lights for even, general light; pendants for the island or table — task light and the look everyone notices; and under-cabinet or accent light for the details. The mistakes are all in the layout: recessed cans dropped in a rigid grid (bright spots and shadows where you actually stand), pendants hung at a height that blocks the view across the island, or no dimmer anywhere so every light is either interrogation-bright or off. Sharma lays the lighting out for the room and how you use it, and puts it on LED-compatible dimmers that don't flicker or buzz.",
+  why:["Dimmers change a room more than the fixtures do — bright for cooking, low for dinner, from the same lights.","Modern LED recessed lights are slim, sealed and dimmable — nothing like the old hot can lights with their attic heat leaks.","Tell us in your notes which rooms feel dark or dated — the layout conversation starts there, at the quote visit."],
+  pkgs:"Lighting & Fans package"},
+ {title:"Ceiling Fans Need Fan-Rated Boxes",scene:"The hidden part that holds the fan up",cat:2,img:"assets/img-26978ffa2ce0.webp",alt:"A ceiling fan in a bright living room with recessed lighting",
+  what:"A ceiling fan is not a light fixture. It weighs 20–50 pounds, it spins, and it wiggles for years — so the electrical box in the ceiling must be rated for a fan, with bracing that carries the weight and the motion. Homes are full of fans hung from ordinary light boxes by a previous installer; they hold — until the day they don't. A proper install uses a fan-rated box and brace, balances the blades so the fan runs wobble-free, and adds a wall control for speed and light so nobody is yanking pull chains in the dark. In Florida, a good fan also earns its keep: moving air lets you set the AC a few degrees warmer and feel the same.",
+  why:["A wobble is a message — the box, the mount or the blades need attention; it doesn't fix itself.","Fan size follows room size, and downrod length follows ceiling height — Sharma confirms both at the quote visit.","Replacing a light with a fan where there's no fan-rated box is a box upgrade first, fan second — that's the right order."],
+  pkgs:"Lighting & Fans package"},
+ {title:"Outdoor & Landscape Lighting",scene:"The home's second shift starts at dusk",cat:2,img:"assets/img-a7a74770665e.webp",alt:"A home at dusk with path lights and landscape accent lighting",
+  what:"Landscape lighting does three jobs at once: it makes the home look its best after dark, it lights the paths and steps people actually walk on, and a lit home is a less inviting target. Modern systems are low-voltage LED — path lights along the walk, accent spots washing palms and the front of the house — run from a transformer on a timer or a dusk-to-dawn sensor, so the yard lights itself every evening and you never think about it. It pairs naturally with outdoor GFCI receptacles: the outlets that feed outdoor lighting and tools need ground-fault protection, because outdoors is where water and power meet most.",
+  why:["Low-voltage means the cable in the beds is 12V — efficient, and the fixtures are small and aimable.","Put the transformer on a timer or photocell from day one; a system you have to switch on manually stops getting switched on.","Walkway and step lighting is safety work disguised as curb appeal — guests and grandparents notice."],
+  pkgs:"Lighting & Fans package"},
+ {title:"Warning Signs: When It's Not a DIY",scene:"The smells, sounds and sparks that mean call",cat:4,img:"assets/img-f28cf4796e33.webp",alt:"An electrician testing a faulty outlet with a multimeter",
+  what:"Electricity gives warnings before it gives fires — learn the short list. A burning or fishy smell near an outlet or the panel. Sparking when you plug something in, or scorch marks on an outlet. Outlets or switch plates that feel warm. A buzzing or sizzling sound from the panel. Breakers that trip again and again. A tingle or shock from an appliance or faucet. Any of these means the circuit comes off and a licensed electrician looks at it — these are the exact calls Sharma's troubleshooting visits exist for. And the line is bright: if you ever see flames or smoke, get out and call 911 first. Call us after.",
+  why:["A tripping breaker is protection working — resetting it over and over without finding the cause defeats the protection.","Warm outlets and burning smells are heat where heat should never be; they don't heal, they grow.","Half the house suddenly dark can be a lost power leg at the service — a utility/panel problem, not a bulb problem."],
+  callout:"<b>Right now, not later:</b> sparking, a burning smell, or a hot panel — turn the circuit off at the breaker if you can do it without touching anything damaged, and call Sharma at <b>407 881 9076</b>. Flames or smoke: <b>911 first</b>.",
+  pkgs:"Repairs package"},
+ {title:"After You Submit",scene:"What Sharma does next, step by step",cat:-1,img:"assets/img-9497faa91380.webp",alt:"An electrician at work inside a home's breaker panel",
+  what:"Your list lands with Sharma — here's the road from tap to finished work. We read your picks and notes and call you back. Then a quote visit at your home: Sharma looks at the panel and the work in person, confirms panel capacity and sizing on site, and talks through options. You get a priced quote — permits and inspections handled by Sharma where the work requires them — and on approval the work is scheduled and done, with every new breaker labeled before we leave.",
+  why:["Step 1 — Call back: we confirm your list and book the quote visit.","Step 2 — Quote visit: panel checked, capacity and sizing confirmed on site, options priced.","Step 3 — The work: permitted where required, installed, tested, labeled.","Step 4 — Walkthrough: you see what was done and how everything works before we leave."],
+  pkgs:"Every package"},
+ {title:"Myth vs Fact",scene:"Four things we hear every week",cat:-1,img:"assets/img-d6ca1025a5ec.webp",alt:"A kitchen ceiling full of recessed lights",
+  what:"Four classics — and what actually happens in Florida homes.",
+  why:[],
+  myths:[["If the breaker trips, just keep resetting it — it's only annoying.","Myth — a breaker trips because something is wrong: an overload, a short, a ground fault, or a dying breaker. Resetting without finding the cause lets the problem keep heating up inside your walls."],
+   ["A power strip with a surge light protects my whole home.","Myth — a strip protects only what's plugged into it, and only against small spikes. The AC, fridge and oven never touch a strip. Panel-level surge protection guards every circuit in the house at once."],
+   ["During an outage I can plug my generator into the dryer outlet.","Myth — and a dangerous one. That's backfeeding: it can energize the lines outside your home and kill a line worker. An inlet box with a panel interlock is the safe, legal connection — and easier to use."],
+   ["Tamper-resistant outlets are a gimmick that just makes plugs hard to insert.","Myth — the shutters open only when a real plug pushes both slots evenly, which a child's key or fork can't do. They're the code standard in homes today because they quietly prevent shocks."]],
+  pkgs:"Good to know"}
+];
+var GACC=[["#2563a8","#8fbde9","#fff"],["#e86a10","#ffa25e","#fff"],["#2e7d6b","#8fd0bd","#fff"],["#476c7d","#a9c6d2","#fff"],["#d99a16","#f5b841","#16233a"],["#0e7c86","#93d5dc","#fff"],["#c2431f","#f09a7e","#fff"],["#2563a8","#8fbde9","#fff"],["#e86a10","#ffa25e","#fff"],["#2e7d6b","#8fd0bd","#fff"],["#476c7d","#a9c6d2","#fff"],["#7a4f21","#e8c893","#fff"],["#16233a","#f5b841","#fff"],["#2e7d6b","#8fd0bd","#fff"]];
+</script>
+
+<script>
+var state={pkg:null,adds:{},cat:0,query:"",lv:false,quiz:{reason:"",detail:"",location:"",panel:"",service:"",home:"",additions:"",timeline:""}};
+function $(id){return document.getElementById(id)}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2400)}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function switchView(n){document.querySelectorAll("[data-view]").forEach(function(x){x.classList.toggle("on",x.getAttribute("data-view")===n)});document.querySelectorAll(".view").forEach(function(v){v.classList.toggle("on",v.id==="view-"+n)});}
+function scrollToViewTop(){var menu=$("topMenu");var mh=menu?menu.offsetHeight:60;var main=document.querySelector("main");if(!main)return;var y=main.getBoundingClientRect().top+(window.scrollY||window.pageYOffset||0)-mh-2;if(y<0)y=0;try{window.scrollTo({top:y,left:0,behavior:"auto"});}catch(e){window.scrollTo(0,y);}}
+function goToView(n){switchView(n);scrollToViewTop();}
+document.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){goToView(b.getAttribute("data-view"));});});
+function showView(n){goToView(n);}
+$("btnDetails").addEventListener("click",function(){showView("products");});
+function renderPkgs(){
+ $("pkgGrid").innerHTML=PACKAGES.map(function(p){
+ return '<article class="pkg'+(p.pop?" pop":"")+'" id="pkg-'+p.id+'">'
+ +(p.pop?'<span class="badge-pop">★ Most common upgrade</span>':"")
+ +'<img loading="lazy" class="pkg-img" src="'+PKGIMG[p.id]+'" alt="'+PKGALT[p.id]+'"/>'
+ +pkgRow(p.id)
+ +'<div class="body">'+pkgBadge(p.id)+'<div class="tier">'+p.tier+'</div><h3>'+p.name+'</h3><p class="for">'+p.for+'</p><span class="count">'+p.count+'</span>'
+ +'<p class="bestfor"><b>Decide:</b> '+PKGBEST[p.id]+'</p><p class="whyline"><b>Why it matters:</b> '+PKGWHY[p.id]+'</p><div class="spacer"></div>'
+ +'<button class="link-btn" type="button" data-details="'+p.id+'">See all items →</button>'
+ +'<button class="btn btn-primary pick-btn" type="button" data-pick="'+p.id+'" aria-pressed="false">Choose this package</button></div></article>';
+ }).join("");
+ document.querySelectorAll("[data-pick]").forEach(function(btn){btn.addEventListener("click",function(){var id=btn.getAttribute("data-pick");state.pkg=(state.pkg===id)?null:id;if(state.pkg&&cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];toast(p?("Added: "+p.name):"Package removed");});});
+ document.querySelectorAll("[data-details]").forEach(function(btn){btn.addEventListener("click",function(){openPkgSheet(btn.getAttribute("data-details"))});});
+ renderSel();
+}
+function openSheet(html){$("sheetBody").innerHTML=html;$("sheetWrap").classList.add("open");$("sheetWrap").setAttribute("aria-hidden","false");document.querySelector(".sheet").scrollTop=0;}
+function closeSheet(){$("sheetWrap").classList.remove("open");$("sheetWrap").setAttribute("aria-hidden","true");}
+$("sheetBg").addEventListener("click",closeSheet);$("sheetClose").addEventListener("click",closeSheet);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSheet();});
+function pkgHighlights(p){var idx=PACKAGES.indexOf(p);var out=[];COMPARE.forEach(function(r){if(r[idx+1].indexOf("✓")===0)out.push(r[0]);});return out;}
+function openPkgSheet(id){
+ var p=PACKAGES.filter(function(x){return x.id===id})[0];var on=state.pkg===id;var hl=pkgHighlights(p);
+ openSheet('<div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">'+p.tier+'</div>'
+ +'<h2>'+p.name+'</h2><p class="sub">'+p.for+' · '+p.count+'</p>'
+ +'<img loading="lazy" class="pkg-photo" src="'+PKGIMG[p.id]+'" alt="'+PKGALT[p.id]+'"/>'
+ +'<p class="sub" style="margin-bottom:4px"><b style="color:var(--ink)">Decide:</b> '+PKGBEST[p.id]+'</p>'
+ +'<p class="sub" style="margin-bottom:4px"><b style="color:var(--orange)">Why it matters:</b> '+PKGWHY[p.id]+'</p>'
+ +'<h3 class="mini">In plain English</h3><ul class="hl">'+p.bullets.map(function(b){return "<li>"+b+"</li>"}).join("")+'</ul>'
+ +'<h3 class="mini">Everything included</h3><ul class="items">'+p.items.map(function(i){return "<li>"+i+"</li>"}).join("")+'</ul>'
+ +(hl.length?'<h3 class="mini">At a glance</h3><ul class="hl">'+hl.map(function(h){return "<li>"+h+"</li>"}).join("")+"</ul>":"")
+ +'<p class="sub">Sharma confirms the final scope — and your panel capacity and sizing — on site at the quote visit, then quotes the work.</p>'
+ +'<button class="btn btn-primary" style="width:100%" type="button" id="sheetPick">'+(on?"✓ Selected — tap to remove":"Choose this package")+'</button>');
+ $("sheetPick").addEventListener("click",function(){state.pkg=on?null:id;if(state.pkg&&cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();closeSheet();toast(state.pkg?("Added: "+p.name):"Package removed");});
+}
+(function(){
+ var head="<thead><tr><th>What is included</th>"+PACKAGES.map(function(p){return '<th class="'+(p.pop?"pop":"")+'">'+p.name+"</th>"}).join("")+"</tr></thead>";
+ var body=COMPARE.map(function(r){return "<tr><td>"+r[0]+"</td>"+r.slice(1).map(function(v){return '<td class="'+(v.indexOf("✓")===0?"yes":"no")+'">'+v+"</td>"}).join("")+"</tr>"}).join("");
+ $("compareTable").innerHTML=head+"<tbody>"+body+"</tbody>";
+})();
+
+var BESTFOR=["Best for: the capacity everything else depends on","Best for: protection you never think about again","Best for: the upgrade you see every day","Best for: new loads done safely","Best for: finding the real cause, not the symptom","Best for: devices that look as good as they work"];
+var ICONS=[
+ '<svg viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>',
+ '<svg viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 0 0 12 0V3"/><path d="M9 3v4M15 3v4M12 16v5"/></svg>',
+ '<svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.5 1 2.5h6c0-1 .2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>',
+ '<svg viewBox="0 0 24 24"><path d="M7 3v4M17 3v4M5 7h14v4a7 7 0 0 1-14 0z"/><path d="M12 18v3"/></svg>',
+ '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v3l2 2"/></svg>',
+ '<svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M12 8v5"/></svg>'];
+var P="assets/products/";
+function prodImg(name){
+ if(/radiant/.test(name))return P+"legrand-radiant.jpg";
+ if(/adorne/.test(name))return P+"legrand-adorne.jpg";
+ if(/Siemens 200A panel/.test(name))return "assets/img-6e88e3084f06.webp";
+ if(/surge/.test(name))return P+"surge.jpg";
+ if(/smoke detectors/.test(name))return "assets/img-c86e5ec15352.webp";
+ if(/Carbon monoxide/.test(name))return "assets/img-c86e5ec15352.webp";
+ if(/Guide-light/.test(name))return P+"guidelight.jpg";
+ if(/Recessed/.test(name))return P+"recessed1.jpg";
+ if(/Pendant/.test(name))return "assets/img-897b15b50803.webp";
+ if(/Ceiling fan installation/.test(name))return "assets/img-26978ffa2ce0.webp";
+ if(/Fan & light wall control/.test(name))return P+"fanswitch.jpg";
+ if(/Dimmers & smart/.test(name))return P+"moes-dimmer.jpg";
+ if(/Outdoor & landscape/.test(name))return "assets/img-a7a74770665e.webp";
+ if(/EV charger circuit/.test(name))return P+"evcharger.jpg";
+ if(/NEMA 14-50/.test(name))return P+"evready.jpg";
+ if(/Generac/.test(name))return P+"genport.jpg";
+ if(/Dedicated circuits/.test(name))return "assets/img-6e88e3084f06.webp";
+ if(/Dead outlet/.test(name))return "assets/img-f28cf4796e33.webp";
+ return null;
+}
+var WHYCAT=["The panel is the budget and the safety system for every circuit in the house — its size and condition decide what your home can safely do.","These are the devices between your family and the two quiet dangers: shock and undetected smoke or CO.","Lighting and fans are the upgrade you see and feel every day — layout and the right boxes matter more than the fixture price.","New big loads are where panels get overloaded. A dedicated, correctly sized circuit is what makes an EV charger or generator safe.","A fault you can see is a symptom. Finding the cause is what keeps it from coming back — or getting worse.","Switches and outlets are the only part of your electrical system you touch every day — designer devices turn a commodity part into part of the room."];
+$("catChips").innerHTML=CATS.map(function(c,ci){return '<button type="button" data-cat="'+ci+'" class="'+(ci===0?"on":"")+'">'+c.short+' ('+c.items.length+')</button>';}).join("");
+function setCat(ci){state.cat=ci;document.querySelectorAll("[data-cat]").forEach(function(x){x.classList.toggle("on",+x.getAttribute("data-cat")===ci)});renderProds();}
+document.querySelectorAll("[data-cat]").forEach(function(b){b.addEventListener("click",function(){setCat(+b.getAttribute("data-cat"));});});
+document.querySelectorAll("[data-decide]").forEach(function(b){b.addEventListener("click",function(){state.query="";$("prodSearch").value="";setCat(+b.getAttribute("data-decide"));});});
+$("prodSearch").addEventListener("input",function(){state.query=this.value.trim().toLowerCase();renderProds();});
+function prodName(key){var p=key.split("-");return CATS[+p[0]].items[+p[1]][0]}
+function legrandShowHTML(){
+ function addBtn(k){var on=!!state.adds[k];return '<button type="button" class="add-btn'+(on?" added":"")+'" data-add="'+k+'">'+(on?"✓ Added":"Add")+"</button>"}
+ return '<div class="lg-show"><h3 style="font-size:24px;text-transform:uppercase;margin:2px 2px 4px">Legrand designer switches &amp; outlets</h3>'
+ +'<p class="cat-sub" style="margin-bottom:10px">Two collections, one idea: the devices you touch every day should look as finished as the rest of the room. No prices — add what you like and Sharma quotes it with your project.</p>'
+ +'<div class="lg-grid">'
+ +'<div class="lg-card"><img loading="lazy" src="'+P+'legrand-radiant.jpg" alt="A Legrand radiant screwless white outlet — clean, low-profile, no visible screws"/><div class="lg-body"><span class="lg-tag">The clean upgrade</span><h4>Legrand radiant®</h4>'
+ +'<p>Screwless-look switches, dimmers and outlets with a low-profile design that goes with everything. The easiest whole-home device refresh there is.</p>'
+ +'<ul><li><b>Devices:</b> switches, LED dimmers, outlets, GFCI, tamper-resistant &amp; USB outlets, fan controls</li><li><b>Finishes:</b> White, Light Almond, Black, Gray, Nickel and Brown — with matching screwless wall plates</li><li><b>Why it matters:</b> every switch and outlet in the house matches, with no visible screws and no dated toggles — the room looks finished at a glance.</li></ul>'
+ +'<div class="row" style="display:flex;align-items:center;gap:8px"><span style="flex:1"></span>'+addBtn("5-0")+'</div></div></div>'
+ +'<div class="lg-card lux"><img loading="lazy" src="'+P+'legrand-adorne.jpg" alt="A Legrand adorne paddle dimmer in magnesium with a designer wall plate — the luxury collection"/><div class="lg-body"><span class="lg-tag">The luxury line ★</span><h4>Legrand adorne®</h4>'
+ +'<p>Legrand\'s designer collection — a square, architectural look with switches that work like nothing else in the house. This is the luxury upgrade.</p>'
+ +'<ul><li><b>Devices:</b> Paddle, Wave (wave a hand past it), Whisper and touch switches &amp; dimmers, pop-out outlets, USB outlets</li><li><b>Finishes:</b> White, Magnesium and Graphite devices, with designer wall plates including real wood, metal and leather-look finishes</li><li><b>Why it matters:</b> switches become part of the design — guests notice them, and the pop-out outlet keeps a kitchen backsplash clean until the moment you need power.</li></ul>'
+ +'<div class="row" style="display:flex;align-items:center;gap:8px"><span style="flex:1"></span>'+addBtn("5-2")+'</div></div></div>'
+ +'</div>'
+ +'<table class="lg-compare"><thead><tr><th></th><th>Standard</th><th>radiant®</th><th>adorne®</th></tr></thead><tbody>'
+ +'<tr><td>Look</td><td>Basic toggle / rocker, builder standard</td><td>Clean and low-profile, screwless look</td><td>Designer square — a statement piece</td></tr>'
+ +'<tr><td>Wall plates</td><td>Visible screws</td><td>Screwless, color-matched</td><td>Screwless designer plates, incl. wood &amp; metal</td></tr>'
+ +'<tr><td>Switch styles</td><td>Toggle or paddle</td><td>Paddle switches &amp; dimmers</td><td>Paddle, Wave, Whisper, touch</td></tr>'
+ +'<tr><td>Best for</td><td>Like-for-like replacements</td><td>A whole-home refresh</td><td>Kitchens, primary suites, statement rooms</td></tr>'
+ +'<tr><td>Tier</td><td>Everyday</td><td>Upgraded</td><td>Luxury</td></tr>'
+ +'</tbody></table></div>';
+}
+function renderProds(){
+ var _py=window.scrollY||window.pageYOffset||0;
+ var html="",any=false;
+ if(state.query===""&&state.cat===5){html+=legrandShowHTML();any=true;}
+ CATS.forEach(function(c,ci){
+   if(state.query===""&&ci!==state.cat)return;
+   c.items.forEach(function(it,ii){
+     var key=ci+"-"+ii;
+     if(state.query&&(it[0]+" "+it[1]+" "+BESTFOR[ci]).toLowerCase().indexOf(state.query)<0)return;
+     any=true;var on=!!state.adds[key];var img=prodImg(it[0]);
+     var thumb=img?('<img class="thumb" src="'+img+'" alt="" loading="lazy"/>'):('<span class="thumb tile" aria-hidden="true">'+ICONS[ci]+'</span>');
+     html+='<div class="prod'+(on?" added":"")+'"><div class="top">'+thumb+'<div class="info"><h4>'+it[0]+'</h4><p class="desc">'+esc(it[1])+'</p><p class="whyline"><b>Why it matters:</b> '+WHYCAT[ci]+'</p><div class="tags"><span class="tag best">'+BESTFOR[ci]+'</span><span class="tag">Included in: <b>'+it[2]+'</b></span></div></div></div>'
+       +'<div class="row"><span class="spacer"></span>'
+       +(on?'<span class="qty show"><button type="button" data-dec="'+key+'" aria-label="One less">−</button><b>'+state.adds[key]+'</b><button type="button" data-inc="'+key+'" aria-label="One more">+</button></span>':"")
+       +'<button class="add-btn'+(on?" added":"")+'" type="button" data-add="'+key+'">'+(on?"✓ Added":"Add")+'</button></div></div>';
+   });
+ });
+ if(!any)html='<div class="empty-note">No options match — try a different search.</div>';
+ $("prodList").innerHTML=html;
+ $("catSub").textContent=state.query?"Searching everywhere.":CATS[state.cat].sub;
+ document.querySelectorAll("[data-add]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-add");if(state.adds[k])delete state.adds[k];else state.adds[k]=1;renderSel();renderProds();})});
+ document.querySelectorAll("[data-inc]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-inc");state.adds[k]=(state.adds[k]||1)+1;renderSel();renderProds();})});
+ document.querySelectorAll("[data-dec]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-dec");state.adds[k]=(state.adds[k]||1)-1;if(state.adds[k]<1)delete state.adds[k];renderSel();renderProds();})});
+ var _ny=window.scrollY||window.pageYOffset||0;if(Math.abs(_ny-_py)>1){try{window.scrollTo({top:_py,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,_py);}}
+}
+function selCount(){return (state.pkg?1:0)+(cz.base?1:0)+Object.keys(state.adds).length}
+function renderSel(){
+ PACKAGES.forEach(function(p){var card=$("pkg-"+p.id);if(!card)return;var btn=card.querySelector("[data-pick]");var on=state.pkg===p.id;card.classList.toggle("selected",on);btn.setAttribute("aria-pressed",on?"true":"false");btn.textContent=on?"✓ Selected — tap to remove":"Choose this package";btn.classList.toggle("added",on);});
+ var n=selCount();$("barCount").textContent=n;var label="My list is empty";
+ if(cz.base){label=cz.base==="scratch"?"Custom — from scratch":("Custom — based on "+czPkg().name)+(Object.keys(state.adds).length?" + extras":"");}
+ else if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];label=p.name+(Object.keys(state.adds).length?" + extras":"");}
+ else if(n)label="Options only — no package yet";
+ $("barLabel").textContent=label;
+}
+function selListHTML(){
+ var html="";
+ if(cz.base){var cs=czSummary();
+   if(cz.base==="scratch"){html+='<div class="sel-item"><div><b>CUSTOM — BUILT FROM SCRATCH</b><small>Tell Sharma about your home below — we\'ll recommend the right work to match.</small></div><button class="x2" type="button" data-rm-cz>Remove</button></div>';}
+   else{var cp=czPkg();html+='<div class="sel-item"><div><b>CUSTOM — based on '+cp.name+'</b><small>'+cs.kept.length+" of "+cp.items.length+" items kept</small>"+(cs.removed.length?("<small>Removed: "+cs.removed.map(esc).join("; ")+"</small>"):"")+(cs.choices.length?("<small>Your answers: "+cs.choices.map(esc).join("; ")+"</small>"):"")+'</div><button class="x2" type="button" data-rm-cz>Remove</button></div>';}}
+ if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];html+='<div class="sel-item"><div><b>PACKAGE: '+p.name+'</b><small>'+p.count+" · "+p.for+'</small></div><button class="x2" type="button" data-rm-pkg>Remove</button></div>';}
+ Object.keys(state.adds).forEach(function(k){html+='<div class="sel-item"><div>'+esc(prodName(k))+(state.adds[k]>1?(" × "+state.adds[k]):"")+'</div><button class="x2" type="button" data-rm="'+k+'">Remove</button></div>';});
+ if(!html)html='<div class="sel-empty">Nothing picked yet — choose a package or add options, then come back here.</div>';
+ return html;
+}
+function openListSheet(){
+ openSheet('<h2>My electrical list</h2><p class="sub">Nothing is ordered yet — this list goes to Sharma. We check your panel and the work at your home, then price it and confirm next steps.</p>'
+ +'<div id="sheetSelList">'+selListHTML()+'</div>'
+ +'<form class="client" id="clientForm" onsubmit="return false">'
+ +'<label>Your name *<input id="fName" autocomplete="name" placeholder="Full name"/></label>'
+ +'<label>Phone<input id="fPhone" autocomplete="tel" placeholder="(407) 555-0123"/></label>'
+ +'<label>Home address<input id="fHome" placeholder="Street, city"/></label>'
+ +'<label>Best time to call<input id="fBestTime" placeholder="e.g. Weekday mornings, or after 5pm"/></label>'
+ +'<label class="full">Anything urgent?<select id="fUrgency"><option>No — planning a project</option><option>No power to part of the home</option><option>A breaker keeps tripping</option><option>Burning smell or sparking — please call me back fast</option><option>Detectors are beeping / alarming</option></select></label>'
+ +'<label class="full">Notes (optional)<textarea id="fNotes" rows="2" placeholder="What is happening at home — the rooms, the problem, what you would like changed"></textarea></label>'
+ +'<p class="full" style="font-size:13px;color:var(--muted);margin:2px 0 0">Optional: a photo of your breaker panel (door open) helps Sharma come prepared — we may ask you to text one after we call.</p>'
+ +'<button type="button" class="lv-line full'+(state.lv?" on":"")+'" id="lvLine"><span class="lv-box">'+(state.lv?"✓":"")+'</span><span><b>Also price my low voltage / smart home options</b><span>Adding lights, switches or outlets? Sharma also does low-voltage smart home work — smart lighting, doorbells, cameras and more (see the Smart Home Picker). Tick this and Sharma prices those options with your electrical work.</span></span></button>'
+ +'</form>'
+ +'<div class="actions"><button class="btn btn-primary" id="btnSubmit" type="button">Send my list to Sharma</button><button class="btn btn-navy" id="btnCopy" type="button">Copy</button><button class="btn btn-outline" id="btnDownload" type="button">Download</button><button class="btn btn-outline" id="btnClear" type="button">Clear all</button></div>'
+ +'<div class="submit-status" id="submitStatus" role="status" aria-live="polite" hidden></div>'
+ +'<p style="font-size:13px;color:var(--muted);margin-top:10px">Tap <b>Send my list to Sharma</b> and it goes straight to Sharma Electric &amp; HVAC from this page — no email app needed. <b>Sharma will call you back.</b> FL Lic. EC13013924 / CAC1823596. Or call <a href="tel:+14078819076">407 881 9076</a>.</p>');
+ bindSheetList();
+ var lvb=$("lvLine");if(lvb)lvb.addEventListener("click",function(){state.lv=!state.lv;lvb.classList.toggle("on",state.lv);lvb.querySelector(".lv-box").textContent=state.lv?"✓":"";toast(state.lv?"Added: Sharma will also price low-voltage / smart home options":"Removed the low-voltage / smart home pricing request");});
+}
+function bindSheetList(){
+ var rp=document.querySelector("[data-rm-pkg]");if(rp)rp.addEventListener("click",function(){state.pkg=null;renderSel();refreshSheetList();});
+ var rc=document.querySelector("[data-rm-cz]");if(rc)rc.addEventListener("click",function(){cz.base="";cz.removed={};cz.choices={};renderCz();renderSel();refreshSheetList();});
+ document.querySelectorAll("[data-rm]").forEach(function(b){b.addEventListener("click",function(){delete state.adds[b.getAttribute("data-rm")];renderSel();renderProds();refreshSheetList();});});
+ $("btnSubmit").addEventListener("click",onSubmit);$("btnCopy").addEventListener("click",onCopy);$("btnDownload").addEventListener("click",onDownload);
+ $("btnClear").addEventListener("click",function(){state.pkg=null;state.adds={};state.lv=false;var lvb2=$("lvLine");if(lvb2){lvb2.classList.remove("on");lvb2.querySelector(".lv-box").textContent="";}cz.base="";cz.removed={};cz.choices={};submitState.sent=false;submitState.sending=false;var sb=$("btnSubmit");if(sb){sb.disabled=false;sb.textContent="Send my list to Sharma";sb.classList.remove("added");}var ss=$("submitStatus");if(ss){ss.hidden=true;ss.textContent="";}renderCz();renderSel();renderProds();refreshSheetList();toast("List cleared");});
+}
+function refreshSheetList(){var el=$("sheetSelList");if(el)el.innerHTML=selListHTML();bindSheetList();}
+$("btnOpenList").addEventListener("click",openListSheet);
+function buildText(){
+ var lines=[];lines.push("SHARMA ELECTRIC & HVAC — HOME ELECTRICAL REQUEST");lines.push("From: Electrical Picker (homeowner — upgrades & service)");lines.push("");
+ if($("fName").value.trim())lines.push("Name: "+$("fName").value.trim());
+ if($("fPhone").value.trim())lines.push("Phone: "+$("fPhone").value.trim());
+ if($("fHome").value.trim())lines.push("Home address: "+$("fHome").value.trim());
+ if($("fBestTime")&&$("fBestTime").value.trim())lines.push("Best time to call: "+$("fBestTime").value.trim());
+ if($("fUrgency")&&$("fUrgency").value)lines.push("Urgency: "+$("fUrgency").value);
+ if(state.lv)lines.push("ALSO PRICE: Low voltage / smart home options — yes, price those with this work.");
+ if(state.quiz.reason)lines.push("Questionnaire — why they came: "+state.quiz.reason);
+ if(state.quiz.detail)lines.push("Questionnaire — details: "+state.quiz.detail);
+ if(state.quiz.location)lines.push("Questionnaire — where in the home: "+state.quiz.location);
+ if(state.quiz.panel)lines.push("Questionnaire — their panel: "+state.quiz.panel);
+ if(state.quiz.service)lines.push("Questionnaire — how power reaches the home: "+state.quiz.service);
+ if(state.quiz.home)lines.push("Questionnaire — home age: "+state.quiz.home);
+ if(state.quiz.additions)lines.push("Questionnaire — new big loads: "+state.quiz.additions);
+ if(state.quiz.timeline)lines.push("Questionnaire — how soon: "+state.quiz.timeline);
+ lines.push("");
+ if(cz.base){var cs2=czSummary();
+   if(cz.base==="scratch"){lines.push("CUSTOM — BUILT FROM SCRATCH");lines.push("The options below are the request. Please recommend the right work to match.");lines.push("");}
+   else{var cp2=czPkg();lines.push("CUSTOM — based on "+cp2.name);lines.push("Items kept ("+cs2.kept.length+" of "+cp2.items.length+"):");cs2.kept.forEach(function(i){lines.push("  • "+i)});if(cs2.removed.length){lines.push("Removed by homeowner:");cs2.removed.forEach(function(i){lines.push("  − "+i)});}if(cs2.choices.length){lines.push("Homeowner answers:");cs2.choices.forEach(function(i){lines.push("  • "+i)});}lines.push("");}}
+ if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];lines.push("PACKAGE: "+p.name+" ("+p.count+")");p.items.forEach(function(i){lines.push("  • "+i)});lines.push("");}
+ var keys=Object.keys(state.adds);
+ if(keys.length){lines.push("ADDITIONAL OPTIONS:");keys.forEach(function(k){lines.push("  • "+prodName(k)+(state.adds[k]>1?(" × "+state.adds[k]):""))});lines.push("");}
+ if($("fNotes").value.trim()){lines.push("NOTES:");lines.push($("fNotes").value.trim());lines.push("");}
+ lines.push("Please confirm panel capacity and sizing at my home, price this work, and confirm next steps.");
+ return lines.join("\n");
+}
+var submitState={sending:false,sent:false};
+function setSubmitStatus(kind,msg){var el=$("submitStatus");if(!el)return;el.hidden=false;el.className="submit-status "+kind;el.textContent=msg;}
+function onSubmit(){
+ if(submitState.sending)return;
+ if(submitState.sent){toast("This list was already sent to Sharma");return;}
+ if(!selCount()){toast("Pick a package or an option first");return;}
+ if(!$("fName").value.trim()){toast("Add your name so Sharma knows who this is from");$("fName").focus();return;}
+ var btn=$("btnSubmit");var name=$("fName").value.trim();
+ var payload={
+  _subject:"Electrical Picker selections — "+name,
+  _template:"table",
+  _captcha:"false",
+  Name:name,
+  Phone:$("fPhone").value.trim(),
+  "Home address":$("fHome").value.trim(),
+  "Best time to call":$("fBestTime").value.trim(),
+  Urgency:$("fUrgency").value,
+  "Also price low voltage / smart home options":state.lv?"Yes":"No",
+  "Questionnaire — why they came":state.quiz.reason,
+  "Questionnaire — details":state.quiz.detail,
+  "Questionnaire — where in the home":state.quiz.location,
+  "Questionnaire — their panel":state.quiz.panel,
+  "Questionnaire — how power reaches the home":state.quiz.service,
+  "Questionnaire — home age":state.quiz.home,
+  "Questionnaire — new big loads":state.quiz.additions,
+  "Questionnaire — how soon":state.quiz.timeline,
+  Notes:$("fNotes").value.trim(),
+  Selections:buildText()
+ };
+ submitState.sending=true;
+ if(btn){btn.disabled=true;btn.textContent="Sending…";}
+ var st=$("submitStatus");if(st){st.hidden=true;st.textContent="";}
+ fetch("https://formsubmit.co/ajax/office@sharmaelectric.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+ .then(function(r){return r.json().catch(function(){return {}}).then(function(data){if(!r.ok||(data&&data.success!==undefined&&String(data.success)!=="true"))throw new Error("submit failed");return data;});})
+ .then(function(){
+   submitState.sending=false;submitState.sent=true;
+   if(btn){btn.disabled=true;btn.textContent="✓ Sent to Sharma";btn.classList.add("added");}
+   setSubmitStatus("ok","Thank you — you're in. Sharma Electric & HVAC will call you back to book your quote visit. If anything is sparking or smells like burning in the meantime, call 407 881 9076 right away — and 911 if you see flames or smoke.");
+   toast("Sent — Sharma will call you back");
+   var bl=$("barLabel");if(bl)bl.textContent=bl.textContent+" · Sent to Sharma";
+ })
+ .catch(function(){
+   submitState.sending=false;
+   if(btn){btn.disabled=false;btn.textContent="Send my list to Sharma";}
+   setSubmitStatus("err","Sorry — your list didn't send. Your list is still here and nothing was lost. Check your connection and tap Send again, or use Copy or Download below and share it with Sharma that way. You can also call 407 881 9076.");
+   toast("Didn't send — your list is still here. Try again, or use Copy / Download.");
+ });
+}
+function onCopy(){if(!selCount()){toast("Pick a package or an option first");return;}var txt=buildText();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast("List copied — paste it anywhere")},function(){fallbackCopy(txt)});}else{fallbackCopy(txt);}}
+function fallbackCopy(txt){var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("List copied")}catch(e){toast("Copy didn't work — use Download instead")}document.body.removeChild(ta);}
+function onDownload(){if(!selCount()){toast("Pick a package or an option first");return;}var blob=new Blob([buildText()],{type:"text/plain"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my-electrical-list.txt";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},2000);toast("Downloaded your list");}
+
+var cz={base:"",removed:{},choices:{}};
+function czPkg(){return PACKAGES.filter(function(x){return x.id===cz.base})[0]||null}
+function czCatOf(item){var s=item.toLowerCase();if(/dead outlet|dead room|keeps tripping|flickering|burning smell|stopped working|wobbles|half the house|switch, outlet or fixture that/.test(s))return 4;if(/ev charger|14-50|generator|interlock|dedicated circuit/.test(s))return 3;if(/recessed|pendant|ceiling fan|fan & light|dimmer|smart switch|landscape|fixture swap|legrand|smart home/.test(s))return 2;if(/gfci receptacle|tamper|smoke|carbon monoxide|guide-light|outlet & switch check|usb/.test(s))return 1;return 0;}
+function czChoicesFor(id){return CZCHOICES.filter(function(c){return c.pkgs.indexOf(id)>=0})}
+function czSummary(){var p=czPkg(),out={kept:[],removed:[],choices:[]};if(p){p.items.forEach(function(it){(cz.removed[it]?out.removed:out.kept).push(it)});}czChoicesFor(cz.base).forEach(function(c){if(cz.choices[c.key])out.choices.push(c.label.split(" — ")[0].split(" (")[0]+": "+cz.choices[c.key]);});return out;}
+function renderCzBases(){
+ var html='<button type="button" class="base-btn'+(cz.base==="scratch"?" on":"")+'" data-base="scratch"><span class="bb-scratch">START FROM SCRATCH</span><span class="bb-t">From scratch<small>Build your own list</small></span></button>';
+ PACKAGES.forEach(function(p){html+='<button type="button" class="base-btn'+(cz.base===p.id?" on":"")+'" data-base="'+p.id+'"><img src="'+PKGIMG[p.id]+'" alt="" loading="lazy"/><span class="bb-t">'+p.name+"<small>"+p.count+"</small></span></button>";});
+ $("czBases").innerHTML=html;
+ document.querySelectorAll("[data-base]").forEach(function(b){b.addEventListener("click",function(){var id=b.getAttribute("data-base");if(cz.base!==id){cz.base=id;cz.removed={};cz.choices={};if(state.pkg)state.pkg=null;}renderCz();renderSel();toast(id==="scratch"?"Starting from scratch — add options below":("Base: "+czPkg().name+" — now make it yours"));});});
+}
+function renderCz(){
+ var _cy=window.scrollY||window.pageYOffset||0;
+ renderCzBases();
+ var open={};document.querySelectorAll("#czMain details[data-g]").forEach(function(d){if(d.open)open[d.getAttribute("data-g")]=1});
+ var html="";
+ if(!cz.base){html='<p class="viewhint" style="margin-top:12px">Pick a starting point above — a package to tailor, or scratch to build your own list.</p>';$("czMain").innerHTML=html;return;}
+ var p=czPkg();
+ if(p){var ch=czChoicesFor(p.id);
+   if(ch.length){html+='<h3 class="cz-h">2 · A few questions</h3><p class="viewhint">Answer what you know — leave anything blank and Sharma will recommend in the quote. Panel capacity and sizing are always confirmed on site.</p>';ch.forEach(function(c){html+='<div class="choice-g"><p class="cl">'+c.label+'</p><div class="seg2">'+c.opts.map(function(o){return '<button type="button" data-choice="'+c.key+'" data-opt="'+esc(o)+'" class="'+(cz.choices[c.key]===o?"on":"")+'">'+o+"</button>"}).join("")+"</div></div>";});}
+   html+='<h3 class="cz-h">'+(ch.length?"3":"2")+' · Keep or remove items</h3><p class="viewhint">Tap a group to open it. Remove anything you don\'t want — you can restore it any time. If something is required for safety or code, Sharma will flag it in the quote.</p>';
+   var groups={};p.items.forEach(function(it){var g=czCatOf(it);(groups[g]=groups[g]||[]).push(it);});
+   Object.keys(groups).sort().forEach(function(g,gi){var items=groups[g],kept=items.filter(function(it){return !cz.removed[it]}).length;html+='<details class="acc" data-g="i'+g+'"'+(open["i"+g]||(!Object.keys(open).length&&gi===0)?" open":"")+'><summary>'+CATS[+g].name+'<span class="meta">'+kept+" of "+items.length+' kept</span></summary><div class="acc-body">'+items.map(function(it){var off=!!cz.removed[it];return '<div class="cz-item'+(off?" off":"")+'"><span>'+esc(it)+'</span><button type="button" class="cz-tog" data-cz-item="'+esc(it)+'">'+(off?"Restore":"Remove")+"</button></div>"}).join("")+"</div></details>";});
+ }
+ var stepNo=p?(czChoicesFor(p.id).length?4:3):2;
+ html+='<h3 class="cz-h">'+stepNo+' · Add extras</h3><p class="viewhint">Anything else from the full list, on top of your base.</p>';
+ CATS.forEach(function(c,ci){html+='<details class="acc" data-g="x'+ci+'"'+(open["x"+ci]?" open":"")+'><summary>'+c.name+'<span class="meta">'+c.items.length+' options</span></summary><div class="acc-body">'+c.items.map(function(it,ii){var k=ci+"-"+ii,on=!!state.adds[k];return '<div class="cz-xrow"><span>'+esc(it[0])+(on&&state.adds[k]>1?(" × "+state.adds[k]):"")+'</span><button type="button" class="add-btn'+(on?" added":"")+'" data-cz-add="'+k+'">'+(on?"✓ Added":"Add")+"</button></div>"}).join("")+"</div></details>";});
+ var cs=czSummary(),nAdds=Object.keys(state.adds).length;
+ html+='<div class="cz-sum"><b>'+(p?("Custom project — based on "+p.name):"Custom — built from scratch")+"</b><br/>"+(p?(cs.kept.length+" of "+p.items.length+" items kept"+(cs.removed.length?(" · Removed: "+cs.removed.length):"")+(cs.choices.length?(" · "+cs.choices.length+" answer"+(cs.choices.length>1?"s":"")+" given"):"")+"<br/>"):"")+(nAdds?nAdds+" extra option"+(nAdds>1?"s":"")+" added<br/>":"")+'When you\'re done, review and send it — Sharma checks your home, confirms capacity and sizing on site, and prices the whole list.</div><button class="btn btn-primary" type="button" id="czReview" style="width:100%">Review &amp; send my list →</button>';
+ $("czMain").innerHTML=html;
+ document.querySelectorAll("[data-choice]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-choice"),o=b.getAttribute("data-opt");cz.choices[k]=(cz.choices[k]===o)?"":o;renderCz();renderSel();});});
+ document.querySelectorAll("[data-cz-item]").forEach(function(b){b.addEventListener("click",function(){var it=b.getAttribute("data-cz-item");if(cz.removed[it])delete cz.removed[it];else cz.removed[it]=1;renderCz();renderSel();});});
+ document.querySelectorAll("[data-cz-add]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-cz-add");if(state.adds[k])delete state.adds[k];else state.adds[k]=1;renderCz();renderSel();renderProds();});});
+ $("czReview").addEventListener("click",openListSheet);
+ var _cny=window.scrollY||window.pageYOffset||0;if(Math.abs(_cny-_cy)>1){try{window.scrollTo({top:_cy,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,_cy);}}
+}
+
+function gPkgsHTML(s){return '<p class="g-pkgs"><span class="g-pkgs-l">Applies to:</span> <span class="g-pill">'+esc(s)+"</span></p>";}
+$("guideList").innerHTML=GUIDE.map(function(g,ci){
+ var prods=g.cat>=0 ? CATS[g.cat].items.map(function(it){var img=prodImg(it[0]);var thumb=img?('<img class="g-thumb" src="'+img+'" alt="" loading="lazy"/>'):('<span class="g-thumb tile" aria-hidden="true">'+ICONS[g.cat]+'</span>');return '<div class="g-prow">'+thumb+'<div class="g-pt"><div class="g-pn">'+esc(it[0])+'</div><div class="g-pr">'+esc(it[1])+"</div></div></div>";}).join("") : "";
+ var a=GACC[ci%GACC.length];
+ var myths=g.myths?('<div style="margin-top:10px">'+g.myths.map(function(m){return '<div class="mf"><b>“'+esc(m[0])+'”</b><br/><span class="fact">'+esc(m[1])+"</span></div>"}).join("")+"</div>"):"";
+ return '<details class="g-card" style="--acc:'+a[0]+';--acc-l:'+a[1]+';--acc-ink:'+a[2]+'"'+(ci===0?" open":"")+'>'
+  +'<summary><div class="g-photo"><img src="'+g.img+'" alt="'+g.alt+'" loading="lazy"/>'
+  +'<span class="g-chip" aria-hidden="true">'+(g.cat>=0?ICONS[g.cat]:ICONS[0])+'</span>'
+  +'<span class="g-count">'+(g.cat>=0?CATS[g.cat].items.length+" items":"Electrical 101")+'</span>'
+  +'<div class="g-titles"><h3>'+g.title+'</h3><p>“'+g.scene+'”</p></div>'
+  +'<span class="g-chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9l8 8 8-8"/></svg></span></div></summary>'
+  +'<div class="g-body"><p class="g-what">'+g.what+"</p>"
+  +(g.why.length?'<ul class="g-why">'+g.why.map(function(w){return "<li>"+w+"</li>"}).join("")+"</ul>":"")
+  +(g.callout?'<div class="g-callout">'+g.callout+"</div>":"")
+  +myths
+  +(prods?'<h3 class="g-sec">The parts, in plain English</h3>'+prods:"")
+  +gPkgsHTML(g.pkgs)
+  +'<div class="g-actions">'+(g.getq?'<button class="btn btn-primary" type="button" data-getq="'+g.getq+'">Get this quoted →</button>':"")+(g.cat>=0?'<button class="btn btn-navy" type="button" data-shop="'+g.cat+'">See these in Products</button>':"")+'<button class="btn btn-outline" type="button" data-gocz="1">Build my project</button></div>'
+  +"</div></details>";
+}).join("");
+document.querySelectorAll("#guideList .g-card").forEach(function(d){d.addEventListener("toggle",function(){if(d.open){var before=d.getBoundingClientRect().top;document.querySelectorAll("#guideList .g-card").forEach(function(o){if(o!==d&&o.open)o.open=false;});var delta=d.getBoundingClientRect().top-before;if(delta){try{window.scrollBy({top:delta,left:0,behavior:"instant"});}catch(e){window.scrollBy(0,delta);}}}});});
+document.querySelectorAll("[data-shop]").forEach(function(b){b.addEventListener("click",function(){showView("products");setCat(+b.getAttribute("data-shop"));});});
+document.querySelectorAll("[data-gocz]").forEach(function(b){b.addEventListener("click",function(){showView("customize");toast("Pick a package base, then make it yours");});});
+document.querySelectorAll("[data-getq]").forEach(function(b){b.addEventListener("click",function(){var id=b.getAttribute("data-getq");state.pkg=id;if(cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();var p=PACKAGES.filter(function(x){return x.id===id})[0];toast("Added: "+(p?p.name:id)+" — tell Sharma about your shut-off in the notes");openListSheet();});});
+
+var DETAIL_SETS={
+ problem:{label:"What's happening?",help:"Pick the symptom that fits best — Sharma traces faults to the cause, not just the symptom.",opts:[
+  ["Dead outlet, switch or whole room — no power","Dead outlet or whole room"],
+  ["Breaker keeps tripping","Breaker keeps tripping"],
+  ["Lights flicker or dim when the AC or appliances start","Lights flicker or dim"],
+  ["Burning smell, buzzing, sparking or warm outlets","Burning smell / buzzing / sparking"],
+  ["Half the house or the whole house lost power","Half / whole house out"]]},
+ panel:{label:"What's going on with the panel?",help:"Panel problems usually show up as trips, no room to add circuits, or an old fuse box.",opts:[
+  ["Breakers trip when several things run together","Trips when things run together"],
+  ["Panel is full — no empty breaker spaces to add anything","Full — no spaces left"],
+  ["Fuse box or old panel — I know it needs replacing","Fuse box / old panel"],
+  ["Panel buzzes, feels warm, or breakers look worn","Buzzing / warm / worn"],
+  ["Not sure what is wrong with the panel — it just seems old","Not sure — it just seems old"]]},
+ add:{label:"What do you want to add?",help:"New big loads each need their own circuit — and a panel that can carry them.",opts:[
+  ["Level 2 EV charger in the garage","EV charger"],
+  ["Generator inlet and interlock for backup power","Generator backup"],
+  ["A big new load — hot tub, pool, workshop or second AC","Hot tub / pool / workshop / 2nd AC"],
+  ["A dedicated circuit for an appliance","Dedicated circuit for an appliance"],
+  ["Whole-home surge protection","Surge protection"],
+  ["Outlets & switches replaced or added","Outlets & switches"],
+  ["Not sure yet — I just know I need more power","Not sure — I need more power"]]},
+ lighting:{label:"What kind of lighting or fan work?",help:"Tell us the project — layout and the right boxes matter more than the fixture itself.",opts:[
+  ["Recessed LED lighting for a room","Recessed lighting"],
+  ["Pendant lights over an island or table","Pendants"],
+  ["Ceiling fan installed or replaced","Ceiling fan(s)"],
+  ["Dimmers or smart switches","Dimmers / smart switches"],
+  ["Outdoor or landscape lighting","Outdoor / landscape lighting"]]},
+ safety:{label:"What safety work matters most?",help:"These are the quiet protections — they only get noticed when they're missing.",opts:[
+  ["GFCI outlets in kitchen, baths, garage or outdoors","GFCI outlets"],
+  ["Smoke and CO detectors replaced or added","Smoke & CO detectors"],
+  ["Whole-home surge protection at the panel","Surge protection"],
+  ["Tamper-resistant outlets — young kids at home","Tamper-resistant outlets (kids)"],
+  ["All of it — a full safety check and upgrade","All of it — full safety upgrade"]]},
+ planning:{label:"What's the project?",help:"Big projects start at the panel — telling us the plan helps Sharma size it right the first time.",opts:[
+  ["Kitchen remodel","Kitchen remodel"],
+  ["New room or addition","Room / addition"],
+  ["Adding a big load — EV, hot tub, pool or workshop","Adding a big load"],
+  ["Whole-home renovation","Whole-home renovation"],
+  ["Still deciding — I want advice and a plan","Still deciding — want advice"]]}
+};
+var quizBranch="";
+function bindQuizGroup(group){
+ group.querySelectorAll("button").forEach(function(b){
+  if(b.getAttribute("data-bound"))return;b.setAttribute("data-bound","1");
+  b.addEventListener("click",function(){
+   group.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});
+   var key=group.getAttribute("data-q");
+   state.quiz[key]=b.getAttribute("data-val");
+   if(key==="reason"){var br=b.getAttribute("data-branch")||"";if(br!==quizBranch){quizBranch=br;renderDetailOpts(br);}}
+   quizUpdate();quizMaybeAdvance(key);
+  });
+ });
+}
+function renderDetailOpts(branch){
+ var set=DETAIL_SETS[branch];var box=$("detailOpts");if(!box)return;
+ if(!set){$("detailLabel").textContent="Tell us a little more";$("detailHelp").textContent="Pick the closest match — this list changes based on your answer to Question 1, so it stays relevant.";box.innerHTML='<span class="q-placeholder">↑ Pick Question 1 first — options appear here</span>';state.quiz.detail="";return;}
+ $("detailLabel").textContent=set.label;
+ $("detailHelp").textContent=set.help;
+ var prev=state.quiz.detail;
+ var stillThere=set.opts.some(function(o){return o[0]===prev});
+ if(!stillThere)state.quiz.detail="";
+ box.innerHTML=set.opts.map(function(o){return '<button type="button" data-val="'+esc(o[0])+'"'+(o[0]===state.quiz.detail?' class="on"':"")+">"+esc(o[1])+"</button>"}).join("");
+ bindQuizGroup(box);
+}
+document.querySelectorAll(".q-opts").forEach(bindQuizGroup);
+var STEPKEYS=[["reason"],["detail"],["location"],["panel","service"],["home","additions"],["timeline"]];
+var wiz={step:1,done:false};
+function stepComplete(n){return STEPKEYS[n-1].every(function(k){return !!state.quiz[k]})}
+function stepsDone(){var c=0;for(var i=1;i<=6;i++)if(stepComplete(i))c++;return c}
+function quizIsDanger(q){return /Burning smell/.test(q.detail)||/whole house lost power/.test(q.detail)}
+function showStep(){
+ document.querySelectorAll(".q-step").forEach(function(s){s.classList.toggle("on",!wiz.done&&+s.getAttribute("data-step")===wiz.step)});
+ var nav=$("qNav");if(nav)nav.style.display=wiz.done?"none":"flex";
+ var back=$("qBack");if(back)back.disabled=!(wiz.step>1||wiz.done);
+ if(back)back.textContent=wiz.done?"← Back to my answers":"← Back";
+ var next=$("qNext");if(next){next.disabled=!stepComplete(wiz.step);next.textContent=wiz.step===6?"See my match →":"Continue →";}
+ var fill=$("qpFill"),txt=$("qpText");
+ if(fill)fill.style.width=Math.round((wiz.done?6:stepsDone())/6*100)+"%";
+ if(txt)txt.textContent=wiz.done?"Done — here's your match":"Question "+wiz.step+" of 6";
+}
+$("qBack").addEventListener("click",function(){
+ if(wiz.done){wiz.done=false;wiz.step=6;var b=$("quizResult");b.classList.remove("show");b.innerHTML="";}
+ else if(wiz.step>1)wiz.step--;
+ showStep();
+});
+$("qNext").addEventListener("click",function(){
+ if(!stepComplete(wiz.step))return;
+ if(wiz.step<6){wiz.step++;showStep();}
+ else{wiz.done=true;showStep();renderQuizResult();}
+ var qz=$("quiz");if(qz)qz.scrollIntoView({block:"start",behavior:"smooth"});
+});
+function quizUpdate(){
+ var q=state.quiz;
+ var safety=$("quizSafety");
+ if(safety){
+   if(quizIsDanger(q)){
+     var wholeHouse=/whole house lost power/.test(q.detail);
+     safety.innerHTML=wholeHouse?"<b>Whole-home power loss — treat it as urgent.</b> If you see flames or smoke, get out and call <b>911 first</b>. A downed or damaged line outside is the power company's — stay well away from it and never touch it. Then call Sharma at <a href=\"tel:+14078819076\">407 881 9076</a>. You can still finish and send your list so we have the details.":"<b>Stop — treat this as urgent.</b> If you can do it without touching anything damaged, switch that circuit off at the breaker. Then call Sharma now at <a href=\"tel:+14078819076\">407 881 9076</a>. If you see flames or smoke, call <b>911 first</b>. You can still finish and send your list so we have the details.";
+     safety.classList.add("show");
+   } else{safety.innerHTML="";safety.classList.remove("show");}
+ }
+ showStep();
+}
+function quizMaybeAdvance(key){
+ var single=STEPKEYS[wiz.step-1].length===1&&STEPKEYS[wiz.step-1][0]===key;
+ if(single&&stepComplete(wiz.step)&&!wiz.done){
+   var at=wiz.step;
+   setTimeout(function(){
+     if(wiz.step!==at||wiz.done)return;
+     if(wiz.step<6){wiz.step++;showStep();}
+     else{wiz.done=true;showStep();renderQuizResult();}
+   },350);
+ }
+}
+function quizProds(id,q){
+ var out=[];
+ if(/EV charger/.test(q.detail))out=["3-0","3-1"];
+ else if(/Generator/.test(q.detail))out=["3-2","3-3"];
+ else if(/surge/.test(q.detail))out=["0-3"];
+ else if(/GFCI/.test(q.detail))out=["1-0"];
+ else if(/Smoke and CO/.test(q.detail))out=["1-2","1-3"];
+ else if(/Recessed/.test(q.detail))out=["2-0"];
+ else if(/Pendant/.test(q.detail))out=["2-1"];
+ else if(/Ceiling fan/.test(q.detail))out=["2-2","2-3"];
+ else if(/Dimmers/.test(q.detail))out=["2-4","5-0"];
+ else if(/Outdoor or landscape/.test(q.detail))out=["2-5"];
+ else if(/Outlets & switches/.test(q.detail))out=["5-0","5-2"];
+ else if(id==="panel")out=["0-0","0-3"];
+ else if(id==="safety")out=["1-0","1-2","0-3"];
+ else if(id==="lighting")out=["2-0","2-2"];
+ else if(id==="power")out=["3-0","3-2"];
+ else if(id==="repair")out=["4-0","4-1"];
+ if(/Overhead/.test(q.service)&&(id==="panel"||id==="repair")&&out.indexOf("0-5")<0)out.push("0-5");
+ var seen={},res=[];
+ out.forEach(function(k){if(!seen[k]&&res.length<3){seen[k]=1;res.push(k)}});
+ return res;
+}
+function renderQuizResult(){
+ var q=state.quiz;var box=$("quizResult");if(!box)return;
+ var s={panel:0,safety:0,lighting:0,power:0,repair:0};function add(id,n){s[id]+=n}
+ if(/is not working/.test(q.reason))add("repair",3);
+ else if(/Breakers keep tripping/.test(q.reason)){add("panel",3);add("repair",1)}
+ else if(/add something/.test(q.reason)){add("power",2);add("panel",1)}
+ else if(/lighting or ceiling fans/.test(q.reason))add("lighting",3);
+ else if(/safer/.test(q.reason))add("safety",3);
+ else if(/remodel/.test(q.reason)){add("panel",2);add("lighting",1);add("power",1)}
+ if(/Dead outlet/.test(q.detail))add("repair",3);
+ else if(/Breaker keeps tripping/.test(q.detail)){add("repair",2);add("panel",2)}
+ else if(/flicker/.test(q.detail)){add("repair",3);add("panel",1)}
+ else if(/Burning smell/.test(q.detail))add("repair",4);
+ else if(/whole house lost power/.test(q.detail)){add("repair",4);add("panel",1)}
+ else if(/run together/.test(q.detail)){add("panel",3);add("repair",1)}
+ else if(/Panel is full/.test(q.detail))add("panel",3);
+ else if(/Fuse box or old panel/.test(q.detail))add("panel",3);
+ else if(/buzzes/.test(q.detail)){add("repair",3);add("panel",1)}
+ else if(/just seems old/.test(q.detail))add("panel",2);
+ else if(/EV charger/.test(q.detail))add("power",3);
+ else if(/Generator inlet/.test(q.detail))add("power",3);
+ else if(/big new load/.test(q.detail)){add("power",2);add("panel",2)}
+ else if(/dedicated circuit/.test(q.detail)){add("power",2);add("panel",1)}
+ else if(/more power/.test(q.detail)){add("panel",2);add("power",1)}
+ else if(/Whole-home surge/.test(q.detail))add("safety",3);
+ else if(/Outlets & switches/.test(q.detail)){add("safety",1);add("lighting",2)}
+ else if(/Recessed/.test(q.detail))add("lighting",3);
+ else if(/Pendant/.test(q.detail))add("lighting",3);
+ else if(/Ceiling fan/.test(q.detail))add("lighting",3);
+ else if(/Dimmers/.test(q.detail))add("lighting",3);
+ else if(/Outdoor or landscape/.test(q.detail))add("lighting",3);
+ else if(/GFCI outlets/.test(q.detail))add("safety",3);
+ else if(/Smoke and CO/.test(q.detail))add("safety",3);
+ else if(/Tamper-resistant/.test(q.detail))add("safety",3);
+ else if(/full safety/.test(q.detail))add("safety",3);
+ else if(/Kitchen remodel/.test(q.detail)){add("lighting",2);add("panel",1);add("safety",1)}
+ else if(/New room/.test(q.detail)){add("panel",2);add("lighting",1)}
+ else if(/Adding a big load/.test(q.detail)){add("power",2);add("panel",2)}
+ else if(/Whole-home renovation/.test(q.detail)){add("panel",2);add("lighting",1);add("safety",1)}
+ else if(/Still deciding/.test(q.detail))add("panel",1);
+ if(/^Kitchen$/.test(q.location)||/Bathroom/.test(q.location))add("safety",1);
+ else if(/Garage/.test(q.location))add("power",1);
+ else if(/Outdoors/.test(q.location)){add("power",1);add("safety",1)}
+ else if(/At the panel/.test(q.location))add("panel",1);
+ else if(/Several places/.test(q.location)){add("panel",1);add("safety",1)}
+ else if(/Living areas/.test(q.location))add("lighting",1);
+ if(/Fuse box or 100A/.test(q.panel))add("panel",2);
+ else if(/^150A/.test(q.panel))add("panel",1);
+ else if(/but full/.test(q.panel))add("panel",2);
+ else if(/breakers trip or it looks worn/.test(q.panel)){add("panel",1);add("repair",1)}
+ if(/Overhead/.test(q.service))add("panel",1);
+ if(/before 1990/.test(q.home)){add("panel",2);add("safety",1)}
+ else if(/1990 to 2010/.test(q.home))add("safety",1);
+ if(/hot tub or pool/.test(q.additions)){add("power",2);add("panel",2)}
+ else if(/EV charger/.test(q.additions)){add("power",2);add("panel",1)}
+ else if(/new AC/.test(q.additions))add("panel",2);
+ else if(/home addition/.test(q.additions)){add("panel",2);add("lighting",1)}
+ if(/Emergency/.test(q.timeline)&&(/is not working/.test(q.reason)||quizIsDanger(q)))add("repair",2);
+ if(quizIsDanger(q)&&s.repair<s.panel)add("repair",s.panel-s.repair+1);
+ var ranked=Object.keys(s).sort(function(a,b){return s[b]-s[a]});
+ var id=ranked[0],secondId=ranked[1];
+ var p=PACKAGES.filter(function(x){return x.id===id})[0];
+ var p2=PACKAGES.filter(function(x){return x.id===secondId})[0];
+ var descs={
+  "panel":"A new Siemens 200A panel with new breakers throughout, GFCI protection for the range and dryer, surge protection at the panel, and every circuit labeled. Sharma confirms your capacity and sizing on site — and if your home needs the 400A service instead, you'll hear it there, with the price.",
+  "safety":"GFCI outlets where water meets power, tamper-resistant outlets for the living areas, hardwired interconnected smoke and CO detectors, and whole-home surge protection at the panel — the protection a modern Florida home should have, in one visit.",
+  "lighting":"Recessed LED laid out for the room, pendants over the island, ceiling fans hung on fan-rated boxes, dimmers and smart switches, and outdoor lighting on a timer. Tell Sharma the rooms in your notes and the layout is designed at the quote visit.",
+  "power":"A dedicated 240V / 50A circuit for Level 2 EV charging (14-50 outlet or hardwired), a 50A generator inlet and panel interlock so a portable generator connects safely, and dedicated circuits for other big loads. Sharma checks your panel capacity on site first — and includes a panel upgrade in the price if you need one.",
+  "repair":"A troubleshooting visit that finds the actual cause — dead circuits traced, tripping breakers explained, flickers and smells made safe first — then fixes it. Add what's happening in your notes when you send your list, so Sharma comes prepared."
+ };
+ var why1="Because you came for <b>"+esc(q.reason.toLowerCase())+"</b> — specifically <b>"+esc(q.detail.toLowerCase())+"</b> — this is the package built for exactly that.";
+ var reasons=[];
+ if(/^Kitchen$/.test(q.location)||/Bathroom/.test(q.location))reasons.push("It's in the <b>kitchen or bathroom</b>, where water and power meet — protection and correct circuits matter most there.");
+ else if(/Garage/.test(q.location))reasons.push("It's in the <b>garage</b> — where EV chargers, generator inlets and workshop circuits live.");
+ else if(/Outdoors/.test(q.location))reasons.push("It's <b>outdoors</b> — where weather, GFCI protection and landscape lighting come in.");
+ else if(/At the panel/.test(q.location))reasons.push("It's <b>at the panel itself</b> — which is where this package starts.");
+ else if(/Several places/.test(q.location))reasons.push("It affects <b>several places or the whole home</b>, which usually points back to the panel or service, not a single device.");
+ else if(/Living areas/.test(q.location))reasons.push("It's in the <b>living areas or bedrooms</b> — the rooms where lighting, fans and everyday outlets get used most.");
+ if(/Fuse box or 100A/.test(q.panel))reasons.push("Your panel is a <b>fuse box or 100A</b> — built for a house with a fraction of today's loads, so capacity is part of the answer.");
+ else if(/^150A/.test(q.panel))reasons.push("Your panel is <b>150A</b> — workable for a lot of homes, but Sharma will confirm it covers what you're adding.");
+ else if(/but full/.test(q.panel))reasons.push("Your panel is <b>full, with no empty spaces</b> — anything new needs room first.");
+ else if(/breakers trip or it looks worn/.test(q.panel))reasons.push("Your <b>200A panel trips or looks worn</b> — Sharma will test it in person before recommending repair or replacement.");
+ else if(/Newer 200A/.test(q.panel))reasons.push("Good news: your <b>newer 200A panel has space left</b>, so this probably doesn't need a panel upgrade — Sharma confirms on site.");
+ else if(/Not sure/.test(q.panel))reasons.push("You weren't sure about your panel — that's fine. <b>Sharma checks it in person</b> at the quote visit; no guessing from photos.");
+ if(/Overhead/.test(q.service)&&(id==="panel"||id==="repair"))reasons.push("Your power arrives <b>overhead, from a pole to a mast</b>. For panel or service work, <b>Sharma coordinates with the power company for you</b> — scheduling the disconnect and reconnect, sequencing the mast and service-drop work in the right order, and lining up the permit and inspection — so you never chase the utility yourself.");
+ else if(/Underground/.test(q.service)&&(id==="panel"||id==="repair"))reasons.push("Your service is <b>underground</b> — no mast or overhead drop to worry about; panel work still gets permitted and inspected by Sharma.");
+ if(/before 1990/.test(q.home))reasons.push("Your home was <b>built before 1990</b>, so panel size, wiring and detectors all deserve a fresh look.");
+ if(/hot tub or pool/.test(q.additions))reasons.push("You've <b>added or are adding a hot tub or pool</b> — that's real new demand the panel has to carry safely.");
+ else if(/EV charger/.test(q.additions))reasons.push("An <b>EV charger is recent or coming</b> — a 50A load the panel has to have room for.");
+ else if(/new AC/.test(q.additions))reasons.push("A <b>new AC is recent or coming</b> — big loads like that start with panel capacity.");
+ else if(/home addition/.test(q.additions))reasons.push("A <b>home addition is recent or coming</b> — new rooms mean new circuits, and the panel has to feed them.");
+ if(/Emergency/.test(q.timeline))reasons.push("You marked this <b>emergency — today</b> — Sharma will treat it as urgent when your list arrives.");
+ else if(/This week/.test(q.timeline))reasons.push("You'd like this handled <b>this week</b> — noted, and it travels with your list.");
+ else if(/month or two/.test(q.timeline))reasons.push("Your timing is the <b>next month or two</b> — comfortable room to plan it properly.");
+ else if(/planning and pricing/.test(q.timeline))reasons.push("You're <b>just planning and pricing</b> — no rush; this match is the right starting point.");
+ var warn=quizIsDanger(q)?'<p class="warn"><b>One more time, because it matters:</b> burning smells, buzzing, sparking or a whole home out are not wait-and-see problems. Call Sharma at <a href="tel:+14078819076">407 881 9076</a> now — and 911 first if you see flames or smoke.</p>':"";
+ var prods=quizProds(id,q);
+ var prodsHTML=prods.length?'<div class="quiz-prods"><p style="margin-bottom:6px"><b>Products that fit your answers:</b></p>'+prods.map(function(k){var on=!!state.adds[k];return '<div class="qp-item"><span>'+esc(prodName(k))+'</span><button type="button" class="add-btn'+(on?" added":"")+'" data-qprod="'+k+'">'+(on?"✓ Added":"Add")+"</button></div>"}).join("")+"</div>":"";
+ var also=(p2&&s[secondId]>=3&&s[secondId]>=s[id]-2)?'<div class="quiz-also"><b>Also worth a look: '+p2.name+'</b><p>'+descs[secondId]+'</p><button class="btn btn-outline" type="button" id="quizAlso">See what\'s in it →</button></div>':"";
+ box.innerHTML=warn+'<h3>Your match: '+p.name+'</h3><p>'+why1+'</p><p>'+descs[id]+'</p><p style="margin-bottom:6px"><b>Why this match, in your answers:</b></p><ul class="quiz-reasons">'+reasons.map(function(r){return "<li>"+r+"</li>"}).join("")+"</ul>"+prodsHTML+also+'<button class="btn btn-primary" type="button" id="quizGo" style="width:100%;font-size:16px">Add this package &amp; send my picks →</button><p style="margin-top:8px;font-size:13.5px">All your questionnaire answers are included when you send your list, so Sharma already knows the story before the call.</p>';
+ box.classList.add("show");
+ $("quizGo").addEventListener("click",function(){state.pkg=p.id;if(cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();openListSheet();});
+ var qa=$("quizAlso");if(qa)qa.addEventListener("click",function(){openPkgSheet(secondId);});
+ document.querySelectorAll("[data-qprod]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-qprod");if(state.adds[k])delete state.adds[k];else state.adds[k]=1;renderSel();renderProds();renderQuizResult();toast(state.adds[k]?("Added: "+prodName(k)):"Removed");});});
+}
+showStep();
+
+renderPkgs();renderCz();renderProds();renderSel();
+</script>
+<nav class="sk-tabbar" aria-label="Sections"><div class="sk-tabbar__inner"><a class="sk-tab" href="#" data-sk-view="packages"><svg class="sk-icon"><use href="#i-home"/></svg>Packages</a><a class="sk-tab" href="#" data-sk-view="products"><svg class="sk-icon"><use href="#i-list"/></svg>Products</a><a class="sk-tab" href="#" data-sk-view="customize"><svg class="sk-icon"><use href="#i-edit"/></svg>Customize</a><a class="sk-tab" href="#" data-sk-view="learn"><svg class="sk-icon"><use href="#i-doc"/></svg>Learn</a><a class="sk-tab" href="#" data-sk-view="compare"><svg class="sk-icon"><use href="#i-chart"/></svg>Compare</a></div></nav>
+<script>
+/* Sharma kit v1.2 adapter: service worker + bottom tab bar wired to this app's
+   existing tab buttons. No data, links or behaviour change. */
+(function(){
+  function reg(){ if (window.SK && SK.registerSW) { try { SK.registerSW("sw.js"); } catch(e){} } }
+  if (document.readyState === "complete") reg(); else addEventListener("load", reg);
+  var tabs = document.querySelectorAll(".sk-tab[data-sk-view]");
+  if (!tabs.length) return;
+  function sync(){
+    var on = document.querySelector('[data-view].on, [data-view][aria-selected="true"]');
+    tabs.forEach(function(t){ 
+      if (on && t.getAttribute("data-sk-view") === on.getAttribute("data-view")) t.setAttribute("aria-current","page");
+      else t.removeAttribute("aria-current");
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.preventDefault();
+      var b = document.querySelector('[data-view="' + t.getAttribute("data-sk-view") + '"]');
+      if (b) b.click();
+      sync(); scrollTo(0,0);
+    });
+  });
+  document.addEventListener("click", function(){ setTimeout(sync, 30); });
+  sync();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en" class="sk" data-scheme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light"/>
+<link rel="icon" href="data:,">
+<title>Homeowner Hub — Sharma Electric &amp; HVAC</title>
+<meta name="description" content="One entrance to Sharma Electric & HVAC's homeowner planners: HVAC change-out, electrical upgrades & service, and smart home packages. Pick what you need, send your list, get one priced quote."/>
+<style>
+:root{
+  --navy:#0b1e3a; --navy-deep:#07142a; --orange:#264387; --orange-dark:#1a2f61;
+  --gold:#f5b841; --red:#c22430; --green:#16794a;
+  --bg:#f4f6f9; --surface:#ffffff; --surface2:#eef1f5; --ink:#101d33; --muted:#54657f; --line:#dde3ea;
+  --shadow:0 10px 28px rgba(11,30,58,.13);
+}
+/* Light-always (Sanjay 2026-11-19): dark only via the kit data-scheme switch, never the OS. */
+[data-scheme="dark"]{ --bg:#0a1526; --surface:#12233f; --surface2:#182c4d; --ink:#eef2f8; --muted:#a9b8cf; --line:#243a5e; --shadow:0 8px 24px rgba(0,0,0,.4); }
+html{ scroll-behavior:smooth; }
+body{ margin:0; font-family:var(--sk-font); background:var(--bg); color:var(--ink); line-height:1.5; }
+h1,h2,h3,p,ul,figure{ margin:0; }
+ul{ padding:0; list-style:none; }
+img{ max-width:100%; }
+a{ color:var(--orange); }
+.cond{ font-family:var(--sk-font); }
+
+/* ---------- Top brand band ---------- */
+.topbar{ background:#fff; padding:18px 16px 14px; text-align:center; border-bottom:3px solid #F0A846; }
+.topbar .logo{ height:120px; width:auto; display:block; margin:0 auto; max-width:92vw; object-fit:contain; }
+@media (min-width:720px){ .topbar .logo{ height:160px; } }
+.topbar .tagline{ font-family:var(--sk-font); letter-spacing:.22em; font-size:13px; font-weight:600; color:#0b1e3a; margin-top:6px; }
+.topbar .contact-row{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:12px; font-size:14.5px; }
+.topbar .contact-row a{ color:#0b1e3a; text-decoration:none; font-weight:600; }
+.callbtn{ background:var(--orange); color:#fff !important; padding:10px 18px; border-radius:999px; font-weight:700 !important; display:inline-flex; align-items:center; gap:7px; }
+.callbtn:hover{ background:var(--orange-dark); }
+.callbtn svg{ width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+.urgent{ background:#264387; color:#fff; text-align:center; padding:9px 14px; font-size:14.5px; font-weight:600; }
+.urgent a{ color:#fff; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; font-weight:700; }
+
+/* ---------- Hero ---------- */
+.hero{ background:var(--navy); color:#fff; }
+.hero-inner{ max-width:1080px; margin:0 auto; padding:30px 16px 30px; display:grid; grid-template-columns:1fr; gap:22px; align-items:center; }
+@media (min-width:860px){ .hero-inner{ grid-template-columns:1.02fr .98fr; padding:42px 20px 40px; gap:30px; } }
+.hero h1{ font-family:var(--sk-font); font-size:clamp(40px,7vw,60px); line-height:.95; text-transform:uppercase; font-weight:700; }
+.hero h1 em{ color:var(--gold); font-style:normal; }
+.hero .lede{ margin-top:12px; font-size:17px; color:#dbe6f4; max-width:480px; }
+.hero .quick{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.hero .quick a{ display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.35); color:#fff; text-decoration:none; font-weight:700; font-size:14.5px; padding:9px 14px; border-radius:999px; }
+.hero .quick a:hover{ border-color:#fff; }
+.hero .quick svg{ width:16px; height:16px; stroke:var(--gold); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.hero-photo{ border-radius:18px; overflow:hidden; box-shadow:0 22px 44px rgba(0,0,0,.35); background:#fff; }
+.hero-photo img{ width:100%; height:270px; object-fit:cover; display:block; }
+@media (min-width:860px){ .hero-photo img{ height:320px; } }
+.hero-photo figcaption{ padding:11px 14px; color:#101d33; font-size:13.5px; }
+.hero-photo figcaption b{ color:#0b1e3a; }
+
+main{ max-width:1080px; margin:0 auto; padding:0 14px 8px; }
+section{ scroll-margin-top:16px; }
+.sec-head{ margin:26px 2px 4px; }
+.sec-head h2{ font-family:var(--sk-font); font-size:32px; text-transform:uppercase; line-height:1; }
+.sec-head p{ color:var(--muted); font-size:15px; margin-top:5px; max-width:640px; }
+
+/* ---------- Finder ---------- */
+.finder{ background:var(--surface); border:2px solid var(--orange); border-radius:18px; padding:18px 16px 16px; margin-top:20px; box-shadow:var(--shadow); }
+.finder h2{ font-family:var(--sk-font); font-size:28px; text-transform:uppercase; line-height:1; }
+.finder .f-sub{ color:var(--muted); font-size:14.5px; margin-top:4px; }
+.finder .opts{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.finder .opts button{ border:1.5px solid var(--line); background:var(--bg); color:var(--ink); border-radius:999px; padding:10px 16px; font-family:var(--sk-font); font-weight:600; font-size:15px; cursor:pointer; min-height:44px; }
+.finder .opts button.on{ background:var(--navy); color:#fff; border-color:var(--navy); }
+[data-scheme="dark"] .finder .opts button.on{ background:var(--orange); border-color:var(--orange); }
+.finder-result{ display:none; margin-top:14px; background:var(--surface2); border-radius:12px; padding:14px; }
+.finder-result.show{ display:block; }
+.finder-result h3{ font-family:var(--sk-font); font-size:23px; text-transform:uppercase; line-height:1.05; }
+.finder-result p{ font-size:14.5px; color:var(--muted); margin-top:4px; }
+.finder-result .btn{ margin-top:11px; }
+
+/* ---------- Buttons ---------- */
+.btn{ appearance:none; border:0; cursor:pointer; border-radius:999px; padding:12px 20px; font-family:var(--sk-font); font-weight:700; font-size:15.5px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:7px; }
+.btn svg{ width:17px; height:17px; stroke:currentColor; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.btn-primary{ background:var(--orange); color:#fff; }
+.btn-primary:hover{ background:var(--orange-dark); }
+.btn-navy{ background:var(--navy); color:#fff; }
+[data-scheme="dark"] .btn-navy{ background:var(--orange); }
+.btn-outline{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+
+/* ---------- App entrances ---------- */
+.apps{ display:flex; flex-direction:column; gap:16px; margin-top:16px; }
+.app-card{ background:var(--surface); border:2px solid var(--line); border-radius:20px; overflow:hidden; display:grid; grid-template-columns:1fr; transition:border-color .2s ease, box-shadow .2s ease; }
+.app-card.spot{ border-color:var(--orange); box-shadow:0 0 0 4px rgba(38,67,135,.22), var(--shadow); }
+@media (min-width:820px){
+  .app-card{ grid-template-columns:.92fr 1.08fr; }
+  .app-card.flip .app-photo{ order:2; }
+  .app-card.flip .app-body{ order:1; }
+}
+.app-photo{ position:relative; min-height:210px; }
+.app-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+@media (max-width:819px){ .app-photo{ height:210px; } }
+.app-photo .app-tag{ position:absolute; top:12px; left:12px; background:var(--navy); color:#fff; font-size:13px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:5px 11px; border-radius:999px; }
+.app-photo .app-tag.rec{ background:var(--green); }
+.app-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; }
+.app-body .kicker{ font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--orange); }
+.app-body h3{ font-family:var(--sk-font); font-size:31px; line-height:1; text-transform:uppercase; }
+.app-body .desc{ font-size:15.5px; line-height:1.55; }
+.app-body .desc b{ color:var(--orange); }
+.inside{ display:flex; flex-direction:column; gap:6px; margin-top:2px; }
+.inside li{ display:flex; gap:9px; align-items:flex-start; font-size:14.5px; line-height:1.45; }
+.inside svg{ width:18px; height:18px; flex:0 0 auto; margin-top:2px; stroke:var(--orange); fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.inside span{ color:var(--muted); }
+.inside span b{ color:var(--ink); font-weight:700; }
+.app-body .spacer{ flex:1; }
+.app-actions{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; align-items:center; }
+.app-actions .open-note{ font-size:13px; color:var(--muted); }
+
+/* ---------- How it works ---------- */
+.steps{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
+@media (min-width:720px){ .steps{ grid-template-columns:repeat(3,1fr); } }
+.step{ background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:15px; }
+.step .n{ width:30px; height:30px; border-radius:50%; background:var(--orange); color:#fff; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:15px; margin-bottom:8px; }
+.step b{ display:block; font-family:var(--sk-font); font-size:19px; text-transform:uppercase; }
+.step p{ color:var(--muted); font-size:14px; margin-top:3px; line-height:1.5; }
+
+.trust{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
+@media (min-width:720px){ .trust{ grid-template-columns:1fr 1fr; } }
+.trust-card{ background:var(--navy); color:#fff; border-radius:14px; padding:16px; }
+.trust-card h3{ font-family:var(--sk-font); font-size:21px; text-transform:uppercase; color:var(--gold); }
+.trust-card p{ font-size:14.5px; color:#dbe6f4; margin-top:4px; line-height:1.55; }
+
+.help-bar{ margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.help-bar .hb-text{ flex:1 1 260px; }
+.help-bar .hb-text b{ display:block; font-family:var(--sk-font); font-size:22px; text-transform:uppercase; line-height:1.05; }
+.help-bar .hb-text span{ color:var(--muted); font-size:14.5px; }
+
+footer{ color:var(--muted); font-size:13.5px; text-align:center; padding:26px 16px 30px; line-height:1.65; }
+footer .flogo{ display:inline-block; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 20px; margin-bottom:12px; }
+footer .flogo img{ height:104px; width:auto; display:block; max-width:82vw; object-fit:contain; }
+footer a{ color:var(--orange); font-weight:600; }
+@media print{ .urgent,.finder .opts{ display:none !important; } }
+</style>
+<meta name="theme-color" content="#264387">
+<meta name="color-scheme" content="light">
+<script>(function(){try{if(localStorage.getItem("sk-scheme")==="dark"){var d=document.documentElement;d.setAttribute("data-scheme","dark");var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=d.getAttribute("data-theme")==="track"?"#1C1C1E":"#1a2f61"}}catch(e){}})()</script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+<style>
+/* Sharma kit bridge: room for the kit header/tab bar; app layout otherwise untouched. */
+/* C-upgrade 2026-11-19: single-screen hub — SK.stack / tabs are N/A (no views to
+   switch, so no cross-fade or scroll keep). Apple-like pass only: large bold page
+   titles (hero + section heads), grouped inset lists (16px side margins, rounded
+   grouped cards), every tappable control 44px+. No bottom sheet / detail overlay
+   in this app; data is inline, so pull-to-refresh is N/A. */
+body.sk{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 24px)}
+.sk-header{z-index:60}
+.topbar{display:none!important}
+main{padding:0 16px 8px}
+.sec-head h2{font-size:34px}
+.hero .quick a{min-height:44px}
+.btn{min-height:44px}
+.callbtn{min-height:44px}
+</style>
+<style>
+/* Round 2 (Steve) + kit v1.3: navy main buttons (kit link tint tied specificity and
+   won over .btn colours), red banner retired, planner entries + contact links 44px+,
+   light-mode panels light (v1.3 rule: no dark heroes/panels in light), dark keyed
+   only to [data-scheme="dark"]. */
+body.sk .btn-primary{background:#264387;color:#fff}
+body.sk .btn-primary:hover{background:#1a2f61}
+body.sk .btn-navy{background:#264387;color:#fff}
+body.sk .btn-outline{color:#101d33}
+body.sk .btn{min-height:48px}
+.hero .quick a{min-height:52px;font-size:17px;padding:12px 20px}
+.topbar .contact-row a{min-height:44px;display:inline-flex;align-items:center;padding:0 8px}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+.sk-tab{color:#52637a}
+[data-scheme="dark"] .sk-tab{color:#A1A1AA}
+/* light look: urgent banner gold (not red, not a dark panel), hero + trust cards light */
+[data-scheme="light"] .urgent{background:#F0A846;color:#3b2604}
+[data-scheme="light"] .urgent a{color:#3b2604}
+[data-scheme="light"] .hero{background:#ffffff;color:#101d33}
+[data-scheme="light"] .hero h1 em{color:#264387}
+[data-scheme="light"] .hero .lede{color:#54657f}
+[data-scheme="light"] .hero .quick a{background:#F7F8FB;border-color:#dde3ea;color:#101d33}
+[data-scheme="light"] .hero .quick svg{stroke:#264387}
+[data-scheme="light"] .trust-card{background:#ffffff;color:#101d33;border:1px solid #dde3ea}
+[data-scheme="light"] .trust-card h3{color:#264387}
+[data-scheme="light"] .trust-card p{color:#54657f}
+</style>
+<link rel="stylesheet" href="macos.css">
+</head>
+<body class="sk">
+<header class="sk-header"><div class="sk-header__bar">
+  <div class="sk-header__lead"><a class="sk-header__logo" href="./"><img src="https://sharma-kit.sharma-crew.workers.dev/assets/logo-white-header.png" alt="Sharma Electric &amp; HVAC" width="103" height="20"></a></div>
+  <div class="sk-header__title">Homeowner Hub</div>
+  <div class="sk-header__trail"><button type="button" class="sk-header__btn" data-sheet-open="moreSheet" aria-label="More"><svg class="sk-icon"><use href="#i-settings"/></svg></button><a class="sk-header__btn" href="tel:+14078819076" aria-label="Call Sharma"><svg class="sk-icon"><use href="#i-phone"/></svg></a></div>
+</div></header>
+<div class="sk-offline"></div>
+
+<div class="topbar">
+  <img class="logo" src="assets/img-6fae0d6be57d.webp" alt="Sharma Electric &amp; HVAC — Power. Comfort. Trust."/>
+  <div class="contact-row">
+    <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a>
+    <a class="callbtn" href="tel:+14078819076"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call 407 881 9076</a>
+  </div>
+</div>
+
+<div class="urgent">No AC or no power? Don't wait on a form — <a href="tel:+14078819076">tap to call Sharma: 407 881 9076</a></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Your home.<br/>Three planners.<br/><em>One front door.</em></h1>
+      <p class="lede">This is the entrance to Sharma's homeowner tools. Replacing your AC, upgrading your electrical, or planning a smart home — pick the one you need, build your list, and Sharma turns it into one priced quote.</p>
+      <div class="quick">
+        <a href="#app-hvac"><svg viewBox="0 0 24 24"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>Cooling &amp; Heating</a>
+        <a href="#app-electrical"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Electrical</a>
+        <a href="#app-smart"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Smart Home</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/img-342af53b400b.webp" alt="A Central Florida home served by Sharma Electric &amp; HVAC"/>
+      <figcaption><b>Sharma Electric &amp; HVAC</b> — Florida licensed EC13013924 / CAC1823596. Every planner below sends your picks straight to Sharma for a priced quote. No prices in the apps, ever.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+
+  <!-- Finder -->
+  <div class="finder" id="finder">
+    <h2>Not sure where to start?</h2>
+    <p class="f-sub">Tap what's happening at your house — we'll point you to the right planner.</p>
+    <div class="opts" id="finderOpts">
+      <button type="button" data-rec="hvac">My AC died / it's old</button>
+      <button type="button" data-rec="hvac">One hot room, garage or addition</button>
+      <button type="button" data-rec="electrical">Lights flicker / breakers trip</button>
+      <button type="button" data-rec="electrical">I want an EV charger or generator hookup</button>
+      <button type="button" data-rec="electrical">Panel is old / I need more power</button>
+      <button type="button" data-rec="smart">I want my home connected &amp; automated</button>
+      <button type="button" data-rec="smart">New home — planning smart features</button>
+    </div>
+    <div class="finder-result" id="finderResult" aria-live="polite"></div>
+  </div>
+
+  <!-- Entrances -->
+  <div class="sec-head">
+    <h2>Pick your project</h2>
+    <p>Each planner is built from the real systems and products Sharma actually installs — not a generic catalog. Open one, make your picks, and send them in.</p>
+  </div>
+
+  <div class="apps">
+
+    <article class="app-card" id="app-hvac">
+      <div class="app-photo">
+        <img loading="lazy" decoding="async" src="assets/img-4a7f39f0181c.webp" alt="Goodman matched heat pump system — the system Sharma recommends for homeowner change-outs"/>
+        <span class="app-tag rec">Sharma Recommended · Goodman</span>
+      </div>
+      <div class="app-body">
+        <span class="kicker">Cooling &amp; Heating</span>
+        <h3>HVAC Change-Out Picker</h3>
+        <p class="desc">Replacing a worn-out system? Answer 3 quick questions, compare the change-out packages, and learn the difference between a <b>heat pump and straight cool</b> — in plain English, before you spend a dollar.</p>
+        <ul class="inside">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Single &amp; multi-system change-outs</b> — plus slim side-discharge inverters and ductless mini-splits</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Goodman first</b> — GLZS4B heat pump, AMST air handler &amp; Honeywell T4 Pro; Carrier also available</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>HVAC 101 built in</b> — 13 pictured topics, including “Same cooling. Half the power.”</span></li>
+        </ul>
+        <div class="spacer"></div>
+        <div class="app-actions">
+          <a class="btn btn-primary" href="../pickers/hvac-picker/">Open the HVAC Picker <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="open-note">Best if: no cooling, high bills, or a system 10+ years old</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="app-card flip" id="app-electrical">
+      <div class="app-photo">
+        <img loading="lazy" decoding="async" src="assets/img-ed0bf489a230.webp" alt="Sharma electrician at work on a home electrical upgrade"/>
+        <span class="app-tag">Homeowners · Upgrades &amp; Service</span>
+      </div>
+      <div class="app-body">
+        <span class="kicker">Electrical</span>
+        <h3>Electrical Picker</h3>
+        <p class="desc">Upgrades and service work for your home — from a panel that's out of room to the charger, lighting and protection you've been putting off. Build your list and Sharma prices it as <b>one job</b>.</p>
+        <ul class="inside">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Panels &amp; power</b> — Siemens panels, dedicated circuits, generator inlet</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Safety &amp; everyday fixes</b> — GFCI / tamper-resistant outlets, whole-home surge, troubleshooting</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lighting &amp; EV</b> — kitchen and landscape lighting, ceiling fans, EV charger circuits</span></li>
+        </ul>
+        <div class="spacer"></div>
+        <div class="app-actions">
+          <a class="btn btn-primary" href="../pickers/electrical-app/">Open the Electrical Picker <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="open-note">Best if: tripping breakers, an old panel, or a project list</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="app-card" id="app-smart">
+      <div class="app-photo">
+        <img loading="lazy" decoding="async" src="assets/img-588532131ef4.webp" alt="A connected smart home interior — lighting, climate and control from one place"/>
+        <span class="app-tag">5 Packages · 65+ Products</span>
+      </div>
+      <div class="app-body">
+        <span class="kicker">Smart Home</span>
+        <h3>Smart Home Picker</h3>
+        <p class="desc">Sharma's real Low Voltage / Builder Smart Home packet, made pickable. Compare all five packages side by side, browse every product, and send your selections for a <b>priced quote</b>.</p>
+        <ul class="inside">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Basic Smart Start</b> (13 items) up to <b>Best Signature Smart Estate</b> (32 items)</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>65+ products in 7 categories</b> — each with what it does, what it's best for, and which packages include it</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b>Packages, Products &amp; Compare</b> — plus a Customize path and a Learn guide by category</span></li>
+        </ul>
+        <div class="spacer"></div>
+        <div class="app-actions">
+          <a class="btn btn-primary" href="../pickers/smart-home-picker/">Open the Smart Home Picker <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <span class="open-note">Best if: building, renovating, or upgrading room by room</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- How it works -->
+  <div class="sec-head">
+    <h2>How every planner works</h2>
+    <p>Same simple flow in all three — because your picks go to a real person at Sharma, not a checkout cart.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><b>You pick</b><p>Choose a package, add the products and extras you want, and tell us about your home. It takes a few minutes on your phone.</p></div>
+    <div class="step"><div class="n">2</div><b>Sharma reviews it</b><p>Your list goes to office@sharmaelectric.com. Sharma checks sizing, compatibility and what your home actually needs.</p></div>
+    <div class="step"><div class="n">3</div><b>One priced quote</b><p>You get one clear price for the whole job before any work starts — and a call back to walk through it.</p></div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-card"><h3>Licensed Florida contractor</h3><p>Sharma Electric &amp; HVAC — FL Lic. EC13013924 (electrical) / CAC1823596 (HVAC), serving Central Florida homes across Orange, Osceola, Seminole, Lake, Polk and surrounding counties.</p></div>
+    <div class="trust-card"><h3>No prices in the apps — on purpose</h3><p>Real prices depend on your home: system size, ducts, panel and permits. So the planners show you real equipment and options, and Sharma quotes the actual job — once, clearly.</p></div>
+  </div>
+
+  <div class="help-bar">
+    <div class="hb-text"><b>Rather just talk it through?</b><span>Call or email Sharma and describe the project — we'll open the right planner with you.</span></div>
+    <a class="btn btn-navy" href="tel:+14078819076"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>407 881 9076</a>
+    <a class="btn btn-outline" href="mailto:office@sharmaelectric.com">Email office@sharmaelectric.com</a>
+  </div>
+
+</main>
+
+<footer>
+  <span class="flogo"><img loading="lazy" decoding="async" src="assets/img-6fae0d6be57d.webp" alt="Sharma Electric &amp; HVAC"/></span><br/>
+  POWER. COMFORT. TRUST.<br/>
+  FL Lic. EC13013924 / CAC1823596<br/>
+  <a href="tel:+14078819076">407 881 9076</a> · <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a> · sharmaelectric.com<br/>
+  Homeowner Hub — the entrance to Sharma's HVAC Change-Out Picker, Electrical Picker and Smart Home Picker.
+</footer>
+
+<script>
+var RECS = {
+  hvac: {
+    title: "Start with the HVAC Picker",
+    text: "That's a cooling-and-heating job. The HVAC Picker will match you to the right Goodman change-out — or a mini-split for a room with no ducts — and explain heat pump vs. straight cool before you decide.",
+    href: "../pickers/hvac-picker/",
+    cta: "Open the HVAC Picker",
+    card: "app-hvac"
+  },
+  electrical: {
+    title: "Start with the Electrical Picker",
+    text: "That's electrical work. The Electrical Picker covers panels, dedicated circuits, EV chargers, generator inlets, surge protection and troubleshooting — build your list and Sharma prices it as one job.",
+    href: "../pickers/electrical-app/",
+    cta: "Open the Electrical Picker",
+    card: "app-electrical"
+  },
+  smart: {
+    title: "Start with the Smart Home Picker",
+    text: "That's a smart home project. Compare Sharma's five packages — from Basic Smart Start to Signature Smart Estate — browse 65+ products, and send your selections for a priced quote.",
+    href: "../pickers/smart-home-picker/",
+    cta: "Open the Smart Home Picker",
+    card: "app-smart"
+  }
+};
+var opts = document.getElementById('finderOpts');
+var result = document.getElementById('finderResult');
+opts.addEventListener('click', function(e){
+  var btn = e.target.closest('button[data-rec]');
+  if(!btn) return;
+  var all = opts.querySelectorAll('button');
+  for(var i=0;i<all.length;i++) all[i].classList.remove('on');
+  btn.classList.add('on');
+  var rec = RECS[btn.getAttribute('data-rec')];
+  if(!rec) return;
+  result.innerHTML = '';
+  var h = document.createElement('h3'); h.textContent = rec.title;
+  var p = document.createElement('p'); p.textContent = rec.text;
+  var a = document.createElement('a'); a.className = 'btn btn-primary'; a.href = rec.href; a.textContent = rec.cta + ' →';
+  result.appendChild(h); result.appendChild(p); result.appendChild(a);
+  result.classList.add('show');
+  var cards = document.querySelectorAll('.app-card');
+  for(var j=0;j<cards.length;j++) cards[j].classList.toggle('spot', cards[j].id === rec.card);
+});
+</script>
+<script>
+/* Sharma kit v1.2 adapter: service worker + bottom tab bar wired to this app's
+   existing tab buttons. No data, links or behaviour change. */
+(function(){
+  function reg(){ /* Round 2/v1.3: SK.registerSW hardcodes scope "/" (SecurityError on GitHub Pages subpaths); register manually with the repo scope. */ if ("serviceWorker" in navigator) { try { navigator.serviceWorker.register("sw.js", { scope: "/sharma-customer/homeowners/" }); } catch(e){} } }
+  if (document.readyState === "complete") reg(); else addEventListener("load", reg);
+  var tabs = document.querySelectorAll(".sk-tab[data-sk-view]");
+  if (!tabs.length) return;
+  function sync(){
+    var on = document.querySelector('[data-view].on, [data-view][aria-selected="true"]');
+    tabs.forEach(function(t){ 
+      if (on && t.getAttribute("data-sk-view") === on.getAttribute("data-view")) t.setAttribute("aria-current","page");
+      else t.removeAttribute("aria-current");
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.preventDefault();
+      var b = document.querySelector('[data-view="' + t.getAttribute("data-sk-view") + '"]');
+      if (b) b.click();
+      sync(); scrollTo(0,0);
+    });
+  });
+  document.addEventListener("click", function(){ setTimeout(sync, 30); });
+  sync();
+})();
+</script>
+<div class="sk-sheet" id="moreSheet" role="dialog" aria-modal="true" aria-label="More">
+  <div class="sk-sheet__grab"></div>
+  <div class="sk-sheet__head"><span></span><div class="sk-sheet__title">More</div><button type="button" class="sk-header__btn" data-sheet-close aria-label="Close"><svg class="sk-icon"><use href="#i-close"/></svg></button></div>
+  <div class="sk-sheet__body">
+    <div class="sk-section-title"><span>Display</span></div>
+    <div class="sk-list" id="appearance"></div>
+    <div style="height:12px"></div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){ if (window.SK && SK.scheme) SK.scheme.mountToggle(document.getElementById("appearance")); });
+</script>
+</body>
+</html>

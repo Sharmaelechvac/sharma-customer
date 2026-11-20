@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" class="sk" data-scheme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light"/>
+<meta name="theme-color" content="#264387">
+<meta name="description" content="Sharma Electric & HVAC pickers — smart home packages, HVAC change-out and electrical options."/>
+<script>(function(){try{if(localStorage.getItem("sk-scheme")==="dark"){var d=document.documentElement;d.setAttribute("data-scheme","dark");var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=d.getAttribute("data-theme")==="track"?"#1C1C1E":"#1a2f61"}}catch(e){}})()</script>
+<title>Pickers — Sharma Electric &amp; HVAC</title>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<link rel="stylesheet" href="../shell.css">
+<link rel="stylesheet" href="../macos.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+</head>
+<body class="sk">
+<header class="sk-header">
+  <div class="sk-header__bar">
+    <div class="sk-header__lead"><a class="sk-header__back cx-back" href="../"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Sharma Electric &amp; HVAC</a></div>
+    <div class="sk-header__trail"><a class="cx-phone" href="tel:+14078819076">(407) 881-9076</a></div>
+  </div>
+</header>
+<main class="cx-main">
+  <h1 class="cx-h1">Pickers</h1>
+  <p class="cx-intro">Three short planners. Your picks go to Sharma for pricing and confirmation &mdash; nothing is ordered from these pages.</p>
+  <nav class="cx-cards" aria-label="Pickers">
+    <a class="cx-card" href="smart-home-picker/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">Smart Home Picker</span>
+        <span class="cx-card__detail">Smart home packages for your build or your home</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="cx-card" href="hvac-picker/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">HVAC Picker</span>
+        <span class="cx-card__detail">AC replacement, thought out as one full job</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="cx-card" href="electrical-app/">
+      <span class="cx-card__body">
+        <span class="cx-card__title">Electrical Picker</span>
+        <span class="cx-card__detail">Electrical options, one question at a time</span>
+      </span>
+      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </nav>
+  <footer class="sk-footer cx-footer">
+    <p>Call or text <a href="tel:+14078819076">(407) 881-9076</a> &middot; <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a></p>
+    <p>Sharma Electric &amp; HVAC &middot; EC13013924 &middot; CAC1823596</p>
+    <div class="sk-appearance" id="cx-appearance"></div>
+  </footer>
+</main>
+<script>
+try{ if("serviceWorker" in navigator){ navigator.serviceWorker.register("../sw.js", { scope: "/sharma-customer/" }); } }catch(e){}
+window.addEventListener("DOMContentLoaded", function(){ try{ if(window.SK && SK.scheme && SK.scheme.mountToggle){ SK.scheme.mountToggle(document.getElementById("cx-appearance")); } }catch(e){} });
+</script>
+</body>
+</html>

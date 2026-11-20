@@ -1,0 +1,30 @@
+{
+  "name": "Builders & GCs \u00b7 Sharma Electric & HVAC",
+  "short_name": "Builders",
+  "description": "Electrical, HVAC and low voltage for Central Florida builders.",
+  "id": "./",
+  "start_url": "/sharma-customer/builders/",
+  "scope": "/sharma-customer/builders/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F4F8",
+  "theme_color": "#264387",
+  "icons": [
+    {
+      "src": "https://sharma-kit.sharma-crew.workers.dev/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://sharma-kit.sharma-crew.workers.dev/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://sharma-kit.sharma-crew.workers.dev/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

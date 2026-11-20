@@ -1,0 +1,38 @@
+/* Sharma Customer app — shell styles (front door + Pickers section).
+   Apple-style fleet language on the sharma-kit: light-always (dark only via
+   the kit Appearance switch), navy #264387 / gold #F0A846, 18px minimum
+   type, big tap targets, no emoji. Section apps keep their own styles. */
+.cx-main{
+  padding:calc(var(--sk-header-h,52px) + 28px) 18px 40px;
+  max-width:680px;margin:0 auto;
+}
+.cx-h1{
+  font-size:32px;line-height:1.15;font-weight:700;letter-spacing:-.02em;
+  margin:0 0 10px;color:var(--sk-text);
+}
+.cx-intro{font-size:18px;line-height:1.5;color:var(--sk-text-2);margin:0 0 26px}
+.cx-phone{
+  font-size:17px;font-weight:700;color:var(--sk-brand);text-decoration:none;white-space:nowrap;
+}
+.cx-back{
+  display:inline-flex;align-items:center;gap:2px;font-size:17px;font-weight:600;
+  color:var(--sk-brand);text-decoration:none;min-height:44px;
+}
+.cx-back svg{width:20px;height:20px}
+.cx-cards{display:flex;flex-direction:column;gap:14px}
+.cx-card{
+  display:flex;align-items:center;gap:14px;
+  min-height:88px;padding:18px;
+  background:var(--sk-surface,#fff);
+  border:1px solid var(--sk-line);border-radius:16px;
+  text-decoration:none;color:var(--sk-text);
+  -webkit-tap-highlight-color:transparent;
+}
+.cx-card:active{background:var(--sk-fill-2)}
+.cx-card__body{flex:1 1 auto;min-width:0}
+.cx-card__title{display:block;font-size:21px;font-weight:700;line-height:1.25;color:var(--sk-text)}
+.cx-card__detail{display:block;font-size:17px;line-height:1.4;color:var(--sk-text-2);margin-top:4px}
+.cx-card__chev{flex:0 0 auto;width:24px;height:24px;color:var(--sk-gold)}
+.cx-footer{font-size:16px}
+.cx-footer a{color:var(--sk-brand);font-weight:600;text-decoration:none}
+.cx-footer p{margin:6px 0}

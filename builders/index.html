@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en" class="sk" data-scheme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light"/>
+<link rel="icon" href="data:,"/>
+<title>Builders &amp; GCs — Sharma Electric &amp; HVAC</title>
+<style>
+:root{
+  --navy:#0a2247; --navy-deep:#04122a; --navy-ink:#061a38;
+  --orange:#264387; --orange2:#1a2f61; --gold:#8EA8EC;
+  --bg:#edf1f5; --surface:#ffffff; --surface2:#e3eaf2; --ink:#0e1d33; --muted:#52637a; --line:#cfd9e4;
+  --radius:16px; --shadow:0 14px 34px rgba(4,18,42,.16);
+  --bar-h:66px;
+}
+/* Light-always (Sanjay 2026-11-19): dark only via the kit data-scheme switch, never the OS. */
+[data-scheme="dark"]{ --bg:#050f1f; --surface:#0d213c; --surface2:#16304f; --ink:#eef3fa; --muted:#a7b8cf; --line:#223c5e; --shadow:0 14px 34px rgba(0,0,0,.5); }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-bottom:calc(var(--bar-h) + 30px)}
+body{margin:0;font-family:var(--sk-font);background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 12px)}
+h1,h2,h3,.cond{font-family:var(--sk-font)}
+a{color:var(--orange)}
+button{font-family:var(--sk-font)}
+img{max-width:100%}
+
+/* ————— Top bar: deep navy, logo in a white pill, phone as an orange pill ————— */
+.topbar{background:var(--navy-deep);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;z-index:5}
+.topbar .logopill{background:#fff;border-radius:10px;padding:5px 10px;display:flex;align-items:center;line-height:0}
+.topbar .logo{height:42px;width:auto;max-width:46vw;object-fit:contain;display:block}
+@media (min-width:720px){.topbar{padding:10px 22px}.topbar .logo{height:44px}}
+.topbar .hlinks{display:flex;align-items:center;gap:10px}
+.topbar .hlinks a{color:#dbe6f4;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap}
+.topbar .hlinks a:hover{color:#fff}
+.topbar .hlinks a.hphone{background:var(--orange);color:#fff;font-weight:800;border-radius:999px;padding:9px 16px;letter-spacing:.01em}
+.topbar .hlinks a.hphone:hover{background:var(--orange2)}
+@media (max-width:560px){.topbar .hlinks a.hemail{display:none}}
+
+/* ————— HERO: deep navy, big logo lockup, huge condensed type ————— */
+.hero{position:relative;background:var(--navy-deep);color:#fff;overflow:hidden}
+.hero .shade{position:absolute;inset:0;background:radial-gradient(720px 420px at 88% -60px,rgba(38,67,135,.34) 0%,rgba(38,67,135,0) 62%),radial-gradient(900px 520px at -120px 108%,rgba(27,84,163,.5) 0%,rgba(27,84,163,0) 60%),linear-gradient(115deg,#0a2247 0%,#04122a 58%,#061a38 100%)}
+.hero .shade::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(105deg,transparent 30%,#000 78%,transparent 100%);-webkit-mask-image:linear-gradient(105deg,transparent 30%,#000 78%,transparent 100%)}
+.logobanner .lb-points{display:grid;grid-template-columns:1fr;gap:9px}
+@media (min-width:720px){.logobanner .lb-points{grid-template-columns:repeat(3,1fr);gap:11px}}
+.logobanner .lb-point{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px 15px}
+.logobanner .lb-point b{display:block;font-family:var(--sk-font);font-weight:800;text-transform:uppercase;font-size:20px;letter-spacing:.03em;color:#fff;line-height:1.05}
+.logobanner .lb-point span{font-size:13.5px;color:#c3d2e6;line-height:1.45;display:block;margin-top:3px}
+.hero-inner{position:relative;z-index:2;max-width:1140px;margin:0 auto;padding:52px 20px 0}
+@media (min-width:720px){.hero-inner{padding:72px 24px 0}}
+.hero .kick{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.hero .kick::before{content:"";width:34px;height:3px;background:var(--orange);border-radius:2px}
+.hero h1{font-size:clamp(46px,8.2vw,88px);line-height:.94;font-weight:800;text-transform:uppercase;letter-spacing:.005em;margin:0;max-width:820px;text-wrap:balance}
+.hero h1 .hl{color:var(--orange2)}
+.hero p.lede{margin:18px 0 0;font-size:clamp(19px,2.6vw,24px);line-height:1.35;font-weight:600;color:#fff;max-width:620px}
+.hero p.sub{margin:10px 0 0;font-size:16px;line-height:1.55;color:#c3d2e6;max-width:600px}
+.hero .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hero .licline{margin:18px 0 0;font-size:13.5px;color:#9fb4cf;letter-spacing:.02em}
+.hero .licline b{color:#fff}
+.herostats{display:flex;flex-wrap:wrap;gap:0;margin-top:38px;border-top:1px solid rgba(255,255,255,.22)}
+.herostats .stat{padding:16px 26px 22px 0;margin-right:26px}
+.herostats .stat:last-child{margin-right:0}
+.herostats .num{display:block;font-family:var(--sk-font);font-weight:800;font-size:40px;line-height:1;color:#fff}
+.herostats .num em{font-style:normal;color:var(--orange2)}
+.herostats .lab{display:block;margin-top:3px;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9fb4cf}
+
+/* ————— SHARMATRACK highlight ————— */
+.hero-track{margin-top:22px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);border-left:5px solid #3b8bff;border-radius:12px;padding:12px 14px;max-width:680px;text-align:left;width:100%;cursor:pointer;color:#fff;font-family:var(--sk-font)}
+.hero-track:hover{background:rgba(255,255,255,.12)}
+.hero-track .ht-name{font-family:var(--sk-font);font-weight:800;font-size:24px;letter-spacing:.04em;line-height:1;color:#fff;white-space:nowrap}
+.hero-track .ht-name em{font-style:normal;color:#6db3ff}
+.hero-track .ht-live{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0a2a5e;background:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.hero-track .ht-txt{font-size:14.5px;line-height:1.45;color:#d7e3f2;font-weight:500}
+.hero-track .ht-go{font-weight:800;color:#6db3ff;font-size:14.5px;white-space:nowrap}
+.st-logopill{background:#fff;border-radius:10px;padding:6px 12px;display:inline-flex;align-items:center;line-height:0}
+.st-logopill img{display:block;height:30px;width:auto;object-fit:contain}
+.hero-track .st-logopill{flex:0 0 auto}
+.trackspot .ts-logopill{background:#fff;border-radius:14px;padding:14px 20px;display:inline-flex;align-items:center;line-height:0;box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.trackspot .ts-logopill img{display:block;height:clamp(52px,8vw,76px);width:auto;max-width:76vw;object-fit:contain}
+.appcard .app-head .ah-brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.appcard .app-head .st-logopill{padding:5px 10px;border-radius:8px}
+.appcard .app-head .st-logopill img{height:24px}
+.appcard .app-head .ah-job{font-family:var(--sk-font);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:17px;color:#c3d2e6;line-height:1}
+.trackspot{margin:18px 0 6px;border-radius:20px;position:relative;overflow:hidden;background:linear-gradient(130deg,#0b3a7a 0%,#04122a 72%);box-shadow:var(--shadow);padding:26px 22px 22px;color:#fff;border-top:6px solid #3b8bff}
+.trackspot::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 280px at 94% -50px,rgba(59,139,255,.42) 0%,rgba(59,139,255,0) 62%)}
+.trackspot>*{position:relative;z-index:1}
+.trackspot .ts-kick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.trackspot .ts-kick .ts-label{font-size:13px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8fc2ff}
+.trackspot .ts-kick .ts-live{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#0a2a5e;background:#fff;border-radius:999px;padding:3px 9px}
+.trackspot h3.ts-name{margin:0;font-size:clamp(44px,7vw,68px);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:.01em;color:#fff}
+.trackspot h3.ts-name em{font-style:normal;color:#6db3ff}
+.trackspot .ts-lede{margin:10px 0 0;font-size:17px;line-height:1.5;font-weight:600;color:#fff;max-width:640px}
+.trackspot .ts-sub{margin:6px 0 0;font-size:15px;line-height:1.55;color:#c3d2e6;max-width:640px}
+.trackspot .ts-grid{display:grid;grid-template-columns:1fr;gap:9px;margin-top:18px}
+@media (min-width:720px){.trackspot .ts-grid{grid-template-columns:repeat(2,1fr);gap:11px}}
+@media (min-width:1020px){.trackspot .ts-grid{grid-template-columns:repeat(4,1fr)}}
+.trackspot .ts-item{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 15px}
+.trackspot .ts-item .ts-n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:#3b8bff;color:#fff;font-weight:800;font-size:14px;align-items:center;justify-content:center;margin-bottom:7px}
+.trackspot .ts-item b{display:block;font-family:var(--sk-font);font-weight:800;text-transform:uppercase;font-size:19px;letter-spacing:.03em;line-height:1.05;color:#fff}
+.trackspot .ts-item span{display:block;margin-top:3px;font-size:13.5px;line-height:1.45;color:#c3d2e6}
+.trackspot .ts-cta{margin-top:18px;display:flex;gap:9px;flex-wrap:wrap}
+
+/* ————— How the app works: phone-style step card ————— */
+.appcard{margin-top:14px;background:var(--navy-deep);border-radius:20px;padding:18px 16px 16px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.appcard::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 240px at 94% -40px,rgba(38,67,135,.3) 0%,rgba(38,67,135,0) 62%)}
+.appcard>*{position:relative;z-index:1}
+.appcard .app-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 4px 13px;border-bottom:1px solid rgba(255,255,255,.16)}
+.appcard .app-head b{font-family:var(--sk-font);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:20px;color:#fff;line-height:1}
+.appcard .app-head span{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(255,180,46,.14);border:1px solid rgba(255,180,46,.4);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.appstep{display:flex;gap:12px;padding:13px 4px;border-bottom:1px solid rgba(255,255,255,.1)}
+.appstep:last-child{border-bottom:0;padding-bottom:5px}
+.appstep .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:#3b8bff;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.appstep b{display:block;color:#fff;font-size:16px;line-height:1.3}
+.appstep p{margin:2px 0 0;font-size:14px;color:#c3d2e6;line-height:1.55}
+
+main{max-width:1140px;margin:0 auto;padding:0 14px}
+@media (min-width:720px){main{padding:0 20px}}
+
+/* ————— Tabs: dark pill bar ————— */
+.tabs{position:sticky;top:10px;z-index:30;margin-top:18px;background:var(--navy-deep);border-radius:14px;box-shadow:0 12px 28px rgba(4,18,42,.35);padding:6px}
+.tabs .seg{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs .seg::-webkit-scrollbar{display:none}
+.tabs button{flex:1 0 auto;border:0;background:transparent;color:#a9bed8;font-weight:600;font-size:15px;padding:11px 16px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s}
+.tabs button:hover{color:#fff}
+.tabs button.on{background:var(--orange);color:#fff;font-weight:800}
+.view{display:none}
+.view.on{display:block}
+.viewhint{color:var(--muted);font-size:15.5px;margin:18px 2px 12px;line-height:1.55;max-width:760px}
+.viewtitle{font-size:clamp(44px,6.5vw,64px);font-weight:800;text-transform:uppercase;line-height:.95;margin:22px 2px 4px}
+.viewtitle .hl{color:var(--orange)}
+.viewsub{margin:0 2px;font-size:16.5px;color:var(--muted);line-height:1.55;max-width:680px}
+
+/* ————— Buttons ————— */
+.btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:12px 22px;font-weight:800;font-size:16px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:background .18s,transform .18s,box-shadow .18s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 10px 24px rgba(38,67,135,.38)}
+.btn-primary:hover{background:var(--orange2);transform:translateY(-1px)}
+.btn-navy{background:var(--navy);color:#fff}
+[data-scheme="dark"] .btn-navy{background:var(--surface2);color:var(--ink)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.65)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.16)}
+.btn-white{background:#fff;color:var(--navy-deep)}
+.btn-white:hover{background:#e8eef6}
+.hero .btn{padding:14px 26px;font-size:17px}
+.hero .btn-outline{color:#fff;border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.08)}
+.hero .btn-outline:hover{border-color:#fff;color:#fff}
+.link-btn{background:none;border:0;color:var(--orange);font-weight:700;font-size:14.5px;cursor:pointer;padding:4px 0;text-align:left;text-decoration:none;display:inline-block}
+
+/* ————— Logo banners inside views (no photos — brand marks carry it) ————— */
+.logobanner{margin:18px 0 6px;border-radius:18px;position:relative;overflow:hidden;background:linear-gradient(130deg,var(--navy) 0%,var(--navy-deep) 70%);box-shadow:var(--shadow);padding:22px 20px 20px}
+.logobanner::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 260px at 92% -40px,rgba(38,67,135,.32) 0%,rgba(38,67,135,0) 62%)}
+.logobanner>*{position:relative;z-index:1}
+.logobanner .lb-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.logobanner .lb-head b{color:var(--gold);font-family:var(--sk-font);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(21px,3vw,27px);line-height:1}
+.logobanner .lb-head span{color:#c3d2e6;font-weight:600;font-size:14.5px;line-height:1.4}
+.logobanner .lb-row{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+@media (min-width:720px){.logobanner .lb-row{grid-template-columns:repeat(4,1fr);gap:11px}}
+.logobanner .lb-tile{background:#fff;border-radius:12px;height:78px;display:flex;align-items:center;justify-content:center;padding:10px 16px}
+.logobanner .lb-tile img{max-height:44px;max-width:172px;width:auto;height:auto;object-fit:contain;display:block}
+.logobanner .lb-tile.lead{outline:3px solid var(--orange);outline-offset:-3px}
+
+/* ————— Who we sub for ————— */
+.pkg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 0 6px}
+@media (min-width:720px){.pkg-row{grid-template-columns:repeat(3,1fr);gap:12px}}
+.pkg{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--orange);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:5px;transition:transform .2s,box-shadow .2s}
+.pkg:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pkg .tier{font-size:13px;font-weight:800;letter-spacing:.18em;color:var(--orange);text-transform:uppercase}
+.pkg h3{margin:0;font-size:clamp(24px,3vw,30px);font-weight:800;line-height:1;text-transform:uppercase}
+.pkg .for{color:var(--muted);font-size:14.5px;margin:0;line-height:1.45}
+
+/* ————— Scope cards ————— */
+.prod-list{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+@media (min-width:720px){.prod-list{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:12px}}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:17px 18px;transition:box-shadow .2s}
+.prod:hover{box-shadow:var(--shadow)}
+.prod h4{margin:0 0 4px;font-size:19px;line-height:1.2;font-family:var(--sk-font),sans-serif;font-weight:800;letter-spacing:0}
+.prod .desc{margin:0;font-size:14.5px;color:var(--muted);line-height:1.55}
+.prod .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.prod .tag{font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--surface2);color:var(--ink)}
+.prod .tag.best{background:rgba(38,67,135,.15);color:var(--orange)}
+[data-scheme="dark"] .prod .tag.best{color:var(--gold)}
+
+/* ————— Steps ————— */
+.steps{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0}
+@media (min-width:680px){.steps{grid-template-columns:repeat(3,1fr);gap:12px}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.step b{display:block;font-family:var(--sk-font);font-weight:800;font-size:21px;text-transform:uppercase;margin-bottom:3px}
+.step b .sno{color:var(--orange);font-size:24px;margin-right:2px}
+.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+
+/* ————— Trust cards ————— */
+.trustgrid{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0 4px}
+@media (min-width:680px){.trustgrid{grid-template-columns:repeat(3,1fr);gap:12px}}
+.trustcard{background:linear-gradient(150deg,var(--navy) 0%,var(--navy-deep) 88%);color:#fff;border-radius:16px;padding:20px}
+.trustcard h3{margin:0 0 6px;font-size:24px;font-weight:800;text-transform:uppercase;line-height:1.02;color:var(--gold)}
+.trustcard p{margin:0;font-size:14.5px;line-height:1.55;color:#d7e3f2}
+
+/* ————— Icon bullets ————— */
+.iconbullets{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0 2px}
+@media (min-width:720px){.iconbullets{grid-template-columns:repeat(3,1fr)}}
+.iconbullet{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px;display:flex;gap:10px;align-items:flex-start}
+.iconbullet svg{width:24px;height:24px;flex:0 0 auto;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.iconbullet b{display:block;font-size:15.5px;line-height:1.25}
+.iconbullet span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+
+/* ————— Notes & counts ————— */
+.size-note{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:15px;margin:12px 0 6px;line-height:1.6}
+.size-note b{color:var(--orange)}
+.count{display:inline-block;font-weight:800;color:#fff;background:var(--navy);border-radius:999px;padding:5px 13px;font-size:13px;width:fit-content;letter-spacing:.02em}
+[data-scheme="dark"] .count{background:var(--surface2);color:var(--ink)}
+
+/* ————— Brand tiles ————— */
+.brandgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 4px}
+@media (min-width:720px){.brandgrid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1020px){.brandgrid{grid-template-columns:repeat(4,1fr)}}
+.logotile{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;height:92px;display:flex;align-items:center;justify-content:center;padding:12px 18px;box-sizing:border-box}
+.logotile img{max-height:54px;max-width:196px;width:auto;height:auto;object-fit:contain;display:block}
+.logotile .pref{display:inline-flex;align-items:center;gap:4px;position:absolute;top:-10px;right:10px;background:var(--orange);color:#fff;font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:3px 10px;white-space:nowrap;box-shadow:0 3px 8px rgba(4,18,42,.3)}
+.brandgroup{margin:18px 0 2px}
+.brandgroup .glabel{font-family:var(--sk-font);font-weight:700;text-transform:uppercase;font-size:18px;letter-spacing:.05em;color:var(--muted);margin:0 2px}
+.brandgrid--compact{grid-template-columns:repeat(3,1fr);gap:7px}
+@media (min-width:720px){.brandgrid--compact{grid-template-columns:repeat(5,1fr)}}
+@media (min-width:1020px){.brandgrid--compact{grid-template-columns:repeat(6,1fr)}}
+.logotile--sm{height:58px;padding:8px 10px;border-radius:11px}
+.logotile--sm img{max-height:30px;max-width:86px}
+
+/* ————— Section heads ————— */
+.sec-h{font-size:clamp(26px,3.6vw,34px);font-weight:800;text-transform:uppercase;margin:30px 2px 2px;line-height:1}
+.sec-h::after{content:"";display:block;width:52px;height:4px;background:var(--orange);border-radius:2px;margin-top:8px}
+.sec-sub{color:var(--muted);font-size:15px;margin:6px 2px 0;line-height:1.55;max-width:680px}
+
+/* ————— County chips ————— */
+.chips{display:flex;gap:7px;flex-wrap:wrap;padding:14px 2px 4px}
+.chips span{border:1.5px solid var(--navy);background:var(--surface);color:var(--ink);border-radius:999px;padding:9px 17px;font-weight:700;font-size:15px}
+[data-scheme="dark"] .chips span{border-color:var(--line)}
+
+/* ————— Contact band: photo-backed, dramatic ————— */
+.contactband{position:relative;overflow:hidden;color:#fff;border-radius:20px;padding:30px 22px;margin:22px 0 6px;box-shadow:var(--shadow);background:linear-gradient(125deg,var(--navy) 0%,var(--navy-deep) 72%)}
+.contactband .cb-shade{position:absolute;inset:0;background:radial-gradient(620px 300px at 94% -50px,rgba(38,67,135,.34) 0%,rgba(38,67,135,0) 62%),radial-gradient(700px 380px at -80px 115%,rgba(27,84,163,.45) 0%,rgba(27,84,163,0) 62%)}
+
+.contactband>*{position:relative;z-index:2}
+@media (min-width:720px){.contactband{padding:38px 34px}}
+.contactband h2{margin:0 0 6px;font-size:clamp(34px,5vw,48px);font-weight:800;text-transform:uppercase;line-height:.98}
+.contactband h2 em{color:var(--orange2);font-style:normal}
+.contactband>p{margin:0 0 6px;font-size:16px;color:#d7e3f2;line-height:1.6;max-width:560px}
+.contactband .bring{margin:16px 0 4px}
+.contactband .bring b{display:block;font-family:var(--sk-font);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.02em;color:var(--gold);margin-bottom:7px}
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{position:relative;padding:4px 0 4px 29px;font-size:15px;line-height:1.5;color:#e9eff8}
+.checklist li::before{content:"";position:absolute;left:0;top:5px;width:20px;height:20px;border-radius:50%;background-color:var(--orange);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E");background-size:12px;background-position:center;background-repeat:no-repeat}
+.contactband .cta-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.contactband .cta-row .btn{flex:1 1 170px;padding:14px 18px;font-size:16.5px}
+.contactband .direct{margin:15px 0 0;font-size:13px;color:#a9bcd6}
+.trade-cta{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0 4px}
+.trade-cta .btn{flex:1 1 150px;padding:13px 18px}
+
+footer{color:var(--muted);font-size:13.5px;text-align:center;padding:22px 14px 8px;line-height:1.65}
+footer a{color:var(--orange);font-weight:600}
+
+/* ————— Sticky bottom bar ————— */
+.listbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--navy-deep);color:#fff;padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;box-shadow:0 -8px 26px rgba(4,18,42,.35)}
+.listbar .lic{font-family:var(--sk-font);font-size:17px;font-weight:700;letter-spacing:.02em;line-height:1.1}
+.listbar .lic small{display:block;font-family:var(--sk-font);font-size:13px;font-weight:400;opacity:.8;letter-spacing:0}
+.listbar .spacer{flex:1}
+.listbar .btn{flex:0 0 auto;padding:11px 20px}
+@media (max-width:640px){
+  .listbar .lic{display:none}
+  .listbar .btn{flex:1;padding:13px 8px}
+  .listbar .spacer{display:none}
+}
+
+/* ————— How We Work: sample documents ————— */
+.sampledoc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:14px;box-shadow:0 4px 14px rgba(4,18,42,.05)}
+.sampledoc .doclabel{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin:0 0 2px}
+.sampledoc h4{margin:0 0 4px;font-size:19px;line-height:1.15;font-family:var(--sk-font),sans-serif;font-weight:800;letter-spacing:0}
+.sampledoc .docsub{margin:0 0 10px;font-size:14px;color:var(--muted);line-height:1.55}
+.linerow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.linerow:first-of-type{border-top:0}
+.linerow b{font-weight:700}
+.linerow span{color:var(--muted);text-align:right;font-size:14px;line-height:1.4}
+.msgthread{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 15px}
+.msg .mhead{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);margin-bottom:3px}
+.msg .mhead b{color:var(--ink);font-size:13.5px}
+.msg p{margin:0;font-size:15px;line-height:1.55}
+.specrow{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}
+.specrow:first-of-type{border-top:0}
+.specrow b{font-weight:700}
+.specrow span{color:var(--muted);text-align:right}
+.subgrid{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+@media (min-width:720px){.subgrid{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.subcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 16px;display:flex;flex-direction:column;gap:4px}
+.subcard .brandline{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.subcard .brandline img{height:22px;width:auto;max-width:120px;object-fit:contain;background:#fff;border-radius:4px;padding:2px 4px}
+.subcard h4{margin:0;font-size:17.5px;line-height:1.2;font-family:var(--sk-font),sans-serif;font-weight:800;letter-spacing:0}
+.subcard .model{font-weight:800;color:var(--orange);font-size:14.5px}
+.subcard p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} html{scroll-behavior:auto} }
+@media print{ .listbar,.tabs{display:none!important} body{padding-bottom:0;background:#fff} .view{display:block!important} .hero,.contactband{background:#fff;color:#000} .hero .shade,.contactband .cb-shade{display:none} }
+</style>
+<meta name="theme-color" content="#264387">
+<meta name="color-scheme" content="light">
+<script>(function(){try{if(localStorage.getItem("sk-scheme")==="dark"){var d=document.documentElement;d.setAttribute("data-scheme","dark");var m=document.querySelector('meta[name="theme-color"]');if(m)m.content=d.getAttribute("data-theme")==="track"?"#1C1C1E":"#1a2f61"}}catch(e){}})()</script>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+<style>
+/* Sharma kit bridge: room for the kit header/tab bar; app layout otherwise untouched. */
+/* C-upgrade 2026-11-19: native feel — view cross-fade + per-view scroll keep (see
+   showView), grouped inset lists (16px side margins, rounded grouped cards),
+   every tappable control 44px+. No bottom sheet / detail overlay in this app
+   (nothing to convert to a kit sheet); data is inline, so pull-to-refresh is N/A. */
+body.sk{padding-bottom:calc(var(--sk-tab-h,54px) + env(safe-area-inset-bottom,0px) + 10px)}
+.sk-header{z-index:60}
+.topbar,.tabs{display:none!important}
+main{padding:0 16px}
+.view.sk-enter{animation:skViewIn .2s cubic-bezier(.32,.72,.35,1)}
+@keyframes skViewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.sk-enter{animation:none}}
+.btn,.link-btn{min-height:44px}
+.link-btn{display:inline-flex;align-items:center}
+.hero-track{min-height:44px}
+.tabs button{min-height:44px}
+</style>
+<style>
+/* Round 2 (Steve, 2026-11-19): kit button colours win over kit link tint (the kit
+   stylesheet loads after the app sheet and tied specificity on .btn colours);
+   navy main buttons, no orange fills/glows, ghost "Text" button solid navy
+   (was 1.99:1, now white on #264387 = 9.6:1) and 48px tall; tab labels >=4.5:1. */
+body.sk .btn-primary{background:#264387;color:#fff;box-shadow:0 10px 24px rgba(38,67,135,.28)}
+body.sk .btn-primary:hover{background:#1a2f61}
+body.sk .btn-ghost{background:#264387;color:#fff;border:1.5px solid #8EA8EC;min-height:48px}
+body.sk .btn-ghost:hover{background:#1a2f61}
+body.sk .btn-navy{background:#264387;color:#fff}
+body.sk .btn-white{background:#fff;color:#04122a}
+body.sk .btn-outline{color:#0e1d33}
+body.sk .hero .btn-outline,body.sk .contactband .btn-outline{color:#fff}
+body.sk .btn{min-height:48px}
+.hero h1 .hl,.contactband h2 em,.herostats .num em{color:#8EA8EC}
+.sk-tab{color:#52637a}
+[data-scheme="dark"] .sk-tab{color:#A1A1AA}
+footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+/* kit v1.3 light look: no dark panels/heroes in light mode — hero, SHARMATRACK
+   spot, app card, trust cards, logo banners, contact band and the sticky bar go
+   light (white/surface, ink text); the navy panels return only in Dark. */
+[data-scheme="light"] .hero{background:#ffffff;color:#0e1d33}
+[data-scheme="light"] .hero .shade{background:radial-gradient(720px 420px at 88% -60px,rgba(38,67,135,.10) 0%,rgba(38,67,135,0) 62%),linear-gradient(115deg,#ffffff 0%,#F2F4F8 100%)}
+[data-scheme="light"] .hero .shade::after{background-image:linear-gradient(rgba(14,29,51,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(14,29,51,.05) 1px,transparent 1px)}
+[data-scheme="light"] .hero h1{color:#0e1d33}
+[data-scheme="light"] .hero h1 .hl{color:#264387}
+[data-scheme="light"] .hero p.lede{color:#0e1d33}
+[data-scheme="light"] .hero p.sub{color:#52637a}
+[data-scheme="light"] .hero .licline{color:#52637a}
+[data-scheme="light"] .hero .licline b{color:#0e1d33}
+[data-scheme="light"] .herostats{border-top-color:#cfd9e4}
+[data-scheme="light"] .herostats .num{color:#0e1d33}
+[data-scheme="light"] .herostats .num em{color:#264387}
+[data-scheme="light"] .herostats .lab{color:#52637a}
+[data-scheme="light"] .hero .kick{color:#264387}
+[data-scheme="light"] .hero-track{background:#F7F8FB;border-color:#cfd9e4;border-left-color:#264387;color:#0e1d33}
+[data-scheme="light"] .hero-track .ht-name{color:#0e1d33}
+[data-scheme="light"] .hero-track .ht-name em{color:#264387}
+[data-scheme="light"] .hero-track .ht-txt{color:#52637a}
+[data-scheme="light"] .hero-track .ht-go{color:#264387}
+[data-scheme="light"] .hero-track .ht-live{background:#264387;color:#fff}
+[data-scheme="light"] .logobanner .lb-point{background:#F7F8FB;border-color:#cfd9e4}
+[data-scheme="light"] .logobanner .lb-point b{color:#0e1d33}
+[data-scheme="light"] .logobanner .lb-point span{color:#52637a}
+[data-scheme="light"] .trackspot,[data-scheme="light"] .logobanner,[data-scheme="light"] .contactband{background:#ffffff;color:#0e1d33;border:1px solid #cfd9e4;box-shadow:0 1px 2px rgba(16,24,40,.05)}
+[data-scheme="light"] .trackspot::before,[data-scheme="light"] .logobanner::before,[data-scheme="light"] .contactband .cb-shade{background:radial-gradient(620px 280px at 94% -50px,rgba(38,67,135,.08) 0%,rgba(38,67,135,0) 62%)}
+[data-scheme="light"] .trackspot h3.ts-name{color:#0e1d33}
+[data-scheme="light"] .trackspot .ts-lede{color:#0e1d33}
+[data-scheme="light"] .trackspot .ts-sub{color:#52637a}
+[data-scheme="light"] .trackspot .ts-kick .ts-label{color:#264387}
+[data-scheme="light"] .trackspot .ts-kick .ts-live{background:#264387;color:#fff}
+[data-scheme="light"] .trackspot .ts-item{background:#F7F8FB;border-color:#cfd9e4}
+[data-scheme="light"] .trackspot .ts-item b{color:#0e1d33}
+[data-scheme="light"] .trackspot .ts-item span{color:#52637a}
+[data-scheme="light"] .logobanner .lb-head b{color:#264387}
+[data-scheme="light"] .logobanner .lb-head span{color:#52637a}
+[data-scheme="light"] .appcard{background:#ffffff;border:1px solid #cfd9e4}
+[data-scheme="light"] .appcard::before{background:radial-gradient(520px 240px at 94% -40px,rgba(38,67,135,.08) 0%,rgba(38,67,135,0) 62%)}
+[data-scheme="light"] .appcard .app-head{border-bottom-color:#cfd9e4}
+[data-scheme="light"] .appcard .app-head b{color:#0e1d33}
+[data-scheme="light"] .appcard .app-head .ah-job{color:#52637a}
+[data-scheme="light"] .appcard .app-head span{color:#264387;background:rgba(38,67,135,.08);border-color:#cfd9e4}
+[data-scheme="light"] .appstep{border-bottom-color:#e3eaf2}
+[data-scheme="light"] .appstep b{color:#0e1d33}
+[data-scheme="light"] .appstep p{color:#52637a}
+[data-scheme="light"] .trustcard{background:#ffffff;color:#0e1d33;border:1px solid #cfd9e4}
+[data-scheme="light"] .trustcard h3{color:#264387}
+[data-scheme="light"] .trustcard p{color:#52637a}
+[data-scheme="light"] .contactband h2{color:#0e1d33}
+[data-scheme="light"] .contactband h2 em{color:#264387}
+[data-scheme="light"] .contactband>p{color:#52637a}
+[data-scheme="light"] .contactband .bring b{color:#264387}
+[data-scheme="light"] .checklist li{color:#0e1d33}
+[data-scheme="light"] .contactband .direct{color:#52637a}
+[data-scheme="light"] body.sk .btn-white{background:#264387;color:#fff}
+[data-scheme="light"] body.sk .hero .btn-outline,[data-scheme="light"] body.sk .contactband .btn-outline{color:#0e1d33;border-color:#cfd9e4;background:#ffffff}
+[data-scheme="light"] .listbar{background:#ffffff;color:#0e1d33;border-top:1px solid #cfd9e4;box-shadow:0 -4px 16px rgba(16,24,40,.06)}
+</style>
+<link rel="stylesheet" href="macos.css">
+</head>
+<body class="sk">
+<header class="sk-header"><div class="sk-header__bar">
+  <div class="sk-header__lead"><a class="sk-header__logo" href="./"><img src="https://sharma-kit.sharma-crew.workers.dev/assets/logo-white-header.png" alt="Sharma Electric &amp; HVAC" width="103" height="20"></a></div>
+  <div class="sk-header__title">Builders</div>
+  <div class="sk-header__trail"><button type="button" class="sk-header__btn" data-sheet-open="moreSheet" aria-label="More"><svg class="sk-icon"><use href="#i-settings"/></svg></button><a class="sk-header__btn" href="tel:+14078819076" aria-label="Call Sharma"><svg class="sk-icon"><use href="#i-phone"/></svg></a></div>
+</div></header>
+<div class="sk-offline"></div>
+
+<div class="topbar">
+  <span class="logopill"><img class="logo" src="assets/img-6fae0d6be57d.webp" alt="Sharma Electric &amp; HVAC — Power. Comfort. Trust."/></span>
+  <div class="hlinks">
+    <a class="hemail" href="mailto:office@sharmaelectric.com">Email the Office</a>
+    <a class="hphone" href="tel:+14078819076">(407) 881-9076</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="shade"></div>
+  <div class="hero-inner">
+    <p class="kick">Residential New Construction · Central Florida</p>
+    <h1>Electrical, HVAC &amp; Low Voltage for <span class="hl">Central Florida builders.</span></h1>
+    <p class="lede">One sub for all three trades, from the first lot to the last trim-out.</p>
+    <p class="sub">Built for purchasing, construction managers, and superintendents: send the office your community, plans, and bid-by date. No forms. No portals. Take one trade, two, or all three — each trade is its own tab below.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-ghost" href="sms:+14078819076">Text</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+    <button type="button" class="hero-track" data-view="overview" data-scrollto="track-detail" aria-label="See how SHARMATRACK works">
+      <span class="st-logopill"><img loading="lazy" decoding="async" src="assets/img-b526a16b8e22.webp" alt="SHARMATRACK"/></span>
+      <span class="ht-live">Live on every job</span>
+      <span class="ht-txt">Every house tracked live — photo checklists, permit &amp; inspection status, and drawings on the job page. Your supers see progress as it happens.</span>
+      <span class="ht-go">See how it works →</span>
+    </button>
+    <p class="licline">Florida licensed · <b>Electrical EC13013924</b> · <b>HVAC CAC1823596</b> · 11 Central Florida counties</p>
+    <div class="herostats">
+      <div class="stat"><span class="num">3<em>.</em></span><span class="lab">Trades, one sub</span></div>
+      <div class="stat"><span class="num">11</span><span class="lab">Counties covered</span></div>
+      <div class="stat"><span class="num">2</span><span class="lab">Florida licenses</span></div>
+      <div class="stat"><span class="num">Per-plan</span><span class="lab">Pricing, every bid</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <nav class="tabs" aria-label="Sections">
+    <div class="seg">
+      <button type="button" data-view="overview" class="on">Overview</button>
+      <button type="button" data-view="electrical">Electrical</button>
+      <button type="button" data-view="hvac">HVAC</button>
+      <button type="button" data-view="lowvoltage">Low Voltage</button>
+      <button type="button" data-view="process">Process</button>
+    </div>
+  </nav>
+
+  <!-- ================= OVERVIEW ================= -->
+  <section class="view on" id="view-overview">
+    <p class="viewhint">For builder purchasing and construction teams pricing new communities in Central Florida. Sharma self-performs all three trades — your supers deal with one sub, one schedule, and one office contact across every lot and phase.</p>
+
+    <div class="logobanner" style="margin-top:4px">
+      <div class="lb-head"><b>On your lots</b><span>Self-performed crews, staffed to your starts per month.</span></div>
+      <div class="lb-points">
+        <div class="lb-point"><b>One sub</b><span>Electrical, HVAC &amp; low voltage under one schedule</span></div>
+        <div class="lb-point"><b>Your starts</b><span>Crews staffed to your starts per month, not ours</span></div>
+        <div class="lb-point"><b>One office</b><span>One contact for bids, scheduling &amp; field issues</span></div>
+      </div>
+    </div>
+
+    <div class="trackspot">
+      <div class="ts-kick"><span class="ts-label">Every job runs on</span><span class="ts-live"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#176B32;vertical-align:1px"></span> Live</span></div>
+      <h3 class="ts-name"><span class="ts-logopill"><img loading="lazy" decoding="async" src="assets/img-b526a16b8e22.webp" alt="SHARMATRACK"/></span></h3>
+      <p class="ts-lede">Our own job-tracking system — every house, every lot, every phase, on one live page.</p>
+      <p class="ts-sub">No chasing texts, no wondering where a lot stands. SHARMATRACK is how Sharma runs the work and how your team sees it: the crew documents every step in photos, and progress, permits, and inspections stay current on the job page.</p>
+      <div class="ts-grid">
+        <div class="ts-item"><span class="ts-n">1</span><b>Job page per house</b><span>Address, builder, plan &amp; phase — one page per home, from start to closing.</span></div>
+        <div class="ts-item"><span class="ts-n">2</span><b>Photo checklist</b><span>Each rough-in and trim step photographed as it's done. Progress is pictures, not promises.</span></div>
+        <div class="ts-item"><span class="ts-n">3</span><b>Live status</b><span>Checklist counts, phase status, permit &amp; inspection status — current for office and builder.</span></div>
+        <div class="ts-item"><span class="ts-n">4</span><b>Drawings on the page</b><span>Panel schedules &amp; prints live on the job page — one tap for the crew, no chasing prints.</span></div>
+      </div>
+      <div class="ts-cta">
+        <button type="button" class="btn btn-white" data-scrollto="track-detail">See SHARMATRACK in action →</button>
+        <a class="btn btn-ghost" href="tel:+14078819076">Ask the office</a>
+      </div>
+    </div>
+
+    <h2 class="sec-h">Who we sub for</h2>
+    <p class="sec-sub">Every model below is priced the same way — per plan, from your plans.</p>
+    <div class="pkg-row">
+      <article class="pkg"><div class="tier">Home type</div><h3>Custom</h3><p class="for">One-off plans, priced per plan</p></article>
+      <article class="pkg"><div class="tier">Home type</div><h3>Semi-Custom</h3><p class="for">Base plan + structural options</p></article>
+      <article class="pkg"><div class="tier">Home type</div><h3>Spec</h3><p class="for">Builder inventory homes</p></article>
+      <article class="pkg"><div class="tier">Home type</div><h3>Tract / Production</h3><p class="for">Phases &amp; repeat plans at volume</p></article>
+      <article class="pkg"><div class="tier">Home type</div><h3>Build-to-Rent</h3><p class="for">Repeatable units, consistent spec</p></article>
+      <article class="pkg"><div class="tier">Home type</div><h3>Townhomes</h3><p class="for">Multi-unit releases</p></article>
+    </div>
+
+    <h2 class="sec-h">What builders get</h2>
+    <div class="trustgrid">
+      <div class="trustcard"><h3>One point of contact</h3><p>One point of contact at the office for every trade you take — bid questions, scheduling, and field issues go to one place, not three subs.</p></div>
+      <div class="trustcard"><h3>Rough-in on schedule</h3><p>Rough-in on the start schedule. We staff to your starts per month, not ours — your supers get the dates they planned around.</p></div>
+      <div class="trustcard"><h3>Permits pulled by Sharma</h3><p>Sharma pulls its own electrical and mechanical permits and coordinates service scheduling with the power company.</p></div>
+    </div>
+
+
+    <h2 class="sec-h">Coverage — 11 counties</h2>
+    <p class="sec-sub">Outside this footprint, contact the office and we will tell you straight if we can staff it.</p>
+    <div class="chips">
+      <span>Orange</span><span>Osceola</span><span>Polk</span><span>Seminole</span><span>Lake</span><span>Marion</span><span>Citrus</span><span>Brevard</span><span>Hernando</span><span>Pasco</span><span>Sumter</span>
+    </div>
+
+    <div class="contactband" id="contact">
+      <div class="cb-shade"></div>
+      <h2>Have a community <em>coming up?</em></h2>
+      <p>No forms, no portals. Call, text, or email the office with your project — one trade or all three.</p>
+      <div class="bring">
+        <b>Have these handy — or just call and talk it through</b>
+        <ul class="checklist">
+          <li>Community / project name, city &amp; county</li>
+          <li>Plans &amp; elevations — email or plan-room link</li>
+          <li>Number of homes / lots &amp; approx. starts per month</li>
+          <li>Trades needed: Electrical · HVAC · Low Voltage</li>
+          <li>Your bid deadline &amp; target start</li>
+        </ul>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+        <a class="btn btn-ghost" href="sms:+14078819076">Text</a>
+        <a class="btn btn-white" href="mailto:office@sharmaelectric.com?subject=Bid%20Request%20—%20New%20Project">Email the Office</a>
+      </div>
+      <p class="direct">Sharma Electric &amp; HVAC · Florida Licenses EC13013924 / CAC1823596</p>
+    </div>
+
+    <div class="size-note"><b>Prequal packet — on request.</b> Florida licenses EC13013924 &amp; CAC1823596, W-9, certificate of insurance (with your company named as additional insured), and workers' comp documentation. Ask the office at <a href="mailto:office@sharmaelectric.com?subject=Prequal%20Packet%20Request">office@sharmaelectric.com</a> or <a href="tel:+14078819076">(407) 881-9076</a>.</div>
+    <div id="track-detail">
+    <p class="viewhint">How a job actually runs with Sharma — on <b>SHARMATRACK</b>, our own job-tracking system. The updates your supers get, the drawings behind the rough-in, and the paperwork purchasing receives. Everything below is a sample, built the way the real versions are built: per plan, checked line by line, and with no prices shown.</p>
+    <h2 class="viewtitle">How we work — <span class="hl">SHARMATRACK</span></h2>
+    <p class="viewsub">Every community runs on SHARMATRACK: live job pages, photo checklists, engineered drawings, estimates, and submittals — the working system behind every house.</p>
+
+    <h3 class="sec-h">SHARMATRACK communication</h3>
+    <p class="sec-sub">Scheduling, inspections, and field issues run through SHARMATRACK, so your supers see status without chasing phone calls. Sample updates, the way they read on a live job:</p>
+    <div class="msgthread">
+      <div class="msg"><div class="mhead"><b>SHARMATRACK — Field update</b><span>Rough-in</span></div><p>Rough-in complete and walked. Ready for your rough inspection call — panel schedule and circuit drawing posted with this update.</p></div>
+      <div class="msg"><div class="mhead"><b>SHARMATRACK — Schedule</b><span>Trim</span></div><p>Trim is scheduled off your closing calendar. Devices, fixtures, and thermostat go in after paint — punch items from the last walk are already cleared.</p></div>
+      <div class="msg"><div class="mhead"><b>SHARMATRACK — Inspection</b><span>Final</span></div><p>Electrical final passed. System start-up done, panel labeled circuit by circuit, and the lot is turned over clean for closing.</p></div>
+    </div>
+
+    <h3 class="sec-h">How SHARMATRACK works</h3>
+    <p class="sec-sub">The system behind those updates — every job runs on its own SHARMATRACK page, from the day the lot starts to the day it closes:</p>
+    <div class="appcard">
+      <div class="app-head"><div class="ah-brand"><span class="st-logopill"><img loading="lazy" decoding="async" src="assets/img-b526a16b8e22.webp" alt="SHARMATRACK"/></span><span class="ah-job">Job page — one per house</span></div><span>Live</span></div>
+      <div class="appstep"><span class="n">1</span><div><b>Every house gets its own job page</b><p>Each home and community has a dedicated page in SHARMATRACK — address, builder, plan, and phase — so nothing about a lot lives in someone's text thread.</p></div></div>
+      <div class="appstep"><span class="n">2</span><div><b>The crew works from a photo checklist</b><p>Every step of the rough-in and trim is on a checklist on that page, and the crew photographs each step as it's done — progress is pictures, not promises.</p></div></div>
+      <div class="appstep"><span class="n">3</span><div><b>You see progress live</b><p>The office and the builder watch the same page: checklist counts, phase status — rough-in, trim, final — plus permit and inspection status, all current.</p></div></div>
+      <div class="appstep"><span class="n">4</span><div><b>Drawings &amp; schedules live on the page</b><p>Panel schedules and prints sit on the job page, one tap away for the crew in the field — no chasing the current set.</p></div></div>
+      <div class="appstep"><span class="n">5</span><div><b>Updates post to the page, not a text chain</b><p>Field updates, schedule changes, and inspection results all post to the same page — your super checks one place instead of chasing texts.</p></div></div>
+    </div>
+
+    <h3 class="sec-h">Engineered circuit drawings</h3>
+    <p class="sec-sub">We put real time and engineering resources into the drawings behind every rough-in — circuit assignments are worked out per plan before a crew ever pulls wire, so inspections go faster and trims match the plan.</p>
+    <div class="sampledoc">
+      <p class="doclabel">Sample — Engineered drawing</p>
+      <h4>Panel schedule, per plan</h4>
+      <p class="docsub">Circuit-by-circuit assignments drawn from the plan — a sample of the schedule page that travels with the estimate and submittal.</p>
+      <div class="specrow"><b>Circuits 1–12</b><span>Lighting &amp; receptacle homeruns, per room</span></div>
+      <div class="specrow"><b>240V boxes</b><span>Dryer and range only</span></div>
+      <div class="specrow"><b>Hardwired</b><span>Water heater · condenser · air handler</span></div>
+      <div class="specrow"><b>Grounding</b><span>Ground rods &amp; bonding per plan and code</span></div>
+      <div class="specrow"><b>Panel labeling</b><span>Every breaker labeled circuit by circuit at final</span></div>
+    </div>
+
+    <h3 class="sec-h">Sample estimate</h3>
+    <p class="sec-sub">Estimates are priced per plan for purchasing, in this line-item format — options and adders on their own lines, never buried. Sample only: no dollar amounts are shown.</p>
+    <div class="sampledoc">
+      <p class="doclabel">Sample — Estimate, per plan</p>
+      <h4>Electrical — one plan, one price basis</h4>
+      <p class="docsub">The format purchasing bids against, line by line.</p>
+      <div class="linerow"><b>Temporary power</b><span>Temp service for the lot</span></div>
+      <div class="linerow"><b>Service &amp; meter</b><span>Sized per plan, power-company sequenced</span></div>
+      <div class="linerow"><b>Panel &amp; feeders</b><span>Siemens panel, feeders per plan</span></div>
+      <div class="linerow"><b>Rough-in</b><span>Branch wiring, boxes &amp; homeruns</span></div>
+      <div class="linerow"><b>Trim-out</b><span>Devices, lighting, fans &amp; fixtures</span></div>
+      <div class="linerow"><b>Final</b><span>Testing, labeling &amp; inspection</span></div>
+      <div class="linerow"><b>Options</b><span>Buyer options &amp; adders, separate lines</span></div>
+    </div>
+
+    <h3 class="sec-h">Sample submittals</h3>
+    <p class="sec-sub">Every bid goes out as one merged packet per plan — the estimate first, the submittal behind it — with each product page carrying the manufacturer's cut-sheet data for the exact model in the takeoff. Three sample pages:</p>
+    <div class="subgrid">
+      <div class="subcard"><div class="brandline"><img loading="lazy" decoding="async" src="assets/img-f21e92a1d45f.webp" alt="Siemens"/></div><h4>Load center</h4><span class="model">Siemens SN3048L1200</span><p>Panel schedule and breaker layout per plan — the standard Siemens panel in every plan we price.</p></div>
+      <div class="subcard"><div class="brandline"><img loading="lazy" decoding="async" src="assets/img-f21e92a1d45f.webp" alt="Siemens"/></div><h4>Meter combo</h4><span class="model">Siemens MM0202B1200</span><p>Service equipment data for the plan's meter position, sequenced with the power company.</p></div>
+      <div class="subcard"><div class="brandline"><img loading="lazy" decoding="async" src="assets/img-9f4257cfd118.webp" alt="Goodman"/></div><h4>Matched HVAC system</h4><span class="model">Goodman GZV6SA4210 + AHVE42CP0300</span><p>Matched system at 17 SEER2, sized from the plan's Manual J — the same system on every home from that plan.</p></div>
+    </div>
+    <div class="size-note"><b>Checked line by line.</b> Before a packet leaves the office, every submittal page is matched against the plans, the takeoff, and the estimate — the product on the page is the product in the price. These are samples: the office builds the real packet per plan, with your project and plan details.</div>
+
+    <div class="trade-cta">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-navy" href="sms:+14078819076">Text</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= ELECTRICAL ================= -->
+  <section class="view" id="view-electrical">
+    <h2 class="viewtitle">Electrical<span class="hl">.</span></h2>
+    <p class="viewsub">Residential new-construction electrical, from temp power to final — priced per plan and roughed on your start schedule.</p>
+    <p class="viewhint"><span class="count">Florida License EC13013924</span></p>
+    <div class="logobanner">
+      <div class="lb-head"><b>Panel &amp; feeders</b><span>Siemens standard — every breaker labeled circuit by circuit at final.</span></div>
+      <div class="lb-row">
+        <div class="lb-tile lead"><img loading="lazy" decoding="async" src="assets/img-f21e92a1d45f.webp" alt="Siemens"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-c7459fb3939f.webp" alt="Square D by Schneider Electric"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-e18724ba3642.webp" alt="Eaton"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-f99f0f11e865.webp" alt="Leviton"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-72366bcd6758.webp" alt="Legrand"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-95ac5c44ea95.webp" alt="ABB"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-34734d51b5d1.webp" alt="Generac"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-6e2d034e3535.webp" alt="Tesla"/></div>
+      </div>
+    </div>
+
+    <h3 class="sec-h">Scope</h3>
+    <div class="prod-list">
+      <div class="prod"><h4>Temporary power</h4><p class="desc">Temp service set early in the build so every lot has construction power from framing on.</p><div class="tags"><span class="tag best">First on site</span><span class="tag">Per community</span></div></div>
+      <div class="prod"><h4>Service, panels &amp; meters</h4><p class="desc">Service sizing, panel and meter work per plan — Siemens panels are our standard (our preferred panel brand), breakers labeled circuit by circuit at final. Overhead or underground, sequenced with the power company so releases don't stall.</p><div class="tags"><span class="tag best">Siemens standard</span><span class="tag">Overhead &amp; underground</span><span class="tag">Power-company coordination</span></div></div>
+      <div class="prod"><h4>Rough-in</h4><p class="desc">Branch wiring, boxes, and homeruns per plan and elevation — in on the start schedule, ready for your rough inspection.</p><div class="tags"><span class="tag best">On the start schedule</span><span class="tag">Per plan &amp; elevation</span></div></div>
+      <div class="prod"><h4>Trim-out</h4><p class="desc">Devices, switches, lighting, fans, and fixtures set at trim, per the plan's selections and options.</p><div class="tags"><span class="tag">Per plan selections</span></div></div>
+      <div class="prod"><h4>Final</h4><p class="desc">Devices tested, panel labeled, punch items cleared — the home passes electrical final and closes clean.</p><div class="tags"><span class="tag">Inspection-ready</span></div></div>
+    </div>
+
+    <h3 class="sec-h">Brands we install</h3>
+    <p class="sec-sub">Siemens is our preferred panel brand — the standard panel in every plan we price. The rest of the row is the gear we install per plan spec and selections.</p>
+    <div class="brandgrid">
+      <div class="logotile"><span class="pref"><svg class="sk-icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-star"/></svg> Preferred</span><img loading="lazy" decoding="async" src="assets/img-f21e92a1d45f.webp" alt="Siemens"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-95ac5c44ea95.webp" alt="ABB"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-e18724ba3642.webp" alt="Eaton"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-45d47ecd0155.webp" alt="EcoFlow"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-34734d51b5d1.webp" alt="Generac"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-72366bcd6758.webp" alt="Legrand"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-f99f0f11e865.webp" alt="Leviton"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-c7459fb3939f.webp" alt="Square D by Schneider Electric"/></div>
+      <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-6e2d034e3535.webp" alt="Tesla"/></div>
+    </div>
+
+    <h3 class="sec-h">How this trade runs</h3>
+    <div class="steps">
+      <div class="step"><b><span class="sno">1 ·</span> Plans &amp; takeoff</b><p>Counts and service requirements taken off your plans, priced per plan for purchasing.</p></div>
+      <div class="step"><b><span class="sno">2 ·</span> Temp power &amp; service</b><p>Temporary service set; permanent service and panel scheduled with the power company.</p></div>
+      <div class="step"><b><span class="sno">3 ·</span> Rough-in</b><p>Roughed on your start schedule — your super calls the start, we staff to it.</p></div>
+      <div class="step"><b><span class="sno">4 ·</span> Trim-out</b><p>Devices, fixtures, and finishes set after paint, per plan.</p></div>
+      <div class="step"><b><span class="sno">5 ·</span> Final</b><p>Walked, tested, and passed at final inspection.</p></div>
+    </div>
+    <div class="size-note"><b>Permits:</b> Sharma pulls its own electrical permits and coordinates disconnect / reconnect, service drop, and mast sequencing with the power company.</div>
+    <div class="trade-cta">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=Electrical%20Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+  </section>
+
+  <!-- ================= HVAC ================= -->
+  <section class="view" id="view-hvac">
+    <h2 class="viewtitle">HVAC<span class="hl">.</span></h2>
+    <p class="viewsub">Complete mechanical for new homes — equipment and ductwork sized per plan, roughed with the build, and started up before closing.</p>
+    <p class="viewhint"><span class="count">Florida License CAC1823596</span></p>
+    <div class="logobanner">
+      <div class="lb-head"><b>Rough-in, done right</b><span>Ductwork laid out per plan, sized from the Manual J — matched systems from the names below.</span></div>
+      <div class="lb-row">
+        <div class="lb-tile lead"><img loading="lazy" decoding="async" src="assets/img-9f4257cfd118.webp" alt="Goodman"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-666f4e428727.webp" alt="Carrier"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-0c209d9da1b7.webp" alt="Bryant Heating &amp; Cooling"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-af584a571c25.webp" alt="Daikin"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-18ce2dc17682.webp" alt="Mitsubishi Electric"/></div>
+        <div class="lb-tile lead"><img loading="lazy" decoding="async" src="assets/img-e86db0dab18e.webp" alt="ecobee"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-dbfe3624bed2.webp" alt="Honeywell Home"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-194292b9e2d7.webp" alt="Google Nest"/></div>
+      </div>
+    </div>
+
+    <h3 class="sec-h">Scope</h3>
+    <div class="prod-list">
+      <div class="prod"><h4>Equipment &amp; ductwork</h4><p class="desc">Full system install — outdoor unit, air handler, and a duct system designed and laid out per plan.</p><div class="tags"><span class="tag">Per plan layout</span></div></div>
+      <div class="prod"><h4>Sizing from the Manual J</h4><p class="desc">Equipment and ductwork sizing from the Manual J load calculation for each plan — sized to the model, not rule of thumb.</p><div class="tags"><span class="tag best">Manual J per plan</span></div></div>
+      <div class="prod"><h4>Matched systems per plan</h4><p class="desc">The same matched system on every home built from that plan — consistent spec across the whole community and every phase.</p><div class="tags"><span class="tag">Consistent across phases</span></div></div>
+      <div class="prod"><h4>Rough-in</h4><p class="desc">Duct, line sets, drains, and equipment set at mechanical rough, on the start schedule and ready for inspection.</p><div class="tags"><span class="tag best">On the start schedule</span></div></div>
+      <div class="prod"><h4>Trim &amp; start-up</h4><p class="desc">Grilles and thermostats at trim — ecobee (our preferred thermostat, paired with the Goodman system), Honeywell Home, or Google Nest, per plan spec. System charged, tested, and running at final — start-up done before the home closes.</p><div class="tags"><span class="tag">Start-up before closing</span></div></div>
+    </div>
+
+    <h3 class="sec-h">Brands we install</h3>
+    <div class="brandgroup">
+      <p class="glabel">Equipment</p>
+      <div class="brandgrid">
+        <div class="logotile"><span class="pref"><svg class="sk-icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-star"/></svg> Preferred</span><img loading="lazy" decoding="async" src="assets/img-9f4257cfd118.webp" alt="Goodman"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-0c209d9da1b7.webp" alt="Bryant Heating &amp; Cooling"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-666f4e428727.webp" alt="Carrier"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-af584a571c25.webp" alt="Daikin"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-18ce2dc17682.webp" alt="Mitsubishi Electric"/></div>
+      </div>
+      <p class="sec-sub">Goodman — most cost-efficient across all platforms, for the builder and the owner.</p>
+    </div>
+    <div class="brandgroup">
+      <p class="glabel">Thermostats &amp; controls</p>
+      <div class="brandgrid">
+        <div class="logotile"><span class="pref"><svg class="sk-icon" style="width:14px;height:14px" aria-hidden="true"><use href="#i-star"/></svg> Preferred</span><img loading="lazy" decoding="async" src="assets/img-e86db0dab18e.webp" alt="ecobee"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-dbfe3624bed2.webp" alt="Honeywell Home"/></div>
+        <div class="logotile"><img loading="lazy" decoding="async" src="assets/img-194292b9e2d7.webp" alt="Google Nest"/></div>
+      </div>
+    </div>
+
+    <h3 class="sec-h">How this trade runs</h3>
+    <div class="steps">
+      <div class="step"><b><span class="sno">1 ·</span> Plans &amp; Manual J</b><p>Load calculated per plan; equipment selected and priced per plan for purchasing.</p></div>
+      <div class="step"><b><span class="sno">2 ·</span> Rough-in</b><p>Ductwork, line sets, and equipment roughed on the start schedule.</p></div>
+      <div class="step"><b><span class="sno">3 ·</span> Trim</b><p>Grilles, registers, and thermostats set at trim.</p></div>
+      <div class="step"><b><span class="sno">4 ·</span> Start-up</b><p>System started, charged, and verified room by room.</p></div>
+      <div class="step"><b><span class="sno">5 ·</span> Final</b><p>Inspection-ready mechanical, passed at final.</p></div>
+    </div>
+    <div class="size-note"><b>Permits:</b> Sharma pulls its own mechanical permits for every home.</div>
+    <div class="trade-cta">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=HVAC%20Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+  </section>
+
+  <!-- ================= LOW VOLTAGE ================= -->
+  <section class="view" id="view-lowvoltage">
+    <h2 class="viewtitle">Low Voltage <span class="hl">/ Smart Home</span></h2>
+    <p class="viewsub">Structured wiring and Smart Home packages built in before drywall — set per plan at pricing, so purchasing can offer them as standard spec or buyer options.</p>
+    <p class="viewhint"><span class="count">Prewire + trim · Priced per plan</span></p>
+    <div class="logobanner">
+      <div class="lb-head"><b>Built in before drywall</b><span>Lighting, networking, and control — planned per plan, not added on.</span></div>
+      <div class="lb-row">
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-1f441f2c29f2.webp" alt="Ring"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-2e74a7206125.webp" alt="Lutron"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-ada1dd7b2f0e.webp" alt="eero"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-4e82fb029e1d.webp" alt="Sonos"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-c849f2380af9.webp" alt="Ubiquiti"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-abcb0a16acad.webp" alt="Amazon Alexa"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-da2438865946.webp" alt="Google Home"/></div>
+        <div class="lb-tile"><img loading="lazy" decoding="async" src="assets/img-43d3acd489b7.webp" alt="Philips Hue"/></div>
+      </div>
+    </div>
+
+    <h3 class="sec-h">Scope</h3>
+    <div class="prod-list">
+      <div class="prod"><h4>Structured prewire</h4><p class="desc">Data, TV, and low-voltage runs pulled at rough — before drywall, in the same crew window as electrical rough. No extra trip on the schedule.</p><div class="tags"><span class="tag best">Before drywall</span><span class="tag">Same window as electrical rough</span></div></div>
+      <div class="prod"><h4>Smart Home packages</h4><p class="desc">Tiered packages priced per plan like the other trades — builders set them as standard spec or offer them as buyer options.</p><div class="tags"><span class="tag">Standard spec or buyer option</span></div></div>
+      <div class="prod"><h4>Wi-Fi &amp; networking</h4><p class="desc">Access-point prewire and placement planned per plan, so coverage reaches every room of the model — not just the rooms near the panel. Built on eero mesh, Ubiquiti UniFi, or TP-Link Omada networking, per plan spec.</p><div class="tags"><span class="tag">Planned per plan</span></div></div>
+      <div class="prod"><h4>Cameras &amp; doorbells</h4><p class="desc">Prewire and devices for cameras and video doorbells at the entries and elevations that matter.</p><div class="tags"><span class="tag">Per plan &amp; elevation</span></div></div>
+      <div class="prod"><h4>Smart lighting &amp; home theater</h4><p class="desc">Smart switches and dimmers, plus speaker and theater prewire where the plan or the buyer option calls for it.</p><div class="tags"><span class="tag">Option-ready</span></div></div>
+    </div>
+
+    <h3 class="sec-h">Brands we install</h3>
+    <div class="brandgrid brandgrid--compact">
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-abcb0a16acad.webp" alt="Amazon Alexa"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-3712194e343c.webp" alt="Bose"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-53eed21d0c3c.webp" alt="Chamberlain myQ"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-db6d596c107f.webp" alt="D-Link"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-ada1dd7b2f0e.webp" alt="eero"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-a5923877b617.webp" alt="eufy"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-da2438865946.webp" alt="Google Home"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-72366bcd6758.webp" alt="Legrand Smart"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-f99f0f11e865.webp" alt="Leviton Smart"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-8c4c14c881d8.webp" alt="LG"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-56676b689d37.webp" alt="Lorex"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-2e74a7206125.webp" alt="Lutron Smart"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-7eed39e96130.webp" alt="MOES"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-9764a250d556.webp" alt="Omada by TP-Link"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-43d3acd489b7.webp" alt="Philips Hue"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-1f441f2c29f2.webp" alt="Ring"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-90556faf753a.webp" alt="Samsung"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-4e82fb029e1d.webp" alt="Sonos"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-bbf81db6b319.webp" alt="Starlink"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-eef3743f63b4.webp" alt="TP-Link Tapo"/></div>
+      <div class="logotile logotile--sm"><img loading="lazy" decoding="async" src="assets/img-c849f2380af9.webp" alt="Ubiquiti"/></div>
+    </div>
+
+    <h3 class="sec-h">How this trade runs</h3>
+    <div class="steps">
+      <div class="step"><b><span class="sno">1 ·</span> Package selection</b><p>Packages set per plan at pricing — standard spec, or offered as buyer options.</p></div>
+      <div class="step"><b><span class="sno">2 ·</span> Prewire at rough</b><p>All runs pulled before drywall, alongside electrical rough.</p></div>
+      <div class="step"><b><span class="sno">3 ·</span> Trim</b><p>Devices, keypads, cameras, and access points set at trim.</p></div>
+      <div class="step"><b><span class="sno">4 ·</span> Setup &amp; handover</b><p>Systems connected, tested, and working at closing.</p></div>
+    </div>
+    <div class="size-note"><b>Timing:</b> Low Voltage rides the electrical rough-in window — one crew visit covers both, so it never becomes a separate line on your supers' schedule.</div>
+    <div class="trade-cta">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=Low%20Voltage%20Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+  </section>
+
+
+  <!-- ================= PROCESS ================= -->
+  <section class="view" id="view-process">
+    <p class="viewhint">The same sequence on every community, whichever trades you take — written the way purchasing and construction actually run it.</p>
+    <h2 class="viewtitle">From plans to final<span class="hl">.</span></h2>
+    <p class="viewsub">Bid, build, close — in builder terms.</p>
+    <div class="steps">
+      <div class="step"><b><span class="sno">1 ·</span> Plans review</b><p>We review plans and elevations by trade.</p></div>
+      <div class="step"><b><span class="sno">2 ·</span> Takeoff</b><p>Counts and scope taken off your plans.</p></div>
+      <div class="step"><b><span class="sno">3 ·</span> Pricing per plan</b><p>Priced plan by plan, elevation by elevation — the format purchasing bids against.</p></div>
+      <div class="step"><b><span class="sno">4 ·</span> Temp power</b><p>Temporary service set for construction.</p></div>
+      <div class="step"><b><span class="sno">5 ·</span> Rough-in</b><p>Rough on your start schedule, staffed to your starts per month.</p></div>
+      <div class="step"><b><span class="sno">6 ·</span> Trim</b><p>Devices, fixtures, and equipment trim-out per plan.</p></div>
+      <div class="step"><b><span class="sno">7 ·</span> Final</b><p>Start-up, inspection, and close-out — lots turned over clean, phase by phase.</p></div>
+    </div>
+    <div class="size-note"><b>Pricing holds plan by plan</b> across a community's phases — the price for a plan stays the price for that plan as the community builds out.</div>
+    <div class="iconbullets">
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><div><b>Bid by your deadline</b><span>Send plans and a bid-by date — pricing comes back per plan</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><div><b>Starts drive the schedule</b><span>Crews staffed to your starts per month and release schedule</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div><b>Live on SHARMATRACK</b><span>Every lot tracked on SHARMATRACK — photo checklists, permits &amp; inspections, one office for all three trades</span></div></div>
+    </div>
+    <div class="trade-cta">
+      <a class="btn btn-primary" href="tel:+14078819076">Call (407) 881-9076</a>
+      <a class="btn btn-navy" href="sms:+14078819076">Text</a>
+      <a class="btn btn-outline" href="mailto:office@sharmaelectric.com?subject=Bid%20Request%20—%20New%20Project">Email the Office</a>
+    </div>
+  </section>
+
+  <footer>
+    Sharma Electric &amp; HVAC — Residential New Construction · Commercial · Service<br/>
+    FL Lic. EC13013924 / CAC1823596<br/>
+    <a href="tel:+14078819076">(407) 881-9076</a> · <a href="sms:+14078819076">Text</a> · <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a><br/>
+    Serving builders in Orange, Osceola, Polk, Seminole, Lake, Marion, Citrus, Brevard, Hernando, Pasco &amp; Sumter counties.
+  </footer>
+</main>
+
+<div class="listbar">
+  <div class="lic">Sharma Electric &amp; HVAC<small>FL Lic. EC13013924 / CAC1823596</small></div>
+  <div class="spacer"></div>
+  <a class="btn btn-primary" href="tel:+14078819076">Call</a>
+  <a class="btn btn-ghost" href="sms:+14078819076">Text</a>
+  <a class="btn btn-white" href="mailto:office@sharmaelectric.com?subject=Bid%20Request%20—%20New%20Project">Email</a>
+</div>
+
+<script>
+var skScroll={}; var skCur=null;
+function showView(name){
+  if(skCur===null){ var c0=document.querySelector(".view.on"); if(c0) skCur=c0.id.replace("view-",""); }
+  if(skCur && skCur!==name) skScroll[skCur]=window.scrollY;
+  document.querySelectorAll("[data-view]").forEach(function(x){x.classList.toggle("on",x.getAttribute("data-view")===name)});
+  document.querySelectorAll(".view").forEach(function(v){v.classList.toggle("on",v.id==="view-"+name)});
+  skCur=name;
+  window.scrollTo(0, skScroll[name]||0);
+  var nv=document.getElementById("view-"+name);
+  if(nv){ nv.classList.remove("sk-enter"); void nv.offsetWidth; nv.classList.add("sk-enter"); }
+}
+document.querySelectorAll("[data-view]").forEach(function(b){
+ b.addEventListener("click",function(){showView(b.getAttribute("data-view"))});
+});
+</script>
+<nav class="sk-tabbar" aria-label="Sections"><div class="sk-tabbar__inner"><a class="sk-tab" href="#" data-sk-view="overview"><svg class="sk-icon"><use href="#i-home"/></svg>Overview</a><a class="sk-tab" href="#" data-sk-view="electrical"><svg class="sk-icon"><use href="#i-bolt"/></svg>Electrical</a><a class="sk-tab" href="#" data-sk-view="hvac"><svg class="sk-icon"><use href="#i-fan"/></svg>HVAC</a><a class="sk-tab" href="#" data-sk-view="lowvoltage"><svg class="sk-icon"><use href="#i-tv"/></svg>Voltage</a><a class="sk-tab" href="#" data-sk-view="process"><svg class="sk-icon"><use href="#i-list"/></svg>Process</a></div></nav>
+<script>
+/* Sharma kit v1.2 adapter: service worker + bottom tab bar wired to this app's
+   existing tab buttons. No data, links or behaviour change. */
+(function(){
+  function reg(){ /* Round 2: SK.registerSW hardcodes scope "/" which throws SecurityError on GitHub Pages subpaths; register manually with the repo scope. */ if ("serviceWorker" in navigator) { try { navigator.serviceWorker.register("sw.js", { scope: "/sharma-customer/builders/" }); } catch(e){} } }
+  if (document.readyState === "complete") reg(); else addEventListener("load", reg);
+  var tabs = document.querySelectorAll(".sk-tab[data-sk-view]");
+  if (!tabs.length) return;
+  function sync(){
+    var on = document.querySelector('[data-view].on, [data-view][aria-selected="true"]');
+    tabs.forEach(function(t){ 
+      if (on && t.getAttribute("data-sk-view") === on.getAttribute("data-view")) t.setAttribute("aria-current","page");
+      else t.removeAttribute("aria-current");
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.preventDefault();
+      var b = document.querySelector('[data-view="' + t.getAttribute("data-sk-view") + '"]');
+      if (b) b.click();
+      sync();
+    });
+  });
+  document.addEventListener("click", function(){ setTimeout(sync, 30); });
+  sync();
+})();
+</script>
+<script>
+document.querySelectorAll("[data-scrollto]").forEach(function(b){ b.addEventListener("click", function(){ var t=document.getElementById(b.getAttribute("data-scrollto")); if(t) setTimeout(function(){ t.scrollIntoView({behavior:"smooth",block:"start"}); }, 60); }); });
+</script>
+<div class="sk-sheet" id="moreSheet" role="dialog" aria-modal="true" aria-label="More">
+  <div class="sk-sheet__grab"></div>
+  <div class="sk-sheet__head"><span></span><div class="sk-sheet__title">More</div><button type="button" class="sk-header__btn" data-sheet-close aria-label="Close"><svg class="sk-icon"><use href="#i-close"/></svg></button></div>
+  <div class="sk-sheet__body">
+    <div class="sk-section-title"><span>Display</span></div>
+    <div class="sk-list" id="appearance"></div>
+    <div style="height:12px"></div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function(){ if (window.SK && SK.scheme) SK.scheme.mountToggle(document.getElementById("appearance")); });
+</script>
+</body>
+</html>

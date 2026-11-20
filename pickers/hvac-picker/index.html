@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en" class="sk">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>HVAC Change-Out Picker — Sharma Electric &amp; HVAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0b1e3a;--navy2:#07142a;--orange:#e86a10;--orange2:#f07d1f;--gold:#f5b841;--red:#d22630;--bg:#f4f6f9;--surface:#fff;--surface2:#eef1f5;--ink:#101d33;--muted:#5b6b84;--line:#dde3ea;--good:#16794a;--radius:16px;--shadow:0 10px 30px rgba(11,30,58,.13);--bar-h:64px}
+@media(prefers-color-scheme:dark){:root{--bg:#0a1526;--surface:#12233f;--surface2:#182c4d;--ink:#eef2f8;--muted:#a9b8cf;--line:#243a5e;--shadow:0 8px 24px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Barlow",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 12px)}
+h1,h2,h3,.cond{font-family:"Barlow Condensed","Barlow",sans-serif;letter-spacing:.01em}
+a{color:var(--orange)}button{font-family:"Barlow"}
+.topbar{background:#fff;color:var(--navy);padding:16px 16px 12px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;border-bottom:3px solid var(--orange);text-align:center}
+.topbar .logo{height:148px;width:auto;display:block;max-width:92vw;margin:0 auto}
+@media(min-width:720px){.topbar .logo{height:184px}}
+.topbar .links{font-size:14.5px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+.topbar a{color:var(--navy);text-decoration:none;font-weight:700;white-space:nowrap}
+.topbar a.callbtn{background:var(--orange);color:#fff;padding:10px 16px;border-radius:999px;font-size:15px}
+.topbar a.callbtn:hover{background:var(--orange2)}
+.hero{background:linear-gradient(160deg,var(--navy) 55%,var(--navy2));color:#fff;position:relative;overflow:hidden}
+.hero .inner{position:relative;max-width:1060px;margin:0 auto;padding:28px 16px 26px;display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+@media(min-width:820px){.hero .inner{grid-template-columns:1.05fr .95fr;padding:38px 20px 34px}}
+.hero h1{font-size:clamp(38px,7vw,58px);line-height:.92;margin:0 0 10px;text-transform:uppercase}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{margin:0;font-size:17px;color:#dbe6f4;max-width:480px;line-height:1.5}
+.hero .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hero .cta-row .btn{padding:13px 20px;font-size:16px}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:#fff}
+.hero .specs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px;max-width:520px}
+.hero .spec{border-top:3px solid var(--orange);padding-top:7px}
+.hero .spec b{display:block;font-family:"Barlow Condensed";font-size:19px;line-height:1.05;text-transform:uppercase}
+.hero .spec span{font-size:12px;color:#a9bcd6;line-height:1.3;display:block;margin-top:2px}
+@media(max-width:520px){.hero .specs{grid-template-columns:repeat(2,1fr)}}
+.hero-stage{background:#fff;border-radius:20px;padding:18px 18px 14px;color:var(--ink);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.hero-stage .hs-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.hero-stage .hs-top img.glogo{height:30px;width:auto;display:block}
+.hero-stage .hs-rec{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--good);color:#fff;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.hero-stage img.system{width:100%;height:250px;object-fit:contain;display:block}
+@media(min-width:820px){.hero-stage img.system{height:290px}}
+.hero-stage .hs-name{font-family:"Barlow Condensed";font-size:23px;text-transform:uppercase;line-height:1;margin:8px 0 2px;color:var(--navy)}
+.hero-stage .hs-sub{font-size:13.5px;color:var(--muted);margin:0}
+.hero .contractor-line{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--gold);line-height:1.4}
+.hero-stage .hs-top .hs-brand{font-family:"Barlow Condensed";font-size:17px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--navy);line-height:1}
+.hero-stage .hs-rec.navy{background:var(--navy)}
+.hero-stage img.photo{width:100%;height:250px;object-fit:cover;display:block;border-radius:12px}
+@media(min-width:820px){.hero-stage img.photo{height:290px}}
+.hero-stage .hs-list{list-style:none;margin:10px 0 2px;padding:0}
+.hero-stage .hs-list li{position:relative;padding:4px 0 4px 26px;font-size:14px;line-height:1.45;color:var(--ink)}
+.hero-stage .hs-list li::before{content:"✓";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--orange);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.emergency{background:var(--red);color:#fff;text-align:center;padding:9px 14px;font-weight:700;font-size:15px}
+.emergency a{color:#fff;text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+.hero h1{font-size:clamp(40px,7.5vw,64px)}
+.hero .promise{margin-top:14px;font-size:14.5px;color:#a9bcd6}
+.hero .promise b{color:#fff}
+.quiz{background:var(--surface);border:2px solid var(--orange);border-radius:20px;padding:18px 16px 16px;margin:14px 0 6px;box-shadow:var(--shadow);scroll-margin-top:76px}
+.quiz h2{margin:0 0 2px;font-size:30px;text-transform:uppercase;line-height:1}
+.quiz .q-sub{margin:0 0 6px;color:var(--muted);font-size:14.5px}
+.q-group{margin-top:14px}
+.q-group .q-label{font-family:"Barlow Condensed";font-size:19px;text-transform:uppercase;margin:0 0 7px;display:flex;gap:8px;align-items:center}
+.q-group .q-label .q-num{background:var(--orange);color:#fff;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 auto}
+.q-opts{display:flex;flex-wrap:wrap;gap:7px}
+.q-opts button{border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:9px 15px;font-weight:600;font-size:15px;cursor:pointer}
+.q-opts button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.q-opts button.on{background:var(--orange);border-color:var(--orange)}}
+.quiz-result{display:none;margin-top:16px;background:var(--surface2);border-radius:14px;padding:14px}
+.quiz-result.show{display:block}
+.quiz-result h3{margin:0 0 3px;font-size:24px;text-transform:uppercase}
+.quiz-result p{margin:0 0 10px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.iconbullets{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 2px}
+@media(min-width:720px){.iconbullets{grid-template-columns:repeat(3,1fr)}}
+.iconbullet{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 12px;display:flex;gap:9px;align-items:flex-start}
+.iconbullet svg{width:22px;height:22px;flex:0 0 auto;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.iconbullet b{display:block;font-size:14.5px;line-height:1.25}
+.iconbullet span{font-size:12.5px;color:var(--muted);line-height:1.35;display:block}
+.trustgrid{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0 4px}
+@media(min-width:680px){.trustgrid{grid-template-columns:repeat(3,1fr)}}
+.trustcard{background:var(--navy);color:#fff;border-radius:14px;padding:15px}
+.trustcard h3{margin:0 0 4px;font-size:20px;text-transform:uppercase;color:var(--gold)}
+.trustcard p{margin:0;font-size:14px;line-height:1.5;color:#dbe6f4}
+.bs-logo{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:58px;padding:8px 18px;background:#fff;border:1px solid #dde3ea;border-radius:12px;box-sizing:border-box}
+.bs-logo img{max-height:36px;max-width:148px;width:auto;height:auto;object-fit:contain;display:block}
+.bs-logo .bs-note{font-size:12px;font-weight:700;color:var(--good);white-space:nowrap}
+.brandstrip .bs-chip{display:inline-flex;align-items:center;justify-content:center;height:58px;box-sizing:border-box;border:1.5px solid var(--navy);color:var(--navy);font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:8px 16px;border-radius:12px;text-transform:uppercase;white-space:nowrap;background:#fff}
+.tabs{display:block}
+.bs-logo.cert{padding:6px 14px}
+.bs-logo.cert img{max-height:44px}
+.bs-logo.cert img.ahri-img{max-height:38px;max-width:172px}
+.foot-logos .bs-logo.cert img{max-height:38px}
+.foot-logos .bs-logo.cert img.ahri-img{max-height:34px;max-width:150px}
+.listbar .lic{display:block;font-family:"Barlow";font-size:10.5px;font-weight:600;opacity:.75;letter-spacing:.02em}
+.brandstrip{background:#fff;border-bottom:1px solid var(--line)}
+.brandstrip .bs-inner{max-width:1060px;margin:0 auto;padding:14px 16px;display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;justify-content:center}
+.brandstrip .bs-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);align-self:center}
+.foot-logos{display:flex;gap:10px;align-items:stretch;justify-content:center;flex-wrap:wrap;margin:6px 0 12px}
+.foot-logos .bs-logo{height:52px;padding:7px 14px}
+.foot-logos .bs-logo img{max-height:32px;max-width:128px}
+main{max-width:1060px;margin:0 auto;padding:0 12px}
+.tabs{position:sticky;top:0;z-index:80;background:var(--bg);padding:10px 12px 8px;border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(11,30,58,.08)}
+.tabs .seg{max-width:1060px;margin:0 auto}
+.tabs .seg{display:flex;background:var(--surface2);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.tabs button{flex:1;border:0;background:transparent;color:var(--muted);font-weight:700;font-size:13.5px;padding:9px 2px;border-radius:999px;cursor:pointer;min-height:44px;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media(max-width:480px){.tabs{padding:8px 8px 6px}.tabs button{font-size:12.5px;padding:10px 1px}}
+.tabs button.on{background:var(--navy);color:#fff}
+@media(prefers-color-scheme:dark){.tabs button.on{background:var(--orange)}}
+.view{display:none}.view.on{display:block}
+.viewhint{color:var(--muted);font-size:14.5px;margin:4px 2px 12px;line-height:1.5}
+.pkg-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 10px;margin:0 -2px;scrollbar-width:none}
+.pkg-row::-webkit-scrollbar{display:none}
+.pkg{scroll-snap-align:start;flex:0 0 82%;max-width:320px;background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.pkg .pkg-img{width:100%;height:196px;object-fit:contain;display:block;background:#fff;padding:14px 12px 6px}
+.pkg .sysrow{display:flex;gap:8px;padding:10px 14px 0}
+.pkg .sysrow figure{flex:1;margin:0;text-align:center}
+.pkg .sysrow img{width:100%;height:56px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:9px;padding:4px;display:block}
+.pkg .sysrow figcaption{font-size:10.5px;font-weight:700;color:var(--muted);margin-top:3px;line-height:1.25;text-transform:uppercase;letter-spacing:.03em}
+.pkg .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pkg .bestfor{font-size:13.5px;margin:0}.pkg .bestfor b{color:var(--orange)}
+.whyline{font-size:13px;color:var(--muted);margin:0;line-height:1.45}.whyline b{color:var(--orange)}
+.submittal{display:block;font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.01em;margin-top:3px;line-height:1.35}
+td .submittal{font-size:11px}
+footer .submittal{color:inherit;opacity:.75}
+.g-callout{background:var(--surface2);border-radius:10px;padding:11px 13px;margin:12px 0 2px;font-size:14.5px;line-height:1.55}
+.g-callout b{color:var(--orange)}
+.mf{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;font-size:14.5px;line-height:1.5}
+.mf .fact{color:var(--ink)}
+@media(min-width:720px){.pkg-row{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible}.pkg{flex:none;max-width:none}}
+@media(min-width:1020px){.pkg-row{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:719px){.pkg-row{flex-direction:column;overflow:visible}.pkg{flex:none;max-width:none;width:100%}}
+.pkg.pop{border-color:var(--orange)}
+.pkg.selected{border-color:var(--orange);box-shadow:var(--shadow);outline:3px solid rgba(232,106,16,.25)}
+.pkg .tier{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.pkg h3{margin:0;font-size:22px;line-height:1;text-transform:uppercase}
+.pkg .for{color:var(--muted);font-size:13.5px;margin:0}
+.pkg .count{font-weight:700;color:var(--navy);background:var(--surface2);border-radius:999px;padding:3px 10px;font-size:12.5px;width:fit-content}
+@media(prefers-color-scheme:dark){.pkg .count{color:var(--ink)}}
+.badge-pop{position:absolute;top:8px;right:8px;z-index:2;background:var(--orange);color:#fff;font-size:11px;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:999px;text-transform:uppercase;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.badge-rec{display:inline-flex;align-items:center;gap:5px;background:var(--good);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:4px 10px;border-radius:999px;text-transform:uppercase;width:fit-content}
+.alt-system{background:var(--surface);border:1.5px dashed var(--line);border-radius:12px;padding:14px;font-size:14.5px;margin:10px 0 6px;line-height:1.55}
+.alt-system h3{margin:0 0 4px;font-size:20px;text-transform:uppercase}
+.alt-system .alt-tag{display:inline-block;background:var(--surface2);color:var(--ink);font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:999px;text-transform:uppercase;margin-bottom:6px}
+.alt-system p{margin:0 0 6px;color:var(--muted)}
+.alt-system p b{color:var(--ink)}
+.pkg .spacer{flex:1}
+.link-btn{background:none;border:0;color:var(--orange);font-weight:700;font-size:14.5px;cursor:pointer;padding:4px 0;text-align:left}
+.btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:11px 16px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{background:var(--orange2)}.btn-primary.added{background:var(--good)}
+.btn-navy{background:var(--navy);color:#fff}.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.pick-btn{width:100%}
+.size-note{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:14px;font-size:14.5px;margin:8px 0 6px;line-height:1.55}
+.size-note b{color:var(--orange)}
+.steps{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}
+@media(min-width:680px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+.step b{display:block;font-family:"Barlow Condensed";font-size:18px;text-transform:uppercase;margin-bottom:2px}
+.step p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.5}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:0 0 auto;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 13px;font-weight:600;font-size:14px;cursor:pointer}
+.chips button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.chips button.on{background:var(--orange);border-color:var(--orange)}}
+.search{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font-size:16px;margin-bottom:8px}
+.cat-sub{color:var(--muted);font-size:13.5px;margin:0 2px 8px}
+.prod-list{display:flex;flex-direction:column;gap:14px}
+@media(min-width:720px){.prod-list{display:grid;grid-template-columns:1fr 1fr;align-items:start}}
+.prod{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:0;overflow:hidden;display:flex;flex-direction:column;gap:0}
+.prod.added{border-color:var(--good)}
+.prod-photo{display:block;width:100%;border:0;padding:0;background:#fff;cursor:zoom-in;position:relative}
+.prod-photo img{width:100%;height:230px;object-fit:cover;display:block}
+.prod-photo img.fit{object-fit:contain;padding:10px}
+.prod-photo .zoomhint{position:absolute;right:10px;bottom:10px;background:rgba(11,30,58,.72);color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;pointer-events:none}
+.prod .pbody{padding:13px 14px 14px;display:flex;flex-direction:column;gap:7px}
+.prod h4{margin:0;font-size:19px;line-height:1.2}
+.prod .desc{margin:0;font-size:14.5px;color:var(--muted);line-height:1.5}
+.prod .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.prod .tag{font-size:11.5px;font-weight:700;border-radius:999px;padding:2.5px 9px;background:var(--surface2);color:var(--ink)}
+.prod .tag.best{background:rgba(232,106,16,.14);color:var(--orange)}
+.prod .row{display:flex;align-items:center;gap:8px;margin-top:2px}.prod .row .spacer{flex:1}
+.prod-photo.tile{display:flex;align-items:center;justify-content:center;background:var(--navy);height:180px;cursor:default}
+.prod-photo.tile svg{width:64px;height:64px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.add-btn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:12px 22px;font-weight:700;cursor:pointer;font-size:15.5px;min-height:48px}
+.add-btn.added{background:var(--good)}
+.incl-pill{display:inline-flex;align-items:center;gap:6px;background:var(--good);color:#fff;border-radius:999px;padding:12px 20px;font-weight:700;font-size:15px;min-height:48px}
+.incl-pill.sm{padding:8px 14px;font-size:13.5px;min-height:40px}
+#viewerAdd.incl{background:var(--good)}
+.viewer{position:fixed;inset:0;z-index:95;display:none}
+.viewer.open{display:block}
+.viewer .v-bg{position:absolute;inset:0;background:rgba(6,15,30,.88)}
+.viewer .v-card{position:absolute;inset:0;overflow-y:auto;background:var(--surface);color:var(--ink);display:flex;flex-direction:column}
+@media(min-width:720px){.viewer .v-card{inset:24px;max-width:760px;margin:0 auto;border-radius:18px}}
+.viewer .v-card img{width:100%;max-height:56vh;object-fit:cover;display:block;background:#fff}
+.viewer .v-card img.fit{object-fit:contain}
+.viewer .v-body{padding:16px 18px calc(20px + env(safe-area-inset-bottom))}
+.viewer .v-body h3{margin:0 0 6px;font-size:26px;line-height:1.1;text-transform:uppercase}
+.viewer .v-body .desc{margin:0 0 8px;font-size:15.5px;color:var(--muted);line-height:1.55}
+.viewer .v-x{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(11,30,58,.75);color:#fff;font-size:19px;cursor:pointer}
+.viewer .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.viewer .tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px;background:var(--surface2);color:var(--ink)}
+.viewer .tag.best{background:rgba(232,106,16,.14);color:var(--orange)}
+.cz-xrow .cz-thumb{flex:0 0 52px;width:52px;height:52px;border-radius:8px;object-fit:cover;background:#fff;border:1px solid var(--line)}
+.cz-xrow .cz-thumb.fit{object-fit:contain;padding:3px}
+.qty{display:none;align-items:center;gap:5px}.qty.show{display:inline-flex}
+.qty button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:16px;cursor:pointer;line-height:1}
+.qty b{min-width:16px;text-align:center}
+.decide{display:flex;gap:6px;flex-wrap:wrap;margin:0 2px 10px;align-items:center}
+.decide span{font-size:13.5px;font-weight:700;color:var(--muted)}
+.decide button{border:1.5px solid var(--orange);background:transparent;color:var(--orange);border-radius:999px;padding:6px 12px;font-weight:700;font-size:13.5px;cursor:pointer}
+.empty-note{color:var(--muted);text-align:center;padding:18px}
+.compare-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table.compare{border-collapse:collapse;font-size:13.5px;min-width:940px;width:100%}
+table.compare th,table.compare td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:center}
+table.compare td:first-child,table.compare th:first-child{text-align:left;min-width:190px;font-weight:600;position:sticky;left:0;background:var(--surface)}
+table.compare thead th{background:var(--navy);color:#fff;font-family:"Barlow Condensed";font-size:15px;text-transform:uppercase}
+table.compare thead th.pop{background:var(--orange)}
+table.compare .yes{color:var(--good);font-weight:700}table.compare .no{color:var(--muted)}
+.fineprint{color:var(--muted);font-size:13px;margin-top:8px;line-height:1.5}
+.listbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--navy);color:#fff;padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;box-shadow:0 -6px 20px rgba(11,30,58,.25)}
+.listbar .count{font-family:"Barlow Condensed";font-size:20px;font-weight:700}
+.listbar .count small{display:block;font-family:"Barlow";font-size:12px;font-weight:400;opacity:.85}
+.listbar .spacer{flex:1}
+.sheet-wrap{position:fixed;inset:0;z-index:70;display:none}.sheet-wrap.open{display:block}
+.sheet-bg{position:absolute;inset:0;background:rgba(6,15,30,.55)}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:88vh;overflow-y:auto;background:var(--surface);color:var(--ink);border-radius:18px 18px 0 0;padding:8px 18px calc(18px + env(safe-area-inset-bottom))}
+@media(min-width:720px){.sheet{left:50%;right:auto;transform:translateX(-50%);width:640px;border-radius:18px;margin-bottom:14px}}
+.sheet .grip{width:44px;height:5px;border-radius:99px;background:var(--line);margin:6px auto 10px}
+.sheet h2{margin:0 0 2px;font-size:26px;text-transform:uppercase;line-height:1.05}
+.sheet .sub{color:var(--muted);font-size:14px;margin:0 0 10px;line-height:1.5}
+.sheet .x{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font-size:17px;cursor:pointer}
+.sheet ul.items,.sheet .hl{margin:6px 0 12px;padding-left:18px;font-size:14.5px}.sheet ul.items li,.sheet .hl li{margin:3px 0}
+.sheet h3.mini{font-size:18px;text-transform:uppercase;margin:12px 0 4px}
+.sel-empty{color:var(--muted);border:1.5px dashed var(--line);border-radius:10px;padding:12px;text-align:center}
+.sel-item{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:15px}
+.sel-item .x2{background:none;border:0;color:var(--orange);font-weight:700;cursor:pointer}
+.sel-item small{display:block;color:var(--muted)}
+form.client{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+form.client label{font-size:12.5px;font-weight:600;display:block}
+form.client input,form.client textarea,form.client select{width:100%;margin-top:3px;padding:9px;border:1.5px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font-family:"Barlow";font-size:16px}
+form.client .full{grid-column:1/-1}
+@media(max-width:520px){form.client{grid-template-columns:1fr}}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.actions .btn{flex:1 1 auto}
+.btn-primary:disabled{opacity:.65;cursor:default}
+.submit-status{margin-top:12px;border-radius:10px;padding:11px 13px;font-size:14.5px;line-height:1.5}
+.submit-status.ok{background:#e6f4ec;border:1.5px solid var(--good);color:#0f5132}
+.submit-status.err{background:#fdecea;border:1.5px solid #c0392b;color:#7b1d14}
+.acc{border:1.5px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:8px;overflow:hidden}
+.acc summary{cursor:pointer;padding:11px 13px;font-weight:700;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center;font-family:"Barlow Condensed";text-transform:uppercase}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .meta{color:var(--muted);font-weight:600;font-size:12.5px;font-family:"Barlow";text-transform:none}
+.acc .acc-body{padding:2px 13px 12px;font-size:14.5px}.acc .acc-body p{margin:0 0 8px}
+#guideList{display:flex;flex-direction:column;gap:12px}
+.g-card{--acc:var(--orange);--acc-l:var(--gold);--acc-ink:#fff;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:0 6px 20px rgba(11,30,58,.08);overflow:hidden}
+.g-card summary{list-style:none;cursor:pointer;display:block;padding:0}.g-card summary::-webkit-details-marker{display:none}
+.g-photo{position:relative;height:118px;overflow:hidden;background:var(--navy)}
+.g-card[open] .g-photo{height:150px}
+.g-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,30,58,.15),rgba(11,30,58,.88))}
+.g-chip{position:absolute;top:10px;left:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center}
+.g-chip svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.g-count{position:absolute;top:12px;right:12px;z-index:2;background:rgba(11,30,58,.55);color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+.g-titles{position:absolute;left:14px;right:58px;bottom:11px;z-index:2;color:#fff}
+.g-titles h3{margin:0;font-size:23px;line-height:1;text-transform:uppercase;color:#fff}
+.g-titles p{margin:3px 0 0;font-size:13.5px;font-weight:600;color:var(--acc-l)}
+.g-chev{position:absolute;right:12px;bottom:12px;z-index:2;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.g-chev svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.g-body{padding:15px 16px 17px}
+.g-what{margin:0 0 10px;font-size:15.5px;line-height:1.55}
+.g-why{list-style:none;margin:0 0 4px;padding:0}
+.g-why li{position:relative;padding:4px 0 4px 28px;font-size:14.5px;line-height:1.5}
+.g-why li::before{content:"✓";position:absolute;left:0;top:5px;width:19px;height:19px;border-radius:50%;background:var(--acc);color:var(--acc-ink);font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.g-sec{display:flex;align-items:center;gap:9px;margin:14px 0 2px;font-size:16.5px;text-transform:uppercase}
+.g-sec::after{content:"";flex:1;height:3px;border-radius:99px;background:var(--acc);opacity:.85}
+.g-prow{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line)}
+.g-prow:last-of-type{border-bottom:0}
+.g-thumb{flex:0 0 46px;width:46px;height:46px;border-radius:9px;object-fit:contain;padding:3px;background:#fff;border:1px solid var(--line)}
+.g-thumb.cover{object-fit:cover;padding:0}
+.g-thumb.tile{display:flex;align-items:center;justify-content:center;background:var(--navy);border-color:var(--navy)}
+.g-thumb.tile svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.g-prow .g-pt{flex:1;min-width:0}.g-prow .g-pn{font-weight:700;font-size:14.5px}.g-prow .g-pr{color:var(--muted);font-size:13.5px;line-height:1.45}
+.g-pkgs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:13px 0 0;font-size:13.5px}
+.g-pkgs-l{font-weight:700;color:var(--muted)}.g-pill{background:var(--acc);color:var(--acc-ink);font-weight:700;font-size:12.5px;padding:3px 11px;border-radius:999px}.g-pkgs-note{color:var(--muted)}
+.g-card .g-actions{margin-top:13px;display:flex;gap:8px;flex-wrap:wrap}.g-card .g-actions .btn{padding:8px 14px;font-size:14px}
+.cz-h{font-size:19px;text-transform:uppercase;margin:14px 2px 8px}
+.basegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(min-width:720px){.basegrid{grid-template-columns:repeat(4,1fr)}}
+.base-btn{border:2px solid var(--line);background:var(--surface);border-radius:12px;padding:0;overflow:hidden;cursor:pointer;text-align:left;color:var(--ink)}
+.base-btn img{width:100%;height:64px;object-fit:contain;display:block;background:#fff;padding:5px}
+.base-btn .bb-t{display:block;padding:7px 10px 9px;font-weight:700;font-size:14.5px;line-height:1.2}
+.base-btn .bb-t small{display:block;color:var(--muted);font-weight:600;font-size:12px}
+.base-btn.on{border-color:var(--orange);outline:3px solid rgba(232,106,16,.25)}
+.base-btn .bb-scratch{height:52px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Barlow Condensed";font-size:19px;letter-spacing:.05em}
+.cz-item{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cz-item span{flex:1}.cz-item.off span{color:var(--muted);text-decoration:line-through}
+.cz-tog{flex:0 0 auto;border:1.5px solid var(--line);background:var(--surface);color:var(--orange);font-weight:700;border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer}
+.cz-item.off .cz-tog{color:var(--good);border-color:var(--good)}
+.choice-g{margin:0 0 12px}.choice-g .cl{font-weight:700;font-size:14.5px;margin:0 0 5px}
+.seg2{display:flex;flex-wrap:wrap;gap:6px}
+.seg2 button{border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13.5px;cursor:pointer}
+.seg2 button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(prefers-color-scheme:dark){.seg2 button.on{background:var(--orange);border-color:var(--orange)}}
+.cz-sum{background:var(--surface2);border-radius:12px;padding:11px 13px;font-size:14.5px;margin:12px 0;line-height:1.5}
+.cz-xrow{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cz-xrow span{flex:1}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 16px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:90;max-width:92vw;text-align:center;font-size:14.5px}
+.toast.show{opacity:1}
+.vs-wrap{background:var(--surface);border:2px solid var(--orange);border-radius:var(--radius);padding:16px;margin:14px 0 6px}.vs-wrap h2{margin:0 0 4px;font-size:26px;text-transform:uppercase;line-height:1}.vs-wrap .vs-sub{margin:0 0 12px;color:var(--muted);font-size:14.5px;line-height:1.5}.vs-grid{display:grid;grid-template-columns:1fr;gap:10px}@media(min-width:680px){.vs-grid{grid-template-columns:1fr 1fr}}.vs-card{border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;background:var(--bg)}.vs-card.rec{border-color:var(--good);background:var(--surface)}.vs-card h3{margin:0 0 6px;font-size:21px;text-transform:uppercase}.vs-card .vs-tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--surface2);color:var(--ink);margin-bottom:7px}.vs-card.rec .vs-tag{background:var(--good);color:#fff}.vs-card ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.55}.vs-card ul li{margin:3px 0}.vs-bottom{margin:12px 0 0;font-size:14.5px;line-height:1.55;background:var(--surface2);border-radius:10px;padding:11px 13px}.vs-bottom b{color:var(--orange)}
+footer{color:var(--muted);font-size:13px;text-align:center;padding:18px 14px 6px;line-height:1.6}
+footer a{color:var(--orange)}
+footer .flogo{display:inline-block;background:#fff;border-radius:10px;padding:10px 18px;margin-bottom:10px;border:1px solid var(--line)}
+footer .flogo img{height:104px;width:auto;display:block;max-width:82vw}
+.sheet .pkg-photo{width:100%;height:220px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;margin:4px 0 10px;display:block;padding:10px}
+@media print{.listbar,.tabs,.sheet-wrap,.add-btn,.qty,.pick-btn,.chips,.search{display:none!important}body{padding-bottom:0;background:#fff}}
+</style>
+<meta name="theme-color" content="#264387">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="https://sharma-kit.sharma-crew.workers.dev/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sharma-kit.sharma-crew.workers.dev/assets/favicon-32.png">
+<link rel="stylesheet" href="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.css">
+<link rel="stylesheet" href="macos.css">
+<script src="https://sharma-kit.sharma-crew.workers.dev/sharma-kit.js" defer></script>
+<style>
+/* Sharma kit bridge: kit header/tab bar take over navigation; app layout otherwise untouched. */
+body.sk{padding-bottom:calc(var(--sk-tab-h,54px) + env(safe-area-inset-bottom,0px) + 84px)}
+.topbar,.tabs{display:none!important}
+.chips{top:55px!important}
+.listbar{bottom:calc(var(--sk-tab-h,54px) + env(safe-area-inset-bottom,0px))}
+.sk-header{z-index:60}
+</style>
+</head>
+<body class="sk">
+<header class="sk-header"><div class="sk-header__bar">
+  <div class="sk-header__lead"><a class="sk-header__logo" href="./"><img src="https://sharma-kit.sharma-crew.workers.dev/assets/logo-white-header.png" alt="Sharma Electric &amp; HVAC" width="103" height="20"></a></div>
+  <div class="sk-header__title">HVAC Picker</div>
+  <div class="sk-header__trail"><a class="sk-header__btn" href="tel:+14078819076" aria-label="Call Sharma"><svg class="sk-icon"><use href="#i-phone"/></svg></a></div>
+</div></header>
+<div class="sk-offline"></div>
+<div class="topbar">
+  <img class="logo" src="assets/img-ca3479fe3a52.webp" alt="Sharma Electric &amp; HVAC — Power. Comfort. Trust."/>
+  <div class="header-lic" style="font-size:13.5px;font-weight:700;letter-spacing:.06em;color:#5b6b84;text-transform:uppercase">FL Lic. CAC1823596</div>
+  <div class="links"><a href="mailto:office@sharmaelectric.com">Email us</a><a class="callbtn" href="tel:+14078819076">407 881 9076</a></div>
+</div>
+<nav class="tabs" id="topMenu" aria-label="Sections">
+    <div class="seg">
+      <button type="button" data-view="packages" class="on">Packages</button>
+      <button type="button" data-view="products">Products</button>
+      <button type="button" data-view="customize">Customize</button>
+      <button type="button" data-view="learn">HVAC 101</button>
+      <button type="button" data-view="compare">Compare</button>
+    </div>
+  </nav>
+<div class="emergency">No-AC emergency? Call now — <a href="tel:+14078819076">tap to call Sharma: 407 881 9076</a></div>
+
+<header class="hero">
+  <div class="inner">
+    <div>
+      <h1>AC replacement, thought out and <em>executed by Sharma.</em></h1>
+      <div class="cta-row" style="margin-top:4px"><a class="btn btn-primary" href="#quiz" style="font-size:19px;padding:16px 32px">Get my quote →</a></div>
+      <p style="margin-top:16px">Old, broken, or just costing too much to run? We replace your whole AC system — we take the old one out, match a new one to your home, install it right, and haul the old equipment away.</p>
+      <div class="specs">
+        <div class="spec"><b>Licensed contractor</b><span>FL Lic. CAC1823596 — permitted &amp; inspected</span></div>
+        <div class="spec"><b>Old system out</b><span>Removed &amp; hauled away for you</span></div>
+        <div class="spec"><b>Sized to your home</b><span>Matched to your house — not a guess</span></div>
+        <div class="spec"><b>Priced before work</b><span>A clear, full quote before any work starts</span></div>
+      </div>
+    </div>
+    <div class="hero-stage">
+      <div class="hs-top"><span class="hs-brand">AC Change-Out</span><span class="hs-rec navy">Done by Sharma</span></div>
+      <img loading="lazy" class="photo" src="assets/img-5c7a3b74f60a.webp" alt="New outdoor AC unit installed beside a Florida home"/>
+      <p class="hs-name">Out with the old. In with cool, reliable AC.</p>
+      <p class="hs-sub">A change-out is more than a new box outside. It's the full job, handled by one contractor:</p>
+      <ul class="hs-list">
+        <li><b>New outdoor + indoor units</b> — a matched pair, sized for your home</li>
+        <li><b>Old system removed</b> — disconnected, taken out &amp; hauled away</li>
+        <li><b>Tested &amp; handed over</b> — running right before we leave</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="brandstrip" aria-label="Brands Sharma installs">
+  <div class="bs-inner">
+    <span class="bs-label">Brands we install</span>
+    <span class="bs-logo"><img loading="lazy" src="assets/img-6168db67485d.webp" alt="Goodman"/></span>
+    <span class="bs-logo"><img loading="lazy" src="assets/img-f0eca5152c42.webp" alt="Daikin"/></span>
+    <span class="bs-logo"><img loading="lazy" src="assets/img-59826420c548.webp" alt="Carrier"/></span>
+    <span class="bs-logo"><img loading="lazy" src="assets/img-ef912506a342.webp" alt="Honeywell Home"/></span>
+    <span class="bs-logo cert"><img loading="lazy" class="ahri-img" src="assets/img-05515494bb32.webp" alt="AHRI Certified — www.ahridirectory.org"/></span>
+    <span class="bs-logo cert"><img loading="lazy" src="assets/img-8c35909e21c7.webp" alt="ENERGY STAR"/></span>
+  </div>
+</div>
+
+<main>
+  <section class="view on" id="view-packages">
+    <div class="quiz" id="quiz">
+      <h2>3 questions. Your match.</h2>
+      <p class="q-sub">Tap your answers — we'll point you to the right change-out for your home. Takes 10 seconds.</p>
+      <div class="q-group"><p class="q-label"><span class="q-num">1</span> How many AC systems does your home have?</p>
+        <div class="q-opts" data-q="systems">
+          <button type="button" data-val="1 system">Just 1</button>
+          <button type="button" data-val="2 systems">2 systems</button>
+          <button type="button" data-val="3 systems">3 systems</button>
+          <button type="button" data-val="One room — no ducts / mini-split">One room / no ducts</button>
+          <button type="button" data-val="Not sure">Not sure</button>
+        </div></div>
+      <div class="q-group"><p class="q-label"><span class="q-num">2</span> How big is your home?</p>
+        <div class="q-opts" data-q="size">
+          <button type="button" data-val="Under 1,500 sq ft">Under 1,500 sq ft</button>
+          <button type="button" data-val="1,500–2,500 sq ft">1,500–2,500 sq ft</button>
+          <button type="button" data-val="Over 2,500 sq ft">Over 2,500 sq ft</button>
+          <button type="button" data-val="Not sure">Not sure</button>
+        </div></div>
+      <div class="q-group"><p class="q-label"><span class="q-num">3</span> What's going on with your current system?</p>
+        <div class="q-opts" data-q="problem">
+          <button type="button" data-val="Broken — no cooling">It's broken</button>
+          <button type="button" data-val="Old and struggling">It's old</button>
+          <button type="button" data-val="High bills — runs but costs too much">High bills</button>
+          <button type="button" data-val="Adding AC to a room that has none">Adding AC to a room</button>
+          <button type="button" data-val="Too loud / tight space outside — want quiet, slim inverter">Too loud / tight space</button>
+        </div></div>
+      <div class="quiz-result" id="quizResult"></div>
+    </div>
+    <div class="iconbullets">
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg><div><b>Old system removed</b><span>Taken out and hauled away for you</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div><b>Matched indoor + outdoor units</b><span>A pair rated to work together</span></div></div>
+      <div class="iconbullet"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><div><b>Matched to your home</b><span>Sized for your home and existing setup</span></div></div>
+    </div>
+    <h2 id="packages-start" style="font-size:30px;text-transform:uppercase;margin:14px 2px 2px">Pick your change-out</h2>
+    <p class="viewhint">Central change-outs use the recommended Goodman system. Tight side yard, patio right next to the unit, or want it quieter and more efficient? That's a Side Discharge Inverter — Goodman SD, Daikin Fit or Carrier. No ducts — or just one hot room, garage or addition? That's the mini-split, Daikin ductless included.</p>
+    <div class="pkg-row" id="pkgGrid"></div>
+    <div class="vs-wrap" id="heatpump-vs-straightcool"><h2>Heat pump vs. straight cool</h2><p class="vs-sub">Both cool the same in summer. The difference is winter heat.</p><div class="vs-grid"><div class="vs-card rec"><img loading="lazy" src="assets/img-6168db67485d.webp" alt="Goodman" style="height:24px;width:auto;display:block;margin-bottom:8px"/><span class="vs-tag">★ Sharma recommends for most Florida homes</span><h3>Heat pump</h3><ul><li><b>Cools AND heats</b> — one system does both jobs.</li><li>In summer it pulls heat out of your home. In winter it runs in reverse and pulls heat in from the outdoor air.</li><li>Because it <b>moves heat instead of making it</b>, it heats much more efficiently — ideal for Florida's mild winters.</li><li>Electric heat strips inside are only <b>backup</b>, for the coldest mornings.</li><li>Every system in this picker — Goodman, Carrier and the ductless mini-split — is a heat pump.</li></ul></div><div class="vs-card"><span class="vs-tag">Cooling only</span><h3>Straight cool</h3><ul><li><b>Cools only</b> — the outdoor unit cannot heat your home at all.</li><li>For winter heat it relies <b>entirely</b> on electric heat strips inside the air handler (or a separate furnace, if you have one).</li><li>Heat strips make heat directly from electricity, so they <b>cost more to run</b> whenever it's cold.</li><li>Simple and common in older Florida homes — but you pay for every bit of winter heat at heat-strip rates.</li></ul></div></div><p class="vs-bottom"><b>Bottom line:</b> If you have a straight cool now, a heat pump change-out gives you the same cooling plus far cheaper winter heat. No ducts in the room at all? A mini-split is a heat pump too — same idea, ductless. Not sure what you have now? Tell us in your notes — Sharma will check what's there and quote the right replacement.</p></div>
+    <div class="alt-system"><span class="bs-logo" style="margin-bottom:10px"><img loading="lazy" src="assets/img-59826420c548.webp" alt="Carrier"/></span><br/><span class="alt-tag">Also available</span><h3>Prefer Carrier? We install that too.</h3><p>The <b>Carrier Comfort Heat Pump</b> (R-454B, 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run) with <b>Carrier indoor units</b> and a <b>programmable thermostat included — brand/model confirmed at your quote visit</b> — in 1.5, 3 and 4 ton. Add the Carrier items in <b>Products</b> or say so in your notes. Same install, same quote process.</p><p><b>New — Carrier Side Discharge:</b> the slim <b>Carrier Side Discharge Inverter</b> — a high-efficiency inverter heat pump, up to <b>18.0 SEER2</b> as a matched system with its <b>Carrier indoor unit</b>. Variable-speed inverter that adjusts to your home's needs for lower bills and steadier comfort — as low as <b>54 dBA</b>, and it installs as close as <b>6 inches</b> from your home. It's in the <b>Side Discharge Inverter</b> package above — pick Carrier there.</p></div>
+    <div class="steps">
+      <div class="step"><b>1 · You pick</b><p>Pick a package. Add anything that bugs you — hot rooms, humidity, noise.</p></div>
+      <div class="step"><b>2 · We match it</b><p>Sharma matches the new system to your home. Bigger isn't better — oversized feels sticky.</p></div>
+      <div class="step"><b>3 · Your priced quote</b><p>We check your ducts and electrical, then send a clear price for the full change-out. No prices here, ever.</p></div>
+    </div>
+    <div class="size-note"><b>Don't guess your size — that's our job.</b> Tell us your square footage and how the old system behaved. <b>Sharma matches the replacement to your home</b> — oversized runs clammy, undersized never catches up in August.</div>
+    <div class="trustgrid">
+      <div class="trustcard"><h3>Licensed &amp; local</h3><p>Sharma Electric &amp; HVAC is a Florida contractor — FL Lic. EC13013924 / CAC1823596 — serving Central Florida homes.</p></div>
+      <div class="trustcard"><h3>A clear price</h3><p>No prices on this page and no games in the quote. You get a priced quote for the full change-out before any work starts.</p></div>
+      <div class="trustcard"><h3>We call you back</h3><p>Send your picks and Sharma will call you back to confirm your quote and next steps.</p></div>
+    </div>
+    <button class="btn btn-outline" id="btnDetails" type="button" style="width:100%;margin-top:12px">See details — products, customize, HVAC 101 &amp; compare ↓</button>
+  </section>
+
+  <section class="view" id="view-products">
+    <div class="decide"><span>Jump to:</span>
+      <button type="button" data-decide="0">Complete systems</button>
+      <button type="button" data-decide="1">Thermostat</button>
+      <button type="button" data-decide="2">Change-out work</button>
+      <button type="button" data-decide="3">Testing &amp; handover</button>
+      <button type="button" data-decide="4">Mini-split</button>
+      <button type="button" data-decide="5">Clean Air</button>
+    </div>
+    <input class="search" id="prodSearch" type="search" placeholder="Search parts of your new system…" aria-label="Search products"/>
+    <div class="chips" id="catChips"></div>
+    <p class="cat-sub" id="catSub"></p>
+    <div class="prod-list" id="prodList"></div>
+  </section>
+
+  <section class="view" id="view-customize">
+    <p class="viewhint">Start from a change-out package, take out what you don't need, add extras, and tell us your best guesses. Equipment always comes as one complete matched system — Sharma pairs the indoor and outdoor units for you, so you never pick them separately. Sharma makes the final calls — especially size — and prices the whole list together. No prices here.</p>
+    <h3 class="cz-h">1 · Start from</h3>
+    <div class="basegrid" id="czBases"></div>
+    <div id="czMain"></div>
+  </section>
+
+  <section class="view" id="view-learn">
+    <p class="viewhint"><strong>HVAC 101</strong> — how your system actually works, in plain English, using only the systems in this app. Tap a topic to open it; one stays open at a time.</p>
+    <div id="guideList"></div>
+  </section>
+
+  <section class="view" id="view-compare">
+    <p class="viewhint">Side by side: what each package includes. The central change-outs are built on Goodman — the standard Goodman Heat Pump, or the slim Side Discharge Inverters (Goodman SD, Daikin Fit &amp; Carrier) for tight, quiet installs; the mini-split is ductless, for rooms with no ducts — Daikin ductless included.</p>
+    <div class="compare-scroll"><table class="compare" id="compareTable"></table></div>
+    <h3 style="font-size:20px;text-transform:uppercase;margin:16px 2px 8px">The residential systems Sharma installs</h3>
+    <div class="compare-scroll"><table class="compare"><thead><tr><th>System</th><th style="background:var(--good)">★ Sharma Recommended — Goodman</th><th style="background:var(--navy)">Goodman SD — Side Discharge Inverter</th><th style="background:#0072bc">Daikin Fit — Side Discharge Inverter</th><th style="background:#1b365d">Carrier — Side Discharge Inverter</th><th>Also available — Carrier Comfort</th></tr></thead><tbody>
+    <tr><td>What it is</td><td>Sharma's recommended heat pump for homeowner change-outs</td><td>Premium slim inverter heat pump — quietest, most efficient Goodman option, made for tight spaces</td><td>Daikin's slim side-discharge inverter system — same tight-space idea, Daikin engineering</td><td>Carrier's slim side-discharge — a high-efficiency inverter heat pump, up to 18.0 SEER2 as a matched system</td><td>Another heat pump Sharma installs — choose it if you prefer Carrier</td></tr>
+    <tr><td>Outdoor unit</td><td>Goodman Heat Pump<span class="submittal">Submittal model: GLZS4BA1810, 1.5 ton</span></td><td>Goodman SD side discharge inverter heat pump — slim, only ~13.8″ deep<span class="submittal">Submittal models: GZV6SA4210 + AHVE42CP0300</span></td><td>Daikin Fit side discharge inverter heat pump (1.5–5 ton, only ~13.8″ deep)<span class="submittal">Submittal models: DH6VS / DH7VS</span></td><td>Carrier Side Discharge inverter heat pump (1.5–5 ton, up to 75% smaller than a cube unit, installs as close as 6″ from the home)<span class="submittal">Submittal model: 38MURA</span></td><td>Carrier Comfort Heat Pump (1.5 / 3 / 4 ton)<span class="submittal">Submittal model: 27SCA5</span></td></tr>
+    <tr><td>Refrigerant</td><td>R-32</td><td>R-32</td><td>R-32</td><td>Per the exact matched system — confirmed by Sharma in your quote</td><td>R-454B (Puron Advance)</td></tr>
+    <tr><td>Efficiency</td><td>15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run</td><td>High-efficiency inverter heat pump, up to 17 SEER2 as a matched system · Quiet Mode as low as 45 dBA</td><td>Up to 19.0 SEER2 · Quiet Mode as low as 45 dBA</td><td>High-efficiency inverter heat pump, up to 18.0 SEER2 as a matched system · As low as 54 dBA</td><td>15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run</td></tr>
+    <tr><td>Indoor unit</td><td>Goodman Air Handler — the indoor unit, fits a closet, garage or attic<span class="submittal">Submittal model: AMST24BU1300</span></td><td>Goodman variable-speed air handler — the matched indoor unit<span class="submittal">Submittal model: AHVE42CP0300</span></td><td>Daikin variable-speed air handler — talks to the outdoor unit so they work together<span class="submittal">Submittal model: DFVE</span></td><td>Carrier air handler — the matched indoor unit; the pair you pick sets the rating<span class="submittal">Submittal model: 40MUAA</span></td><td>Carrier Comfort Fan Coil<span class="submittal">Submittal model: FJ5</span></td></tr>
+    <tr><td>Backup heat</td><td>Goodman Electric Heat Kit — 8 kW<span class="submittal">Submittal model: HKTSD08X1</span></td><td>Electric heat kit, matched by Sharma</td><td>Electric heat kit, matched by Sharma</td><td>Electric heat, matched by Sharma</td><td>Carrier Electric Heat Strip (5 / 8 kW)<span class="submittal">Submittal model: KFFEH</span></td></tr>
+    <tr><td>Thermostat</td><td>ecobee smart thermostat — included with the Goodman system, with ecobee SmartSensors as a room-sensor add-on for hot and cold rooms</td><td>Goodman GTST connected thermostat</td><td>Daikin One+ smart thermostat</td><td>Thermostat pairing confirmed by Sharma for the exact match in your quote</td><td>Programmable thermostat included — brand/model confirmed at your quote visit</td></tr>
+    <tr><td>Honeywell Smart Thermostat</td><td>○ — pickable option on this system</td><td>○ — pickable option on this system</td><td>○ — pickable option on this system</td><td>○ — pickable option on this system</td><td>○ — pickable option on this system</td></tr>
+    <tr><td>Sharma's take</td><td class="yes">Our recommendation for most homes</td><td class="yes">Pick this for quiet + tight space + top efficiency</td><td class="yes">Pick this if you prefer Daikin — same slim, quiet promise</td><td class="yes">Pick this if you prefer Carrier — slim, quiet, high-efficiency inverter</td><td>Proven alternative if you prefer Carrier</td></tr>
+    </tbody></table></div>
+    <p class="fineprint">Final equipment and price depend on the system that matches your home, the condition of your existing ducts and electrical, and permit requirements — all confirmed by Sharma in your quote. The Goodman Heat Pump is rated 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run; Goodman SD is rated up to 17 SEER2 as a matched system; Daikin Fit up to 19.0 SEER2 as a matched system; Carrier Comfort is rated 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run; Carrier Side Discharge, matched with its indoor unit, is rated up to 18.0 SEER2 — every SEER2 on this page is the rating of the whole matched system (outdoor + indoor units together), never the outdoor unit alone. Daikin ductless systems are rated up to 18.9 SEER2.</p>
+  </section>
+
+  <footer>
+    <span class="flogo"><img loading="lazy" src="assets/img-ca3479fe3a52.webp" alt="Sharma Electric &amp; HVAC"/></span><br/>
+    FL Lic. EC13013924 / CAC1823596<br/>
+    <a href="tel:+14078819076">407 881 9076</a> · <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a> · sharmaelectric.com<br/>
+    <span class="foot-logos"><span class="bs-logo"><img loading="lazy" src="assets/img-6168db67485d.webp" alt="Goodman"/></span><span class="bs-logo"><img loading="lazy" src="assets/img-f0eca5152c42.webp" alt="Daikin"/></span><span class="bs-logo"><img loading="lazy" src="assets/img-59826420c548.webp" alt="Carrier"/></span><span class="bs-logo"><img loading="lazy" src="assets/img-ef912506a342.webp" alt="Honeywell Home"/></span><span class="bs-logo cert"><img loading="lazy" class="ahri-img" src="assets/img-05515494bb32.webp" alt="AHRI Certified — www.ahridirectory.org"/></span><span class="bs-logo cert"><img loading="lazy" src="assets/img-8c35909e21c7.webp" alt="ENERGY STAR"/></span></span>
+    Recommended system: Goodman Heat Pump — R-32, 15.2 SEER2, Goodman Air Handler, Goodman Electric Heat Kit — 8 kW, ecobee smart thermostat. Add-on: ecobee SmartSensors for the rooms that run hot or cold. Premium options: Goodman SD Side Discharge Inverter (R-32 — a high-efficiency inverter heat pump, up to 17 SEER2 as a matched system) with its variable-speed air handler &amp; GTST thermostat, and Daikin Fit Side Discharge Inverter (R-32, up to 19.0 SEER2) with its air handler &amp; Daikin One+ thermostat — slim &amp; quiet, for tight spaces. Also installed: Carrier Side Discharge Inverter (a high-efficiency inverter heat pump, up to 18.0 SEER2 as a matched system with its indoor unit) and the Carrier Comfort Heat Pump with its indoor unit, electric heat strip &amp; a programmable thermostat included (brand/model confirmed at your quote visit). Plus ductless mini-splits — single-zone &amp; multi-zone, Daikin ductless included — for garages, additions and rooms with no ducts.<br/>
+    No prices are shown — send your list, Sharma matches the system to your home, checks ducts and electrical, and sends a priced quote.
+  </footer>
+</main>
+
+<div class="listbar">
+  <div class="count"><span id="barCount">0</span> picked<small id="barLabel">My list is empty</small><span class="lic">FL Lic. EC13013924 / CAC1823596</span></div>
+  <div class="spacer"></div>
+  <button class="btn btn-primary" id="btnOpenList" type="button">Send my picks →</button>
+</div>
+
+<div class="sheet-wrap" id="sheetWrap" aria-hidden="true">
+  <div class="sheet-bg" id="sheetBg"></div>
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="grip"></div>
+    <button class="x" id="sheetClose" type="button" aria-label="Close">✕</button>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+<div class="viewer" id="viewer" aria-hidden="true">
+  <div class="v-bg" id="viewerBg"></div>
+  <div class="v-card" role="dialog" aria-modal="true">
+    <button class="v-x" id="viewerClose" type="button" aria-label="Close">✕</button>
+    <img loading="lazy" id="viewerImg" alt=""/>
+    <div class="v-body">
+      <h3 id="viewerName"></h3>
+      <p class="desc" id="viewerDesc"></p>
+      <div id="viewerSub"></div>
+      <p class="whyline" id="viewerWhy"></p>
+      <div class="tags" id="viewerTags"></div>
+      <div style="margin-top:14px"><button class="btn btn-primary" id="viewerAdd" type="button" style="width:100%;min-height:50px;font-size:16px">Add to my list</button></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var PACKAGES=[
+ {id:"single",tier:"Homeowner · 1 System",name:"Single-System Change-Out",for:"For most homes with one system",count:"1 new Goodman system + full change-out",
+  bullets:["Old outdoor + indoor units removed and taken away","New matched Goodman Heat Pump + Goodman Air Handler — R-32 · 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run","New ecobee smart thermostat, pad, line set & drain protection"],
+  items:["Removal & disposal of your old outdoor unit and indoor unit","Goodman Heat Pump — R-32, 15.2 SEER2, matched to your home by Sharma (Submittal model: GLZS4BA1810 (1.5 ton documented — family covers larger tonnages))","Rated 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run","Goodman Air Handler — the matched indoor partner for your outdoor unit (R-32) (Submittal model: AMST24BU1300)","Goodman Electric Heat Kit — 8 kW, inside the air handler — for cold snaps (Submittal model: HKTSD08X1)","ecobee smart thermostat — Wi-Fi smart control you can run from your phone, with SmartSensors available for rooms that run hot or cold","New refrigerant line set — the copper lines between indoor and outdoor units, as scoped","New DiversiTech UltraLite equipment pad under the outdoor unit, level and secure","New condensate drain with RectorSeal Safe-T-Switch SS1 overflow switch — helps prevent a water leak in the ceiling or closet","Your existing ducts — connected and checked, as scoped","Start-up & full system check before we leave","Duct leakage testing"]},
+ {id:"multi",tier:"Homeowner · 2–3 Systems",name:"Multi-System Change-Out",for:"For larger & two-story homes with 2–3 systems",count:"2–3 new Goodman systems + full change-out",pop:true,
+  bullets:["Every old system replaced — one right-sized Goodman system per floor or area","Each system is the Sharma Recommended Goodman package: Heat Pump + Air Handler + ecobee","Each floor gets its own matched indoor unit, heat kit & thermostat"],
+  items:["Removal & disposal of your old systems — outdoor and indoor units","2–3 Goodman Heat Pumps — R-32, 15.2 SEER2, one per floor or area, each matched to that area (Submittal model: GLZS4BA1810 (1.5 ton documented))","Rated 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run, per system","Goodman Air Handler for each system — matched indoor partner (R-32) (Submittal model: AMST24BU1300)","Goodman Electric Heat Kits — 8 kW per system (Submittal model: HKTSD08X1)","ecobee smart thermostat — one per system, so each floor controls itself","New refrigerant line sets — one per system, as scoped","New DiversiTech UltraLite pads — one per outdoor unit","New condensate drains with RectorSeal Safe-T-Switch SS1 overflow switches — per system","Your existing ducts — connected and checked per floor / area, as scoped","Start-up & full system check — every system","Duct leakage testing"]},
+ {id:"mini",tier:"Ductless · No Ducts Needed",name:"Mini-Split — Ductless",for:"For a garage, addition, bonus room, Florida room or any space with no ducts",count:"1 outdoor unit + 1–5 indoor heads",
+  bullets:["No ducts needed — cools and heats rooms your central system can't reach","Wall-mounted indoor head(s) with their own remote — every room sets its own temperature","Heat pump, so it heats in winter too — not just a window unit","Daikin ductless available — the brand that built its name on ductless: single-zone, or MXS multi-zone with multiple indoor units on one outdoor unit"],
+  items:["Ductless mini-split heat pump — outdoor unit matched by Sharma to your space (single-zone or multi-zone)","Daikin ductless option — single-zone for one room, or Daikin MXS multi-zone connecting multiple indoor units to a single outdoor unit, each room controlled separately; Sharma confirms the right brand and setup for your space in the quote","1 indoor wall-mounted head for single-zone, or 2–5 heads for multi-zone — one outdoor unit serves them all","Heats AND cools — it's a heat pump, so the same head does both jobs","No ductwork added — refrigerant lines run through a small hole in the wall","Remote control for each head — every room controls itself","New refrigerant line set & condensate drain, as scoped","New equipment pad under the outdoor unit, level and secure","Electrical for the new system, as scoped — Sharma checks your panel in the quote","Start-up & full system check before we leave"]},
+ {id:"side",tier:"Premium · Slim & Quiet · High-Efficiency Inverter",name:"Side Discharge Inverter — Goodman SD, Daikin Fit & Carrier",for:"For tight side yards, patios, zero-lot-line homes — and anyone who wants it quieter",count:"1 slim side-discharge inverter system + full change-out",
+  bullets:["Slim side-discharge outdoor unit — blows out the side, not the top, and tucks tight against the house","Three brands, same idea: Goodman SD, Daikin Fit or Carrier Side Discharge — tell us your preference, or Sharma recommends","High-efficiency inverter heat pump — variable-speed inverter that adjusts to your home's needs for lower bills and steadier comfort","Rated by matched system: Goodman SD up to 17 SEER2, Daikin Fit up to 19.0 SEER2, Carrier up to 18.0 SEER2 as a matched system — and quiet: as low as 45 dBA in Quiet Mode (Goodman / Daikin), 54 dBA (Carrier) — reclaim your patio"],
+  items:["Removal & disposal of your old outdoor unit and indoor unit","Goodman SD side discharge inverter heat pump — R-32, listed as a matched pair with its variable-speed indoor unit; Sharma confirms the final match for your home in the quote (Submittal models: GZV6SA4210 + AHVE42CP0300)","Daikin Fit side discharge inverter heat pump — R-32, 1.5 to 5 ton, matched to your home by Sharma — Daikin's version of the same slim, quiet idea (Submittal models: DH6VS / DH7VS)","Carrier Side Discharge inverter heat pump — 1.5 to 5 ton, matched to your home by Sharma — Carrier's slim version: a high-efficiency inverter heat pump, up to 18.0 SEER2 as a matched system with its Carrier indoor unit (the pair you pick sets the rating), as low as 54 dBA, up to 75% smaller than a traditional cube unit, and it can install as close as 6 inches from your home (Submittal models: 38MURA (38MURAQ) + 40MUAA)","Slim trunk-style cabinet — about 36.6\" wide × 13.8\" deep × 27.4\" high on 1.5–3 ton — up to 53% smaller footprint than a traditional cube unit (Goodman SD figure; Daikin Fit is the same slim class)","Variable-speed compressor — speeds up and slows down continuously, for steadier temperatures and better humidity control","Rated up to 17 SEER2 as a matched system (Goodman SD) — Daikin Fit matches up to 19.0 SEER2 — Carrier Side Discharge matches rated up to 18.0 SEER2","Goodman variable-speed air handler — the matched indoor partner for the Goodman SD outdoor unit — it talks to the outdoor unit so the whole system speeds up and slows down together (Submittal model: AHVE42CP0300)","Daikin variable-speed air handler — the matched indoor partner if you choose the Daikin Fit (Submittal model: DFVE)","Carrier air handler — the matched indoor partner for the Carrier Side Discharge; the pair is what sets the system's rating (Submittal model: 40MUAA)","Electric heat kit inside the air handler, matched by Sharma — backup for cold snaps","Goodman GTST connected thermostat — the smart thermostat for the Goodman SD (Daikin Fit pairs with the Daikin One+ smart thermostat instead)","Quiet Mode — up to 3 sound levels, as low as 45 dBA","Blue Fin corrosion coating on the coil — 1,000-hour salt-spray rated on the Goodman SD, built for Florida air","New refrigerant line set — the copper lines between indoor and outdoor units, as scoped","New equipment pad under the outdoor unit, level and secure","New condensate drain with RectorSeal Safe-T-Switch SS1 overflow switch — helps prevent a water leak in the ceiling or closet","Your existing ducts — connected and checked, as scoped","Start-up & full system check before we leave","Duct leakage testing"]},
+];
+var PKGIMG={"single":"assets/img-cef3cb271351.webp","multi":"assets/img-7d4cea16ceee.webp","mini":"assets/img-e3e5e58c8759.webp","side":"assets/img-fba514a5d7f1.webp"};
+var PKGALT={"single":"Goodman Heat Pump — the outdoor unit Sharma recommends","multi":"Goodman Heat Pump with matched Air Handler — the complete matched system","mini":"Ductless mini-split wall-mounted indoor head — cools and heats a room with no ducts","side":"Goodman SD side discharge inverter heat pump — slim R-32 outdoor unit with side fan, for tight spaces"};
+var SYSROW='<div class="sysrow"><figure><img loading="lazy" src="assets/img-cef3cb271351.webp" alt=""/><figcaption>Goodman heat pump</figcaption></figure><figure><img loading="lazy" src="assets/img-fe9fdbaa3a5a.webp" alt=""/><figcaption>Goodman air handler</figcaption></figure><figure><img loading="lazy" src="assets/img-dcccfb5d0141.webp" alt=""/><figcaption>ecobee smart thermostat</figcaption></figure></div>';
+var MINIROW='<div class="sysrow"><figure><img loading="lazy" src="assets/img-e3e5e58c8759.webp" alt=""/><figcaption>Wall head — indoor</figcaption></figure><figure><img loading="lazy" src="assets/img-5c7a3b74f60a.webp" alt=""/><figcaption>Outdoor unit</figcaption></figure><figure><img loading="lazy" src="assets/img-dcccfb5d0141.webp" alt=""/><figcaption>Remote per room</figcaption></figure></div>';
+var SDROW='<div class="sysrow"><figure><img loading="lazy" src="assets/img-fba514a5d7f1.webp" alt=""/><figcaption>Goodman SD — outdoor</figcaption></figure><figure><img loading="lazy" src="assets/img-3ce3d0719099.webp" alt=""/><figcaption>Daikin Fit — outdoor</figcaption></figure><figure><img loading="lazy" src="assets/img-a20eddc8346c.webp" alt=""/><figcaption>Carrier — outdoor</figcaption></figure></div>';
+function pkgRow(id){return id==="mini"?MINIROW:(id==="side"?SDROW:SYSROW)}
+function pkgBadge(id){return id==="mini"?'<span class="badge-rec" style="background:var(--navy)">Ductless · Heats &amp; Cools · Daikin available</span>':(id==="side"?'<span class="badge-rec">★ Goodman SD · Daikin Fit · Carrier · Inverter</span>':'<span class="badge-rec">★ Sharma Recommended · Goodman</span>')}
+var PKGWHY={"single":"One matched, right-sized system replaces the whole worn-out setup — comfort and efficiency come back together.",
+ "multi":"Separate right-sized systems per floor beat one oversized unit — even temperatures upstairs and down, and better humidity control.",
+ "mini":"No ducts to run and no central system to replace — targeted comfort for the one space that's always too hot, without cooling the whole house to fix it.",
+ "side":"A cube unit blasts on at full power, then shuts off — loud, and it needs a big clear pad. A side-discharge inverter — Goodman SD, Daikin Fit or Carrier — is a high-efficiency inverter heat pump: its variable-speed inverter adjusts to your home's needs for lower bills and steadier comfort, it runs quieter, wrings out more humidity, and its slim cabinet fits side yards a cube never could."
+};
+var PKGBEST={"single":"One system at home? This is your complete Goodman replacement.",
+ "multi":"Two or three thermostats today? Every system replaced, sized per floor.",
+ "mini":"Garage, addition, bonus room or Florida room with no ducts? This is built for that room.",
+ "side":"Outdoor unit squeezed by the fence, AC or patio — or the noise drives you crazy? This is built for that home."
+};
+var COMPARE=[
+ ["Old system removed & taken away", "✓", "✓", "—", "✓"],
+ ["★ Sharma Recommended system (Goodman)", "✓", "✓", "—", "✓"],
+ ["Goodman Heat Pump — R-32, 15.2 SEER2", "✓", "✓", "—", "—"],
+ ["Goodman SD side discharge inverter (R-32)", "—", "—", "—", "✓"],
+ ["Daikin Fit side discharge inverter (R-32)", "—", "—", "—", "✓"],
+ ["Carrier Side Discharge inverter", "—", "—", "—", "✓"],
+ ["15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run", "✓", "✓", "—", "—"],
+ ["Up to 17 SEER2 (Goodman SD matched system)", "—", "—", "—", "✓"],
+ ["Up to 19.0 SEER2 (Daikin Fit matched system)", "—", "—", "—", "✓"],
+ ["Up to 18.0 SEER2 (Carrier Side Discharge matched system)", "—", "—", "—", "✓"],
+ ["Carrier air handler (with Carrier Side Discharge)", "—", "—", "—", "✓"],
+ ["Matched Goodman Air Handler", "✓", "✓", "—", "—"],
+ ["Goodman variable-speed air handler (SD system)", "—", "—", "—", "✓"],
+ ["Daikin air handler (with Daikin Fit)", "—", "—", "—", "✓"],
+ ["Backup heat kit for cold snaps", "✓ — Goodman Electric Heat Kit, 8 kW", "✓ — Goodman Electric Heat Kit, 8 kW", "—", "✓ — matched kit"],
+ ["ecobee smart thermostat", "✓ — 1", "✓ — 1 per system", "—", "○ — ask Sharma to include"],
+ ["ecobee SmartSensors — room sensors", "○ — add-on with ecobee", "○ — add-on with ecobee", "—", "○ — add-on with ecobee"],
+ ["Honeywell Smart Thermostat (option)", "○ — pickable option", "○ — pickable option", "—", "○ — pickable option"],
+ ["Goodman GTST thermostat (Goodman SD)", "—", "—", "—", "✓"],
+ ["Daikin One+ thermostat (Daikin Fit)", "—", "—", "—", "✓"],
+ ["Programmable thermostat (with Carrier Comfort)", "○ — with Carrier Comfort option", "○ — with Carrier Comfort option", "—", "—"],
+ ["Carrier Comfort Heat Pump — complete system option", "○ — ask in notes", "○ — ask in notes", "—", "—"],
+ ["Air Scrubber — whole-house air cleaner", "○ — add-on", "○ — add-on", "—", "○ — add-on"],
+ ["UV Light — helps keep the indoor coil cleaner", "○ — add-on", "○ — add-on", "—", "○ — add-on"],
+ ["Daikin ductless brand option", "—", "—", "✓", "—"],
+ ["New line set, pad & Safe-T-Switch drain protection", "✓", "✓", "✓ — line set, pad & drain", "✓"],
+ ["Broan bath exhaust fans", "○ — ask Sharma to add", "○ — ask Sharma to add", "—", "○ — ask Sharma to add"],
+ ["Existing ducts connected & checked", "✓", "✓", "— — no ducts needed", "✓"],
+ ["Start-up & full system check", "✓", "✓", "✓", "✓"],
+ ["Duct leakage testing", "✓", "✓", "—", "✓"],
+ ["More than one system (per floor / area)", "—", "✓", "—", "—"],
+ ["Ductless — no ductwork needed", "—", "—", "✓", "—"],
+ ["Heats AND cools (heat pump)", "✓", "✓", "✓", "✓"],
+ ["Each room / head controls itself", "—", "✓ — per system", "✓ — per head", "—"],
+ ["Best for a garage, addition or room with no AC", "—", "—", "✓", "—"],
+ ["Slim side-discharge unit — fits tight side yards", "—", "—", "—", "✓"],
+ ["Inverter variable-speed — ramps, never just on/off", "—", "—", "—", "✓"],
+ ["Quiet Mode — as low as 45 dBA", "—", "—", "—", "✓"],
+];
+var CATS=[
+ {name:"Complete Matched Systems ★ Start Here",short:"Complete systems",sub:"Pick a whole system — never the boxes separately. Every system here is a matched pair: the outdoor unit and the indoor unit are rated to work together, and Sharma does the pairing and the sizing. You choose the system; we match the inside and outside units.",items:[
+  ["★ Goodman Heat Pump + Air Handler — complete matched system ★ Recommended","One choice, whole system: the Goodman Heat Pump outside (R-32, 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run) with its matched Goodman Air Handler inside and the Goodman Electric Heat Kit — 8 kW inside that for cold snaps. Sharma pairs the indoor and outdoor units and sizes the system for your home — you never pick the boxes separately.","Single-System package","GLZS4BA1810 + AMST24BU1300 · Heat kit: HKTSD08X1"],
+  ["★ Goodman Heat Pump + Air Handler — for larger & multi-system homes","The same matched Goodman system, one per floor or area — each outdoor unit with its own matched Goodman Air Handler and electric heat kit. Sharma sizes each system for its part of the house — you don't have to guess a tonnage.","Multi-System package","GLZS4BA1810 + AMST24BU1300 · Heat kit: HKTSD08X1"],
+  ["★ Goodman SD Side Discharge Inverter — slim & quiet","Sharma's premium Goodman option — a matched pair: a slim outdoor unit that blows air out the side, with a variable-speed indoor unit. A high-efficiency inverter heat pump, up to 17 SEER2 for this matched system. Variable-speed inverter that adjusts to your home's needs for lower bills and steadier comfort, better humidity control, and Quiet Mode as low as 45 dBA. Only about 13.8 inches deep, so it fits tight side yards and zero-lot-line homes where a cube unit won't.","Side Discharge Inverter package","GZV6SA4210 + AHVE42CP0300"],
+  ["Daikin Fit Side Discharge Inverter (1.5–5 ton)","Daikin's take on the same slim idea — and the other side-discharge Sharma installs, right next to the Goodman SD. R-32, a variable-speed compressor that speeds up and slows down as your home needs, up to 19.0 SEER2 on matched systems, Quiet Mode as low as 45 dBA, and the same slim ~13.8-inch-deep cabinet for tight side yards and patios. One complete system: it comes with its matched Daikin variable-speed air handler inside — Sharma pairs them.","Side Discharge Inverter package","DH6VS / DH7VS + DFVE"],
+  ["Carrier Side Discharge Inverter (1.5–5 ton)","Carrier's slim side-discharge, and a high-efficiency inverter heat pump: up to 18.0 SEER2 with its matched Carrier indoor unit — the pair you pick sets the rating. Variable-speed inverter that adjusts to your home's needs for lower bills and steadier comfort, sound as low as 54 dBA, up to 75% smaller than a traditional cube unit, and it can install as close as 6 inches from your home — built for tight side yards, patios and zero-lot-line homes.","Side Discharge Inverter package","38MURA + 40MUAA"],
+  ["Also available: Carrier Comfort Heat Pump — complete matched system","The other residential system Sharma installs, as a complete matched system: the Carrier Comfort Heat Pump outside (R-454B, 15.2 SEER2 — above Florida's 14.3 code basic, so it costs less to run, in 1.5, 3 and 4 ton) with its matched Carrier indoor unit inside and an electric heat strip (5/8 kW) inside that for backup heat. Choose this if you prefer Carrier — Sharma pairs the units.","Also available — Carrier system","27SCA5 · Fan coil: FJ5 · Heat strip: KFFEH"] ]},
+ {name:"Thermostat & Controls",short:"Thermostat",sub:"Your control on the wall. One per system — the ecobee smart thermostat comes with Sharma's recommended Goodman system, smart controls that talk to the system come with the inverter models, and the Honeywell Smart Thermostat is a pickable option on any change-out.",items:[
+  ["★ ecobee smart thermostat","Sharma Recommended pairing — the thermostat in Sharma's standard Goodman package. A Wi-Fi smart thermostat you can run from the wall or from your phone — set schedules, change the temperature from anywhere, and get a smart control that learns your routine. Add its SmartSensors below for the rooms that never feel right.","Every Goodman change-out package"],
+  ["ecobee SmartSensors — room sensors (add-on)","Small wireless sensors you put in the rooms that matter — the hot bedroom, the cold nursery, the office that's always off. The ecobee reads those rooms, not just the hallway where the thermostat hangs, so it heats and cools for the room you're actually in. Add as many as you need with the ecobee thermostat.","Add-on — pairs with the ecobee smart thermostat"],
+  ["Honeywell Smart Thermostat","A Wi-Fi smart thermostat from Honeywell Home. Change the temperature from your phone, set schedules that fit your routine, or just ask Alexa or Google Assistant. Add its available room sensors and it reads the rooms you actually live in, evening out hot and cold spots. Pick it as your thermostat option on any Sharma change-out — Sharma confirms the exact unit when quoting.","Option — pairs with any Sharma system change-out","Detail — Honeywell Home T9 series"],
+  ["★ Goodman GTST connected thermostat — for Side Discharge","The smart thermostat the Goodman SD inverter system is built to run with. It talks to the inverter and air handler so the whole system ramps together — including Quiet Mode.","Side Discharge Inverter package"],
+  ["Daikin One+ smart thermostat — for Daikin Fit","The smart thermostat for the Daikin Fit system. It talks to the inverter and air handler so the whole system ramps together — including Quiet Mode.","Side Discharge Inverter package"],
+  ["One thermostat per system (multi-system homes)","If you have two or three systems, each one gets its own ecobee — so upstairs and downstairs can be set differently.","Multi-System package"],
+  ["Also available: Programmable thermostat","A programmable thermostat included with the Carrier system — one per system. Brand/model confirmed at your quote visit — distributor stock varies, so Sharma confirms the exact thermostat when quoting.","Also available — Carrier system"] ]},
+ {name:"The Change-Out Work Itself",short:"Change-out work",sub:"Included with every Sharma change-out — no need to add these, they come with the job. Everything around the new equipment that makes a change-out complete — not just dropping in a new box.",items:[
+  ["Removal & disposal of your old system","We take out the old outdoor and indoor units and haul them away. You don't deal with disposal.","Every change-out package",null,"inc"],
+  ["Refrigerant line set — new, as scoped","The copper lines that carry refrigerant between the indoor and outdoor units. New lines avoid old contamination and leaks.","Every change-out package"],
+  ["Equipment pad — new pad under the outdoor unit","A new, level base under the outdoor unit so it sits stable and drains right.","Every change-out package","Detail — DiversiTech UltraLite UC3232-3 (32×32×3)","inc"],
+  ["Condensate drain + safety switch — stops water damage","Your system pulls water out of the air — that water has to go somewhere safe. The safety switch shuts the system down before an overflow can damage a ceiling.","Every change-out package","Detail — RectorSeal Safe-T-Switch SS1","inc"],
+  ["Bath exhaust fans","Exhaust fans that pull steam and moisture out of the bathroom, so mirrors clear and mold stays away. Ask us to include bath fan replacement with your change-out.","Ask Sharma to add","Detail — Broan AE80B · 80 CFM · Energy Star"],
+  ["Existing ducts — connected & checked","We connect the new indoor unit to the ducts you already have and check them over, as scoped. If ducts need work, Sharma flags it in the quote.","Every change-out package",null,"inc"] ]},
+ {name:"Testing & Handover",short:"Testing",sub:"Included with every Sharma change-out — no need to add these, they come with the job. How Sharma proves your new system works before leaving.",items:[
+  ["Right size for your home","Sharma matches the new system to your home and the system you have now — you don't need to know your tonnage.","Every change-out",null,"inc"],
+  ["Start-up & full system check","Every new system is started, run and checked before handover — cooling, heating and controls.","Every change-out package",null,"inc"],
+  ["Duct leakage testing","We pressure-test the ductwork so the cool air you pay for reaches your rooms instead of leaking into the attic.","Every change-out package",null,"inc"] ]},
+ {name:"Mini-Split — Ductless",short:"Mini-split",sub:"No ducts, no problem. One outdoor unit with wall-mounted heads inside — each room cools and heats on its own. Perfect for garages, additions and Florida rooms — Daikin ductless is a homeowner favorite here.",items:[
+  ["Single-zone mini-split — 1 room","One outdoor unit + one wall-mounted head. The classic setup for a garage, bonus room, home office, Florida room or addition with no ducts.","Mini-Split package"],
+  ["Multi-zone mini-split — 2 to 5 rooms","One outdoor unit serving 2–5 wall heads. Each head has its own temperature, so you only condition the rooms you're using.","Mini-Split package"],
+  ["Daikin ductless — single-zone (1 room)","Daikin's classic ductless setup: one outdoor unit + one wall-mounted head, inverter-driven, heats and cools. The go-to Daikin answer for a garage, addition, home office or Florida room with no ducts.","Mini-Split package"],
+  ["Daikin MXS multi-zone — 2+ rooms, one outdoor unit","One Daikin MXS outdoor unit serving multiple indoor units — wall, floor or ceiling styles — each room on its own control, up to 18.9 SEER on MXS matches. You only condition the rooms you're using.","Mini-Split package"],
+  ["Wall-mounted indoor head","Mounts high on the wall, no ductwork and no floor space taken. Driven by its own remote — set that room exactly how you like it.","Mini-Split package"],
+  ["Mini-split heat pump — heats & cools","It's a heat pump, not just AC: it cools in summer and heats in winter by moving heat, with no separate heater needed.","Mini-Split package"] ]},
+ {name:"Clean Air — Air Scrubber & UV Light",short:"Clean Air",sub:"Add-ons that treat the air and the system itself — not just the temperature. Both mount inside your central system and work for the whole house whenever it runs. Sharma will match the exact unit to your system in the quote.",items:[
+  ["Air Scrubber — whole-house air cleaner","An in-duct air purifier that mounts right in your ductwork and treats the air as it runs through your system — for the whole house, not just one room. Helps cut down dust, pollen, odors and airborne germs floating through your home. No portable box to move from room to room — it works whenever your system runs. Sharma will match the exact unit to your system in the quote.","Add-on — any central change-out"],
+  ["UV Light — for a cleaner indoor coil","An ultraviolet light mounted inside your system, right by the indoor coil — the cold, wet part where mold and slime love to grow in Florida. The light shines on the coil to help stop that growth, so the coil stays cleaner and the air blowing past it stays fresher. You never see it or hear it — it just works inside the unit. Sharma will match the exact light to your system in the quote.","Add-on — any central change-out"] ]}
+];
+var state={pkg:null,adds:{},cat:0,query:"",quiz:{systems:"",size:"",problem:""}};
+function $(id){return document.getElementById(id)}
+function toast(m){var t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(function(){t.classList.remove("show")},2400)}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function pinScroll(fn){var y=window.scrollY||window.pageYOffset||0;fn();var ny=window.scrollY||window.pageYOffset||0;if(Math.abs(ny-y)>1){try{window.scrollTo({top:y,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,y);}}requestAnimationFrame(function(){var cy=window.scrollY||window.pageYOffset||0;if(Math.abs(cy-y)>1){try{window.scrollTo({top:y,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,y);}}});}
+function switchView(n){document.querySelectorAll("[data-view]").forEach(function(x){x.classList.toggle("on",x.getAttribute("data-view")===n)});document.querySelectorAll(".view").forEach(function(v){v.classList.toggle("on",v.id==="view-"+n)});}
+function scrollToViewTop(){var menu=$("topMenu");var mh=menu?menu.offsetHeight:60;var main=document.querySelector("main");if(!main)return;var y=main.getBoundingClientRect().top+(window.scrollY||window.pageYOffset||0)-mh-2;if(y<0)y=0;try{window.scrollTo({top:y,left:0,behavior:"auto"});}catch(e){window.scrollTo(0,y);}}
+function goToView(n){switchView(n);scrollToViewTop();}
+document.querySelectorAll("[data-view]").forEach(function(b){b.addEventListener("click",function(){goToView(b.getAttribute("data-view"));});});
+function showView(n){goToView(n);}
+$("btnDetails").addEventListener("click",function(){showView("products");});
+function renderPkgs(){
+ $("pkgGrid").innerHTML=PACKAGES.map(function(p){
+ return '<article class="pkg'+(p.pop?" pop":"")+'" id="pkg-'+p.id+'">'
+ +(p.pop?'<span class="badge-pop">★ Most homes with 2+ systems</span>':"")
+ +'<img loading="lazy" class="pkg-img" src="'+PKGIMG[p.id]+'" alt="'+PKGALT[p.id]+'"/>'
+ +pkgRow(p.id)
+ +'<div class="body">'+pkgBadge(p.id)+'<div class="tier">'+p.tier+'</div><h3>'+p.name+'</h3><p class="for">'+p.for+'</p><span class="count">'+p.count+'</span>'
+ +'<p class="bestfor"><b>Decide:</b> '+PKGBEST[p.id]+'</p><p class="whyline"><b>Why it matters:</b> '+PKGWHY[p.id]+'</p><div class="spacer"></div>'
+ +'<button class="link-btn" type="button" data-details="'+p.id+'">See all items →</button>'
+ +'<button class="btn btn-primary pick-btn" type="button" data-pick="'+p.id+'" aria-pressed="false">'+(p.id==="mini"?"Choose this mini-split":"Choose this change-out")+'</button></div></article>';
+ }).join("");
+ document.querySelectorAll("[data-pick]").forEach(function(btn){btn.addEventListener("click",function(){var id=btn.getAttribute("data-pick");state.pkg=(state.pkg===id)?null:id;if(state.pkg&&cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];toast(p?("Added: "+p.name):"Package removed");});});
+ document.querySelectorAll("[data-details]").forEach(function(btn){btn.addEventListener("click",function(){openPkgSheet(btn.getAttribute("data-details"))});});
+ renderSel();
+}
+function openSheet(html){$("sheetBody").innerHTML=html;$("sheetWrap").classList.add("open");$("sheetWrap").setAttribute("aria-hidden","false");document.querySelector(".sheet").scrollTop=0;}
+function closeSheet(){$("sheetWrap").classList.remove("open");$("sheetWrap").setAttribute("aria-hidden","true");}
+$("sheetBg").addEventListener("click",closeSheet);$("sheetClose").addEventListener("click",closeSheet);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeSheet();});
+function pkgHighlights(p){var idx=PACKAGES.indexOf(p);var out=[];COMPARE.forEach(function(r){if(r[idx+1].indexOf("✓")===0)out.push(r[0]);});return out;}
+function openPkgSheet(id){
+ var p=PACKAGES.filter(function(x){return x.id===id})[0];var on=state.pkg===id;var hl=pkgHighlights(p);
+ openSheet('<div style="font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">'+p.tier+'</div>'
+ +'<h2>'+p.name+'</h2><p class="sub">'+p.for+' · '+p.count+'</p>'
+ +'<img loading="lazy" class="pkg-photo" src="'+PKGIMG[p.id]+'" alt="'+PKGALT[p.id]+'"/>'
+ +'<p class="sub" style="margin-bottom:4px"><b style="color:var(--ink)">Decide:</b> '+PKGBEST[p.id]+'</p>'
+ +'<p class="sub" style="margin-bottom:4px"><b style="color:var(--orange)">Why it matters:</b> '+PKGWHY[p.id]+'</p>'
+ +'<h3 class="mini">In plain English</h3><ul class="hl">'+p.bullets.map(function(b){return "<li>"+b+"</li>"}).join("")+'</ul>'
+ +'<h3 class="mini">Everything included</h3><ul class="items">'+p.items.map(function(i){return "<li>"+i+"</li>"}).join("")+'</ul>'
+ +'<h3 class="mini">At a glance</h3><ul class="hl">'+hl.map(function(h){return "<li>"+h+"</li>"}).join("")+'</ul>'
+ +'<p class="sub">'+(p.id==="mini"?"Sharma matches the size and number of heads to your space — tell us the room and we handle the rest.":"Sharma matches the final size to your home — you don\'t need to know your tonnage.")+'</p>'
+ +'<button class="btn btn-primary" style="width:100%" type="button" id="sheetPick">'+(on?"✓ Selected — tap to remove":(p.id==="mini"?"Choose this mini-split":"Choose this change-out"))+'</button>');
+ $("sheetPick").addEventListener("click",function(){state.pkg=on?null:id;renderSel();closeSheet();toast(state.pkg?("Added: "+p.name):"Package removed");});
+}
+(function(){
+ var head="<thead><tr><th>What is included</th>"+PACKAGES.map(function(p){return '<th class="'+(p.pop?"pop":"")+'">'+p.name+"</th>"}).join("")+"</tr></thead>";
+ var body=COMPARE.map(function(r){return "<tr><td>"+r[0]+"</td>"+r.slice(1).map(function(v){return '<td class="'+(v.indexOf("✓")===0?"yes":"no")+'">'+v+"</td>"}).join("")+"</tr>"}).join("");
+ $("compareTable").innerHTML=head+"<tbody>"+body+"</tbody>";
+})();
+
+var BESTFOR=["Best for: one complete system, matched by Sharma","Best for: set it and forget it","Best for: a clean, complete swap","Best for: proof it was installed & tested right","Best for: a room with no ducts","Best for: cleaner whole-house air"];
+var ICONS=[
+ '<svg viewBox="0 0 24 24"><path d="M12 3v18M5 7l14 10M19 7L5 17"/><circle cx="12" cy="12" r="2.2"/></svg>',
+ '<svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M9 12h6M9 16h4"/></svg>',
+ '<svg viewBox="0 0 24 24"><path d="M4 14c2-1 4-1 6 0s4 1 6 0 3-.8 4 0M4 9c2-1 4-1 6 0s4 1 6 0 3-.8 4 0"/></svg>',
+ '<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>',
+ '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="7" rx="1.5"/><path d="M6 15c1.5 1.2 3 1.2 4.5 0M10 17c1.5 1.2 3 1.2 4.5 0M15 15c1.2 1 2.5 1 3.7 0"/></svg>',
+ '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5 5l2.1 2.1M16.9 16.9L19 19M19 5l-2.1 2.1M7.1 16.9L5 19"/></svg>'];
+var P="assets/products/";
+function prodImg(name){
+ if(/Air Scrubber/.test(name))return P+"air-scrubber.png";
+ if(/UV Light/.test(name))return P+"uv-light.jpg";
+ if(/SmartSensors/.test(name))return P+"smartsensor.jpg";
+ if(/Honeywell Smart/.test(name))return P+"honeywell-smart.jpg";
+ if(/GTST/.test(name))return P+"gtst.png";
+ if(/Daikin One/.test(name))return P+"daikin-one.jpg";
+ if(/Programmable thermostat/.test(name))return P+"prog-stat.jpg";
+ if(/ecobee/i.test(name))return P+"thermostat.jpg";
+ if(/One thermostat per system/.test(name))return P+"thermostat.jpg";
+ if(/Carrier Side Discharge/.test(name))return "assets/img-a20eddc8346c.webp";
+ if(/Goodman SD Side Discharge/.test(name))return "assets/img-fba514a5d7f1.webp";
+ if(/Daikin Fit/.test(name))return "assets/img-3ce3d0719099.webp";
+ if(/Carrier Comfort/.test(name))return P+"carrier-comfort.jpg";
+ if(/Goodman Heat Pump/.test(name))return "assets/img-7d4cea16ceee.webp";
+ if(/Removal & disposal/.test(name))return P+"removal.jpg";
+ if(/line set/i.test(name))return P+"lineset.jpg";
+ if(/equipment pad/i.test(name))return P+"condenser.jpg";
+ if(/Safe-T-Switch|Condensate drain/.test(name))return P+"safetswitch.jpg";
+ if(/Broan|bath exhaust/i.test(name))return P+"bath-fan.jpg";
+ if(/Existing ducts/.test(name))return P+"duct.jpg";
+ if(/Right size/.test(name))return "assets/img-3f85f320b584.webp";
+ if(/Start-up/.test(name))return P+"startup.jpg";
+ if(/Duct leakage/.test(name))return P+"duct-test.png";
+ if(/MXS|Multi-zone/.test(name))return P+"mini-outdoor.webp";
+ if(/Daikin ductless/.test(name))return P+"minisplit.jpg";
+ if(/Single-zone/.test(name))return "assets/img-e3e5e58c8759.webp";
+ if(/Wall-mounted indoor head/.test(name))return P+"install.jpg";
+ if(/Mini-split/.test(name))return "assets/img-5c7a3b74f60a.webp";
+ return null;
+}
+function prodFit(name){var img=prodImg(name);return !!(img&&/goodman-system|goodman-side-discharge|daikin-fit|carrier-side-discharge|carrier-comfort|gtst|safetswitch|lineset|bath-fan|air-scrubber|honeywell-smart/.test(img))}
+var WHYCAT=["A system is a matched pair — the outdoor and indoor units are rated together, and the pairing decides your comfort and your power bill. Sharma matches them; you just pick the system.","The thermostat is your daily control — a set schedule stops you cooling an empty house.","The work around the equipment decides whether a new system performs like new — or leaks, drips and under-delivers.","Testing proves the system was installed right — not just switched on.","A mini-split puts heating and cooling exactly where there's no duct — you stop overheating the whole house just to fix one room.","Your system moves all the air in your house — treating it as it passes helps the whole home feel fresher, not just one room."];
+var WHYITEM={"Air Scrubber — whole-house air cleaner":"Helps cut down dust, pollen, odors and airborne germs for the whole house — a good fit for allergies and musty Florida homes that never quite smell fresh.","UV Light — for a cleaner indoor coil":"In Florida the indoor coil stays cold and wet — exactly where mold and slime grow. Keeping that coil cleaner helps the system run cleaner and the air stay fresher.","Honeywell Smart Thermostat":"Control from your phone or by voice and stop cooling an empty house — schedules fit your routine, and available room sensors help even out the rooms that run hot or cold."};
+var BESTITEM={"Honeywell Smart Thermostat":"Best for: phone control & smarter scheduling"};
+function bestFor(ci,name){return BESTITEM[name]||BESTFOR[ci]}
+function whyFor(ci,name){return WHYITEM[name]||WHYCAT[ci]}
+$("catChips").innerHTML=CATS.map(function(c,ci){return '<button type="button" data-cat="'+ci+'" class="'+(ci===0?"on":"")+'">'+c.short+' ('+c.items.length+')</button>';}).join("");
+function setCat(ci){state.cat=ci;document.querySelectorAll("[data-cat]").forEach(function(x){x.classList.toggle("on",+x.getAttribute("data-cat")===ci)});renderProds();}
+document.querySelectorAll("[data-cat]").forEach(function(b){b.addEventListener("click",function(){setCat(+b.getAttribute("data-cat"));});});
+document.querySelectorAll("[data-decide]").forEach(function(b){b.addEventListener("click",function(){state.query="";$("prodSearch").value="";setCat(+b.getAttribute("data-decide"));});});
+$("prodSearch").addEventListener("input",function(){state.query=this.value.trim().toLowerCase();renderProds();});
+function prodName(key){var p=key.split("-");return CATS[+p[0]].items[+p[1]][0]}
+function isInc(ci,ii){return CATS[ci].items[ii][4]==="inc"}
+var INCLUDED_ITEMS=["Removal & disposal of your old system","Equipment pad — new pad under the outdoor unit","Condensate drain + safety switch — stops water damage","Existing ducts — connected & checked","Right size for your home","Start-up & full system check","Duct leakage testing"];
+function renderProds(){
+ var _py=window.scrollY||window.pageYOffset||0;
+ var html="",any=false;
+ CATS.forEach(function(c,ci){
+   if(state.query===""&&ci!==state.cat)return;
+   c.items.forEach(function(it,ii){
+     var key=ci+"-"+ii;
+     if(state.query&&(it[0]+" "+it[1]+" "+bestFor(ci,it[0])).toLowerCase().indexOf(state.query)<0)return;
+     any=true;var inc=isInc(ci,ii);var on=!inc&&!!state.adds[key];var img=prodImg(it[0]);var fit=prodFit(it[0]);
+     var photo=img?('<button class="prod-photo" type="button" data-view-photo="'+key+'" aria-label="See a bigger photo: '+esc(it[0])+'"><img class="'+(fit?"fit":"")+'" src="'+img+'" alt="'+esc(it[0])+'" loading="lazy"/><span class="zoomhint">Tap to enlarge</span></button>'):('<span class="prod-photo tile" aria-hidden="true">'+ICONS[ci]+'</span>');
+     var detail=it[3]?('<span class="submittal">'+(it[3].indexOf("Detail")===0?esc(it[3]):("Submittal model: "+esc(it[3])))+'</span>'):"";
+     var inclLabel=/package/i.test(it[2])?"Included in: ":"";
+     html+='<div class="prod'+(on?" added":"")+'">'+photo+'<div class="pbody"><h4>'+it[0]+'</h4><p class="desc">'+esc(it[1])+'</p>'+detail+'<p class="whyline"><b>Why it matters:</b> '+whyFor(ci,it[0])+'</p><div class="tags"><span class="tag best">'+bestFor(ci,it[0])+'</span><span class="tag">'+inclLabel+'<b>'+it[2]+'</b></span></div>'
+       +'<div class="row"><span class="spacer"></span>'
+       +(inc?'<span class="incl-pill">✓ Included</span>'
+       :(on?'<span class="qty show"><button type="button" data-dec="'+key+'" aria-label="One less">−</button><b>'+state.adds[key]+'</b><button type="button" data-inc="'+key+'" aria-label="One more">+</button></span>':"")
+       +'<button class="add-btn'+(on?" added":"")+'" type="button" data-add="'+key+'">'+(on?"✓ Added":"Add to my list")+'</button>')+'</div></div></div>';
+   });
+ });
+ if(!any)html='<div class="empty-note">No options match — try a different search.</div>';
+ $("prodList").innerHTML=html;
+ $("catSub").textContent=state.query?"Searching everywhere.":CATS[state.cat].sub;
+ document.querySelectorAll("[data-add]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-add");if(state.adds[k])delete state.adds[k];else state.adds[k]=1;renderSel();renderProds();})});
+ document.querySelectorAll("[data-view-photo]").forEach(function(b){b.addEventListener("click",function(){openViewer(b.getAttribute("data-view-photo"));});});
+ document.querySelectorAll("[data-inc]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-inc");state.adds[k]=(state.adds[k]||1)+1;renderSel();renderProds();})});
+ document.querySelectorAll("[data-dec]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-dec");state.adds[k]=(state.adds[k]||1)-1;if(state.adds[k]<1)delete state.adds[k];renderSel();renderProds();})});
+ var _ny=window.scrollY||window.pageYOffset||0;if(Math.abs(_ny-_py)>1){try{window.scrollTo({top:_py,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,_py);}}
+}
+var viewerKey=null;
+function openViewer(key){
+ var p=key.split("-");var ci=+p[0];var it=CATS[ci].items[+p[1]];viewerKey=key;
+ var img=prodImg(it[0]);var vi=$("viewerImg");
+ if(img){vi.style.display="";vi.src=img;vi.alt=it[0];vi.className=prodFit(it[0])?"fit":"";}else{vi.style.display="none";vi.src="";}
+ $("viewerName").textContent=it[0];
+ $("viewerDesc").textContent=it[1];
+ $("viewerSub").innerHTML=it[3]?('<span class="submittal">'+(it[3].indexOf("Detail")===0?esc(it[3]):("Submittal model: "+esc(it[3])))+'</span>'):"";
+ $("viewerWhy").innerHTML="<b>Why it matters:</b> "+whyFor(ci,it[0]);
+ var inclLabel=/package/i.test(it[2])?"Included in: ":"";
+ $("viewerTags").innerHTML='<span class="tag best">'+bestFor(ci,it[0])+'</span><span class="tag">'+inclLabel+"<b>"+esc(it[2])+"</b></span>";
+ syncViewerAdd();
+ $("viewer").classList.add("open");$("viewer").setAttribute("aria-hidden","false");
+ document.querySelector(".viewer .v-card").scrollTop=0;
+}
+function syncViewerAdd(){if(!viewerKey)return;var b=$("viewerAdd");var p=viewerKey.split("-");if(isInc(+p[0],+p[1])){b.textContent="✓ Included — comes with every change-out";b.disabled=true;b.classList.add("incl");b.classList.remove("added");return;}b.disabled=false;b.classList.remove("incl");var on=!!state.adds[viewerKey];b.textContent=on?"✓ Added — tap to remove":"Add to my list";b.classList.toggle("added",on);}
+function closeViewer(){$("viewer").classList.remove("open");$("viewer").setAttribute("aria-hidden","true");viewerKey=null;}
+$("viewerBg").addEventListener("click",closeViewer);$("viewerClose").addEventListener("click",closeViewer);
+$("viewerAdd").addEventListener("click",function(){if(!viewerKey)return;var p=viewerKey.split("-");if(isInc(+p[0],+p[1]))return;if(state.adds[viewerKey])delete state.adds[viewerKey];else state.adds[viewerKey]=1;renderSel();renderProds();syncViewerAdd();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeViewer();});
+function selCount(){return (state.pkg?1:0)+(cz.base?1:0)+Object.keys(state.adds).length}
+function renderSel(){
+ PACKAGES.forEach(function(p){var card=$("pkg-"+p.id);if(!card)return;var btn=card.querySelector("[data-pick]");var on=state.pkg===p.id;card.classList.toggle("selected",on);btn.setAttribute("aria-pressed",on?"true":"false");btn.textContent=on?"✓ Selected — tap to remove":(p.id==="mini"?"Choose this mini-split":"Choose this change-out");btn.classList.toggle("added",on);});
+ var n=selCount();$("barCount").textContent=n;var label="My list is empty";
+ if(cz.base){label=cz.base==="scratch"?"Custom — from scratch":("Custom — based on "+czPkg().name)+(Object.keys(state.adds).length?" + extras":"");}
+ else if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];label=p.name+(Object.keys(state.adds).length?" + extras":"");}
+ else if(n)label="Options only — no package yet";
+ $("barLabel").textContent=label;
+}
+function selListHTML(){
+ var html="";
+ if(cz.base){var cs=czSummary();
+   if(cz.base==="scratch"){html+='<div class="sel-item"><div><b>CUSTOM — BUILT FROM SCRATCH</b><small>Tell Sharma about your home below — we\'ll recommend the right change-out to match.</small></div><button class="x2" type="button" data-rm-cz>Remove</button></div>';}
+   else{var cp=czPkg();html+='<div class="sel-item"><div><b>CUSTOM — based on '+cp.name+'</b><small>'+cs.kept.length+" of "+cp.items.length+" items kept</small>"+(cs.removed.length?("<small>Removed: "+cs.removed.map(esc).join("; ")+"</small>"):"")+(cs.choices.length?("<small>Your answers: "+cs.choices.map(esc).join("; ")+"</small>"):"")+'</div><button class="x2" type="button" data-rm-cz>Remove</button></div>';}}
+ if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];html+='<div class="sel-item"><div><b>PACKAGE: '+p.name+'</b><small>'+p.count+" · "+p.for+'</small></div><button class="x2" type="button" data-rm-pkg>Remove</button></div>';}
+ Object.keys(state.adds).forEach(function(k){html+='<div class="sel-item"><div>'+esc(prodName(k))+(state.adds[k]>1?(" × "+state.adds[k]):"")+'</div><button class="x2" type="button" data-rm="'+k+'">Remove</button></div>';});
+ if(!html)html='<div class="sel-empty">Nothing picked yet — choose a change-out package or add options, then come back here.</div>';
+ return html;
+}
+function openListSheet(){
+ openSheet('<h2>My change-out list</h2><p class="sub">Nothing is ordered yet — this list goes to Sharma. We match the system to your home, then price it and confirm next steps.</p>'
+ +'<div id="sheetSelList">'+selListHTML()+'</div>'
+ +'<div class="sel-item"><div><b>INCLUDED WITH YOUR CHANGE-OUT</b><small>Comes with the job — no need to pick these: '+INCLUDED_ITEMS.join(" · ")+'</small></div></div>'
+ +'<form class="client" id="clientForm" onsubmit="return false">'
+ +'<label>Your name *<input id="fName" autocomplete="name" placeholder="Full name"/></label>'
+ +'<label>Phone<input id="fPhone" autocomplete="tel" placeholder="(407) 555-0123"/></label>'
+ +'<label>Home address<input id="fHome" placeholder="Street, city"/></label>'
+ +'<label class="full">Best time to call<input id="fBestTime" placeholder="e.g. Weekday mornings, or after 5pm"/></label>'
+ +'<label class="full">Notes (optional)<textarea id="fNotes" rows="2" placeholder="Hot rooms, humidity, noise, high bills — anything that bugs you about the old system"></textarea></label>'
+ +'<p class="full" style="font-size:13px;color:var(--muted);margin:2px 0 0">Optional: have a photo of your old unit\'s data plate handy — Sharma may ask for it when we call. It helps us match your replacement.</p>'
+ +'</form>'
+ +'<div class="actions"><button class="btn btn-primary" id="btnSubmit" type="button">Send my list to Sharma</button><button class="btn btn-navy" id="btnCopy" type="button">Copy</button><button class="btn btn-outline" id="btnDownload" type="button">Download</button><button class="btn btn-outline" id="btnClear" type="button">Clear all</button></div>'
+ +'<div class="submit-status" id="submitStatus" role="status" aria-live="polite" hidden></div>'
+ +'<p style="font-size:13px;color:var(--muted);margin-top:10px">Tap <b>Send my list to Sharma</b> and it goes straight to Sharma Electric &amp; HVAC from this page — no email app needed. <b>Sharma will call you back.</b> FL Lic. EC13013924 / CAC1823596. Or call <a href="tel:+14078819076">407 881 9076</a>.</p>');
+ bindSheetList();
+}
+function bindSheetList(){
+ var rp=document.querySelector("[data-rm-pkg]");if(rp)rp.addEventListener("click",function(){state.pkg=null;renderSel();refreshSheetList();});
+ var rc=document.querySelector("[data-rm-cz]");if(rc)rc.addEventListener("click",function(){cz.base="";cz.removed={};cz.choices={};renderCz();renderSel();refreshSheetList();});
+ document.querySelectorAll("[data-rm]").forEach(function(b){b.addEventListener("click",function(){delete state.adds[b.getAttribute("data-rm")];renderSel();renderProds();refreshSheetList();});});
+ $("btnSubmit").addEventListener("click",onSubmit);$("btnCopy").addEventListener("click",onCopy);$("btnDownload").addEventListener("click",onDownload);
+ $("btnClear").addEventListener("click",function(){state.pkg=null;state.adds={};cz.base="";cz.removed={};cz.choices={};submitState.sent=false;submitState.sending=false;var sb=$("btnSubmit");if(sb){sb.disabled=false;sb.textContent="Send my list to Sharma";sb.classList.remove("added");}var ss=$("submitStatus");if(ss){ss.hidden=true;ss.textContent="";}renderCz();renderSel();renderProds();refreshSheetList();toast("List cleared");});
+}
+function refreshSheetList(){var el=$("sheetSelList");if(el)el.innerHTML=selListHTML();bindSheetList();}
+$("btnOpenList").addEventListener("click",openListSheet);
+function buildText(){
+ var lines=[];lines.push("SHARMA ELECTRIC & HVAC — HOME CHANGE-OUT REQUEST");lines.push("From: HVAC Change-Out Picker (homeowner)");lines.push("");
+ if($("fName").value.trim())lines.push("Name: "+$("fName").value.trim());
+ if($("fPhone").value.trim())lines.push("Phone: "+$("fPhone").value.trim());
+ if($("fHome").value.trim())lines.push("Home address: "+$("fHome").value.trim());
+ if($("fBestTime")&&$("fBestTime").value.trim())lines.push("Best time to call: "+$("fBestTime").value.trim());
+ if(state.quiz.systems)lines.push("Quiz — systems at home: "+state.quiz.systems);
+ if(state.quiz.size)lines.push("Quiz — home size: "+state.quiz.size);
+ if(state.quiz.problem)lines.push("Quiz — current system: "+state.quiz.problem);
+ lines.push("");
+ if(cz.base){var cs2=czSummary();
+   if(cz.base==="scratch"){lines.push("CUSTOM — BUILT FROM SCRATCH");lines.push("The options below are the request. Please recommend a system to match.");lines.push("");}
+   else{var cp2=czPkg();lines.push("CUSTOM — based on "+cp2.name);lines.push("Items kept ("+cs2.kept.length+" of "+cp2.items.length+"):");cs2.kept.forEach(function(i){lines.push("  • "+i)});if(cs2.removed.length){lines.push("Removed by homeowner:");cs2.removed.forEach(function(i){lines.push("  − "+i)});}if(cs2.choices.length){lines.push("Homeowner answers:");cs2.choices.forEach(function(i){lines.push("  • "+i)});}lines.push("");}}
+ if(state.pkg){var p=PACKAGES.filter(function(x){return x.id===state.pkg})[0];lines.push("PACKAGE: "+p.name+" ("+p.count+")");p.items.forEach(function(i){lines.push("  • "+i)});lines.push("");}
+ lines.push("INCLUDED WITH YOUR CHANGE-OUT (comes with the job — not picks):");INCLUDED_ITEMS.forEach(function(i){lines.push("  • "+i)});lines.push("");
+ var keys=Object.keys(state.adds);
+ if(keys.length){lines.push("ADDITIONAL OPTIONS:");keys.forEach(function(k){lines.push("  • "+prodName(k)+(state.adds[k]>1?(" × "+state.adds[k]):""))});lines.push("");}
+ if($("fNotes").value.trim()){lines.push("NOTES:");lines.push($("fNotes").value.trim());lines.push("");}
+ lines.push("Please match the right size to my home, price this change-out, and confirm next steps.");
+ return lines.join("\n");
+}
+var submitState={sending:false,sent:false};
+function setSubmitStatus(kind,msg){var el=$("submitStatus");if(!el)return;el.hidden=false;el.className="submit-status "+kind;el.textContent=msg;}
+function onSubmit(){
+ if(submitState.sending)return;
+ if(submitState.sent){toast("This list was already sent to Sharma");return;}
+ if(!selCount()){toast("Pick a package or an option first");return;}
+ if(!$("fName").value.trim()){toast("Add your name so Sharma knows who this is from");$("fName").focus();return;}
+ var btn=$("btnSubmit");var name=$("fName").value.trim();
+ var payload={
+  _subject:"HVAC Picker selections — "+name,
+  _template:"table",
+  _captcha:"false",
+  Name:name,
+  Phone:$("fPhone").value.trim(),
+  "Home address":$("fHome").value.trim(),
+  "Best time to call":$("fBestTime").value.trim(),
+  "Quiz — systems at home":state.quiz.systems,
+  "Quiz — home size":state.quiz.size,
+  "Quiz — current system":state.quiz.problem,
+  Notes:$("fNotes").value.trim(),
+  Selections:buildText()
+ };
+ submitState.sending=true;
+ if(btn){btn.disabled=true;btn.textContent="Sending…";}
+ var st=$("submitStatus");if(st){st.hidden=true;st.textContent="";}
+ fetch("https://formsubmit.co/ajax/office@sharmaelectric.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+ .then(function(r){return r.json().catch(function(){return {}}).then(function(data){if(!r.ok||(data&&data.success!==undefined&&String(data.success)!=="true"))throw new Error("submit failed");return data;});})
+ .then(function(){
+   submitState.sending=false;submitState.sent=true;
+   if(btn){btn.disabled=true;btn.textContent="✓ Sent to Sharma";btn.classList.add("added");}
+   setSubmitStatus("ok","Thank you — you're in. Sharma Electric & HVAC will call you back with your priced quote.");
+   toast("Sent — Sharma will call you back");
+   var bl=$("barLabel");if(bl)bl.textContent=bl.textContent+" · Sent to Sharma";
+ })
+ .catch(function(){
+   submitState.sending=false;
+   if(btn){btn.disabled=false;btn.textContent="Send my list to Sharma";}
+   setSubmitStatus("err","Sorry — your list didn't send. Your list is still here and nothing was lost. Check your connection and tap Send again, or use Copy or Download below and share it with Sharma that way. You can also call 407 881 9076.");
+   toast("Didn't send — your list is still here. Try again, or use Copy / Download.");
+ });
+}
+function onCopy(){if(!selCount()){toast("Pick a package or an option first");return;}var txt=buildText();if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){toast("List copied — paste it anywhere")},function(){fallbackCopy(txt)});}else{fallbackCopy(txt);}}
+function fallbackCopy(txt){var ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("List copied")}catch(e){toast("Copy didn't work — use Download instead")}document.body.removeChild(ta);}
+function onDownload(){if(!selCount()){toast("Pick a package or an option first");return;}var blob=new Blob([buildText()],{type:"text/plain"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my-change-out-list.txt";document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},2000);toast("Downloaded your list");}
+
+var cz={base:"",removed:{},choices:{}};
+var CZCHOICES=[
+ {key:"guess",label:"Your current system's size — if you know it (Sharma confirms the new size)",pkgs:["single"],opts:["1.5 ton","3 ton","4 ton","Not sure — that's fine"]},
+ {key:"systems",label:"How many systems are we replacing?",pkgs:["multi"],opts:["2 systems","3 systems","Not sure"]},
+ {key:"heat",label:"Backup heat kit (Goodman Electric Heat Kit) — leave it to Sharma if unsure",pkgs:["single","multi"],opts:["8 kW","Leave it to Sharma"]},
+ {key:"stat",label:"Thermostat — if you have a preference",pkgs:["single","multi","side"],opts:["ecobee smart thermostat","ecobee + SmartSensors (room sensors)","Honeywell Smart Thermostat","GTST / Daikin One+ (inverter systems)","No preference — Sharma recommends"]},
+ {key:"timing",label:"How urgent is it?",pkgs:["single","multi"],opts:["System has failed — no cooling/heating","Still running, but struggling","Planning ahead — not urgent"]},
+ {key:"zones",label:"How many rooms / heads do you need?",pkgs:["mini"],opts:["1 room — single-zone","2 rooms","3 rooms","4–5 rooms","Not sure — advise me"]},
+ {key:"mini-brand",label:"Ductless brand — if you have a preference",pkgs:["mini"],opts:["Daikin ductless","No preference — Sharma recommends"]},
+ {key:"space",label:"What space is it for?",pkgs:["mini"],opts:["Garage","Addition / bonus room","Florida room / lanai","Home office / bedroom","Whole small home — no ducts"]},
+ {key:"timing-mini",label:"How urgent is it?",pkgs:["mini"],opts:["Room is unusable — too hot","Planning a remodel / addition","Planning ahead — not urgent"]},
+ {key:"sd-brand",label:"Side-discharge brand — if you have a preference",pkgs:["side"],opts:["Goodman SD","Daikin Fit","Carrier Side Discharge","No preference — Sharma recommends"]},
+ {key:"sd-space",label:"Where will the slim outdoor unit sit?",pkgs:["side"],opts:["Tight side yard / between homes","Right next to a patio or pool deck","Next to a bedroom window — noise matters","Normal spot — I just want quiet & efficient"]},
+ {key:"sd-why",label:"What matters most about the inverter upgrade?",pkgs:["side"],opts:["Quiet — as low as 45 dBA in Quiet Mode (54 dBA Carrier)","High efficiency — up to 17 SEER2 (Goodman SD matched system)","Fits where a cube unit won't","Steadier comfort & less humidity"]},
+ {key:"timing-sd",label:"How urgent is it?",pkgs:["side"],opts:["System has failed — no cooling/heating","Still running, but struggling","Planning ahead — not urgent"]}
+];
+function czPkg(){return PACKAGES.filter(function(x){return x.id===cz.base})[0]||null}
+function czCatOf(item){var s=item.toLowerCase();if(/air scrubber|uv light|ultraviolet/.test(s))return 5;if(/mini-split|wall-mounted head|wall head|daikin ductless|daikin mxs/.test(s))return 4;if(/thermostat|remote control|ecobee/.test(s))return 1;if(/line set|pad|condensate|safe-t-switch|ducts|removal|electrical for/.test(s))return 2;if(/start-up|duct leakage|right size/.test(s))return 3;return 0;}
+function czChoicesFor(id){return CZCHOICES.filter(function(c){return c.pkgs.indexOf(id)>=0})}
+function czSummary(){var p=czPkg(),out={kept:[],removed:[],choices:[]};if(p){p.items.forEach(function(it){(cz.removed[it]?out.removed:out.kept).push(it)});}czChoicesFor(cz.base).forEach(function(c){if(cz.choices[c.key])out.choices.push(c.label.split(" — ")[0].split(" (")[0]+": "+cz.choices[c.key]);});return out;}
+function renderCzBases(){
+ var html='<button type="button" class="base-btn'+(cz.base==="scratch"?" on":"")+'" data-base="scratch"><span class="bb-scratch">START FROM SCRATCH</span><span class="bb-t">From scratch<small>Build your own list</small></span></button>';
+ PACKAGES.forEach(function(p){html+='<button type="button" class="base-btn'+(cz.base===p.id?" on":"")+'" data-base="'+p.id+'"><img src="'+PKGIMG[p.id]+'" alt="" loading="lazy"/><span class="bb-t">'+p.name+"<small>"+p.count+"</small></span></button>";});
+ $("czBases").innerHTML=html;
+ document.querySelectorAll("[data-base]").forEach(function(b){b.addEventListener("click",function(){var id=b.getAttribute("data-base");if(cz.base!==id){cz.base=id;cz.removed={};cz.choices={};if(state.pkg)state.pkg=null;}renderCz();renderSel();toast(id==="scratch"?"Starting from scratch — add options below":("Base: "+czPkg().name+" — now make it yours"));});});
+}
+function renderCz(){
+ var _cy=window.scrollY||window.pageYOffset||0;
+ renderCzBases();
+ var open={};document.querySelectorAll("#czMain details[data-g]").forEach(function(d){if(d.open)open[d.getAttribute("data-g")]=1});
+ var html="";
+ if(!cz.base){html='<p class="viewhint" style="margin-top:12px">Pick a starting point above — a change-out package to tailor, or scratch to build your own list.</p>';$("czMain").innerHTML=html;return;}
+ var p=czPkg();
+ if(p){var ch=czChoicesFor(p.id);
+   if(ch.length){html+='<h3 class="cz-h">2 · A few questions</h3><p class="viewhint">Answer what you know — leave anything blank and Sharma will recommend in the quote. Size is always Sharma\'s final call.</p>';ch.forEach(function(c){html+='<div class="choice-g"><p class="cl">'+c.label+'</p><div class="seg2">'+c.opts.map(function(o){return '<button type="button" data-choice="'+c.key+'" data-opt="'+esc(o)+'" class="'+(cz.choices[c.key]===o?"on":"")+'">'+o+"</button>"}).join("")+"</div></div>";});}
+   html+='<h3 class="cz-h">'+(ch.length?"3":"2")+' · Keep or remove items</h3><p class="viewhint">Tap a group to open it. Remove anything you don\'t want — you can restore it any time. If something is required for safety or code, Sharma will flag it in the quote.</p>';
+   var groups={};p.items.forEach(function(it){var g=czCatOf(it);(groups[g]=groups[g]||[]).push(it);});
+   Object.keys(groups).sort().forEach(function(g,gi){var items=groups[g],kept=items.filter(function(it){return !cz.removed[it]}).length;html+='<details class="acc" data-g="i'+g+'"'+(open["i"+g]||(!Object.keys(open).length&&gi===0)?" open":"")+'><summary>'+CATS[+g].name+'<span class="meta">'+kept+" of "+items.length+' kept</span></summary><div class="acc-body">'+items.map(function(it){var off=!!cz.removed[it];return '<div class="cz-item'+(off?" off":"")+'"><span>'+esc(it)+'</span><button type="button" class="cz-tog" data-cz-item="'+esc(it)+'">'+(off?"Restore":"Remove")+"</button></div>"}).join("")+"</div></details>";});
+ }
+ var stepNo=p?(czChoicesFor(p.id).length?4:3):2;
+ html+='<h3 class="cz-h">'+stepNo+' · Add extras</h3><p class="viewhint">Anything else from the full list, on top of your base.</p>';
+ CATS.forEach(function(c,ci){html+='<details class="acc" data-g="x'+ci+'"'+(open["x"+ci]?" open":"")+'><summary>'+c.name+'<span class="meta">'+c.items.length+' options</span></summary><div class="acc-body">'+c.items.map(function(it,ii){var k=ci+"-"+ii,inc=isInc(ci,ii),on=!inc&&!!state.adds[k];var cimg=prodImg(it[0]);var cth=cimg?('<img class="cz-thumb'+(prodFit(it[0])?" fit":"")+'" src="'+cimg+'" alt="" loading="lazy"/>'):"";return '<div class="cz-xrow">'+cth+'<span>'+esc(it[0])+(on&&state.adds[k]>1?(" × "+state.adds[k]):"")+'</span>'+(inc?'<span class="incl-pill sm">✓ Included</span>':'<button type="button" class="add-btn'+(on?" added":"")+'" data-cz-add="'+k+'">'+(on?"✓ Added":"Add")+"</button>")+"</div>"}).join("")+"</div></details>";});
+ var cs=czSummary(),nAdds=Object.keys(state.adds).length;
+ html+='<div class="cz-sum"><b>'+(p?("Custom change-out — based on "+p.name):"Custom — built from scratch")+"</b><br/>"+(p?(cs.kept.length+" of "+p.items.length+" items kept"+(cs.removed.length?(" · Removed: "+cs.removed.length):"")+(cs.choices.length?(" · "+cs.choices.length+" answer"+(cs.choices.length>1?"s":"")+" given"):"")+"<br/>"):"")+(nAdds?nAdds+" extra option"+(nAdds>1?"s":"")+" added<br/>":"")+'When you\'re done, review and send it — Sharma matches and prices the whole list for your home.</div><button class="btn btn-primary" type="button" id="czReview" style="width:100%">Review &amp; send my list →</button>';
+ $("czMain").innerHTML=html;
+ document.querySelectorAll("[data-choice]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-choice"),o=b.getAttribute("data-opt");cz.choices[k]=(cz.choices[k]===o)?"":o;renderCz();renderSel();});});
+ document.querySelectorAll("[data-cz-item]").forEach(function(b){b.addEventListener("click",function(){var it=b.getAttribute("data-cz-item");if(cz.removed[it])delete cz.removed[it];else cz.removed[it]=1;renderCz();renderSel();});});
+ document.querySelectorAll("[data-cz-add]").forEach(function(b){b.addEventListener("click",function(){var k=b.getAttribute("data-cz-add");if(state.adds[k])delete state.adds[k];else state.adds[k]=1;renderCz();renderSel();renderProds();});});
+ $("czReview").addEventListener("click",openListSheet);
+ var _cny=window.scrollY||window.pageYOffset||0;if(Math.abs(_cny-_cy)>1){try{window.scrollTo({top:_cy,left:0,behavior:"instant"});}catch(e){window.scrollTo(0,_cy);}}
+}
+
+var GUIDE=[
+ {title:"Straight Cool vs Heat Pump",scene:"The difference, in plain English",cat:0,img:"assets/img-cef3cb271351.webp",alt:"Goodman Heat Pump — the outdoor unit",
+  what:"Both cool your home the same way in summer — the difference is winter. A straight cool system cools only: the outdoor unit has no way to heat, so all of your winter heat comes from electric heat strips inside the air handler, which are expensive to run. A heat pump cools in summer and heats in winter by reversing — it pulls heat from the outdoor air and brings it inside, which uses far less electricity than making heat with strips. The heat strips are still there, but only as backup on the coldest mornings.",
+  why:["Cooling: identical job, both systems. Heating: that is the whole difference.","Florida winters are mild, so a heat pump heats efficiently almost all winter — strips only help on cold snaps.","If your home has straight cool now, switching to a heat pump in a change-out usually lowers winter bills with no change to your ducts or thermostat habits."],
+  pkgs:"Every change-out package"},
+ {title:"How a Heat Pump Works",scene:"One system that cools AND heats",cat:0,img:"assets/img-7d4cea16ceee.webp",alt:"Goodman matched heat pump system — outdoor unit and air handler",
+  what:"A heat pump doesn't create cold — it moves heat. In summer it pulls heat out of the air inside your home and dumps it outside, which is why the outdoor unit blows warm air. In winter it runs the same process in reverse, pulling heat out of the outdoor air — even cool Florida winter air holds heat — and bringing it inside. One system, one thermostat, cooling and heating.",
+  why:["Cooling and heating from the same matched indoor + outdoor pair — no separate furnace needed in Florida.","Moving heat takes less energy than making heat, which is why heat pumps are so efficient in our climate.","Both systems in this app — the Goodman Heat Pump and the Carrier Comfort Heat Pump — are heat pumps."],
+  pkgs:"Every change-out package"},
+ {title:"SEER2, Explained",scene:"What the rating means for your power bill",cat:0,img:"assets/img-1010e296b5bb.webp",alt:"Single-story Florida home in daytime",
+  what:"SEER2 is the efficiency score for air conditioning — think miles-per-gallon (MPG) for a car. It measures how much cooling you get for every dollar of electricity: the higher the number, the lower your power bill. Florida's building code basic — the minimum a new system has to reach — is 14.3 SEER2. The standard systems in this app are 15.2 SEER2, above code basic, so they cost less to run than a code-minimum machine. One catch: the score belongs to the whole matched pair — outdoor unit and indoor unit together — which is why Sharma always installs them as a pair.",
+  why:["Like MPG on a car: same trip, less fuel. Higher SEER2 means the same cooling for less electricity.","Florida code basic is 14.3 SEER2 — these systems are 15.2, above basic, so they cost less to run than the minimum Florida allows.","Your real bill still depends on your home: insulation, windows, ducts, and how low you set the thermostat."],
+  callout:"<b>Same cooling. Half the power.</b> Ten years ago, a typical 2-ton air conditioner needed a 30-amp breaker. Many of today's 2-ton systems run on just 15 amps — half the breaker, half the electrical demand, for the same cooling. (The exact breaker size always comes from the label on the unit itself.) It is the same efficiency story as SEER2: a new machine does the same job on far less electricity.",
+  pkgs:"Every change-out package"},
+ {title:"Why New Machines Beat Old Ones",scene:"Same cooling. Half the power.",cat:0,img:"assets/img-3f85f320b584.webp",alt:"Florida home exterior",
+  what:"Ten years ago, a typical 2-ton air conditioner needed a 30-amp breaker. Many of today's 2-ton systems run on just 15 amps — half the breaker, half the electrical demand, for the same cooling. More efficient compressors and fan motors get more cooling out of every watt, so a new machine costs less to run, is easier on your electrical panel, and usually runs quieter too. (The exact breaker size always comes from the label on the unit itself.)",
+  why:["Half the electrical demand matters in older homes where the panel is already close to full.","Lower demand means a lower running cost for the same comfort, every hour the system runs.","Quieter compressors and fan motors are the side benefit most homeowners notice on day one."],
+  pkgs:"Every change-out package"},
+ {title:"The New Refrigerants",scene:"Why the industry moved on from R-410A",cat:0,img:"assets/img-5c7a3b74f60a.webp",alt:"Outdoor unit and refrigerant lines beside a home",
+  what:"Refrigerant is the fluid that carries heat around the loop. The old standard, R-410A, is being phased down because of its high global-warming impact, so manufacturers redesigned their equipment around lower-impact refrigerants. The new ones can burn more easily than the old one, so today's systems carry built-in sensors and safety controls made for them — one more reason a change-out is a complete matched system, not a refrigerant swap in an old unit.",
+  why:["The Goodman Heat Pump runs on R-32 — a single-component refrigerant with roughly a third of R-410A's global-warming impact, proven in millions of systems worldwide.","The Carrier Comfort Heat Pump runs on R-454B (Puron Advance) — a blend that cuts that impact by roughly three-quarters versus R-410A.","Old and new refrigerants never mix — your change-out gets a new, clean line set, as scoped."],
+  pkgs:"Every change-out package"},
+ {title:"Sizing — Right Size Matters",scene:"Why bigger is NOT better",cat:3,img:"assets/img-5a2117420a53.webp",alt:"Florida home with neat landscaping",
+  what:"Tonnage is not a preference. Sharma matches the new system to your home and the system you have now — the size of your home, how it's laid out, and how your old system kept up all matter. Getting it right is what makes the new system feel right.",
+  why:["Oversized: short, blasting runs that shut off before the air is dried — cold but clammy rooms, and extra wear from constant starts (short-cycling).","Undersized: runs all day in August, never quite catches up, and wears out early.","Just right: longer, steadier runs that pull humidity out while they cool — the Florida sweet spot."],
+  pkgs:"Every change-out"},
+ {title:"Florida Humidity",scene:"Cool is only half of comfort",cat:1,img:"assets/img-0135ff0344a5.webp",alt:"Comfortable living room in a Florida home",
+  what:"In Florida, comfort is as much about water as temperature. A right-sized system running steady cycles wrings moisture out of the air as it cools — that's the dehumidification you feel as crisp air. Short, oversized cycles cool fast and quit early, leaving the moisture behind.",
+  why:["Drier air feels cooler — many homeowners can set the thermostat a degree or two higher and feel the same.","Steady run time is the dehumidifier — another reason right-sizing beats oversizing here.","Mention muggy rooms or musty smells in your notes — it changes what Sharma checks."],
+  pkgs:"Every change-out package"},
+ {title:"Electric Heat Strips",scene:"Backup heat for cold snaps",cat:0,img:"assets/img-1af787898648.webp",alt:"Indoor air handler and ductwork in an attic",
+  what:"A heat pump moves heat instead of making it, so on the coldest mornings — when there is little heat to pull from the outdoor air — it needs a hand. Inside the air handler sits an electric heat kit: the Goodman Electric Heat Kit — 8 kW, or Carrier electric heat strips (5 / 8 kW). It switches on automatically for cold snaps and defrost cycles, then back off. You never touch anything.",
+  why:["It only runs when the heat pump can't keep up alone — a few dozen hours a year in Central Florida.","It's matched to the system (that's the kW number) — Sharma confirms the right one for your home.","No gas, no flame — simple backup heat that lives inside the indoor unit."],
+  pkgs:"Every change-out package"},
+ {title:"Ductwork Matters",scene:"The delivery system for your air",cat:2,img:"assets/img-1af787898648.webp",alt:"Sealed, insulated ductwork in an attic",
+  what:"Your ducts are the delivery roads for every bit of air your system makes. Leaky or crushed ducts pour cooled air into the attic and pull hot attic air back in, so the system runs longer and rooms stay uneven. That's why every Sharma change-out connects and checks your existing ducts — and why duct leakage testing is included: the ductwork is pressure-tested, so leaks are measured, not guessed.",
+  why:["Air you paid to cool should reach your rooms — not your attic.","Leaks also pull in dust and humidity, which the system then has to fight.","If your ducts need more than a check, Sharma flags it in the quote before install — no surprises mid-job."],
+  pkgs:"Every change-out package"},
+ {title:"Cleaner Air at Home",scene:"Filter, UV light & air scrubber — what's the difference?",cat:5,img:"assets/img-050117a77c9d.webp",alt:"Clean, bright living room with fresh air",
+  what:"Your central system already moves air through the whole house — these three each do a different job in that same airstream. Your filter is the net: it catches dust and pollen floating by. A UV light is the guard at the coil: it shines on the indoor coil — the cold, wet spot where mold and slime grow in Florida — to help keep that coil cleaner. An air scrubber is the whole-house treatment: mounted in the ductwork, it treats the air as it runs through the system, helping cut down dust, pollen, odors and airborne germs room after room. They are not the same thing — and you can add a UV light, an air scrubber, or both, on top of a good filter.",
+  why:["Start with the filter — keep it changed on schedule. It protects the system and catches the big stuff first.","Add a UV light if musty smells or a slimy, moldy coil is your worry — it looks after the coil itself, where growth starts.","Add an air scrubber if dust, pollen, cooking or pet odors, or that stale whole-house smell is your worry — it treats air for the whole house, not just one room.","Sharma will match the exact scrubber and UV light to your system in the quote — add either (or both) in Products or Customize."],
+  pkgs:"Add-on — any central change-out"},
+ {title:"One System Per Zone",scene:"Why big homes use 2–3 systems",cat:1,img:"assets/img-8971a6fb8023.webp",alt:"Large two-story Florida home with a pool at dusk",
+  what:"A two-story Florida home lives two climates at once — heat rises, the upstairs bakes, and the downstairs stays fine. One huge unit can't fix that: it answers to one thermostat and one temperature. Larger homes use two or three right-sized systems — one per floor — each with its own thermostat, so every floor gets exactly what it needs.",
+  why:["Each floor controls itself — no frozen downstairs and sweltering upstairs.","Smaller matched systems run steadier cycles, which means better humidity control per floor.","If one system ever needs service, the rest of the house stays comfortable."],
+  pkgs:"Multi-System package"},
+ {title:"After You Submit",scene:"What Sharma does next, step by step",cat:3,img:"assets/img-1010e296b5bb.webp",alt:"Florida home in daytime",
+  what:"Your list lands with Sharma — here's the road from tap to cool air. We read your selections and notes, match the right system to your home, and send a priced quote for the full change-out. On approval, the permit is pulled, the old system comes out and the new matched system goes in — and before we leave, the system is started up and checked, the ducts are leakage-tested, and your warranty is registered.",
+  why:["Step 1 — Match: Sharma confirms the right system and size for your home.","Step 2 — Permit & install: old system removed, new matched system installed.","Step 3 — Start-up & duct leakage test: cooling, heating and airflow verified, ducts pressure-tested.","Step 4 — Warranty registration: your new system's coverage is registered, so it's on record."],
+  pkgs:"Every change-out"},
+ {title:"Looking After It",scene:"Filters and basics that pay off",cat:-1,img:"assets/img-5c7a3b74f60a.webp",alt:"Outdoor unit on a pad beside a home",
+  what:"A new system asks very little — mostly, let it breathe. A clogged filter starves airflow, so the system works harder, cools worse, and can ice up trying. Keep the outdoor unit clear of plants and debris so it can shed heat, and keep the condensate drain clear: your new system has a Safe-T-Switch that stops the unit before an overflow can damage a ceiling — and a system stopped on a hot day is often that switch doing its job.",
+  why:["Change or wash the filter on the maker's schedule — monthly during heavy Florida summer use is a good habit.","Keep about two feet of clearance around the outdoor unit, and rinse a dusty coil gently with a hose.","A professional check once a year catches refrigerant, electrical and drain issues while they're still cheap fixes."],
+  pkgs:"Every system Sharma installs"},
+ {title:"Myth vs Fact",scene:"Four things we hear every week",cat:-1,img:"assets/img-3f85f320b584.webp",alt:"Florida home exterior",
+  what:"Four classics — and what Florida summers actually say.",
+  why:[],
+  myths:[["Bigger AC cools faster and better.","Myth — oversized systems short-cycle: quick blasts, poor humidity removal, clammy air and extra wear. Right-sized beats big."],
+   ["Closing vents in unused rooms saves money.","Myth — it raises duct pressure, can increase leaks, and makes the system work harder, not smarter."],
+   ["Cranking the thermostat way down cools the house faster.","Myth — the system cools at its own pace; an extreme setpoint just overshoots and wastes power."],
+   ["A heat pump can't really heat a home.","Myth in Florida — heat pumps heat efficiently through our mild winters, with electric heat strips backing them up on the coldest snaps."]],
+  pkgs:"Good to know"},
+ {title:"Mini-Splits, Explained",scene:"Ductless heating & cooling for one room — or five",cat:4,img:"assets/img-e3e5e58c8759.webp",alt:"Ductless mini-split wall-mounted head high on a wall",
+  what:"A mini-split is a heat pump without the ducts. One outdoor unit connects to one or more slim wall-mounted heads inside — each head heats and cools its own room and answers to its own remote. No ductwork to run, no central system to replace. It's the go-to answer for garages, additions, bonus rooms, Florida rooms and any space your central system was never built to reach.",
+  why:["Single-zone = one room, done. Multi-zone = 2–5 heads on one outdoor unit, each room set independently.","Because it's a heat pump, it heats in winter too — it's not a window unit and it's not a space heater.","You only condition the room you're using, instead of cooling the whole house to fix one hot room.","Brand choice: Daikin ductless — single-zone, or MXS multi-zone with multiple indoor units on one outdoor unit — is the name most homeowners ask for here. Sharma confirms the right brand and setup in your quote."],
+  pkgs:"Mini-Split package"},
+ {title:"Side Discharge Inverter, Explained",scene:"Slim, quiet, and always adjusting — never just on/off",cat:0,img:"assets/img-fba514a5d7f1.webp",alt:"Goodman SD side discharge inverter heat pump — slim outdoor unit that blows out the side",
+  what:"A normal cube unit sits on a big pad, blows air straight up, and runs one way: full blast on, then off — over and over. A side-discharge inverter is different in both shape and brains. Shape: the fan is on the side of a slim, trunk-style cabinet — only about 13.8 inches deep — so it tucks into tight side yards, between homes, and zero-lot-line spots a cube can't use, with up to 53% less footprint (Goodman SD figure). Brains: its compressor doesn't just switch on and off — it ramps up and down continuously to match exactly how much cooling or heating your home needs right now. Sharma installs three versions of this idea: the Goodman SD, the Daikin Fit and the Carrier Side Discharge — the choice between them is brand preference, not a different kind of system. Each is a high-efficiency inverter heat pump, up to the SEER2 of its matched system — the Carrier Side Discharge, for example, is rated up to 18.0 SEER2 with its matched indoor unit, because the pair you pick sets the rating.",
+  why:["Steadier, quieter comfort: long, gentle runs hold temperature evenly and pull more Florida humidity out of the air than short full-blast cycles. Variable-speed inverter that adjusts to your home's needs for lower bills and steadier comfort.","Quiet enough to reclaim your patio: Goodman SD and Daikin Fit run about 56 dBA, and Quiet Mode drops them as low as 45 dBA; the Carrier Side Discharge runs as low as 54 dBA — a cube-style non-inverter can be around 75 dBA.","High efficiency, every brand — rated as matched systems, never the outdoor unit alone: Goodman SD — a high-efficiency inverter heat pump, up to 17 SEER2 for the matched system on R-32, with a Blue Fin coated coil rated for 1,000 hours of salt spray; Daikin Fit up to 19.0 SEER2 on matched systems, also R-32 and also as low as 45 dBA in Quiet Mode; Carrier Side Discharge up to 18.0 SEER2 as a matched system with its indoor unit, up to 75% smaller than a cube unit and able to install as close as 6 inches from the home."],
+  pkgs:"Side Discharge Inverter package"},
+ {title:"Goodman, Daikin & Carrier",scene:"An honest side-by-side",cat:0,img:"assets/img-7d4cea16ceee.webp",alt:"Goodman matched heat pump system — outdoor unit and air handler",
+  what:"Every central system in this app is a heat pump. The Goodman Heat Pump — with its Goodman Air Handler and ecobee smart thermostat — 15.2 SEER2, above Florida's 14.3 code basic, so it costs less to run — is Sharma's recommendation for most homes. The slim side discharge inverters — Goodman SD, up to 17 SEER2 for its matched system, Daikin Fit, up to 19.0 SEER2 as a matched system, and the Carrier Side Discharge, up to 18.0 SEER2 as a matched system with its indoor unit — are the premium picks for tight spaces and quiet. The Carrier Comfort Heat Pump — with its indoor unit and a programmable thermostat included (brand/model confirmed at your quote visit) — 15.2 SEER2, above Florida's 14.3 code basic, so it costs less to run — is the other system Sharma installs, and the right call if you prefer Carrier.",
+  why:["Refrigerant: Goodman and Daikin use R-32, Carrier Comfort uses R-454B — the new lower-impact generation; the Carrier Side Discharge's refrigerant follows its exact matched system, confirmed by Sharma in your quote.","Thermostats: the standard Goodman package pairs the ecobee smart thermostat — a smart control you run from your phone; the Goodman SD pairs the GTST; the Daikin Fit pairs the Daikin One+; the Carrier Comfort package includes a programmable thermostat — brand/model confirmed at your quote visit. Add ecobee SmartSensors so it reads the rooms that matter, not just the hallway.","Goodman is Sharma's everyday recommendation; the SD, the Fit and the Carrier Side Discharge are its quiet, slim upgrades — brand preference there; Carrier Comfort is a proven alternative. Either way: matched pair, same install and testing, and every SEER2 quoted is the rating of the whole matched system — outdoor and indoor units together."],
+  pkgs:"All systems in this app"}
+];
+var GACC=[["#2563a8","#8fbde9","#fff"],["#e86a10","#ffa25e","#fff"],["#2e7d6b","#8fd0bd","#fff"],["#476c7d","#a9c6d2","#fff"],["#d99a16","#f5b841","#16233a"],["#0e7c86","#93d5dc","#fff"],["#c2431f","#f09a7e","#fff"],["#2563a8","#8fbde9","#fff"],["#e86a10","#ffa25e","#fff"],["#2e7d6b","#8fd0bd","#fff"],["#476c7d","#a9c6d2","#fff"],["#7a4f21","#e8c893","#fff"],["#16233a","#f5b841","#fff"]];
+function gPkgsHTML(s){return '<p class="g-pkgs"><span class="g-pkgs-l">Applies to:</span> <span class="g-pill">'+esc(s)+"</span></p>";}
+$("guideList").innerHTML=GUIDE.map(function(g,ci){
+ var prods=g.cat>=0 ? CATS[g.cat].items.map(function(it){var img=prodImg(it[0]);var thumb=img?('<img class="g-thumb'+(prodFit(it[0])?"":" cover")+'" src="'+img+'" alt="" loading="lazy"/>'):('<span class="g-thumb tile" aria-hidden="true">'+ICONS[g.cat]+'</span>');return '<div class="g-prow">'+thumb+'<div class="g-pt"><div class="g-pn">'+esc(it[0])+'</div><div class="g-pr">'+esc(it[1])+(it[3]?'<span class="submittal">'+(it[3].indexOf("Detail")===0?esc(it[3]):("Submittal model: "+esc(it[3])))+'</span>':'')+"</div></div></div>";}).join("") : "";
+ var a=GACC[ci%GACC.length];
+ var myths=g.myths?('<div style="margin-top:10px">'+g.myths.map(function(m){return '<div class="mf"><b>“'+esc(m[0])+'”</b><br/><span class="fact">'+esc(m[1])+"</span></div>"}).join("")+"</div>"):"";
+ return '<details class="g-card" style="--acc:'+a[0]+';--acc-l:'+a[1]+';--acc-ink:'+a[2]+'"'+(ci===0?" open":"")+'>'
+  +'<summary><div class="g-photo"><img src="'+g.img+'" alt="'+g.alt+'" loading="lazy"/>'
+  +'<span class="g-chip" aria-hidden="true">'+(g.cat>=0?ICONS[g.cat]:ICONS[3])+'</span>'
+  +'<span class="g-count">'+(g.cat>=0?CATS[g.cat].items.length+" items":"HVAC 101")+'</span>'
+  +'<div class="g-titles"><h3>'+g.title+'</h3><p>“'+g.scene+'”</p></div>'
+  +'<span class="g-chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 9l8 8 8-8"/></svg></span></div></summary>'
+  +'<div class="g-body"><p class="g-what">'+g.what+"</p>"
+  +(g.why.length?'<ul class="g-why">'+g.why.map(function(w){return "<li>"+w+"</li>"}).join("")+"</ul>":"")
+  +(g.callout?'<div class="g-callout">'+g.callout+"</div>":"")
+  +myths
+  +(prods?'<h3 class="g-sec">The parts, in plain English</h3>'+prods:"")
+  +gPkgsHTML(g.pkgs)
+  +'<div class="g-actions">'+(g.cat>=0?'<button class="btn btn-navy" type="button" data-shop="'+g.cat+'">See these in Products</button>':"")+'<button class="btn btn-outline" type="button" data-gocz="1">Build my change-out</button></div>'
+  +"</div></details>";
+}).join("");
+document.querySelectorAll("#guideList .g-card").forEach(function(d){d.addEventListener("toggle",function(){if(d.open){var before=d.getBoundingClientRect().top;document.querySelectorAll("#guideList .g-card").forEach(function(o){if(o!==d&&o.open)o.open=false;});var delta=d.getBoundingClientRect().top-before;if(delta){try{window.scrollBy({top:delta,left:0,behavior:"instant"});}catch(e){window.scrollBy(0,delta);}}}});});
+document.querySelectorAll("[data-shop]").forEach(function(b){b.addEventListener("click",function(){showView("products");setCat(+b.getAttribute("data-shop"));});});
+document.querySelectorAll("[data-gocz]").forEach(function(b){b.addEventListener("click",function(){showView("customize");toast("Pick a change-out base, then make it yours");});});
+
+document.querySelectorAll(".q-opts").forEach(function(group){
+ group.querySelectorAll("button").forEach(function(b){b.addEventListener("click",function(){
+   group.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b)});
+   state.quiz[group.getAttribute("data-q")]=b.getAttribute("data-val");
+   quizUpdate();
+ });});
+});
+function quizUpdate(){
+ var q=state.quiz;var box=$("quizResult");if(!box)return;
+ if(!q.systems||!q.size||!q.problem){box.classList.remove("show");box.innerHTML="";return;}
+ var isMini=(q.systems.indexOf("mini-split")>=0||q.problem.indexOf("Adding AC")===0);
+ var isSide=(q.problem.indexOf("Too loud")===0);
+ var multi=(q.systems==="2 systems"||q.systems==="3 systems");
+ var p=PACKAGES.filter(function(x){return x.id===(isMini?"mini":(isSide?"side":(multi?"multi":"single")))})[0];
+ var desc=isMini?('Ductless — no ducts needed. One outdoor unit + wall head(s) that heat AND cool, each room on its own remote — Daikin ductless included. Sharma confirms the right size, brand and number of heads for your space in your quote.'):(isSide?('Slim side-discharge inverter — Goodman SD, Daikin Fit or Carrier. A high-efficiency inverter heat pump, up to 17 SEER2 (Goodman SD matched system), up to 19.0 SEER2 (Daikin Fit matched system), and Carrier up to 18.0 SEER2 as a matched system. Variable-speed inverter that adjusts to your home\'s needs for lower bills and steadier comfort — and quiet, as low as 45 dBA in Quiet Mode (54 dBA Carrier). Sharma confirms the exact size and brand fit for your home in your quote.'):('Built on the Sharma Recommended Goodman Heat Pump — R-32, 15.2 SEER2 — above Florida’s 14.3 code basic, so it costs less to run — '+p.count.toLowerCase()+'. Sharma confirms the exact size for your home in your quote.'));
+ box.innerHTML='<h3>Your match: '+p.name+'</h3><p>'+(q.problem.indexOf("Broken")===0?'No cooling in Florida heat is miserable — this is the fastest path back to cold air. ':'')+desc+'</p><button class="btn btn-primary" type="button" id="quizGo" style="width:100%;font-size:16px">Send my picks — get my quote →</button>';
+ box.classList.add("show");
+ $("quizGo").addEventListener("click",function(){state.pkg=p.id;if(cz.base){cz.base="";cz.removed={};cz.choices={};renderCz();}renderSel();openListSheet();});
+}
+
+renderPkgs();renderCz();renderProds();renderSel();
+</script>
+<nav class="sk-tabbar" aria-label="Sections"><div class="sk-tabbar__inner"><a class="sk-tab" href="#" data-sk-view="packages"><svg class="sk-icon"><use href="#i-home"/></svg>Packages</a><a class="sk-tab" href="#" data-sk-view="products"><svg class="sk-icon"><use href="#i-list"/></svg>Products</a><a class="sk-tab" href="#" data-sk-view="customize"><svg class="sk-icon"><use href="#i-edit"/></svg>Customize</a><a class="sk-tab" href="#" data-sk-view="learn"><svg class="sk-icon"><use href="#i-doc"/></svg>Learn</a><a class="sk-tab" href="#" data-sk-view="compare"><svg class="sk-icon"><use href="#i-chart"/></svg>Compare</a></div></nav>
+<script>
+/* Sharma kit v1.2 adapter: service worker + bottom tab bar wired to this app's
+   existing tab buttons. No data, links or behaviour change. */
+(function(){
+  function reg(){ if (window.SK && SK.registerSW) { try { SK.registerSW("sw.js"); } catch(e){} } }
+  if (document.readyState === "complete") reg(); else addEventListener("load", reg);
+  var tabs = document.querySelectorAll(".sk-tab[data-sk-view]");
+  if (!tabs.length) return;
+  function sync(){
+    var on = document.querySelector('[data-view].on, [data-view][aria-selected="true"]');
+    tabs.forEach(function(t){ 
+      if (on && t.getAttribute("data-sk-view") === on.getAttribute("data-view")) t.setAttribute("aria-current","page");
+      else t.removeAttribute("aria-current");
+    });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener("click", function(e){
+      e.preventDefault();
+      var b = document.querySelector('[data-view="' + t.getAttribute("data-sk-view") + '"]');
+      if (b) b.click();
+      sync(); scrollTo(0,0);
+    });
+  });
+  document.addEventListener("click", function(){ setTimeout(sync, 30); });
+  sync();
+})();
+</script>
+</body>
+</html>
