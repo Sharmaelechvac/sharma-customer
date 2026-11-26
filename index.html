@@ -24,40 +24,53 @@
   </div>
 </header>
 <main class="cx-main">
-  <h1 class="cx-h1">Sharma Electric &amp; HVAC</h1>
-  <p class="cx-intro">Electrical, HVAC and low voltage for builders and homeowners across Central Florida. Pick the page that fits you.</p>
-  <nav class="cx-cards" aria-label="Sharma Electric &amp; HVAC">
-    <a class="cx-card" href="builders/">
-      <span class="cx-card__body">
-        <span class="cx-card__title">For Builders</span>
-        <span class="cx-card__detail">Electrical, HVAC &amp; low voltage for builders and GCs</span>
-      </span>
-      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="cx-card" href="homeowners/">
-      <span class="cx-card__body">
-        <span class="cx-card__title">For Homeowners</span>
-        <span class="cx-card__detail">Tap what&rsquo;s happening at your house &mdash; we&rsquo;ll point you to the right planner</span>
-      </span>
-      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="cx-card" href="pickers/">
-      <span class="cx-card__body">
-        <span class="cx-card__title">Pickers</span>
-        <span class="cx-card__detail">Smart home, HVAC change-out and electrical pickers</span>
-      </span>
-      <svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </nav>
+  <section id="view-home">
+    <h1 class="cx-h1">Sharma Electric &amp; HVAC</h1>
+    <p class="cx-intro">Electrical, HVAC and smart home for Central Florida. Start here &mdash; pick the door that fits you.</p>
+    <nav class="cx-cards" aria-label="Choose builder or homeowner">
+      <a class="cx-card cx-card--big" href="#/builder"><span class="cx-card__body"><span class="cx-card__title">Builder</span><span class="cx-card__detail">For builders &amp; GCs &mdash; your project tracker, plus the pickers</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="cx-card cx-card--big" href="#/homeowner"><span class="cx-card__body"><span class="cx-card__title">Homeowner</span><span class="cx-card__detail">For your home &mdash; the HVAC change-out and smart home pickers</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+  </section>
+  <section id="view-homeowner" hidden>
+    <a class="cx-back" href="#/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>All options</a>
+    <h1 class="cx-h1">Homeowners</h1>
+    <p class="cx-intro">Plan it yourself, at your pace &mdash; your picks go straight to our office.</p>
+    <nav class="cx-cards" aria-label="Homeowner pickers">
+      <a class="cx-card" href="https://sharmaelechvac.github.io/sharma-hvac-picker/"><span class="cx-card__body"><span class="cx-card__title">HVAC Picker</span><span class="cx-card__detail">Plan your HVAC change-out &mdash; options for your home, sent to our office</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="cx-card" href="pickers/smart-home-picker/"><span class="cx-card__body"><span class="cx-card__title">Smart Home Picker</span><span class="cx-card__detail">Build your smart home &mdash; lighting, shades, sound and more, room by room</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+  </section>
+  <section id="view-builder" hidden>
+    <a class="cx-back" href="#/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>All options</a>
+    <h1 class="cx-h1">Builders</h1>
+    <p class="cx-intro">Your projects with Sharma &mdash; your tracker first, then the pickers.</p>
+    <nav class="cx-cards" aria-label="Builder links">
+      <a class="cx-card" href="https://sharmaelechvac.github.io/sharmatrack"><span class="cx-card__body"><span class="cx-card__title">SHARMATRACK</span><span class="cx-card__detail">Your project tracker &mdash; photos, schedule and inspections for your homes</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="cx-card" href="https://sharmaelechvac.github.io/sharma-hvac-picker/"><span class="cx-card__body"><span class="cx-card__title">HVAC Picker</span><span class="cx-card__detail">HVAC change-out options for your projects</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="cx-card" href="pickers/smart-home-picker/"><span class="cx-card__body"><span class="cx-card__title">Smart Home Picker</span><span class="cx-card__detail">Smart home options to offer your buyers</span></span><svg class="cx-card__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </nav>
+  </section>
   <footer class="sk-footer cx-footer">
     <p>Call or text <a href="tel:+14078819076">(407) 881-9076</a> &middot; <a href="mailto:office@sharmaelectric.com">office@sharmaelectric.com</a></p>
     <p>Sharma Electric &amp; HVAC &middot; EC13013924 &middot; CAC1823596</p>
+    <div class="cx-powered"><span>Powered by</span><img src="assets/sharma360-logo-clear.png" alt="SHARMA360"></div>
     <div class="sk-appearance" id="cx-appearance"></div>
   </footer>
 </main>
 <script>
 try{ if("serviceWorker" in navigator){ navigator.serviceWorker.register("sw.js", { scope: "/sharma-customer/" }); } }catch(e){}
 window.addEventListener("DOMContentLoaded", function(){ try{ if(window.SK && SK.scheme && SK.scheme.mountToggle){ SK.scheme.mountToggle(document.getElementById("cx-appearance")); } }catch(e){} });
+(function(){
+  var views = { "": "view-home", "/": "view-home", "/builder": "view-builder", "/homeowner": "view-homeowner" };
+  function show(){
+    var id = views[location.hash.replace(/^#/, "")] || "view-home";
+    ["view-home", "view-builder", "view-homeowner"].forEach(function(v){ document.getElementById(v).hidden = (v !== id); });
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", show);
+  show();
+})();
 </script>
 </body>
 </html>

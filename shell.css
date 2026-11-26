@@ -36,3 +36,8 @@
 .cx-footer{font-size:16px}
 .cx-footer a{color:var(--sk-brand);font-weight:600;text-decoration:none}
 .cx-footer p{margin:6px 0}
+.cx-card--big{min-height:116px;padding:22px 18px}
+.cx-card--big .cx-card__title{font-size:26px}
+.cx-powered{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--sk-text-2);font-size:15px}
+.cx-powered img{height:20px;width:auto;display:block}
+section[hidden]{display:none}
